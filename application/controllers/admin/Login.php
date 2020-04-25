@@ -42,8 +42,7 @@ class Login extends CI_Controller {
                 redirect('admin/Dashboard');
             }
             else{
-                $this->load->library('session');
-                $this->session->set_flashdata('error','Incorrect Entries');
+				$_SESSION['error']="Incorrect Entries";
                 redirect('admin');
             }
         }
