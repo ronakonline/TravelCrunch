@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_Login extends CI_Controller {
+class Login extends CI_Controller {
 
 	public function index()
 	{
 		if(isset($_SESSION['admin'])){
-            redirect('Institute/Dashboard');
+            redirect('admin/Dashboard');
         }
         
         $data=[];
@@ -39,12 +39,12 @@ class Admin_Login extends CI_Controller {
                 //print_r($result);die();
                 //$this->session->set_userdata('admin',$result[0]['aid']);
                 $_SESSION['admin'] = $result[0];
-                redirect('Institute/Dashboard');
+                redirect('admin/Dashboard');
             }
             else{
                 $this->load->library('session');
                 $this->session->set_flashdata('error','Incorrect Entries');
-                redirect('Institute');
+                redirect('admin');
             }
         }
         else{

@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Annex - Responsive Bootstrap 4 Admin Dashboard</title>
-        <meta content="Admin Dashboard" name="description" />
-        <meta content="Mannatthemes" name="author" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-
-    </head>
+<?php $this->load->view('admin/css-links') ?>
 
 
     <body class="fixed-left">
@@ -28,21 +11,21 @@
                 <div class="card-body">
 
                     <h3 class="text-center mt-0 m-b-15">
-                        <a href="index.html" class="logo logo-admin"><img src="assets/images/logo.png" height="24" alt="logo"></a>
+                        <a href="index.html" class="logo logo-admin"><img src="<?php echo base_url();?>assets/admin/images/kns_logo.png" height="100" alt="logo"></a>
                     </h3>
 
                     <div class="p-3">
-                        <form class="form-horizontal m-t-20" action="index.html">
+                        <form class="form-horizontal m-t-20" action="admin/Login/checklogin" method="post">
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" required="" placeholder="Username">
+                                    <input class="form-control" type="text" required="" placeholder="Username" name="username">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" required="" placeholder="Password">
+                                    <input class="form-control" type="password" required="" placeholder="Password" name="password">
                                 </div>
                             </div>
 
@@ -61,7 +44,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group m-t-10 mb-0 row">
+                            <div class="form-group m-t-10 mb-0 row" style="display: none">
                                 <div class="col-sm-7 m-t-20">
                                     <a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i> <small>Forgot your password ?</small></a>
                                 </div>
@@ -76,22 +59,4 @@
             </div>
         </div>
 
-
-        <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/app.js"></script>
-
-    </body>
-</html>
+		<?php $this->load->view('admin/js-links') ?>
