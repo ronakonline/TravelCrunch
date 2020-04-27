@@ -26,8 +26,8 @@
 			
 		}
 		ul.menu-data > li {
-			padding-left:0px;
-			padding-right:0px;
+			/*padding-left:0px;
+			padding-right:0px;*/
 			
 		}
 		ul.menu-data > li > a{
