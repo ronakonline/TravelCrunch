@@ -110,7 +110,7 @@
 <section class="tg-aboutus">
 	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 		<div class="row">
-			<figure data-vide-bg="poster: <?php echo base_url();?>assets/imagesimages/aboutus/img-01.jpg" data-vide-options="position: 0% 50%"><div style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-color: transparent; background-repeat: no-repeat; background-position: 0% 50%; background-image: url(&quot;http://wahabali.com/work/travelu/images/aboutus/img-01.jpg&quot;);"><video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 0%; transform: translate(0%, -50%); visibility: hidden; opacity: 0; width: auto; height: 557px;"></video></div></figure>
+			<figure data-vide-bg="poster: <?php echo base_url();?>assets/images/aboutus/img-01.jpg" data-vide-options="position: 0% 50%"><div style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-color: transparent; background-repeat: no-repeat; background-position: 0% 50%; background-image: url(&quot;http://wahabali.com/work/travelu/images/aboutus/img-01.jpg&quot;);"><video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 0%; transform: translate(0%, -50%); visibility: hidden; opacity: 0; width: auto; height: 557px;"></video></div></figure>
 		</div>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -245,8 +245,8 @@
 													</div>
 												</div>
 											</div>
-											<div role="tabpanel" class="tab-pane tg-locationtab" id="italy">
-												<div class="tg-bookingdetail">
+											<div role="tabpanel" class="tab-pane tg-locationtab row" id="italy" style="padding-left: 10px;">
+												<div class="tg-bookingdetail col-sm-6">
 													<div class="tg-box">
 														<h2>Packing for India</h2>
 														<div class="tg-description">
@@ -261,67 +261,73 @@
 														</div>
 													</div>
 												</div>
-												<div class="tg-bookingdetail ">
-													<div class="tg-box ">
-														<h3>Cold weather</h3>
-														<div class="tg-description">
-															<ul class="tg-liststyle">
-																<li><span>Long-sleeved shirts or sweater</span></li>
-																<li><span>Scarf</span></li>
-																<li><span>Warm gloves</span></li>
-																<li><span>Warm hat</span></li>
-																<li><span>Warm layers</span></li>
+												<div class="col-sm-6">
+													<div class="row">
+														<div class="tg-bookingdetail">
+															<div class="tg-box ">
+																<h3>Cold weather</h3>
+																<div class="tg-description">
+																	<ul class="tg-liststyle">
+																		<li><span>Long-sleeved shirts or sweater</span></li>
+																		<li><span>Scarf</span></li>
+																		<li><span>Warm gloves</span></li>
+																		<li><span>Warm hat</span></li>
+																		<li><span>Warm layers</span></li>
 
-															</ul>
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div class="tg-bookingdetail ">
+															<div class="tg-box ">
+																<h3>Cold weather</h3>
+																<div class="tg-description">
+																	<ul class="tg-liststyle">
+																		<li><span>Long-sleeved shirts or sweater</span></li>
+																		<li><span>Scarf</span></li>
+																		<li><span>Warm gloves</span></li>
+																		<li><span>Warm hat</span></li>
+																		<li><span>Warm layers</span></li>
+
+																	</ul>
+																</div>
+															</div>
+														</div>
+													</div>
+													<br><br>
+													<div class="row">
+														<div class="tg-bookingdetail ">
+															<div class="tg-box ">
+																<h3>Cold weather</h3>
+																<div class="tg-description">
+																	<ul class="tg-liststyle">
+																		<li><span>Long-sleeved shirts or sweater</span></li>
+																		<li><span>Scarf</span></li>
+																		<li><span>Warm gloves</span></li>
+																		<li><span>Warm hat</span></li>
+																		<li><span>Warm layers</span></li>
+
+																	</ul>
+																</div>
+															</div>
+														</div>
+														<div class="tg-bookingdetail ">
+															<div class="tg-box ">
+																<h3>Cold weather</h3>
+																<div class="tg-description">
+																	<ul class="tg-liststyle">
+																		<li><span>Long-sleeved shirts or sweater</span></li>
+																		<li><span>Scarf</span></li>
+																		<li><span>Warm gloves</span></li>
+																		<li><span>Warm hat</span></li>
+																		<li><span>Warm layers</span></li>
+
+																	</ul>
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
-												<div class="tg-bookingdetail ">
-													<div class="tg-box ">
-														<h3>Cold weather</h3>
-														<div class="tg-description">
-															<ul class="tg-liststyle">
-																<li><span>Long-sleeved shirts or sweater</span></li>
-																<li><span>Scarf</span></li>
-																<li><span>Warm gloves</span></li>
-																<li><span>Warm hat</span></li>
-																<li><span>Warm layers</span></li>
-
-															</ul>
-														</div>
-													</div>
-												</div>
-												<div class="tg-bookingdetail ">
-													<div class="tg-box ">
-														<h3>Cold weather</h3>
-														<div class="tg-description">
-															<ul class="tg-liststyle">
-																<li><span>Long-sleeved shirts or sweater</span></li>
-																<li><span>Scarf</span></li>
-																<li><span>Warm gloves</span></li>
-																<li><span>Warm hat</span></li>
-																<li><span>Warm layers</span></li>
-
-															</ul>
-														</div>
-													</div>
-												</div>
-												<div class="tg-bookingdetail ">
-													<div class="tg-box ">
-														<h3>Cold weather</h3>
-														<div class="tg-description">
-															<ul class="tg-liststyle">
-																<li><span>Long-sleeved shirts or sweater</span></li>
-																<li><span>Scarf</span></li>
-																<li><span>Warm gloves</span></li>
-																<li><span>Warm hat</span></li>
-																<li><span>Warm layers</span></li>
-
-															</ul>
-														</div>
-													</div>
-												</div>
-
 											</div>
 											<div role="tabpanel" class="tab-pane tg-reviewtab" id="london">
 												<div class="tg-reviewsarea">
