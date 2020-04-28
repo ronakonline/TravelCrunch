@@ -27,10 +27,12 @@
 				<li class="has_sub">
 					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i> <span> Destinations </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
-						<li><a href="advanced-highlight.html">Highlight</a></li>
-						<li><a href="advanced-rating.html">Rating</a></li>
-						<li><a href="advanced-alertify.html">Alertify</a></li>
-						<li><a href="advanced-rangeslider.html">Range Slider</a></li>
+						<li><a href="advanced-highlight.html">Add Parent</a></li>
+						<li><a href="advanced-rating.html">All Parents</a></li>
+						<li><a href="Destination/Add_Destination">Add Destination</a></li>
+						<li><a href="advanced-rangeslider.html">All Destinations</a></li>
+						<li><a href="advanced-alertify.html">Add Widget</a></li>
+						<li><a href="advanced-rangeslider.html">All Widgets</a></li>
 					</ul>
 				</li>
 
