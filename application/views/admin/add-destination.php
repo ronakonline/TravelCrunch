@@ -1,13 +1,16 @@
-<?php $this->load->view('admin/css-links') ?>
+<!DOCTYPE html>
+<html>
+    <head>
+		<?php $this->load->view('admin/css-links') ?>
+	</head>
 
+	<body class="fixed-left">
 
-<body class="fixed-left">
+		<!-- Loader -->
+		<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
 
-<!-- Loader -->
-<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
-
-<!-- Begin page -->
-<div id="wrapper">
+		<!-- Begin page -->
+		<div id="wrapper">
 
 	<?php $this->load->view('admin/aside'); ?>
 
@@ -145,3 +148,5 @@
 
 
 <?php $this->load->view('admin/js-links') ?>
+</body>
+</html>

@@ -7,36 +7,31 @@
 	<!-- LOGO -->
 	<div class="topbar-left">
 		<div class="text-center">
-<!--			<a href="index.html" class="logo"><i class="mdi mdi-assistant"></i>TravelCrunch</a>-->
-			 <a href="index.html" class="logo"><img src="<?php echo base_url();?>assets/admin/images/kns_logo.png" height="74" alt="logo"></a>
+			<!--<a href="index.html" class="logo"><i class="mdi mdi-assistant"></i>TravelCrunch</a>-->
+			<a href="index.html" class="logo"><img src="<?php echo base_url();?>assets/admin/images/kns_logo.png" height="74" alt="logo"></a>
 		</div>
 	</div>
 
 	<div class="sidebar-inner slimscrollleft">
-
 		<div id="sidebar-menu">
 			<ul>
-
-
 				<li>
 					<a href="index.html" class="waves-effect">
 						<i class="mdi mdi-airplay"></i>
-						<span> Dashboard <span class="badge badge-pill badge-primary float-right">7</span></span>
+						<span> Dashboard <span class="badge badge-pill badge-primary float-right"></span></span>
 					</a>
 				</li>
 				<li class="has_sub">
 					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i> <span> Destinations </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
-						<li><a href="advanced-highlight.html">Add Parent</a></li>
-						<li><a href="advanced-rating.html">All Parents</a></li>
-						<li><a href="Destination/Add_Destination">Add Destination</a></li>
-						<li><a href="advanced-rangeslider.html">All Destinations</a></li>
-						<li><a href="advanced-alertify.html">Add Widget</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Destination/Add_Parent">Add Parent</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Destination/List_Parent">All Parents</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Destination/Add_Destination">Add Destination</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Destination/List_Destination">All Destinations</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Destination/Add_Widget">Add Widget</a></li>
 						<li><a href="advanced-rangeslider.html">All Widgets</a></li>
 					</ul>
 				</li>
-
-
 			</ul>
 		</div>
 		<div class="clearfix"></div>

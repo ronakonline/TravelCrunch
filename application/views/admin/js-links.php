@@ -19,6 +19,9 @@
 
 <script src="<?php echo base_url();?>assets/admin/pages/dashborad.js"></script>
 
+<!-- Datatable init js -->
+         <script src="<?php echo base_url();?>assets/admin/pages/datatables.init.js"></script>
+
 <!-- App js -->
 <script src="<?php echo base_url();?>assets/admin/js/app.js"></script>
 <script>
@@ -43,11 +46,10 @@
 	// scroll
 
 	$(document).ready(function() {
-
+		$('#datatable2').DataTable();
 		$("#boxscroll").niceScroll({cursorborder:"",cursorcolor:"#cecece",boxzoom:true});
 		$("#boxscroll2").niceScroll({cursorborder:"",cursorcolor:"#cecece",boxzoom:true});
 
 	});
 </script>
-</body>
-</html>
+
