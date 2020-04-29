@@ -84,13 +84,13 @@
 	                                                            <div class="form-group">
 				                                                    <label>Overview-left</label>
 				                                                    <div>
-				                                                        <textarea required class="form-control" rows="5"></textarea>
+				                                                        <textarea class="form-control" rows="5"></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
 				                                                    <label>Overview-right</label>
 				                                                    <div>
-				                                                        <textarea required class="form-control" rows="5"></textarea>
+				                                                        <textarea class="form-control" rows="5"></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
@@ -105,13 +105,13 @@
 	                                                            <div class="form-group">
 				                                                    <label>Question</label>
 				                                                    <div>
-				                                                        <textarea required class="form-control" rows="5"></textarea>
+				                                                        <textarea class="form-control" rows="5"></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
 				                                                    <label>Answer</label>
 				                                                    <div>
-				                                                        <textarea required class="form-control" rows="5"></textarea>
+				                                                        <textarea class="form-control" rows="5"></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
@@ -129,47 +129,48 @@
 		                                                            <div class="form-group">
 					                                                    <label>1st Title</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something"/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Description</label>
 					                                                    <div>
-					                                                        <textarea required class="form-control" rows="5"></textarea>
+					                                                        <textarea class="form-control" rows="5"></textarea>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>2nd Title</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something"/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Description</label>
 					                                                    <div>
-					                                                        <textarea required class="form-control" rows="5"></textarea>
+					                                                        <textarea class="form-control" rows="5"></textarea>
 					                                                    </div>
 					                                                </div>
 					                                            </div>
+
 					                                            <div class="col-sm-6">
 					                                            	<h3 class="text-center">RIGHT</h3>
 					                                            	<div class="form-group">
 					                                                    <label>1st List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something"/>
 					                                                    </div>
 					                                                </div>
-					                                                <div class="form-group">
+					                                                <div class="form-group" id="1_list">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item">
-					                                                        <i class="fa fa-plus-circle"></i>
+					                                                        <input type="text" class="form-control name_list" name="name[]" id="name" >
+					                                                        <button class="btn btn-outline-primary" name="add" id="add">+</button>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>2nd List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something"/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
@@ -181,7 +182,7 @@
 					                                                <div class="form-group">
 					                                                    <label>3rd List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something"/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
@@ -193,7 +194,7 @@
 					                                                <div class="form-group">
 					                                                    <label>4th List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something"/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
@@ -257,6 +258,18 @@
         <script src="<?php echo base_url();?>assets/admin/plugins/dropify/js/dropify.min.js"></script>
 <?php $this->load->view('admin/js-links') ?>
 		<script>
+			$(document).ready(function(){
+				var i = 2;
+				$('#add').click(function(){
+					i++;
+					$('#first_list').append('<div class="form-group" id="'+i+'_list"><label>Item</label><div><input type="text" class="form-control name_list" name="name[]" id="name" ><button class="btn btn-outline-danger btn_remove" name="remove" id="remove'+i+'">-</button></div></div>');
+				});
+				$(document).on('click','.btn_remove',function(){
+					var button_id = $(this).attr("id");
+					$(i+'_list').remove();
+				})
+			});
+
             $(document).ready(function(){
                 // Basic
                 $('.dropify').dropify();
