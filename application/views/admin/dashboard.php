@@ -1,5 +1,9 @@
-<?php $this->load->view('admin/css-links') ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <?php $this->load->view('admin/css-links') ?>
 
+    </head>
 
     <body class="fixed-left">
 
@@ -573,4 +577,9 @@
         </div>
         <!-- END wrapper -->
 
+
 <?php $this->load->view('admin/js-links') ?>
+<script src="<?php echo base_url();?>assets/admin/plugins/morris/morris.min.js"></script>
+<script src="<?php echo base_url();?>assets/admin/pages/dashborad.js"></script>
+</body>
+</html>

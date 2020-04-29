@@ -2,6 +2,9 @@
 <html>
     <head>
 		<?php $this->load->view('admin/css-links') ?>
+		<!-- Dropzone css -->
+        <link href="<?php echo base_url();?>assets/admin/plugins/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url();?>assets/admin/plugins/dropify/css/dropify.min.css" rel="stylesheet">
 	</head>
 
 
@@ -66,10 +69,10 @@
                                                         <a class="nav-link" data-toggle="tab" href="#profile-1" role="tab">FAQ</a>
                                                     </li>
                                                     <li class="nav-item waves-effect waves-light">
-                                                        <a class="nav-link" data-toggle="tab" href="#messages-1" role="tab">Messages</a>
+                                                        <a class="nav-link" data-toggle="tab" href="#messages-1" role="tab">Packing</a>
                                                     </li>
                                                     <li class="nav-item waves-effect waves-light">
-                                                        <a class="nav-link" data-toggle="tab" href="#settings-1" role="tab">Settings</a>
+                                                        <a class="nav-link" data-toggle="tab" href="#settings-1" role="tab">Gallery</a>
                                                     </li>
                                                 </ul>
                 
@@ -120,42 +123,105 @@
                                                     <div class="tab-pane p-3" id="messages-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                             <form>
-	                                                            <div class="form-group">
-				                                                    <label>Question</label>
-				                                                    <div>
-				                                                        <textarea required class="form-control" rows="5"></textarea>
-				                                                    </div>
-				                                                </div>
-				                                                <div class="form-group">
-				                                                    <label>Answer</label>
-				                                                    <div>
-				                                                        <textarea required class="form-control" rows="5"></textarea>
-				                                                    </div>
-				                                                </div>
-				                                                <div class="form-group">
-				                                                	<button type="submit" class="btn btn-primary">Submit</button>
-				                                                </div>
+                                                            	<div class="row">
+                                                            	<div class="col-sm-6">
+                                                            		<h3 class="text-center">LEFT</h3>
+		                                                            <div class="form-group">
+					                                                    <label>1st Title</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>Description</label>
+					                                                    <div>
+					                                                        <textarea required class="form-control" rows="5"></textarea>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>2nd Title</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>Description</label>
+					                                                    <div>
+					                                                        <textarea required class="form-control" rows="5"></textarea>
+					                                                    </div>
+					                                                </div>
+					                                            </div>
+					                                            <div class="col-sm-6">
+					                                            	<h3 class="text-center">RIGHT</h3>
+					                                            	<div class="form-group">
+					                                                    <label>1st List</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>Item</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" name="item">
+					                                                        <i class="fa fa-plus-circle"></i>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>2nd List</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>Item</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" name="item">
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>3rd List</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>Item</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" name="item">
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>4th List</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" required placeholder="Type something"/>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>Item</label>
+					                                                    <div>
+					                                                        <input type="text" class="form-control" name="item">
+					                                                    </div>
+					                                                </div>
+					                                            </div>
+					                                        	</div>
+				                                                <div class="text-center m-t-15">
+					                                                <button type="button" class="btn btn-primary waves-effect waves-light">Submit</button>
+					                                            </div>
 			                                            	</form>
                                                         </p>
                                                     </div>
                                                     <div class="tab-pane p-3" id="settings-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                            <form>
-	                                                            <div class="form-group">
-				                                                    <label>Question</label>
-				                                                    <div>
-				                                                        <textarea required class="form-control" rows="5"></textarea>
+                                                            <form  action="#" class="dropzone">
+	                                                            <div class="m-b-30">
+				                                                    <div class="fallback">
+				                                                        <input name="file" type="file" multiple="multiple">
 				                                                    </div>
-				                                                </div>
-				                                                <div class="form-group">
-				                                                    <label>Answer</label>
-				                                                    <div>
-				                                                        <textarea required class="form-control" rows="5"></textarea>
-				                                                    </div>
-				                                                </div>
-				                                                <div class="form-group">
-				                                                	<button type="submit" class="btn btn-primary">Submit</button>
-				                                                </div>
+					                                            </div>
+					            
+					                                            <div class="text-center m-t-15">
+					                                                <button type="button" class="btn btn-primary waves-effect waves-light">Upload Files</button>
+					                                            </div>
 			                                            	</form>
                                                         </p>
                                                     </div>
@@ -186,7 +252,51 @@
 </div>
 <!-- END wrapper -->
 
-
+<!-- Dropzone js -->
+        <script src="<?php echo base_url();?>assets/admin/plugins/dropzone/dist/dropzone.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/plugins/dropify/js/dropify.min.js"></script>
 <?php $this->load->view('admin/js-links') ?>
+		<script>
+            $(document).ready(function(){
+                // Basic
+                $('.dropify').dropify();
+
+                // Translated
+                $('.dropify-fr').dropify({
+                    messages: {
+                        default: 'Glissez-déposez un fichier ici ou cliquez',
+                        replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                        remove:  'Supprimer',
+                        error:   'Désolé, le fichier trop volumineux'
+                    }
+                });
+
+                // Used events
+                var drEvent = $('#input-file-events').dropify();
+
+                drEvent.on('dropify.beforeClear', function(event, element){
+                    return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                });
+
+                drEvent.on('dropify.afterClear', function(event, element){
+                    alert('File deleted');
+                });
+
+                drEvent.on('dropify.errors', function(event, element){
+                    console.log('Has Errors');
+                });
+
+                var drDestroy = $('#input-file-to-destroy').dropify();
+                drDestroy = drDestroy.data('dropify')
+                $('#toggleDropify').on('click', function(e){
+                    e.preventDefault();
+                    if (drDestroy.isDropified()) {
+                        drDestroy.destroy();
+                    } else {
+                        drDestroy.init();
+                    }
+                })
+            });
+        </script>
 </body>
 </html>
