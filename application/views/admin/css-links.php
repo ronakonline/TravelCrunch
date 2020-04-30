@@ -12,3 +12,6 @@
 <link href="<?php echo base_url();?>assets/admin/css/icons.css" rel="stylesheet" type="text/css">
 <link href="<?php echo base_url();?>assets/admin/css/style.css" rel="stylesheet" type="text/css">
 
+
+<!-- Alertify css -->
+<link href="<?php echo base_url();?>assets/admin/plugins/alertify/css/alertify.css" rel="stylesheet" type="text/css">

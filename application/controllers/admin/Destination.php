@@ -57,32 +57,36 @@ class Destination extends CI_Controller{
         }
     }
 
+    public  function  uploadimage($img,$name,$dest){
+		$config['upload_path'] = 'uploads/images/'.$dest;
+		$config['allowed_types'] = 'jpg|jpeg|png|gif';
+		$config['file_name'] = $img['name'];
+
+		//Load upload library and initialize configuration
+		$this->load->library('upload',$config);
+		$this->upload->initialize($config);
+
+		if($this->upload->do_upload($name)){
+			$uploadData = $this->upload->data();
+			$picture = $uploadData['file_name'];
+			return $picture;
+		}else{
+			return "error";
+		}
+	}
+
     public function insertparent(){
 		if($_SESSION['admin']){
 			$data = $this->input->post();
-			//Check whether user upload picture
-			if(!empty($_FILES['bannerimg']['name'])){
-				$config['upload_path'] = 'uploads/images/parent';
-				$config['allowed_types'] = 'jpg|jpeg|png|gif';
-				$config['file_name'] = $_FILES['bannerimg']['name'];
+			$picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","parent");
+			if($picture=="error"){
 
-				//Load upload library and initialize configuration
-				$this->load->library('upload',$config);
-				$this->upload->initialize($config);
-
-				if($this->upload->do_upload('bannerimg')){
-					$uploadData = $this->upload->data();
-					$picture = $uploadData['file_name'];
-				}else{
-					$_SESSION['errorimg']="No banner Image";
-				}
 			}else{
-				$_SESSION['errorimg']="No banner Image";
+					$this->load->model('DestinationM');
+					$op = $this->DestinationM->insert_parent($data['name'],$picture);
 			}
-			$this->load->model('DestinationM');
-			$op = $this->DestinationM->insert_parent($data['name'],$picture);
-			print_r($op);
-			echo $op;
+
+
 
 			//redirect('admin/Destination/Add_Parent');
 
