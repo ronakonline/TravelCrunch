@@ -34,11 +34,11 @@
 								<div class="btn-group float-right">
 									<ol class="breadcrumb hide-phone p-0 m-0">
 										<li class="breadcrumb-item"><a href="#">Destination</a></li>
-										<li class="breadcrumb-item"><a href="#">Add-Destination</a></li>
+										<li class="breadcrumb-item"><a href="#">Add-Parent</a></li>
 
 									</ol>
 								</div>
-								<h4 class="page-title">Add Destination</h4>
+								<h4 class="page-title">Add Parent</h4>
 							</div>
 						</div>
 					</div>
@@ -47,6 +47,7 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
+									<form method="post" action="insertparent" enctype="multipart/form-data">
 									<div class="form-group row">
 										<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 										<div class="col-sm-10">
@@ -58,7 +59,7 @@
 										<div class="col-md-10 ">
 											<div class="input-group mt-2">
 												<div class="custom-file">
-													<input type="file" class="custom-file-input" id="inputGroupFile04">
+													<input type="file" class="custom-file-input" name="bannerimg" >
 													<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 												</div>
 											</div>
@@ -67,6 +68,7 @@
 									<div class="text-center">
 										<button type="submit" class="btn btn-primary">Submit</button>
 									</div>
+									</form>
 								</div>
 
 							</div>
