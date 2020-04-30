@@ -217,7 +217,7 @@
                                                             <form  action="#" class="dropzone">
 	                                                            <div class="m-b-30">
 				                                                    <div class="fallback">
-				                                                        <input name="file" type="file" multiple="multiple">
+				                                                        <input name="file" type="file[]" multiple="multiple">
 				                                                    </div>
 					                                            </div>
 					            

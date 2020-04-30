@@ -17,6 +17,8 @@
 
 	<!-- Start right Content here -->
 
+
+
 	<div class="content-page">
 		<!-- Start content -->
 		<div class="content">
@@ -51,7 +53,7 @@
 									<div class="form-group row">
 										<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 										<div class="col-sm-10">
-											<input class="form-control" type="text" name="name" id="name">
+											<input class="form-control" type="text" name="name" id="name" required>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -59,7 +61,7 @@
 										<div class="col-md-10 ">
 											<div class="input-group mt-2">
 												<div class="custom-file">
-													<input type="file" class="custom-file-input" name="bannerimg"  id="src">
+													<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
 													<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 												</div>
 											</div>
@@ -118,5 +120,14 @@
 	var target = document.getElementById("target");
 	showImage(src,target);
 </script>
+<?php
+if(isset($_SESSION['error'])){
+	echo '<script>alertify.error("'.$_SESSION['error'].'"); </script>';
+	unset($_SESSION['error']);
+}elseif (isset($_SESSION['success'])){
+	echo '<script>alertify.success("'.$_SESSION['success'].'");</script>';
+	unset($_SESSION['success']);
+}
+?>
 </body>
 </html>
