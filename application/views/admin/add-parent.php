@@ -59,12 +59,21 @@
 										<div class="col-md-10 ">
 											<div class="input-group mt-2">
 												<div class="custom-file">
-													<input type="file" class="custom-file-input" name="bannerimg" >
+													<input type="file" class="custom-file-input" name="bannerimg"  id="src">
 													<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 												</div>
 											</div>
 										</div>
 									</div>
+										<div class="form-group row">
+											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
+											<div class="col-md-10 ">
+												<div class="input-group mt-2">
+													<img id="target" height="200" width="250" style="display: none">
+												</div>
+											</div>
+										</div>
+
 									<div class="text-center">
 										<button type="submit" class="btn btn-primary">Submit</button>
 									</div>
@@ -92,5 +101,22 @@
 
 
 <?php $this->load->view('admin/js-links') ?>
+<script>
+	function showImage(src,target) {
+		var fr=new FileReader();
+		// when image is loaded, set the src of the image where you want to display it
+		fr.onload = function(e) { target.src = this.result; };
+
+		src.addEventListener("change",function() {
+			// fill fr with image data
+			fr.readAsDataURL(src.files[0]);
+			target.style.display="block";
+		});
+	}
+
+	var src = document.getElementById("src");
+	var target = document.getElementById("target");
+	showImage(src,target);
+</script>
 </body>
 </html>

@@ -47,5 +47,10 @@
 		$("#boxscroll2").niceScroll({cursorborder:"",cursorcolor:"#cecece",boxzoom:true});
 
 	});
+
+
 </script>
+<!-- Alertify js -->
+<script src="<?php echo base_url();?>assets/admin/plugins/alertify/js/alertify.js"></script>
+<script src="<?php echo base_url();?>assets/admin/pages/alertify-init.js"></script>
 
