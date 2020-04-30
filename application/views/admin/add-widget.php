@@ -164,7 +164,8 @@
 					                                                    <label>Item</label>
 					                                                    <div>
 					                                                        <input type="text" class="form-control name_list" name="name[]" id="name" >
-					                                                        <button class="btn btn-outline-primary" name="add" id="add">+</button>
+																			<div id="itemlist1"></div>
+					                                                        <button class="btn btn-outline-primary" name="add" id="add" type="button">+</button>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
@@ -259,10 +260,11 @@
 <?php $this->load->view('admin/js-links') ?>
 		<script>
 			$(document).ready(function(){
-				var i = 2;
+				var i;
 				$('#add').click(function(){
+
 					i++;
-					$('#first_list').append('<div class="form-group" id="'+i+'_list"><label>Item</label><div><input type="text" class="form-control name_list" name="name[]" id="name" ><button class="btn btn-outline-danger btn_remove" name="remove" id="remove'+i+'">-</button></div></div>');
+					$('#itemlist1').append(' <input type="text" class="form-control name_list" name="name[]" id="name" >');
 				});
 				$(document).on('click','.btn_remove',function(){
 					var button_id = $(this).attr("id");
