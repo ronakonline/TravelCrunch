@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2020 at 08:49 AM
+-- Generation Time: Apr 30, 2020 at 05:44 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -41,6 +41,25 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 (1, 'admin', 'admin@1');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `destinations_parents`
+--
+
+CREATE TABLE `destinations_parents` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `bannerimg` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `destinations_parents`
+--
+
+INSERT INTO `destinations_parents` (`id`, `name`, `bannerimg`) VALUES
+(1, 'avas', '0f6cd503f4c8231e3af6f146c13279011.jpg');
+
 --
 -- Indexes for dumped tables
 --
@@ -52,6 +71,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `destinations_parents`
+--
+ALTER TABLE `destinations_parents`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -59,6 +84,12 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `destinations_parents`
+--
+ALTER TABLE `destinations_parents`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
