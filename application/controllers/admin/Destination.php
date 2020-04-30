@@ -19,6 +19,35 @@ class Destination extends CI_Controller{
 		}
 	}
 
+    public function do_upload(){
+
+        $data = $this->input->post();
+        
+        // set path to store uploaded files
+        $config['upload_path'] = './assets/images/';
+        // set allowed file types
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        
+
+        // load upload library with custom config settings
+        $this->load->library('upload', $config);
+
+        // if upload failed , display errors
+        if (!$this->upload->do_upload('bannerimg'))
+        {
+            print_r($this->upload->display_errors());
+
+        }
+
+        $data['bannerimg'] = $this->upload->data('file_name');
+        $img = $data['bannerimg'];
+        $name = $data['name'];
+        $this->load->model('DestinationM');
+        $result = $this->DestinationM->insert_parent($name,$img);
+        $_SESSION['admin'] = $result;
+        redirect(base_url().'Admin/');
+    }
+
     public function  Add_Parent(){
         if($_SESSION['admin']){
             $data['title']="Add Parent";

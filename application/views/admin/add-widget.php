@@ -163,7 +163,7 @@
 					                                                <div class="form-group" id="1_list">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control name_list" name="name[]" id="name" >
+					                                                        <input type="text" class="form-control name_list" name="item1" id="name1" >
 																			<div id="itemlist1"></div>
 					                                                        <button class="btn btn-outline-primary" name="add" id="add" type="button">+</button>
 					                                                    </div>
@@ -178,6 +178,8 @@
 					                                                    <label>Item</label>
 					                                                    <div>
 					                                                        <input type="text" class="form-control" name="item">
+					                                                        <div id="itemlist2"></div>
+					                                                        <button class="btn btn-outline-primary" name="add1" id="add1" type="button">+</button>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
@@ -190,6 +192,8 @@
 					                                                    <label>Item</label>
 					                                                    <div>
 					                                                        <input type="text" class="form-control" name="item">
+					                                                        <div id="itemlist3"></div>
+					                                                        <button class="btn btn-outline-primary" name="add2" id="add2" type="button">+</button>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
@@ -203,6 +207,8 @@
 					                                                    <div>
 					                                                        <input type="text" class="form-control" name="item">
 					                                                    </div>
+					                                                    <div id="itemlist4"></div>
+					                                                        <button class="btn btn-outline-primary" name="add3" id="add3" type="button">+</button>
 					                                                </div>
 					                                            </div>
 					                                        	</div>
@@ -260,17 +266,35 @@
 <?php $this->load->view('admin/js-links') ?>
 		<script>
 			$(document).ready(function(){
-				var i;
+				var i = 1;
 				$('#add').click(function(){
 
 					i++;
-					$('#itemlist1').append(' <input type="text" class="form-control name_list" name="name[]" id="name" >');
+					$('#itemlist1').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
-				$(document).on('click','.btn_remove',function(){
-					var button_id = $(this).attr("id");
-					$(i+'_list').remove();
-				})
+				$('#add1').click(function(){
+
+					i++;
+					$('#itemlist2').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+				});
+				$('#add2').click(function(){
+
+					i++;
+					$('#itemlist3').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+				});
+				$('#add3').click(function(){
+
+					i++;
+					$('#itemlist4').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+				});
 			});
+
+			function delete_item(no){
+				var object = document.getElementById("name"+no);
+				var object2 = document.getElementById("remove"+no);
+				object.remove();
+				object2.remove();
+			}
 
             $(document).ready(function(){
                 // Basic
