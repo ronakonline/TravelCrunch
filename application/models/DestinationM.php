@@ -35,4 +35,22 @@ class DestinationM extends CI_Model{
 		$this->load->database();
 		$q = $this->db->query('insert into overview values(null,"'.$data['destinationname'].'","'.$data['oleft'].'","'.$data['oright'].'")');
 	}
+
+	public function insert_faq($data){
+		$this->load->database();
+		$total = count($data['question']);
+		$qu = "insert into faq values";
+		for ($i=1; $i<=$total ; $i++) { 
+			
+			if($i==$total){
+				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'")';
+			}
+			else{
+				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'"),';
+			} 
+		}
+		
+		$q = $this->db->query($qu);
+		return $q;
+	}
 }
