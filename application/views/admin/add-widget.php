@@ -80,17 +80,29 @@
                                                 <div class="tab-content">
                                                     <div class="tab-pane active p-3" id="home-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                        	<form>
+                                                        	<form action="insert_overview" method="post">
+                                                        		<div class="form-group">
+																	<label>Destination</label>
+																	<div>
+																		<select class="form-control" name="destinationname" id="destinationname">
+																			<?php 
+																				foreach ($destinationname as $name) {
+																					echo "<option value='$name->id'>$name->name</option>";
+																				}
+																			 ?>
+																		</select>
+																	</div>
+																</div>
 	                                                            <div class="form-group">
 				                                                    <label>Overview-left</label>
 				                                                    <div>
-				                                                        <textarea class="form-control" rows="5"></textarea>
+				                                                        <textarea class="form-control" rows="5" name="oleft" id="oleft"></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
 				                                                    <label>Overview-right</label>
 				                                                    <div>
-				                                                        <textarea class="form-control" rows="5"></textarea>
+				                                                        <textarea class="form-control" rows="5" name="oright" id="oright"></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
@@ -101,19 +113,38 @@
                                                     </div>
                                                     <div class="tab-pane p-3" id="profile-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                            <form>
-	                                                            <div class="form-group">
-				                                                    <label>Question</label>
-				                                                    <div>
-				                                                        <textarea class="form-control" rows="5"></textarea>
-				                                                    </div>
-				                                                </div>
-				                                                <div class="form-group">
-				                                                    <label>Answer</label>
-				                                                    <div>
-				                                                        <textarea class="form-control" rows="5"></textarea>
-				                                                    </div>
-				                                                </div>
+                                                            <form action="" method="post">
+                                                            	<div class="form-group">
+																	<label>Destination</label>
+																	<div>
+																		<select class="form-control" name="destinationname" id="destinationname">
+																			<?php 
+																				foreach ($destinationname as $name) {
+																					echo "<option value='$name->id'>$name->name</option>";
+																				}
+																			 ?>
+																		</select>
+																	</div>
+																</div>
+																<div id="faq">
+		                                                            <div class="form-group">
+					                                                    <label>Question</label>
+					                                                    <div>
+					                                                        <textarea class="form-control" rows="5" name="question[1]" id="qiestion1"></textarea>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group">
+					                                                    <label>Answer</label>
+					                                                    <div>
+					                                                        <textarea class="form-control" rows="5" name="answer[1]" id="amswer1"></textarea>
+					                                                    </div>
+					                                            	</div>
+				                                            	</div>
+				                                            	<div id="faqlist"></div>
+				                                            	<div class="form-group">
+				                                                	<button class="btn btn-outline-primary" name="addfaq" id="addfaq" type="button">+</button>
+					                                            </div>
+				                                            
 				                                                <div class="form-group">
 				                                                	<button type="submit" class="btn btn-primary">Submit</button>
 				                                                </div>
@@ -265,6 +296,22 @@
         <script src="<?php echo base_url();?>assets/admin/plugins/dropify/js/dropify.min.js"></script>
 <?php $this->load->view('admin/js-links') ?>
 		<script>
+			$(document).ready(function(){
+				var i = 1;
+
+				$('#addfaq').click(function(){
+					i++;
+					$('#faqlist').append('<div id="faq'+i+'"><div class="form-group"><label>Question</label><div><textarea class="form-control" rows="5" name="question['+i+']" id="question['+i+']"></textarea></div></div><div class="form-group"><label>Answer</label><div><textarea class="form-control" rows="5" name="answer['+i+']" id="answer['+i+']"></textarea><button class="btn btn-outline-danger" name="removefaq" id="removefaq" type="button" onclick="delete_faq('+i+')">-</button></div></div></div>');
+				})
+			});			
+
+			function delete_faq(no){
+				var object = document.getElementById('faq'+no);
+				//var object2 = document.getElementById('answer['+no+']');
+				object.remove();
+				//object2.remove();
+			}
+
 			$(document).ready(function(){
 				var i = 1;
 				$('#add').click(function(){
