@@ -1,0 +1,23 @@
+overview
+	id
+	destid
+	oleft
+
+Packing
+	id
+	destid
+	title1
+	descr1
+	title2
+	descr2
+
+packing_list
+	id
+	destid
+	title
+	items
+
+gallery
+	id
+	destid
+	img

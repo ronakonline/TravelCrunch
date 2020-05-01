@@ -79,16 +79,28 @@ class Destination extends CI_Controller{
 		if($_SESSION['admin']){
 			$data = $this->input->post();
 			$picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","parent");
-			if($picture=="error"){
-
+			/*$j=0;
+			 * for(5){
+			 * 		count($_FILES['file'])
+			 * $picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","parent");
+			 * if($picture=="error"){
+				$j++;
 			}else{
 					$this->load->model('DestinationM');
 					$op = $this->DestinationM->insert_parent($data['name'],$picture);
+					$_SESSION['success']="Successfully Inserted";
 			}
-
-
-
-			//redirect('admin/Destination/Add_Parent');
+			 * }
+			 *
+			 */
+			if($picture=="error"){
+				$_SESSION['error']="Error Inserting Record";
+			}else{
+					$this->load->model('DestinationM');
+					$op = $this->DestinationM->insert_parent($data['name'],$picture);
+					$_SESSION['success']="Successfully Inserted";
+			}
+			redirect('admin/Destination/Add_Parent');
 
 		}else{
 			redirect('admin');
