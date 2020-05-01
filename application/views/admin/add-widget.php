@@ -153,32 +153,44 @@
                                                     </div>
                                                     <div class="tab-pane p-3" id="messages-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                            <form>
+                                                            <form action="insert_packing" method="post">
+                                                            	<div class="form-group">
+																	<label>Destination</label>
+																	<div>
+																		<select class="form-control" name="destinationname" id="destinationname">
+																			<?php 
+																				foreach ($destinationname as $name) {
+																					echo "<option value='$name->id'>$name->name</option>";
+																				}
+																			 ?>
+																		</select>
+																	</div>
+																</div>
                                                             	<div class="row">
                                                             	<div class="col-sm-6">
                                                             		<h3 class="text-center">LEFT</h3>
 		                                                            <div class="form-group">
 					                                                    <label>1st Title</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="title1" />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Description</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5"></textarea>
+					                                                        <textarea class="form-control" rows="5" name="desc1" ></textarea>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>2nd Title</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="title2" />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Description</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5"></textarea>
+					                                                        <textarea class="form-control" rows="5" name="desc2" ></textarea>
 					                                                    </div>
 					                                                </div>
 					                                            </div>
@@ -188,13 +200,13 @@
 					                                            	<div class="form-group">
 					                                                    <label>1st List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list1" id="list1" />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group" id="1_list">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control name_list" name="item1" id="name1" >
+					                                                        <input type="text" class="form-control name_list" name="item1[1]" id="item" >
 																			<div id="itemlist1"></div>
 					                                                        <button class="btn btn-outline-primary" name="add" id="add" type="button">+</button>
 					                                                    </div>
@@ -202,13 +214,13 @@
 					                                                <div class="form-group">
 					                                                    <label>2nd List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list2" id="list2" />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item">
+					                                                        <input type="text" class="form-control" name="item2[1]" id="item">
 					                                                        <div id="itemlist2"></div>
 					                                                        <button class="btn btn-outline-primary" name="add1" id="add1" type="button">+</button>
 					                                                    </div>
@@ -216,13 +228,13 @@
 					                                                <div class="form-group">
 					                                                    <label>3rd List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list3" id="list3" />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item">
+					                                                        <input type="text" class="form-control" name="item3[1]" id="item">
 					                                                        <div id="itemlist3"></div>
 					                                                        <button class="btn btn-outline-primary" name="add2" id="add2" type="button">+</button>
 					                                                    </div>
@@ -230,13 +242,13 @@
 					                                                <div class="form-group">
 					                                                    <label>4th List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something"/>
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list4" id="list4" />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item">
+					                                                        <input type="text" class="form-control" name="item" name="item4[1]" id="item">
 					                                                    </div>
 					                                                    <div id="itemlist4"></div>
 					                                                        <button class="btn btn-outline-primary" name="add3" id="add3" type="button">+</button>
@@ -244,7 +256,7 @@
 					                                            </div>
 					                                        	</div>
 				                                                <div class="text-center m-t-15">
-					                                                <button type="button" class="btn btn-primary waves-effect waves-light">Submit</button>
+					                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
 					                                            </div>
 			                                            	</form>
                                                         </p>
@@ -315,27 +327,27 @@
 				$('#add').click(function(){
 
 					i++;
-					$('#itemlist1').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" required><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+					$('#itemlist1').append('<input type="text" class="form-control name_list mt-3" name="item1['+i+']" id="item'+i+'" required><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
 				$('#add1').click(function(){
 
 					i++;
-					$('#itemlist2').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+					$('#itemlist2').append('<input type="text" class="form-control name_list mt-3" name="item2['+i+']" id="item'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
 				$('#add2').click(function(){
 
 					i++;
-					$('#itemlist3').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+					$('#itemlist3').append('<input type="text" class="form-control name_list mt-3" name="item3['+i+']" id="item'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
 				$('#add3').click(function(){
 
 					i++;
-					$('#itemlist4').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+					$('#itemlist4').append('<input type="text" class="form-control name_list mt-3" name="item4['+i+']" id="item'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
 			});
 
 			function delete_item(no){
-				var object = document.getElementById("name"+no);
+				var object = document.getElementById("item"+no);
 				var object2 = document.getElementById("remove"+no);
 				object.remove();
 				object2.remove();

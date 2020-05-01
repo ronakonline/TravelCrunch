@@ -53,4 +53,16 @@ class DestinationM extends CI_Model{
 		$q = $this->db->query($qu);
 		return $q;
 	}
+
+	public function insert_packing($data){
+		$this->load->database();
+		$item1 = serialize($data['item1']);
+		$item2 = serialize($data['item2']);
+		$item3 = serialize($data['item3']);
+		$item4 = serialize($data['item4']);
+
+		$q = $this->db->query('insert into packing values(null,'.$data['destinationname'].',"'.$data['title1'].'","'.$data['desc1'].'","'.$data['title2'].'","'.$data['desc2'].'","'.$data['list1'].'","'.$item1.'","'.$data['list2'].'","'.$item2.'","'.$data['list3'].'","'.$item3.'","'.$data['list4'].'","'.$item4.'")');
+		
+		return $q;
+	}
 }

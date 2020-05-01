@@ -174,4 +174,25 @@ class Destination extends CI_Controller{
             redirect('admin');
         }   
     }
+
+    public function insert_packing(){
+        if($_SESSION['admin']){
+            $data['title']="Add Widget";
+            $data = $this->input->post();
+
+            $this->load->model("DestinationM");
+            $qu = $this->DestinationM->insert_packing($data);
+
+            if ($qu==1) {
+                 $_SESSION['success']="Inserted Successfully";
+            }
+            else{
+                 $_SESSION['error']="Error Inserting Record";
+            }
+            redirect('admin/Destination/Add_Widget');
+        }
+        else{
+            redirect('admin');
+        }
+    }
 }
