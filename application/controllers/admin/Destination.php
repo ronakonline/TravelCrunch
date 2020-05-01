@@ -25,20 +25,6 @@ class Destination extends CI_Controller{
         if($_SESSION['admin']){
             $data = $this->input->post();
             $picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","parent");
-            /*$j=0;
-             * for(5){
-             *         count($_FILES['file'])
-             * $picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","parent");
-             * if($picture=="error"){
-                $j++;
-            }else{
-                    $this->load->model('DestinationM');
-                    $op = $this->DestinationM->insert_parent($data['name'],$picture);
-                    $_SESSION['success']="Successfully Inserted";
-            }
-             * }
-             *
-             */
             if($picture=="error"){
                 $_SESSION['error']="Error Inserting Record";
             }else{
@@ -53,11 +39,29 @@ class Destination extends CI_Controller{
         }
     }
 
+    public function deleteparent($id,$img){
+		if($_SESSION['admin']){
+			$this->load->model('DestinationM');
+			$op = $this->DestinationM->delete_parent($id);
+			unlink("uploads/images/parent/".$img);
+			if($op==1){
+				$_SESSION['success']="Successfully Deleted";
+			}else{
+				$_SESSION['error']="Error Deleting";
+			}
+			redirect('admin/Destination/List_Parent');
+		}else{
+			redirect('admin');
+		}
+	}
+
 
     public function  List_Parent(){
         if($_SESSION['admin']){
             $data['title']="List Parent";
-            $this->load->view('admin/list-parent',$data);
+            $this->load->model("DestinationM");
+            $data['parents'] = $this->DestinationM->listparents();
+           $this->load->view('admin/list-parent',$data);
         }else{
             redirect('admin');
         }

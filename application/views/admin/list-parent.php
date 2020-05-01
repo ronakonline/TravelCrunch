@@ -19,6 +19,17 @@
         <link href="<?php echo base_url();?>assets/admin/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <!-- Responsive datatable examples -->
         <link href="<?php echo base_url();?>assets/admin/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+		<!-- JavaScript -->
+		<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+		<!-- Default theme -->
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+		<!-- Semantic UI theme -->
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+		<!-- Bootstrap theme -->
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
     </head>
 
 
@@ -51,11 +62,11 @@
 								<div class="btn-group float-right">
 									<ol class="breadcrumb hide-phone p-0 m-0">
 										<li class="breadcrumb-item"><a href="#">Destination</a></li>
-										<li class="breadcrumb-item"><a href="#">Add-Destination</a></li>
+										<li class="breadcrumb-item"><a href="#">All Parents</a></li>
 
 									</ol>
 								</div>
-								<h4 class="page-title">Add Destination</h4>
+								<h4 class="page-title">All Parents</h4>
 							</div>
 						</div>
 					</div>
@@ -69,60 +80,20 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Name</th>
+													<th>Banner Image</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
             
             
                                                 <tbody>
+												<?php foreach ($parents as $row){?>
                                                 <tr>
-                                                    <td>Tiger Nixon</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
+                                                    <td><?php echo $row->name;?></td>
+													<td><img src=<?php echo base_url()."uploads/images/parent/$row->bannerimg"; ?> height="150" width="200"> </td>
+                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><a href="deleteparent/<?php echo $row->id."/".$row->bannerimg; ?>"><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Garrett Winters</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ashton Cox</td>
-                                                   <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Cedric Kelly</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Airi Satou</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Brielle Williamson</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Herrod Chandler</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Rhona Davidson</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Colleen Hurst</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Sonya Frost</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Jena Gaines</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Quinn Flynn</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-												</tr>
+												<?php }?>
                                                 </tbody>
                                             </table>
             
@@ -185,5 +156,17 @@
                 $('#datatable2').DataTable();  
             } );
         </script>
+<!-- Alertify js -->
+<script src="<?php echo base_url();?>assets/admin/plugins/alertify/js/alertify.js"></script>
+<script src="<?php echo base_url();?>assets/admin/pages/alertify-init.js"></script>
+<?php
+if(isset($_SESSION['error'])){
+	echo '<script>alertify.error("'.$_SESSION['error'].'"); </script>';
+	unset($_SESSION['error']);
+}elseif (isset($_SESSION['success'])){
+	echo '<script>alertify.success("'.$_SESSION['success'].'");</script>';
+	unset($_SESSION['success']);
+}
+?>
     </body>
 </html>

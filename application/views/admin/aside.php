@@ -16,7 +16,7 @@
 		<div id="sidebar-menu">
 			<ul>
 				<li>
-					<a href="index.html" class="waves-effect">
+					<a href="<?php echo base_url();?>admin/Dashboard" class="waves-effect">
 						<i class="mdi mdi-airplay"></i>
 						<span> Dashboard <span class="badge badge-pill badge-primary float-right"></span></span>
 					</a>

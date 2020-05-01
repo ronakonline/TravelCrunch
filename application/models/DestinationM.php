@@ -7,9 +7,21 @@ class DestinationM extends CI_Model{
 		return $q;
 	}
 
+	public function delete_parent($id){
+		$this->load->database();
+		$q = $this->db->query('delete from Destinations_Parents where id='.$id);
+		return $q;
+	}
+
 	public function show_parent(){
 		$this->load->database();
 		$q = $this->db->query("SELECT id,name from Destinations_Parents");
+		return $q->result();
+	}
+
+	public function listparents(){
+		$this->load->database();
+		$q = $this->db->query("SELECT * from Destinations_Parents");
 		return $q->result();
 	}
 
