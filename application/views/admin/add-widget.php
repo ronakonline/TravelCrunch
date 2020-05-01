@@ -113,7 +113,7 @@
                                                     </div>
                                                     <div class="tab-pane p-3" id="profile-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                            <form action="" method="post">
+                                                            <form action="insert_faq" method="post">
                                                             	<div class="form-group">
 																	<label>Destination</label>
 																	<div>
@@ -130,13 +130,13 @@
 		                                                            <div class="form-group">
 					                                                    <label>Question</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="question[1]" id="qiestion1"></textarea>
+					                                                        <textarea class="form-control" rows="5" name="question[1]" id="qiestion1" required></textarea>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Answer</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="answer[1]" id="amswer1"></textarea>
+					                                                        <textarea class="form-control" rows="5" name="answer[1]" id="amswer1" required></textarea>
 					                                                    </div>
 					                                            	</div>
 				                                            	</div>
@@ -301,15 +301,13 @@
 
 				$('#addfaq').click(function(){
 					i++;
-					$('#faqlist').append('<div id="faq'+i+'"><div class="form-group"><label>Question</label><div><textarea class="form-control" rows="5" name="question['+i+']" id="question['+i+']"></textarea></div></div><div class="form-group"><label>Answer</label><div><textarea class="form-control" rows="5" name="answer['+i+']" id="answer['+i+']"></textarea><button class="btn btn-outline-danger" name="removefaq" id="removefaq" type="button" onclick="delete_faq('+i+')">-</button></div></div></div>');
+					$('#faqlist').append('<div id="faq'+i+'"><div class="form-group"><label>Question</label><div><textarea class="form-control" rows="5" name="question['+i+']" id="question['+i+']" required></textarea></div></div><div class="form-group"><label>Answer</label><div><textarea class="form-control" rows="5" name="answer['+i+']" id="answer['+i+']" required></textarea><button class="btn btn-outline-danger" name="removefaq" id="removefaq" type="button" onclick="delete_faq('+i+')">-</button></div></div></div>');
 				})
 			});			
 
 			function delete_faq(no){
 				var object = document.getElementById('faq'+no);
-				//var object2 = document.getElementById('answer['+no+']');
 				object.remove();
-				//object2.remove();
 			}
 
 			$(document).ready(function(){
@@ -317,7 +315,7 @@
 				$('#add').click(function(){
 
 					i++;
-					$('#itemlist1').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+					$('#itemlist1').append('<input type="text" class="form-control name_list mt-3" name="item'+i+'" id="name'+i+'" required><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
 				$('#add1').click(function(){
 
@@ -384,5 +382,14 @@
                 })
             });
         </script>
+<?php
+if(isset($_SESSION['error'])){
+	echo '<script>alertify.error("'.$_SESSION['error'].'"); </script>';
+	unset($_SESSION['error']);
+}elseif (isset($_SESSION['success'])){
+	echo '<script>alertify.success("'.$_SESSION['success'].'");</script>';
+	unset($_SESSION['success']);
+}
+?>
 </body>
 </html>
