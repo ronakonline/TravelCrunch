@@ -68,12 +68,45 @@ class DestinationM extends CI_Model{
 
 	public function insert_packing($data){
 		$this->load->database();
-		$item1 = serialize($data['item1']);
-		$item2 = serialize($data['item2']);
-		$item3 = serialize($data['item3']);
-		$item4 = serialize($data['item4']);
+		$item1count = count($data['item1']);
+		$item2count = count($data['item2']);
+		$item3count = count($data['item3']);
+		$item4count = count($data['item4']);
+		$qu = 'insert into packing values(null,'.$data['destinationname'].',"'.$data['title1'].'","'.$data['desc1'].'","'.$data['title2'].'","'.$data['desc2'].'","'.$data['list1'].'","[';
+		for($i=0; $i<$item1count; $i++){
 
-		$q = $this->db->query('insert into packing values(null,'.$data['destinationname'].',"'.$data['title1'].'","'.$data['desc1'].'","'.$data['title2'].'","'.$data['desc2'].'","'.$data['list1'].'","'.$item1.'","'.$data['list2'].'","'.$item2.'","'.$data['list3'].'","'.$item3.'","'.$data['list4'].'","'.$item4.'")');
+			if($i==$item1count-1){
+				$qu .= $data['item1'][$i]."]".'","'.$data['list2'].'","[';
+			}else{
+				$qu .= $data['item1'][$i].",";
+			}
+		}
+		for($i=0; $i<$item2count; $i++){
+
+			if($i==$item2count-1){
+				$qu .= $data['item2'][$i]."]".'","'.$data['list3'].'","[';
+			}else{
+				$qu .= $data['item2'][$i].",";
+			}
+		}
+		for($i=0; $i<$item3count; $i++) {
+
+			if ($i == $item3count-1) {
+				$qu .= $data['item3'][$i] . "]" . '","' . $data['list4'] . '","[';
+			} else {
+				$qu .= $data['item3'][$i] . ",";
+			}
+		}
+		for($i=0; $i<$item4count; $i++) {
+
+			if ($i == $item4count-1) {
+				$qu .= $data['item4'][$i] . "]".'")' ;
+			} else {
+				$qu .= $data['item4'][$i] . ",";
+			}
+		}
+
+		$q = $this->db->query($qu);
 		
 		return $q;
 	}

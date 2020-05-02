@@ -186,7 +186,6 @@ class Destination extends CI_Controller{
 
             $this->load->model("DestinationM");
             $qu = $this->DestinationM->insert_packing($data);
-
             if ($qu==1) {
                  $_SESSION['success']="Inserted Successfully";
             }
