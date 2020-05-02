@@ -110,4 +110,15 @@ class DestinationM extends CI_Model{
 		
 		return $q;
 	}
+
+	public function insert_seotags($data){
+		$this->load->database();
+		$q = $this->db->query('insert into seotag values(null,"'.$data['destinationname'].'","'.$data['tags'].'")');
+		return $q;
+	}
+
+	public function insert_gallery($data){
+		$this->load	
+	}
+
 }

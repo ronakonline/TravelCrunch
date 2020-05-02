@@ -72,6 +72,9 @@
                                                         <a class="nav-link" data-toggle="tab" href="#messages-1" role="tab">Packing</a>
                                                     </li>
                                                     <li class="nav-item waves-effect waves-light">
+                                                        <a class="nav-link" data-toggle="tab" href="#seo" role="tab">SEO Tags</a>
+                                                    </li>
+                                                    <li class="nav-item waves-effect waves-light">
                                                         <a class="nav-link" data-toggle="tab" href="#settings-1" role="tab">Gallery</a>
                                                     </li>
                                                 </ul>
@@ -261,20 +264,61 @@
 			                                            	</form>
                                                         </p>
                                                     </div>
-                                                    <div class="tab-pane p-3" id="settings-1" role="tabpanel">
+                                                    <div class="tab-pane p-3" id="seo" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                            <form  action="#" class="dropzone">
-	                                                            <div class="m-b-30">
-				                                                    <div class="fallback">
-				                                                        <input name="file" type="file[]" multiple="multiple">
+                                                        	<form action="insert_seotags" method="post">
+                                                        		<div class="form-group">
+																	<label>Destination</label>
+																	<div>
+																		<select class="form-control" name="destinationname" id="destinationname">
+																			<?php 
+																				foreach ($destinationname as $name) {
+																					echo "<option value='$name->id'>$name->name</option>";
+																				}
+																			 ?>
+																		</select>
+																	</div>
+																</div>
+				                                                <div class="form-group">
+				                                                    <label>SEO Tags(Seprate with "COMA")</label>
+				                                                    <div>
+				                                                        <textarea class="form-control" rows="5" name="tags" id="tags"></textarea>
 				                                                    </div>
-					                                            </div>
-					            
-					                                            <div class="text-center m-t-15">
-					                                                <button type="button" class="btn btn-primary waves-effect waves-light">Upload Files</button>
-					                                            </div>
+				                                                </div>
+				                                                <div class="form-group">
+				                                                	<button type="submit" class="btn btn-primary">Submit</button>
+				                                                </div>
 			                                            	</form>
                                                         </p>
+                                                    </div>
+                                                    <div class="tab-pane p-3" id="settings-1" role="tabpanel">
+                                                    	<form action="insert_gallery" method="post" enctype="multipart/form-data">
+                                                    		<div class="form-group">
+																<label>Destination</label>
+																<div>
+																	<select class="form-control" name="destinationname" id="destinationname">
+																		<?php 
+																			foreach ($destinationname as $name) {
+																				echo "<option value='$name->id'>$name->name</option>";
+																			}
+																		 ?>
+																	</select>
+																</div>
+															</div>
+
+							                                    <div class="card m-b-30">
+							                                        <div class="card-body">
+							                                            
+							                                            
+							                                            <input type="file" name="gallery[]" id="input-file-now" class="dropify" multiple />                               
+							                                        </div>
+							                                    </div>
+							    
+					                                            <div class="text-center m-t-15">
+					                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Upload Files</button>
+					                                            </div>
+			                                            </form>
+                                                        
                                                     </div>
 
                                                 </div>
@@ -304,9 +348,9 @@
 <!-- END wrapper -->
 
 <!-- Dropzone js -->
-        <script src="<?php echo base_url();?>assets/admin/plugins/dropzone/dist/dropzone.js"></script>
+		<?php $this->load->view('admin/js-links') ?>
+		<script src="<?php echo base_url();?>assets/admin/plugins/dropzone/dist/dropzone.js"></script>
         <script src="<?php echo base_url();?>assets/admin/plugins/dropify/js/dropify.min.js"></script>
-<?php $this->load->view('admin/js-links') ?>
 		<script>
 			$(document).ready(function(){
 				var i = 1;
@@ -353,6 +397,8 @@
 				object2.remove();
 			}
 
+        </script>
+        <script>
             $(document).ready(function(){
                 // Basic
                 $('.dropify').dropify();

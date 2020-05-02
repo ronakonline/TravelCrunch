@@ -198,4 +198,56 @@ class Destination extends CI_Controller{
             redirect('admin');
         }
     }
+
+    public function insert_seotags(){
+        if($_SESSION['admin']){
+            $data['title']="Add Widget";
+            $data = $this->input->post();
+
+            $this->load->model("DestinationM");
+            $qu = $this->DestinationM->insert_seotags($data);
+            echo $qu;
+            if ($qu==1) {
+                 $_SESSION['success']="Inserted Successfully";
+            }
+            else{
+                 $_SESSION['error']="Error Inserting Record";
+            }
+            redirect('admin/Destination/Add_Widget');
+        }
+        else{
+            redirect('admin');
+        }
+    }
+
+    public function insert_gallery(){
+        if($_SESSION['admin']){
+            $data['title']="Add Widget";
+            $data = $this->input->post();
+
+            $total = count($_FILES['gallery']);
+            
+            print_r($_FILES['gallery']);
+            for ($i=0; $i <$total ; $i++) { 
+               $pic['picture'][$i] = $this->uploadimage($_FILES['gallery']['name']->$i,"gallery","destination"); 
+            }
+            
+            // $pic['picture1'] = $this->uploadimage($_FILES[''],"file1","destination");
+            // $this->load->model("DestinationM");
+
+
+            // $qu = $this->DestinationM->insert_gallery($data);
+            // echo $qu;
+            // if ($qu==1) {
+            //      $_SESSION['success']="Inserted Successfully";
+            // }
+            // else{
+            //      $_SESSION['error']="Error Inserting Record";
+            // }
+            // redirect('admin/Destination/Add_Widget');
+        }
+        else{
+            redirect('admin');
+        }        
+    }
 }
