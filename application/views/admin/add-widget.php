@@ -296,7 +296,7 @@
                                                     		<div class="form-group">
 																<label>Destination</label>
 																<div>
-																	<select class="form-control" name="destinationname" id="destinationname">
+																	<select class="form-control" name="destination" id="destinationname">
 																		<?php 
 																			foreach ($destinationname as $name) {
 																				echo "<option value='$name->id'>$name->name</option>";
@@ -310,7 +310,7 @@
 							                                        <div class="card-body">
 							                                            
 							                                            
-							                                            <input type="file" name="gallery[]" id="input-file-now" class="dropify" multiple />                               
+							                                            <input type="file" name="files[]" id="input-file-now" class="dropify" multiple />
 							                                        </div>
 							                                    </div>
 							    

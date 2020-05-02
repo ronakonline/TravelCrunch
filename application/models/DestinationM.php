@@ -118,7 +118,18 @@ class DestinationM extends CI_Model{
 	}
 
 	public function insert_gallery($data){
-		$this->load	
+		$this->load->database();
+		$qu = 'insert into gallery values';
+		$total = count($data['filenames']);
+		for($i=0; $i<$total; $i++){
+			if($i==$total-1){
+				$qu .= '(null,'.$data['destination'].',"'.$data['filenames'][$i].'")';
+			}else{
+				$qu .= '(null,'.$data['destination'].',"'.$data['filenames'][$i].'"),';
+			}
+		}
+		$q = $this->db->query($qu);
+		return $q;
 	}
 
 }
