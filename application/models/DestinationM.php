@@ -43,6 +43,12 @@ class DestinationM extends CI_Model{
 		}	
 	}
 
+	public function listdestinations(){
+		$this->load->database();
+		$q = $this->db->query("SELECT * from destination");
+		return $q->result();
+	}
+
 	public function insert_overview($data){
 		$this->load->database();
 		$q = $this->db->query('insert into overview values(null,"'.$data['destinationname'].'","'.$data['oleft'].'","'.$data['oright'].'")');

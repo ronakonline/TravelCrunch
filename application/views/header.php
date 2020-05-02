@@ -190,82 +190,17 @@
 									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="javascript:void(0);">Destinations</a>
 										<div class="mega-menu">
 											<div class="row " style="margin-top:20px">
+												<?php foreach ($parents as $row){ ?>
 												<div class="col-sm-2">
 													<ul>
-														<li ><a href="#" style="font-size: 20px;"><b>Asia Tours</b></a></li>	
-															
-															<li><a href="<?php echo base_url();?>listings">India</a></li>
-															<li><a href="<?php echo base_url();?>listings">Vietnam</a></li>
-															<li><a href="<?php echo base_url();?>listings">Thailand</a></li>
-															<li><a href="<?php echo base_url();?>listings">Japan</a></li>
-															<li><a href="<?php echo base_url();?>listings">Sri Lanka</a></li>
-															<li><a href="<?php echo base_url();?>listings">China</a></li>
-															<li><a href="<?php echo base_url();?>listings">Cambodia</a></li>
-															<li><a href="<?php echo base_url();?>listings">Indonesia</a></li>
-															<li><a href="<?php echo base_url(); ?>Destinations">View All&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a></li>			
+														<li ><a href="#" style="font-size: 20px;"><b><?php echo $row->name; ?></b></a></li>
+														<?php for ($i=0; $i<$tdestination; $i++){
+															if($destinations[$i]->parent == $row->id) {?>
+														<li><?php echo $destinations[$i]->name; ?></li>
+														<?php } }?>
 													</ul>
 												</div>
-												<div class="col-sm-2">
-													<ul>
-														<li style=""><a href="#" style="font-size: 20px;"><b>South America Tours</b></a></li>	
-															<li><a href="<?php echo base_url();?>listings">Peru</a></li>
-															<li><a href="<?php echo base_url();?>listings">Galápagos</a></li>
-															<li><a href="<?php echo base_url();?>listings">Colombia</a></li>
-															<li><a href="<?php echo base_url();?>listings">Argentina</a></li>
-															<li><a href="<?php echo base_url();?>listings">Brazil</a></li>
-															<li><a href="<?php echo base_url();?>listings">Chile</a></li>
-															<li><a href="<?php echo base_url();?>listings">Bolivia</a></li>
-															<li><a href="<?php echo base_url();?>listings">The Inca Trail</a></li>
-															<li><a href="<?php echo base_url(); ?>Destinations">View All&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a></li>
-													</ul>
-												</div>
-												<div class="col-sm-2">
-													<ul>
-														<li ><a href="#" style="font-size: 20px;"><b>Europe Tour</b></a></li>
-															
-															<li><a href="<?php echo base_url();?>listings">Iceland</a></li>
-															<li><a href="<?php echo base_url();?>listings">Italy</a></li>
-															<li><a href="<?php echo base_url();?>listings">Spain</a></li>
-															<li><a href="<?php echo base_url();?>listings">Greece</a></li>
-															<li><a href="<?php echo base_url();?>listings">Turkey</a></li>
-															<li><a href="<?php echo base_url();?>listings">Croatia</a></li>
-															<li><a href="<?php echo base_url();?>listings">France</a></li>
-															<li><a href="<?php echo base_url(); ?>Destinations">View All&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a></li>
-													</ul>
-												</div>
-												<div class="col-sm-3">
-													<ul>
-														<li><a href="#"style="font-size: 20px;"><b>Central America Tours</b></a></li>
-														
-															<li><a href="<?php echo base_url();?>listings">Costa Rica</a></li>
-															<li><a href="<?php echo base_url();?>listings">Mexico</a></li>
-															<li><a href="<?php echo base_url();?>listings">Cuba</a></li>
-															<li><a href="<?php echo base_url(); ?>Destinations">View All&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a></li>
-													</ul>
-													<ul>
-														<li><a href="#"style="font-size: 20px;"><b>North America Tours</b></a></li>
-														
-															<li><a href="<?php echo base_url();?>listings">United States</a></li>
-															<li><a href="<?php echo base_url();?>listings">Canada</a></li>
-															<li><a href="<?php echo base_url(); ?>Destinations">View All&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a></li>
-													</ul>
-												</div>
-												<div class="col-sm-3">
-													<ul>
-														<li><a href=""style="font-size: 20px;"><b>Africa Tours</b></a></li>
-														
-															<li><a href="<?php echo base_url();?>listings">South Africa</a></li>
-															<li><a href="<?php echo base_url();?>listings">Tanzania</a></li>
-															<li><a href="<?php echo base_url(); ?>Destinations">View All&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a></li>
-													</ul>
-													<ul>
-														<li><a href="#"style="font-size: 20px;"><b>North Africa & Middle East Tours</b></a></li>
-															
-															<li><a href="<?php echo base_url();?>listings">Egypt</a></li>
-															<li><a href="<?php echo base_url();?>listings">Morocco</a></li>
-															<li><a href="<?php echo base_url(); ?>Destinations">View All&nbsp;&nbsp;<i class="fa fa-long-arrow-right"></i></a></li>
-													</ul>
-												</div>
+												<?php } ?>
 											</div>
 										</div>
 									</li>
