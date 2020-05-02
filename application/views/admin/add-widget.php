@@ -206,7 +206,7 @@
 					                                                <div class="form-group" id="1_list">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control name_list" name="item1[1]" id="item" >
+					                                                        <input type="text" class="form-control name_list" name="item1[]" id="item" >
 																			<div id="itemlist1"></div>
 					                                                        <button class="btn btn-outline-primary" name="add" id="add" type="button">+</button>
 					                                                    </div>
@@ -220,7 +220,7 @@
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item2[1]" id="item">
+					                                                        <input type="text" class="form-control" name="item2[]" id="item">
 					                                                        <div id="itemlist2"></div>
 					                                                        <button class="btn btn-outline-primary" name="add1" id="add1" type="button">+</button>
 					                                                    </div>
@@ -234,7 +234,7 @@
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item3[1]" id="item">
+					                                                        <input type="text" class="form-control" name="item3[]" id="item">
 					                                                        <div id="itemlist3"></div>
 					                                                        <button class="btn btn-outline-primary" name="add2" id="add2" type="button">+</button>
 					                                                    </div>
@@ -248,7 +248,7 @@
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item" name="item4[1]" id="item">
+					                                                        <input type="text" class="form-control"  name="item4[]" id="item">
 					                                                    </div>
 					                                                    <div id="itemlist4"></div>
 					                                                        <button class="btn btn-outline-primary" name="add3" id="add3" type="button">+</button>
@@ -327,22 +327,22 @@
 				$('#add').click(function(){
 
 					i++;
-					$('#itemlist1').append('<input type="text" class="form-control name_list mt-3" name="item1['+i+']" id="item'+i+'" required><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+					$('#itemlist1').append('<input type="text" class="form-control name_list mt-3" name="item1[]" id="item'+i+'" required><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
 				$('#add1').click(function(){
 
 					i++;
-					$('#itemlist2').append('<input type="text" class="form-control name_list mt-3" name="item2['+i+']" id="item'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+					$('#itemlist2').append('<input type="text" class="form-control name_list mt-3" name="item2[]" id="item'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
 				$('#add2').click(function(){
 
 					i++;
-					$('#itemlist3').append('<input type="text" class="form-control name_list mt-3" name="item3['+i+']" id="item'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+					$('#itemlist3').append('<input type="text" class="form-control name_list mt-3" name="item3[]" id="item'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
 				$('#add3').click(function(){
 
 					i++;
-					$('#itemlist4').append('<input type="text" class="form-control name_list mt-3" name="item4['+i+']" id="item'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
+					$('#itemlist4').append('<input type="text" class="form-control name_list mt-3" name="item4[]	" id="item'+i+'" ><button class="btn btn-outline-danger remove mb-2" name="remove" id="remove'+i+'" type="button" onclick="delete_item('+i+')">-</button>');
 				});
 			});
 
