@@ -6,10 +6,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model('DestinationM');
-		$data['parents'] = $this->DestinationM->listparents();
-		$data['destinations'] = $this->DestinationM->listdestinations();
-		$data['tdestination'] = count($data['destinations']);
+		$data = frontend_data();
 		$this->load->view('home',$data);
 	}
 }

@@ -4,8 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Listings extends CI_Controller {
 
 
-	public function index()
+	public function index($id = 0,$name)
 	{
-		$this->load->view('listings');
+		$data = frontend_data();
+		$data['destinfo'] = destination_data($id);
+		//print_r($data);
+		//$data['destwidget'] = $this->DestinationM->getdestwidget($id);
+		$this->load->view('listings',$data);
 	}
 }

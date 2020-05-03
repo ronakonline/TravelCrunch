@@ -3,13 +3,13 @@
 		<!--************************************
 				Inner Banner Start
 		*************************************-->
-		<section class="tg-parallax tg-innerbanner" data-appear-top-offset="900" data-parallax="scroll" data-image-src="<?php echo base_url();?>assets/images/taj.jpg">
+		<section class="tg-parallax tg-innerbanner" data-appear-top-offset="900" data-parallax="scroll" data-image-src="<?php echo base_url();?>uploads/images/destination/<?php echo $destinfo[0]->banner; ?>">
 			<div class="tg-sectionspace tg-haslayout">
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h1>India</h1>
-							<h2>The Dream Place</h2>
+							<h1><?php echo $destinfo[0]->name; ?></h1>
+							<h2><?php echo $destinfo[0]->tagline; ?></h2>
 
 						</div>
 					</div>
@@ -110,36 +110,34 @@
 <section class="tg-aboutus">
 	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 		<div class="row">
-			<figure data-vide-bg="poster: <?php echo base_url();?>assets/images/aboutus/img-01.jpg" data-vide-options="position: 0% 50%"><div style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-color: transparent; background-repeat: no-repeat; background-position: 0% 50%; background-image: url(&quot;http://wahabali.com/work/travelu/images/aboutus/img-01.jpg&quot;);"><video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 0%; transform: translate(0%, -50%); visibility: hidden; opacity: 0; width: auto; height: 557px;"></video></div></figure>
+			<figure data-vide-bg="poster: <?php echo base_url();?>uploads/images/destination/<?php echo $destinfo[0]->about1_image; ?>" data-vide-options="position: 0% 50%"><div style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-color: transparent; background-repeat: no-repeat; background-position: 0% 50%; background-image: url(<?php echo base_url();?>uploads/images/destination/<?php echo $destinfo[0]->about1_image; ?>);"><video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 0%; transform: translate(0%, -50%); visibility: hidden; opacity: 0; width: auto; height: 557px;"></video></div></figure>
 		</div>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 		<div class="row">
 			<div class="tg-textbox">
 				<div class="tg-sectiontitle">
-					<h2>A Little About India</h2>
+					<h2>A Little About <?php echo $destinfo[0]->name; ?></h2>
 				</div>
 				<div class="tg-description">
-					<p>when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-					<p>Electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<?php echo $destinfo[0]->about1; ?>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pull-right">
 		<div class="row">
-			<figure data-vide-bg="poster: <?php echo base_url();?>assets/images/aboutus/img-02.jpg" data-vide-options="position: 0% 50%"><div style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-color: transparent; background-repeat: no-repeat; background-position: 0% 50%; background-image: url(&quot;http://wahabali.com/work/travelu/images/aboutus/img-02.jpg&quot;);"><video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 0%; transform: translate(0%, -50%); visibility: hidden; opacity: 0; width: auto; height: 557px;"></video></div></figure>
+			<figure data-vide-bg="poster: <?php echo base_url();?>uploads/images/destination/<?php echo $destinfo[0]->about2_image; ?>" data-vide-options="position: 0% 50%"><div style="position: absolute; z-index: -1; inset: 0px; overflow: hidden; background-size: cover; background-color: transparent; background-repeat: no-repeat; background-position: 0% 50%; background-image: url(<?php echo base_url();?>uploads/images/destination/<?php echo $destinfo[0]->about2_image; ?>);"><video autoplay="" loop="" muted="" style="margin: auto; position: absolute; z-index: -1; top: 50%; left: 0%; transform: translate(0%, -50%); visibility: hidden; opacity: 0; width: auto; height: 557px;"></video></div></figure>
 		</div>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pull-left">
 		<div class="row">
 			<div class="tg-textbox">
 				<div class="tg-sectiontitle">
-					<h2>A Little About India</h2>
+					<h2>A Little About <?php echo $destinfo[0]->name; ?></h2>
 				</div>
 				<div class="tg-description">
-					<p>when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
-					<p>Electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+					<?php echo $destinfo[0]->about2; ?>
 				</div>
 			</div>
 		</div>
@@ -159,11 +157,13 @@
 								<div class="tg-sectionspace tg-haslayout">
 									<div class="tg-themetabs tg-bookingtabs">
 										<ul class="tg-themetabnav" role="tablist">
-											<li role="presentation" class="active">
+											<?php if(count($destinfo['overview'])>=1){ ?>
+											<li role="presentation" >
 												<a href="#america" aria-controls="america" role="tab" data-toggle="tab">
 													<span>Overview</span>
 												</a>
 											</li>
+											<?php } ?>
 											<li role="presentation">
 												<a href="#australia" aria-controls="australia" role="tab" data-toggle="tab">
 													<span>FAQ</span>
@@ -174,25 +174,26 @@
 													<span>Packing</span>
 												</a>
 											</li>
-											<li role="presentation">
+											<li role="presentation" class="active">
 												<a href="#london" aria-controls="london" role="tab" data-toggle="tab">
 													<span>Reviews</span>
 												</a>
 											</li>
+											<?php if(count($destinfo['img'])>=1){ ?>
 											<li role="presentation">
 												<a href="#india" aria-controls="india" role="tab" data-toggle="tab">
 													<span>Gallery</span>
 												</a>
 											</li>
+											<?php } ?>
 										</ul>
 										<div class="tab-content tg-themetabcontent">
-											<div role="tabpanel" class="tab-pane active tg-overviewtab" id="america">
+											<div role="tabpanel" class="tab-pane  tg-overviewtab" id="america">
 												<div class="tg-bookingdetail">
 													<div class="tg-box">
-														<h2>Travel adventures by the billion</h2>
+
 														<div class="tg-description">
-															<p>Wonderfully different, there is nothing quite like a tour of India. Travel a lot? No matter how much you've done or how many countries you've visited, when you first arrive in India it will hit you like a gale force wind; a hurricane of sounds, smells, and colour where nothing </p>
-															<p>Travelling to India reveals a country that is both mesmerizing, exotic, exciting, and mystical but at times frustrating, confusing, and chaotic. Relax, stay calm, be patient, and smile and India will open up herself to you in all her splendid glory.</p>
+															<?php echo $destinfo['overview'][0]->oleft; ?>
 
 														</div>
 													</div>
@@ -200,9 +201,8 @@
 												</div>
 												<div class="tg-bookingdetail tg-bookingdetailstyle">
 													<div class="tg-box">
-														<h2>The best ways to pay<br> for services in India</h2>
 														<div class="tg-description">
-															<p>Every traveller is different and therefore spending money requirements will vary. Some travellers may drink more than others while other travellers like to purchase more souvenirs than most. Please consider your own spending habits when it comes to allowing for drinks, shopping and tipping. Please also remember the following specific recommendations when planning your trip. There are many ATM machines that accept both Visa and Mastercard but these are limited to major cities. We also recommend the use of cash and travellers cheques in USD currency. Major credit cards are accepted in most shops but they may charge a 2-4% transaction fee.</p>
+															<?php echo $destinfo['overview'][0]->oright; ?>
 
 														</div>
 													</div>
@@ -210,18 +210,17 @@
 
 											</div>
 											<div role="tabpanel" class="tab-pane tg-itinerary" id="australia">
+												<?php
+												foreach ($destinfo['faq'] as $faq){
+												?>
 												<div class="tg-bookingdetail">
 													<div class="tg-box">
 														<div class="tg-accordion" role="tablist" aria-multiselectable="true">
 															<div class="tg-panel">
-																<h4>Do you need a visa to travel to India?</h4>
+																<h4><?php echo $faq->question ?></h4>
 																<div class="tg-panelcontent">
 																	<div class="tg-description">
-																		<p>You may be eligible for an eVisa for your trip. An eVisa is delivered electronically, and can be obtained online before your trip to India.
-
-																			<br>Allowed stay: 60 days
-
-																		</p>
+																		<?php echo $faq->answer ?>
 																	</div>
 																</div>
 															</div>
@@ -229,21 +228,7 @@
 														</div>
 													</div>
 												</div>
-												<div class="tg-bookingdetail">
-													<div class="tg-box">
-														<div id="tg-accordion" class="tg-accordion" role="tablist" aria-multiselectable="true">
-															<div class="tg-panel">
-																<h4>Tips on tips<span>Some reasonable suggestions on how to tip the staff</span></h4>
-																<div class="tg-panelcontent">
-																	<div class="tg-description">
-																		<p>It is customary in Asia to tip service providers such as waiters, at approximately 10%, depending on the service. Tipping is expected - though not compulsory - and shows an expression of satisfaction with the people who have assisted you on your tour.</p>
-																	</div>
-																</div>
-															</div>
-
-														</div>
-													</div>
-												</div>
+												<?php } ?>
 											</div>
 											<div role="tabpanel" class="tab-pane tg-locationtab row" id="italy" style="padding-left: 10px;">
 												<div class="tg-bookingdetail col-sm-6">
@@ -329,7 +314,7 @@
 													</div>
 												</div>
 											</div>
-											<div role="tabpanel" class="tab-pane tg-reviewtab" id="london">
+											<div role="tabpanel" class="tab-pane active tg-reviewtab" id="london">
 												<div class="tg-reviewsarea">
 													<form class="tg-formtheme tg-formreviews">
 														<fieldset class="tg-filterby">
@@ -495,69 +480,17 @@
 											<div role="tabpanel" class="tab-pane tg-gallerytab" id="india">
 												<div class="tg-gallery">
 													<ul>
+														<?php
+															foreach ($destinfo['img'] as $row){
+														?>
 														<li>
 															<figure>
-																<a href="images/gallery/img-01.jpg" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>assets/images/gallery/img-01.jpg" alt="image decruoton">
+																<a href="<?php echo base_url();?>uploads/images/destination/<?php echo $row->img; ?>" data-rel="prettyPhoto[instagram]">
+																	<img src="<?php echo base_url();?>uploads/images/destination/<?php echo $row->img; ?>" alt="image decruoton">
 																</a>
 															</figure>
 														</li>
-														<li>
-															<figure>
-																<a href="images/gallery/img-02.jpg" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>assets/images/gallery/img-02.jpg" alt="image decruoton">
-																</a>
-															</figure>
-														</li>
-														<li>
-															<figure>
-																<a href="images/gallery/img-03.jpg" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>assets/images/gallery/img-03.jpg" alt="image decruoton">
-																</a>
-															</figure>
-														</li>
-														<li>
-															<figure>
-																<a href="images/gallery/img-04.jpg" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>assets/images/gallery/img-04.jpg" alt="image decruoton">
-																</a>
-															</figure>
-														</li>
-														<li>
-															<figure>
-																<a href="images/gallery/img-05.jpg" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>assets/images/gallery/img-05.jpg" alt="image decruoton">
-																</a>
-															</figure>
-														</li>
-														<li>
-															<figure>
-																<a href="images/gallery/img-06.jpg" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>assets/images/gallery/img-06.jpg" alt="image decruoton">
-																</a>
-															</figure>
-														</li>
-														<li>
-															<figure>
-																<a href="images/gallery/img-07.jpg" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>assets/images/gallery/img-07.jpg" alt="image decruoton">
-																</a>
-															</figure>
-														</li>
-														<li>
-															<figure>
-																<a href="images/gallery/img-08.jpg" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>assets/images/gallery/img-08.jpg" alt="image decruoton">
-																</a>
-															</figure>
-														</li>
-														<li>
-															<figure>
-																<a href="images/gallery/img-09.jpg" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>assets/images/gallery/img-09.jpg" alt="image decruoton">
-																</a>
-															</figure>
-														</li>
+														<?php } ?>
 													</ul>
 												</div>
 											</div>

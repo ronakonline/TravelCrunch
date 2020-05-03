@@ -1,6 +1,12 @@
 <?php
 
 class DestinationM extends CI_Model{
+
+	public function __construct()
+	{
+		$this->load->database();
+	}
+
 	public function insert_parent($name,$pic){
 		$this->load->database();
 		$q = $this->db->query('insert into Destinations_Parents values(null,"'.$name.'","'.$pic.'")');
@@ -138,4 +144,20 @@ class DestinationM extends CI_Model{
 		return $q;
 	}
 
+	public function getdest($id){
+		$q = $this->db->query('select * from destination where id ='.$id);
+		return $q->result();
+	}
+	public function getgallery($id){
+		$q = $this->db->query('select * from gallery where destid ='.$id);
+		return $q->result();
+	}
+	public function getoverview($id){
+		$q = $this->db->query('select * from overview where destid ='.$id);
+		return $q->result();
+	}
+	public function getfaq($id){
+		$q = $this->db->query('select * from faq where destid ='.$id);
+		return $q->result();
+	}
 }

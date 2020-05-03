@@ -6,6 +6,7 @@ class Destinations extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('destinations');
+		$data = frontend_data();
+		$this->load->view('destinations',$data);
 	}
 }

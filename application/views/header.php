@@ -196,11 +196,11 @@
 														<li ><a href="#" style="font-size: 20px;"><b><?php echo $row->name; ?></b></a></li>
 														<?php for ($i=0; $i<$tdestination; $i++){
 															if($destinations[$i]->parent == $row->id) {?>
-														<li><?php echo $destinations[$i]->name; ?></li>
+														<li><a href="<?php echo base_url('Listings/').$destinations[$i]->id."/".$destinations[$i]->name; ?>"><?php echo $destinations[$i]->name; ?></a></li>
 														<?php } }?>
 													</ul>
 												</div>
-												<?php } ?>
+												<?php } ?>	
 											</div>
 										</div>
 									</li>
