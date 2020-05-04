@@ -233,15 +233,15 @@
 											<div role="tabpanel" class="tab-pane tg-locationtab row" id="italy" style="padding-left: 10px;">
 												<div class="tg-bookingdetail col-sm-6">
 													<div class="tg-box">
-														<h2>Packing for India</h2>
+														<h2><?php echo $destinfo['packing'][0]->title1; ?></h2>
 														<div class="tg-description">
-															<p>We suggest that you pack as lightly as possible as you are expected to carry your own luggage. As a rule we try not to have to walk more than 15-20 minutes with your bag which is why we recommend keeping the weight of your bags between 10-15kg/22-30lb. Suitcases are not recommended for G Adventures trips! Most travellers carry a backpack or rolling bag of small to medium size (no XXL ones please!) as they need to fit under the beds when travelling on sleeper trains. You will also need a day pack/bag to carry water, cameras and other electronics like ipods and mobile phones. If your trip involves overnights in home stays, villages or camping then you usually have the opportunity to rent sleeping bags if need be instead of bringing them with you.</p>
+															<p><?php echo $destinfo['packing'][0]->desc1; ?></p>
 														</div>
 													</div>
 													<div class="tg-box">
-														<h2>Electricity and power supplies in India</h2>
+														<h2><?php echo $destinfo['packing'][0]->title2; ?></h2>
 														<div class="tg-description">
-															<p>In India the power plugs and sockets are of type C, D and M. The standard voltage is 230 V and the standard frequency is 50 Hz. You can use your electric appliances in India, if the standard voltage in your country is in between 220 - 240 V (as is in the UK, Europe, Australia and most of Asia and Africa). Manufacturers take these small deviations into account. If the standard voltage in your country is in the range of 100 V - 127 V (as is in the US, Canada and most South American countries), you need a voltage converter in India. You can also consider a combined power plug adapter/voltage converter.</p>
+															<p><?php echo $destinfo['packing'][0]->desc2; ?></p>
 
 														</div>
 													</div>
@@ -250,29 +250,27 @@
 													<div class="row">
 														<div class="tg-bookingdetail">
 															<div class="tg-box ">
-																<h3>Cold weather</h3>
+																<h3><?php echo $destinfo['packing'][0]->list1 ?></h3>
 																<div class="tg-description">
 																	<ul class="tg-liststyle">
-																		<li><span>Long-sleeved shirts or sweater</span></li>
-																		<li><span>Scarf</span></li>
-																		<li><span>Warm gloves</span></li>
-																		<li><span>Warm hat</span></li>
-																		<li><span>Warm layers</span></li>
+																		<?php $list = explode(",",$destinfo['packing'][0]->item1);
+																		for($i=0; $i<count($list); $i++){ ?>
+																		<li><span><?php  echo trim($list[$i],'[]'); ?></span></li>
+																		<?php } ?>
 
 																	</ul>
 																</div>
 															</div>
 														</div>
-														<div class="tg-bookingdetail ">
+														<div class="tg-bookingdetail">
 															<div class="tg-box ">
-																<h3>Cold weather</h3>
+																<h3><?php echo $destinfo['packing'][0]->list2 ?></h3>
 																<div class="tg-description">
 																	<ul class="tg-liststyle">
-																		<li><span>Long-sleeved shirts or sweater</span></li>
-																		<li><span>Scarf</span></li>
-																		<li><span>Warm gloves</span></li>
-																		<li><span>Warm hat</span></li>
-																		<li><span>Warm layers</span></li>
+																		<?php $list = explode(",",$destinfo['packing'][0]->item2);
+																		for($i=0; $i<count($list); $i++){ ?>
+																			<li><span><?php  echo trim($list[$i],'[]'); ?></span></li>
+																		<?php } ?>
 
 																	</ul>
 																</div>
@@ -281,31 +279,29 @@
 													</div>
 													<br><br>
 													<div class="row">
-														<div class="tg-bookingdetail ">
+														<div class="tg-bookingdetail">
 															<div class="tg-box ">
-																<h3>Cold weather</h3>
+																<h3><?php echo $destinfo['packing'][0]->list3 ?></h3>
 																<div class="tg-description">
 																	<ul class="tg-liststyle">
-																		<li><span>Long-sleeved shirts or sweater</span></li>
-																		<li><span>Scarf</span></li>
-																		<li><span>Warm gloves</span></li>
-																		<li><span>Warm hat</span></li>
-																		<li><span>Warm layers</span></li>
+																		<?php $list = explode(",",$destinfo['packing'][0]->item3);
+																		for($i=0; $i<count($list); $i++){ ?>
+																			<li><span><?php  echo trim($list[$i],'[]'); ?></span></li>
+																		<?php } ?>
 
 																	</ul>
 																</div>
 															</div>
 														</div>
-														<div class="tg-bookingdetail ">
+														<div class="tg-bookingdetail">
 															<div class="tg-box ">
-																<h3>Cold weather</h3>
+																<h3><?php echo $destinfo['packing'][0]->list4 ?></h3>
 																<div class="tg-description">
 																	<ul class="tg-liststyle">
-																		<li><span>Long-sleeved shirts or sweater</span></li>
-																		<li><span>Scarf</span></li>
-																		<li><span>Warm gloves</span></li>
-																		<li><span>Warm hat</span></li>
-																		<li><span>Warm layers</span></li>
+																		<?php $list = explode(",",$destinfo['packing'][0]->item4);
+																		for($i=0; $i<count($list); $i++){ ?>
+																			<li><span><?php  echo trim($list[$i],'[]'); ?></span></li>
+																		<?php } ?>
 
 																	</ul>
 																</div>

@@ -52,7 +52,7 @@ class DestinationM extends CI_Model{
 		else{
 			$q = $this->db->query('insert into destination values(null,"'.$data['parentname'].'","'.$data['Destination_name'].'","'.$data['tagline'].'","'.$data['featured'].'","'.$pic['picture1'].'","'.$data['about1'].'","'.$pic['picture2'].'",null,null,0)');
 			return $q;
-		}	
+		}
 	}
 
 	public function listdestinations(){
@@ -76,16 +76,16 @@ class DestinationM extends CI_Model{
 		$this->load->database();
 		$total = count($data['question']);
 		$qu = "insert into faq values";
-		for ($i=1; $i<=$total ; $i++) { 
-			
+		for ($i=1; $i<=$total ; $i++) {
+
 			if($i==$total){
 				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0)';
 			}
 			else{
 				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0),';
-			} 
+			}
 		}
-		
+
 		$q = $this->db->query($qu);
 		return $q;
 	}
@@ -131,7 +131,7 @@ class DestinationM extends CI_Model{
 		}
 
 		$q = $this->db->query($qu);
-		
+
 		return $q;
 	}
 
@@ -181,7 +181,7 @@ class DestinationM extends CI_Model{
 	public function update_parent($data,$img=null){
 		if ($img==null) {
 			$q = $this->db->query('update destinations_parents set name= "'.$data['name'].'" where id = "'.$data['id'].'" AND isdeleted = 0');
-			return $q;	
+			return $q;
 		}
 		else{
 			$q = $this->db->query('update destinations_parents set name= "'.$data['name'].'", bannerimg = "'.$img.'" where id = "'.$data['id'].'" AND isdeleted = 0');
@@ -189,5 +189,5 @@ class DestinationM extends CI_Model{
 		}
 	}
 
-	
+
 }
