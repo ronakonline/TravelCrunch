@@ -53,7 +53,7 @@
 									<div class="form-group row">
 										<label for="example-text-input" class="col-sm-2 col-form-label">Destination</label>
 										<div class="col-sm-10">
-											<select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
 												<option value="AL">Alabama</option>
 												...
 												<option value="WY">Wyoming</option>
