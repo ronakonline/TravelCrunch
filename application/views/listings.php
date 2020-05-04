@@ -481,8 +481,8 @@
 														?>
 														<li>
 															<figure>
-																<a href="<?php echo base_url();?>uploads/images/destination/<?php echo $row->img; ?>" data-rel="prettyPhoto[instagram]">
-																	<img src="<?php echo base_url();?>uploads/images/destination/<?php echo $row->img; ?>" alt="image decruoton">
+																<a href="<?php echo base_url();?>uploads/images/gallery/<?php echo $row->img; ?>" data-rel="prettyPhoto[instagram]">
+																	<img src="<?php echo base_url();?>uploads/images/gallery/<?php echo $row->img; ?>" alt="image decruoton">
 																</a>
 															</figure>
 														</li>
