@@ -5,6 +5,8 @@
 		<!-- Dropzone css -->
         <link href="<?php echo base_url();?>assets/admin/plugins/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url();?>assets/admin/plugins/dropify/css/dropify.min.css" rel="stylesheet">
+        <!-- Summernote css -->
+        <link href="<?php echo base_url();?>assets/admin/plugins/summernote/summernote-bs4.css" rel="stylesheet" />
 	</head>
 
 
@@ -160,6 +162,126 @@
 					                                                    </div>
 					                                                </div>
 				                                                </div>
+				                                                <div class="form-group">
+				                                                	<button type="submit" class="btn btn-primary">Submit</button>
+				                                                </div>
+			                                            	</form>
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane p-3" id="messages-1" role="tabpanel">
+                                                        <p class="font-14 mb-0">
+                                                        	<form action="insert_overview" method="post">
+                                                        		<div class="row">
+		                                                            <div class="form-group col-sm-6">
+					                                                    <label>Parent</label>
+					                                                    <div>
+					                                                        <select class="form-control" name="destinationname" id="destinationname">
+					                                                        	<option></option>
+					                                                        </select>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group col-sm-6">
+					                                                    <label>Destination</label>
+					                                                    <div>
+					                                                        <select class="form-control" name="destinationname" id="destinationname">
+					                                                        	<option></option>
+					                                                        </select>
+					                                                    </div>
+					                                                </div>
+				                                                </div>
+				                                                <div class="row">
+									                                <div class="col-12">
+									                                    <div class=" m-b-30">
+								                                            <h4 class="mt-0 header-title">Over View</h4>
+								                                            <!-- <p class="text-muted m-b-30 font-14">Super simple wysiwyg editor on bootstrap</p> -->
+								            
+								                                            <div class="summernote">Hello Summernote</div>
+									                                    </div>
+									                                </div> <!-- end col -->
+									                            </div> <!-- end row -->
+				                                                <div class="form-group">
+				                                                	<button type="submit" class="btn btn-primary">Submit</button>
+				                                                </div>
+			                                            	</form>
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane p-3" id="itinerary" role="tabpanel">
+                                                        <p class="font-14 mb-0">
+                                                        	<form action="insert_overview" method="post">
+                                                        		<div class="form-group">
+																	<label>Title</label>
+																	<div>
+																		<input type="text" class="form-control" placeholder="Type something" name="title1" />
+																	</div>
+																</div>
+                                                        		<div class="row">
+		                                                            <div class="form-group col-sm-6">
+					                                                    <label>Parent</label>
+					                                                    <div>
+					                                                        <select class="form-control" name="destinationname" id="destinationname">
+					                                                        	<option></option>
+					                                                        </select>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group col-sm-6">
+					                                                    <label>Destination</label>
+					                                                    <div>
+					                                                        <select class="form-control" name="destinationname" id="destinationname">
+					                                                        	<option></option>
+					                                                        </select>
+					                                                    </div>
+					                                                </div>
+				                                                </div>
+
+				                                                <div class="row">
+									                                <div class="col-12">
+									                                    <div class=" m-b-30">
+								                                            <h4 class="mt-0 header-title">Description</h4>
+								                                            <!-- <p class="text-muted m-b-30 font-14">Super simple wysiwyg editor on bootstrap</p> -->
+								            
+								                                            <div class="summernote">Hello Summernote</div>
+									                                    </div>
+									                                </div> <!-- end col -->
+									                            </div> <!-- end row -->
+				                                                <div class="form-group">
+				                                                	<button type="submit" class="btn btn-primary">Submit</button>
+				                                                </div>
+			                                            	</form>
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane p-3" id="details" role="tabpanel">
+                                                        <p class="font-14 mb-0">
+                                                        	<form action="insert_overview" method="post">
+                                                        		
+                                                        		<div class="row">
+		                                                            <div class="form-group col-sm-6">
+					                                                    <label>Parent</label>
+					                                                    <div>
+					                                                        <select class="form-control" name="destinationname" id="destinationname">
+					                                                        	<option></option>
+					                                                        </select>
+					                                                    </div>
+					                                                </div>
+					                                                <div class="form-group col-sm-6">
+					                                                    <label>Destination</label>
+					                                                    <div>
+					                                                        <select class="form-control" name="destinationname" id="destinationname">
+					                                                        	<option></option>
+					                                                        </select>
+					                                                    </div>
+					                                                </div>
+				                                                </div>
+
+				                                                <div class="row">
+									                                <div class="col-12">
+									                                    <div class=" m-b-30">
+								                                            <h4 class="mt-0 header-title">Details</h4>
+								                                            <!-- <p class="text-muted m-b-30 font-14">Super simple wysiwyg editor on bootstrap</p> -->
+								            
+								                                            <div class="summernote">Hello Summernote</div>
+									                                    </div>
+									                                </div> <!-- end col -->
+									                            </div> <!-- end row -->
 				                                                <div class="form-group">
 				                                                	<button type="submit" class="btn btn-primary">Submit</button>
 				                                                </div>
@@ -401,6 +523,8 @@
 		<?php $this->load->view('admin/js-links') ?>
 		<script src="<?php echo base_url();?>assets/admin/plugins/dropzone/dist/dropzone.js"></script>
         <script src="<?php echo base_url();?>assets/admin/plugins/dropify/js/dropify.min.js"></script>
+        <!--Summernote js-->
+        <script src="<?php echo base_url();?>assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
 		<script>
 			$(document).ready(function(){
 				var i = 1;
@@ -488,6 +612,16 @@
                         drDestroy.init();
                     }
                 })
+            });
+        </script>
+        <script type="text/javascript">
+        	jQuery(document).ready(function(){
+                $('.summernote').summernote({
+                    height: 300,                 // set editor height
+                    minHeight: null,             // set minimum height of editor
+                    maxHeight: null,             // set maximum height of editor
+                    focus: true                 // set focus to editable area after initializing summernote
+                });
             });
         </script>
 <?php
