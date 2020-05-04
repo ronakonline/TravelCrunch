@@ -62,19 +62,19 @@
 									<div class="form-group row">
 										<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 										<div class="col-sm-10">
-											<input class="form-control" type="text" id="Destination_name" name="Destination_name">
+											<input class="form-control" type="text" id="Destination_name" name="Destination_name" required>
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="example-search-input" class="col-sm-2 col-form-label">Tag Line</label>
 										<div class="col-sm-10">
-											<input class="form-control" type="search"  id="tagline" name="tagline">
+											<input class="form-control" type="search"  id="tagline" name="tagline" required>
 										</div>
 									</div>
 									<div class="form-group row">
 										<label class="col-sm-2 col-form-label">Featured</label>
 										<div class="col-sm-10">
-											<select class="form-control" name="featured" id="featured">
+											<select class="form-control" name="featured" id="featured" required>
 												<option value='1'>YES</option>
 												<option value='2'>NO</option>
 											</select>
@@ -85,7 +85,7 @@
 										<div class="col-md-10 ">
 											<div class="input-group mt-2">
 												<div class="custom-file">
-													<input type="file" class="custom-file-input" id="file1" name="file1">
+													<input type="file" class="custom-file-input" id="file1" name="file1" required>
 													<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 												</div>
 											</div>
@@ -95,7 +95,7 @@
 										<label for="example-search-input" class="col-sm-2 col-form-label">About 1</label>
 										<div class="col-md-10 ">
 											<div class="input-group mt-2">
-												<textarea class="form-control" name="about1" id="about1"></textarea>
+												<textarea class="form-control" name="about1" id="about1" required></textarea>
 											</div>
 										</div>
 									</div>
@@ -104,7 +104,7 @@
 										<div class="col-md-10 ">
 											<div class="input-group mt-2">
 												<div class="custom-file">
-													<input type="file" class="custom-file-input" id="file2" name="file2">
+													<input type="file" class="custom-file-input" id="file2" name="file2" required>
 													<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 												</div>
 											</div>

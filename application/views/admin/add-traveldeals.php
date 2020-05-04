@@ -51,20 +51,27 @@
 								<div class="card-body">
 									<form method="post" action="insertparent" enctype="multipart/form-data">
 									<div class="form-group row">
-										<label for="example-text-input" class="col-sm-2 col-form-label">Tour</label>
-										<div class="col-sm-10">
-											<select class="form-control" multiple="multiple">
-												<option>Asia</option>
-												<option>Australia</option>
-												<option>Canda</option>
-												<option>Russia</option>
-												<option>USA</option>
+										
+										<div class="col-sm-6">
+											<label for="example-text-input" class="">Parent</label>
+											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
+												<option value="AL">Alabama</option>
+												...
+												<option value="WY">Wyoming</option>
+											</select>
+										</div>
+										<div class="col-sm-6">
+											<label for="example-text-input" class="">Destination</label>
+											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
+												<option value="AL">Alabama</option>
+												...
+												<option value="WY">Wyoming</option>
 											</select>
 										</div>
 									</div>
-									<div class="form-group row">
-										<label for="example-text-input" class="col-sm-2 col-form-label">Offer</label>
-										<div class="col-sm-10">
+									<div class="form-group">
+										<label for="example-text-input" class="">Offer</label>
+										<div>
 											<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" required>
 										</div>
 									</div>
@@ -114,7 +121,9 @@
 			target.style.display="block";
 		});
 	}
-
+	$(document).ready(function() {
+		$('.js-example-basic-multiple').select2();
+	});
 	var src = document.getElementById("src");
 	var target = document.getElementById("target");
 	showImage(src,target);

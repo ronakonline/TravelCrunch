@@ -33,28 +33,36 @@
 					</ul>
 				</li>
 				<li class="has_sub">
-					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i> <span> Travel </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-wallet-travel"></i> <span> Travel Style</span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
-						<li><a href="<?php echo base_url(); ?>admin/Destination/add_travelstyle">Add Travel Style</a></li>			
-						<li><a href="<?php echo base_url(); ?>admin/Destination/add_traveldeals">Add Travel Deals</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Destination/add_travelstyle">Add Travel Style</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Destination/list_travelstyle">All Travel Style</a></li>			
+						
 					</ul>
 				</li>
 				<li class="has_sub">
-					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i> <span> Tour </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-sale"></i> <span> Travel Deals</span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+					<ul class="list-unstyled">
+						<li><a href="<?php echo base_url(); ?>admin/Destination/add_traveldeals">Add Travel Deals</a></li>			
+						<li><a href="<?php echo base_url(); ?>admin/Destination/list_traveldeals">All Travel Deals</a></li>
+					</ul>
+				</li>
+				<li class="has_sub">
+					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-airplane-takeoff"></i> <span> Tour </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
 						<li><a href="<?php echo base_url(); ?>admin/Tour">Add Tour</a></li>			
 						<li><a href="<?php echo base_url(); ?>admin/Tour/list_tour">All Tour</a></li>
 					</ul>
 				</li>
 				<li class="has_sub">
-					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i> <span> SEO </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-areaspline"></i> <span> SEO </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
 						<li><a href="<?php echo base_url(); ?>admin/Seo/add_seo">Add SEO</a></li>			
 						<li><a href="<?php echo base_url(); ?>admin/Seo/all_seo">All SEO</a></li>
 					</ul>
 				</li>
 				<li class="has_sub">
-					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-layers"></i> <span> Site Setting </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-settings"></i> <span> Site Setting </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
 						<!-- <li><a href="<?php echo base_url(); ?>admin/Destination/add_travelstyle">Add Travel Style</a></li>			
 						<li><a href="<?php echo base_url(); ?>admin/Destination/add_traveldeals">Add Travel Deals</a></li> -->

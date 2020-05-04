@@ -51,8 +51,17 @@
 								<div class="card-body">
 									<form method="post" action="insertparent" enctype="multipart/form-data">
 									<div class="form-group row">
-										<label for="example-text-input" class="col-sm-2 col-form-label">Destination</label>
-										<div class="col-sm-10">
+										
+										<div class="col-sm-6">
+											<label for="example-text-input" class="">Parent</label>
+											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
+												<option value="AL">Alabama</option>
+												...
+												<option value="WY">Wyoming</option>
+											</select>
+										</div>
+										<div class="col-sm-6">
+											<label for="example-text-input" class="">Destination</label>
 											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
 												<option value="AL">Alabama</option>
 												...

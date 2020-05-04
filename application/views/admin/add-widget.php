@@ -99,13 +99,13 @@
 	                                                            <div class="form-group">
 				                                                    <label>Overview-left</label>
 				                                                    <div>
-				                                                        <textarea class="form-control" rows="5" name="oleft" id="oleft"></textarea>
+				                                                        <textarea class="form-control" rows="5" name="oleft" id="oleft" required></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
 				                                                    <label>Overview-right</label>
 				                                                    <div>
-				                                                        <textarea class="form-control" rows="5" name="oright" id="oright"></textarea>
+				                                                        <textarea class="form-control" rows="5" name="oright" id="oright" required></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
@@ -175,25 +175,25 @@
 		                                                            <div class="form-group">
 					                                                    <label>1st Title</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="title1" />
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="title1" required />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Description</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="desc1" ></textarea>
+					                                                        <textarea class="form-control" rows="5" name="desc1" required></textarea>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>2nd Title</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="title2" />
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="title2" required/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Description</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="desc2" ></textarea>
+					                                                        <textarea class="form-control" rows="5" name="desc2" required></textarea>
 					                                                    </div>
 					                                                </div>
 					                                            </div>
@@ -209,7 +209,7 @@
 					                                                <div class="form-group" id="1_list">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control name_list" name="item1[]" id="item" >
+					                                                        <input type="text" class="form-control name_list" name="item1[]" id="item" required>
 																			<div id="itemlist1"></div>
 					                                                        <button class="btn btn-outline-primary" name="add" id="add" type="button">+</button>
 					                                                    </div>
@@ -217,13 +217,13 @@
 					                                                <div class="form-group">
 					                                                    <label>2nd List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list2" id="list2" />
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list2" id="list2" required/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item2[]" id="item">
+					                                                        <input type="text" class="form-control" name="item2[]" id="item" required>
 					                                                        <div id="itemlist2"></div>
 					                                                        <button class="btn btn-outline-primary" name="add1" id="add1" type="button">+</button>
 					                                                    </div>
@@ -237,7 +237,7 @@
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item3[]" id="item">
+					                                                        <input type="text" class="form-control" name="item3[]" id="item" required>
 					                                                        <div id="itemlist3"></div>
 					                                                        <button class="btn btn-outline-primary" name="add2" id="add2" type="button">+</button>
 					                                                    </div>
@@ -245,13 +245,13 @@
 					                                                <div class="form-group">
 					                                                    <label>4th List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list4" id="list4" />
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list4" id="list4" required/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control"  name="item4[]" id="item">
+					                                                        <input type="text" class="form-control"  name="item4[]" id="item" required>
 					                                                    </div>
 					                                                    <div id="itemlist4"></div>
 					                                                        <button class="btn btn-outline-primary" name="add3" id="add3" type="button">+</button>
@@ -282,7 +282,7 @@
 				                                                <div class="form-group">
 				                                                    <label>SEO Tags(Seprate with "COMA")</label>
 				                                                    <div>
-				                                                        <textarea class="form-control" rows="5" name="tags" id="tags"></textarea>
+				                                                        <textarea class="form-control" rows="5" name="tags" id="tags" required></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
