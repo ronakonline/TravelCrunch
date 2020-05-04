@@ -51,7 +51,7 @@
 								<div class="card-body">
 									<form method="post" action="insertparent" enctype="multipart/form-data">
 									<div class="form-group row">
-										<label for="example-text-input" class="col-sm-2 col-form-label">Destination</label>
+										<label for="example-text-input" class="col-sm-2 col-form-label">Tour</label>
 										<div class="col-sm-10">
 											<select class="form-control" multiple="multiple">
 												<option>Asia</option>
@@ -63,20 +63,9 @@
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
+										<label for="example-text-input" class="col-sm-2 col-form-label">Offer</label>
 										<div class="col-sm-10">
-											<input class="form-control" type="text" name="name" id="name" required>
-										</div>
-									</div>
-									<div class="form-group row">
-										<label for="example-search-input" class="col-sm-2 col-form-label">Banner Image</label>
-										<div class="col-md-10 ">
-											<div class="input-group mt-2">
-												<div class="custom-file">
-													<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
-													<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-												</div>
-											</div>
+											<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" required>
 										</div>
 									</div>
 										<div class="form-group row">

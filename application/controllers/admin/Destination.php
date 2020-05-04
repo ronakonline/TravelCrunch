@@ -71,7 +71,7 @@ class Destination extends CI_Controller{
     //Add Destination(Page) Controller
     public function  Add_Destination(){
 		if($_SESSION['admin']){
-			$data['title']="Dashboard";
+			$data['title']="Add Destination";
             $this->load->model("DestinationM");
             $data["parentname"] = $this->DestinationM->show_parent();
 			$this->load->view('admin/add-destination',$data);
@@ -112,6 +112,15 @@ class Destination extends CI_Controller{
         if($_SESSION['admin']){
             $data['title']="Add Travel Style";
             $this->load->view('admin/add-travelstyle',$data);
+        }else{
+            redirect('admin');
+        }
+    }
+
+    public function add_traveldeals(){
+        if($_SESSION['admin']){
+            $data['title']="Add Travel Deals";
+            $this->load->view('admin/add-traveldeals',$data);
         }else{
             redirect('admin');
         }

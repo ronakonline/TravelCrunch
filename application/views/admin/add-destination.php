@@ -33,11 +33,11 @@
 								<div class="btn-group float-right">
 									<ol class="breadcrumb hide-phone p-0 m-0">
 										<li class="breadcrumb-item"><a href="#">Destination</a></li>
-										<li class="breadcrumb-item"><a href="#">Add-Destination</a></li>
+										<li class="breadcrumb-item"><a href="#"><?php echo $title; ?></a></li>
 
 									</ol>
 								</div>
-								<h4 class="page-title">Add Destination</h4>
+								<h4 class="page-title"><?php echo $title; ?></h4>
 							</div>
 						</div>
 					</div>
