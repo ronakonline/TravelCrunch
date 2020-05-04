@@ -10,6 +10,7 @@ if (! function_exists('frontend_data')) {
 		$data['parents'] = $ci->DestinationM->listparents();
 		$data['destinations'] = $ci->DestinationM->listdestinations();
 		$data['tdestination'] = count($data['destinations']);
+		$data['travelstyle'] = $ci->DestinationM->listtravelstyle();
 		return $data;
 	}
 }
@@ -28,3 +29,4 @@ if (! function_exists('destination_data')) {
 		return $data;
 	}
 }
+

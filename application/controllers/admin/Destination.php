@@ -111,11 +111,30 @@ class Destination extends CI_Controller{
     public function add_travelstyle(){
         if($_SESSION['admin']){
             $data['title']="Add Travel Style";
+            $this->load->model('DestinationM');
+            $data['destinations'] = $this->DestinationM->show_destination();
             $this->load->view('admin/add-travelstyle',$data);
         }else{
             redirect('admin');
         }
     }
+
+    public function inserttravelstyle(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			$data['bannerimg'] = $this->uploadimage($_FILES['bannerimg'],"bannerimg","destination");
+			if($data['bannerimg']=="error"){
+				$_SESSION['error']="Error Inserting Record";
+			}else{
+				$this->load->model('DestinationM');
+				$op = $this->DestinationM->insert_travelstyle($data);
+				$_SESSION['success']="Successfully Inserted";
+			}
+			redirect('admin/Destination/List_Parent');
+		}else{
+			redirect('admin');
+		}
+	}
 
     public function add_traveldeals(){
         if($_SESSION['admin']){

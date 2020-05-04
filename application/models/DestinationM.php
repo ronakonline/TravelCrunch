@@ -177,6 +177,10 @@ class DestinationM extends CI_Model{
 		$q = $this->db->query("select * from faq where destid =$id AND isdeleted = 0");
 		return $q->result();
 	}
+	public function getpacking($id){
+		$q = $this->db->query("select * from packing where destid =$id AND isdeleted = 0");
+		return $q->result();
+	}
 	public function editlist_parent($id){
 		$q = $this->db->query("select * from destinations_parents where id = $id AND isdeleted = 0");
 		return $q->result();
@@ -191,6 +195,25 @@ class DestinationM extends CI_Model{
 			$q = $this->db->query('update destinations_parents set name= "'.$data['name'].'", bannerimg = "'.$img.'" where id = "'.$data['id'].'" AND isdeleted = 0');
 			return $q;
 		}
+	}
+
+	public function insert_travelstyle($data){
+		$qu = 'insert into travelstyle values(null,"[';
+		$total = count($data['destinations']);
+		for($i=0; $i<$total; $i++){
+			if($i==$total-1){
+				$qu .= $data['destinations'][$i].']","'.$data['name'].'","'.$data['bannerimg'].'",0)';
+			}else{
+				$qu .= $data['destinations'][$i].',';
+			}
+		}
+		$q = $this->db->query($qu);
+		return $q;
+	}
+
+	public function listtravelstyle(){
+		$q = $this->db->query("select * from travelstyle where isdeleted = 0");
+		return $q->result();
 	}
 
 
