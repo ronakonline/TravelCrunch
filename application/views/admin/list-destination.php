@@ -19,6 +19,17 @@
         <link href="<?php echo base_url();?>assets/admin/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <!-- Responsive datatable examples -->
         <link href="<?php echo base_url();?>assets/admin/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <!-- JavaScript -->
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+        <!-- Semantic UI theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
     </head>
 
     <body class="fixed-left">
@@ -58,77 +69,25 @@
         					<div class="row">
                                 <div class="col-12">
                                     <div class="card m-b-30">
-                                        <div class="card-body">
+                                        <div class="card-body table-responsive">
                                             <table id="datatable" class="table table-bordered">
                                                 <thead>
                                                 <tr>
-                                                    <th>Parent Name</th>
                                                     <th>Name</th>
+                                                    <th>Parent</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
 
                                                 <tbody>
-                                                <tr>
-                                                    <td>Asia</td>
-                                                    <td>Tiger Nixon</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>USA</td>
-                                                    <td>Garrett Winters</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Australia</td>
-                                                    <td>Ashton Cox</td>
-                                                   <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>North America</td>
-                                                    <td>Cedric Kelly</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Asia</td>
-                                                    <td>Airi Satou</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Australia</td>
-                                                    <td>Brielle Williamson</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>North America</td>
-                                                    <td>Herrod Chandler</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Asia</td>
-                                                    <td>Rhona Davidson</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Australia</td>
-                                                    <td>Colleen Hurst</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Asia</td>
-                                                    <td>Sonya Frost</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>North America</td>
-                                                    <td>Jena Gaines</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Australia</td>
-                                                    <td>Quinn Flynn</td>
-                                                    <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></td>
-        										</tr>
+                                                    <?php foreach ($destination as $row){?>
+                                                    <tr>
+                                                        <td><?php echo $row->name;?></td>
+                                                        <td><?php echo $row->pname;?></td>
+                                                        
+                                                        <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><a href="delete_destination/<?php echo $row->id; ?>"><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a><li class="fa fa-eye p-2 text-info" style="font-size: 30px"></li></td>
+                                                    </tr>
+                                                    <?php }?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -138,9 +97,7 @@
         				</div><!-- container -->
         			</div> <!-- Page content Wrapper -->
                 </div> <!-- content -->
-        		<footer class="footer">
-        			© 2018 Annex by Mannatthemes.
-        		</footer>
+        		<?php $this->load->view('admin/footer'); ?>
     	    </div>
     	    <!-- End Right content here -->
 
@@ -185,5 +142,17 @@
                 $('#datatable2').DataTable();  
             } );
         </script>
+        <!-- Alertify js -->
+<script src="<?php echo base_url();?>assets/admin/plugins/alertify/js/alertify.js"></script>
+<script src="<?php echo base_url();?>assets/admin/pages/alertify-init.js"></script>
+<?php
+if(isset($_SESSION['error'])){
+    echo '<script>alertify.error("'.$_SESSION['error'].'"); </script>';
+    unset($_SESSION['error']);
+}elseif (isset($_SESSION['success'])){
+    echo '<script>alertify.success("'.$_SESSION['success'].'");</script>';
+    unset($_SESSION['success']);
+}
+?>
     </body>
 </html>
