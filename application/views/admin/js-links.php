@@ -53,4 +53,4 @@
 <!-- Alertify js -->
 <script src="<?php echo base_url();?>assets/admin/plugins/alertify/js/alertify.js"></script>
 <script src="<?php echo base_url();?>assets/admin/pages/alertify-init.js"></script>
-
+<script src="<?php echo base_url();?>assets/admin/plugins/select2/select2.min.js" type="text/javascript"></script>

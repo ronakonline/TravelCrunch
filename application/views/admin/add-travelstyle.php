@@ -53,12 +53,10 @@
 									<div class="form-group row">
 										<label for="example-text-input" class="col-sm-2 col-form-label">Destination</label>
 										<div class="col-sm-10">
-											<select class="form-control" multiple="multiple">
-												<option>Asia</option>
-												<option>Australia</option>
-												<option>Canda</option>
-												<option>Russia</option>
-												<option>USA</option>
+											<select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+												<option value="AL">Alabama</option>
+												...
+												<option value="WY">Wyoming</option>
 											</select>
 										</div>
 									</div>
@@ -129,6 +127,10 @@
 	var src = document.getElementById("src");
 	var target = document.getElementById("target");
 	showImage(src,target);
+
+	$(document).ready(function() {
+		$('.js-example-basic-multiple').select2();
+	});
 </script>
 <?php
 if(isset($_SESSION['error'])){
