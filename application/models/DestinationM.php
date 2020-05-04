@@ -9,55 +9,67 @@ class DestinationM extends CI_Model{
 
 	public function insert_parent($name,$pic){
 		$this->load->database();
-		$q = $this->db->query('insert into Destinations_Parents values(null,"'.$name.'","'.$pic.'")');
+		$q = $this->db->query('insert into Destinations_Parents values(null,"'.$name.'","'.$pic.'",0)');
 		return $q;
 	}
 
 	public function delete_parent($id){
 		$this->load->database();
-		$q = $this->db->query('delete from Destinations_Parents where id='.$id);
+		$q = $this->db->query('update Destinations_Parents set isdeleted=1 where id='.$id);
+		return $q;
+	}
+
+	public function delete_destination($id){
+		$this->load->database();
+		$q = $this->db->query('update destination set isdeleted=1 where id='.$id);
 		return $q;
 	}
 
 	public function show_parent(){
 		$this->load->database();
-		$q = $this->db->query("SELECT id,name from Destinations_Parents");
+		$q = $this->db->query("SELECT id,name from Destinations_Parents where isdeleted = 0");
 		return $q->result();
 	}
 
 	public function listparents(){
 		$this->load->database();
-		$q = $this->db->query("SELECT * from Destinations_Parents");
+		$q = $this->db->query("SELECT * from Destinations_Parents where isdeleted = 0");
 		return $q->result();
 	}
 
 	public function show_destination(){
 		$this->load->database();
-		$q = $this->db->query("SELECT id,name from destination");
+		$q = $this->db->query("SELECT id,name from destination where isdeleted = 0");
 		return $q->result();
 	}
 
 	public function insert_destination($data,$pic){
 		$this->load->database();
 		if (isset($pic['picture3'])) {
-			$q = $this->db->query('insert into destination values(null,"'.$data['parentname'].'","'.$data['Destination_name'].'","'.$data['tagline'].'","'.$data['featured'].'","'.$pic['picture1'].'","'.$data['about1'].'","'.$pic['picture2'].'","'.$data['about2'].'","'.$pic['picture3'].'")');
+			$q = $this->db->query('insert into destination values(null,"'.$data['parentname'].'","'.$data['Destination_name'].'","'.$data['tagline'].'","'.$data['featured'].'","'.$pic['picture1'].'","'.$data['about1'].'","'.$pic['picture2'].'","'.$data['about2'].'","'.$pic['picture3'].'",0)');
 			return $q;
 		}
 		else{
-			$q = $this->db->query('insert into destination values(null,"'.$data['parentname'].'","'.$data['Destination_name'].'","'.$data['tagline'].'","'.$data['featured'].'","'.$pic['picture1'].'","'.$data['about1'].'","'.$pic['picture2'].'",null,null)');
+			$q = $this->db->query('insert into destination values(null,"'.$data['parentname'].'","'.$data['Destination_name'].'","'.$data['tagline'].'","'.$data['featured'].'","'.$pic['picture1'].'","'.$data['about1'].'","'.$pic['picture2'].'",null,null,0)');
 			return $q;
 		}	
 	}
 
 	public function listdestinations(){
 		$this->load->database();
-		$q = $this->db->query("SELECT * from destination");
+		$q = $this->db->query("SELECT * from destination where isdeleted = 0");
+		return $q->result();
+	}
+
+	public function alldestinations(){
+		$this->load->database();
+		$q = $this->db->query("SELECT destination.id, destination.name ,destinations_parents.name as pname  from destination,destinations_parents where destination.parent = destinations_parents.id  AND destinations_parents.isdeleted = 0 AND destination.isdeleted = 0");
 		return $q->result();
 	}
 
 	public function insert_overview($data){
 		$this->load->database();
-		$q = $this->db->query('insert into overview values(null,"'.$data['destinationname'].'","'.$data['oleft'].'","'.$data['oright'].'")');
+		$q = $this->db->query('insert into overview values(null,"'.$data['destinationname'].'","'.$data['oleft'].'","'.$data['oright'].'",0)');
 	}
 
 	public function insert_faq($data){
@@ -67,10 +79,10 @@ class DestinationM extends CI_Model{
 		for ($i=1; $i<=$total ; $i++) { 
 			
 			if($i==$total){
-				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'")';
+				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0)';
 			}
 			else{
-				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'"),';
+				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0),';
 			} 
 		}
 		
@@ -112,7 +124,7 @@ class DestinationM extends CI_Model{
 		for($i=0; $i<$item4count; $i++) {
 
 			if ($i == $item4count-1) {
-				$qu .= $data['item4'][$i] . "]".'")' ;
+				$qu .= $data['item4'][$i] . "]".'",0)' ;
 			} else {
 				$qu .= $data['item4'][$i] . ",";
 			}
@@ -125,7 +137,7 @@ class DestinationM extends CI_Model{
 
 	public function insert_seotags($data){
 		$this->load->database();
-		$q = $this->db->query('insert into seotag values(null,"'.$data['destinationname'].'","'.$data['tags'].'")');
+		$q = $this->db->query('insert into seotag values(null,"'.$data['destinationname'].'","'.$data['tags'].'",0)');
 		return $q;
 	}
 
@@ -135,29 +147,47 @@ class DestinationM extends CI_Model{
 		$total = count($data['filenames']);
 		for($i=0; $i<$total; $i++){
 			if($i==$total-1){
-				$qu .= '(null,'.$data['destination'].',"'.$data['filenames'][$i].'")';
+				$qu .= '(null,'.$data['destination'].',"'.$data['filenames'][$i].'",0)';
 			}else{
-				$qu .= '(null,'.$data['destination'].',"'.$data['filenames'][$i].'"),';
+				$qu .= '(null,'.$data['destination'].',"'.$data['filenames'][$i].'",0),';
 			}
 		}
 		$q = $this->db->query($qu);
 		return $q;
 	}
 
+
 	public function getdest($id){
-		$q = $this->db->query('select * from destination where id ='.$id);
+		$q = $this->db->query("select * from destination where id = $id AND isdeleted = 0");
 		return $q->result();
 	}
 	public function getgallery($id){
-		$q = $this->db->query('select * from gallery where destid ='.$id);
+		$q = $this->db->query("select * from gallery where destid =$id AND isdeleted = 0");
 		return $q->result();
 	}
 	public function getoverview($id){
-		$q = $this->db->query('select * from overview where destid ='.$id);
+		$q = $this->db->query("select * from overview where destid =$id AND isdeleted = 0");
 		return $q->result();
 	}
 	public function getfaq($id){
-		$q = $this->db->query('select * from faq where destid ='.$id);
+		$q = $this->db->query("select * from faq where destid =$id AND isdeleted = 0");
 		return $q->result();
 	}
+	public function editlist_parent($id){
+		$q = $this->db->query("select * from destinations_parents where id = $id AND isdeleted = 0");
+		return $q->result();
+	}
+
+	public function update_parent($data,$img=null){
+		if ($img==null) {
+			$q = $this->db->query('update destinations_parents set name= "'.$data['name'].'" where id = "'.$data['id'].'" AND isdeleted = 0');
+			return $q;	
+		}
+		else{
+			$q = $this->db->query('update destinations_parents set name= "'.$data['name'].'", bannerimg = "'.$img.'" where id = "'.$data['id'].'" AND isdeleted = 0');
+			return $q;
+		}
+	}
+
+	
 }

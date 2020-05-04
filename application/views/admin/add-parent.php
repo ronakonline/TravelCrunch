@@ -91,9 +91,7 @@
 
 		</div> <!-- content -->
 
-		<footer class="footer">
-			© 2018 Annex by Mannatthemes.
-		</footer>
+		<?php $this->load->view('admin/footer'); ?>
 
 	</div>
 	<!-- End Right content here -->

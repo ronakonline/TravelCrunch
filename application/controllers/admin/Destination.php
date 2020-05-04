@@ -128,8 +128,26 @@ class Destination extends CI_Controller{
 
     public function  List_Destination(){
         if($_SESSION['admin']){
-            $data['title']="List Parent";
+            $data['title']="List Destination";
+            $this->load->model("DestinationM");
+            $data['destination'] = $this->DestinationM->alldestinations();
             $this->load->view('admin/list-destination',$data);
+        }else{
+            redirect('admin');
+        }
+    }
+
+    public function delete_destination($id){
+        if($_SESSION['admin']){
+            $this->load->model('DestinationM');
+            $op = $this->DestinationM->delete_destination($id);
+            //unlink("uploads/images/parent/".$img);
+            if($op==1){
+                $_SESSION['success']="Successfully Deleted";
+            }else{
+                $_SESSION['error']="Error Deleting";
+            }
+            redirect('admin/Destination/List_Destination');
         }else{
             redirect('admin');
         }
@@ -241,7 +259,7 @@ class Destination extends CI_Controller{
 					$_FILES['file']['size'] = $_FILES['files']['size'][$i];
 
 					// Set preference
-					$config['upload_path'] = 'uploads/images/destination';
+					$config['upload_path'] = 'uploads/images/gallery';
 					$config['allowed_types'] = 'jpg|jpeg|png|gif';
 					$config['max_size'] = '5000'; // max_size in kb
 					$config['file_name'] = $_FILES['files']['name'][$i];
@@ -281,5 +299,59 @@ class Destination extends CI_Controller{
         else{
             redirect('admin');
         }        
+    }
+
+    public function editlist_parent($id){
+        if($_SESSION['admin']){
+            $data['title'] ="Update Parent";
+            $this->load->model('DestinationM');
+            $data['edit_parent'] = $this->DestinationM->editlist_parent($id);
+            $this->load->view('admin/edit-parent',$data);
+        }
+        else{
+            redirect('admin');   
+        }    
+    }
+
+    public function updateparent(){
+         if($_SESSION['admin']){
+            
+            $data = $this->input->post();
+            if ($_FILES['bannerimg']['error'] != 4) {
+                $picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","parent");
+                if($picture=="error"){
+                    $_SESSION['error']="Error Inserting Record";
+                    redirect('admin/Destination/editlist_parent/'.$data['id']);
+                }
+                else{
+                    $this->load->model('DestinationM');
+                    $op = $this->DestinationM->update_parent($data,$picture);        
+                    if($op==1){
+                    $_SESSION['success']="Successfully Update";
+                    }else{
+                        $_SESSION['error']="Error Updating";
+                    }
+                    redirect('admin/Destination/editlist_parent/'.$data['id']);
+                }
+                
+
+            }    
+
+            else{
+                 $this->load->model('DestinationM');
+                $op = $this->DestinationM->update_parent($data);
+                echo $op;
+                if($op==1){
+                $_SESSION['success']="Successfully Updated";
+                }else{
+                    $_SESSION['error']="Error updating";
+                }
+                redirect('admin/Destination/editlist_parent/'.$data['id']);
+            }
+
+        }
+        else{
+            redirect('admin');   
+        }   
     }
 }
