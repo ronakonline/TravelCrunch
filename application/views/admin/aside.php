@@ -29,7 +29,7 @@
 						<li><a href="<?php echo base_url(); ?>admin/Destination/Add_Destination">Add Destination</a></li>
 						<li><a href="<?php echo base_url(); ?>admin/Destination/List_Destination">All Destinations</a></li>
 						<li><a href="<?php echo base_url(); ?>admin/Destination/Add_Widget">Add Widget</a></li>
-						
+						<li><a href="<?php echo base_url(); ?>admin/Destination/add_travelstyle">Add Travel Style</a></li>						
 					</ul>
 				</li>
 			</ul>

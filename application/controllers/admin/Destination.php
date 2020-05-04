@@ -107,6 +107,16 @@ class Destination extends CI_Controller{
         }
     }
 
+
+    public function add_travelstyle(){
+        if($_SESSION['admin']){
+            $data['title']="Add Travel Style";
+            $this->load->view('admin/add-travelstyle',$data);
+        }else{
+            redirect('admin');
+        }
+    }
+
     public  function  uploadimage($img,$name,$dest){
         $config['upload_path'] = 'uploads/images/'.$dest;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
