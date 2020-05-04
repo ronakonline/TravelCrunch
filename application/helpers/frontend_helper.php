@@ -24,6 +24,7 @@ if (! function_exists('destination_data')) {
 		$data['img'] = $ci->DestinationM->getgallery($id);
 		$data['overview'] = $ci->DestinationM->getoverview($id);
 		$data['faq'] = $ci->DestinationM->getfaq($id);
+		$data['packing'] = $ci->DestinationM->getpacking($id);
 		return $data;
 	}
 }

@@ -29,3 +29,10 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+uploads/images/parent/asia.jpg
+uploads/images/destination/india2.jpg
+uploads/images/destination/india1.jpg
+uploads/images/destination/india.jpg
+uploads/images/destination/1556370242_shutterstock_780181144_jpg2.jpg
+uploads/images/destination/1556370242_shutterstock_780181144_jpg1.jpg
+uploads/images/destination/1556370242_shutterstock_780181144_jpg.jpg

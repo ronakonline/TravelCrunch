@@ -160,4 +160,8 @@ class DestinationM extends CI_Model{
 		$q = $this->db->query('select * from faq where destid ='.$id);
 		return $q->result();
 	}
+	public function getpacking($id){
+		$q = $this->db->query('select * from packing where destid ='.$id);
+		return $q->result();
+	}
 }
