@@ -113,16 +113,112 @@ class Tour extends CI_Controller{
 	{
 		if ($_SESSION['admin']) {
 			$data = $this->input->post();
-			print_r($data);
-//			$op = $this->TourM->insert_overview($data);
-//			if ($op == 1) {
-//				$_SESSION['success'] = "Successfully Inserted";
-//			} else {
-//				$_SESSION['error'] = "Error Inserting Record";
-//			}
+			$op = $this->TourM->insert_itinerary($data);
+			if ($op == 1) {
+				$_SESSION['success'] = "Successfully Inserted";
+			} else {
+				$_SESSION['error'] = "Error Inserting Record";
+			}
 
-			//redirect('admin/Tour');
+			redirect('admin/Tour');
 		} else {
+			redirect('admin');
+		}
+	}
+
+	public function  insert_details()
+	{
+		if ($_SESSION['admin']) {
+			$data = $this->input->post();
+			//print_r($data);
+			$op = $this->TourM->insert_details($data);
+			if ($op == 1) {
+				$_SESSION['success'] = "Successfully Inserted";
+			} else {
+				$_SESSION['error'] = "Error Inserting Record";
+			}
+
+			redirect('admin/Tour');
+		} else {
+			redirect('admin');
+		}
+	}
+	public function  insert_faq()
+	{
+		if ($_SESSION['admin']) {
+			$data = $this->input->post();
+			//print_r($data);
+			$op = $this->TourM->insert_faq($data);
+			if ($op == 1) {
+				$_SESSION['success'] = "Successfully Inserted";
+			} else {
+				$_SESSION['error'] = "Error Inserting Record";
+			}
+
+			redirect('admin/Tour');
+		} else {
+			redirect('admin');
+		}
+	}
+
+	public function insert_gallery(){
+		if($_SESSION['admin']){
+			$data['title']="Add Widget";
+			$data = $this->input->post();
+
+			// Count total files
+			$countfiles = count($_FILES['files']['name']);
+
+			// Looping all files
+			for($i=0;$i<$countfiles;$i++){
+
+				if(!empty($_FILES['files']['name'][$i])){
+
+					// Define new $_FILES array - $_FILES['file']
+					$_FILES['file']['name'] = $_FILES['files']['name'][$i];
+					$_FILES['file']['type'] = $_FILES['files']['type'][$i];
+					$_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'][$i];
+					$_FILES['file']['error'] = $_FILES['files']['error'][$i];
+					$_FILES['file']['size'] = $_FILES['files']['size'][$i];
+
+					// Set preference
+					$config['upload_path'] = 'uploads/images/gallery';
+					$config['allowed_types'] = 'jpg|jpeg|png|gif';
+					$config['max_size'] = '5000'; // max_size in kb
+					$config['file_name'] = $_FILES['files']['name'][$i];
+
+					//Load upload library
+					$this->load->library('upload',$config);
+
+					// File upload
+					if($this->upload->do_upload('file')){
+						// Get data about the file
+						$uploadData = $this->upload->data();
+						$filename = $uploadData['file_name'];
+
+						// Initialize array
+						$data['filenames'][] = $filename;
+					}
+				}
+
+			}
+
+
+
+			// $pic['picture1'] = $this->uploadimage($_FILES[''],"file1","destination");
+
+
+			$qu = $this->TourM->insert_gallery($data);
+			echo $qu;
+			if ($qu==1) {
+				$_SESSION['success']="Inserted Successfully";
+			}
+			else{
+				$_SESSION['error']="Error Inserting Record";
+			}
+			redirect('admin/Tour');
+		}
+		else{
 			redirect('admin');
 		}
 	}

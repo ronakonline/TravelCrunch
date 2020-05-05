@@ -42,4 +42,49 @@ class TourM extends CI_Model{
 		$q = $this->db->query('update tours set overview="'.$data['overview'].'" where id='.$data['tour']);
 		return $q;
 	}
+	public function  insert_itinerary($data){
+		$tit = count($data['daytitle']);
+		$qu = 'insert into itinerary values(null,'.$data['tour'].',"'.$data['daytitle'][0].'","'.$data['daydetail'][0].'")';
+		for ($i=1; $i<$tit; $i++){
+			$qu .= ',(null,'.$data['tour'].',"'.$data['daytitle'][$i].'","'.$data['daydetail'][$i].'")';
+		}
+		$op = $this->db->query($qu);
+		return $op;
+	}
+
+	public function  insert_details($data){
+		$q = $this->db->query('update tours set details="'.$data['details'].'" where id='.$data['tour']);
+		return $q;
+	}
+
+	public function insert_faq($data){
+		$total = count($data['question']);
+		$qu = "insert into tourfaq values";
+		for ($i=0; $i<$total ; $i++) {
+
+			if($i==$total-1){
+				$qu .= '(null,'.$data['tour'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0)';
+			}
+			else{
+				$qu .= '(null,'.$data['tour'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0),';
+			}
+		}
+
+		$q = $this->db->query($qu);
+		return $q;
+	}
+
+	public function insert_gallery($data){
+		$qu = 'insert into tourgallery values';
+		$total = count($data['filenames']);
+		for($i=0; $i<$total; $i++){
+			if($i==$total-1){
+				$qu .= '(null,'.$data['tour'].',"'.$data['filenames'][$i].'",0)';
+			}else{
+				$qu .= '(null,'.$data['tour'].',"'.$data['filenames'][$i].'",0),';
+			}
+		}
+		$q = $this->db->query($qu);
+		return $q;
+	}
 }

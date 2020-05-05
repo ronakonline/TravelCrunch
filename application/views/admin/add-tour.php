@@ -278,28 +278,28 @@
 
                                                     <div class="tab-pane p-3" id="details" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                        	<form action="insert_overview" method="post">
+                                                        	<form action="Tour/insert_details" method="post">
                                                         		
                                                         		<div class="row">
-		                                                            <div class="form-group col-sm-6">
-					                                                    <label>Parent</label>
-					                                                    <div>
-																			<select class="form-control" name="parent" id="parent3"  required>
-																				<option disabled selected>Select Parent</option>
-																				<?php foreach ($parents as $parent){ ?>
-																					<option value="<?php echo $parent->id?>"><?php echo $parent->name; ?></option>
+																	<div class="form-group col-sm-6">
+																		<label>Destination</label>
+																		<div>
+																			<select class="form-control" name="destination" id="destination3"  required>
+																				<option disabled selected>Select Destination</option>
+																				<?php foreach ($destinations as $destination){ ?>
+																					<option value="<?php echo $destination->id?>"><?php echo $destination->name; ?></option>
 																				<?php } ?>
 																			</select>
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group col-sm-6">
-					                                                    <label>Destination</label>
-					                                                    <div>
-					                                                        <select class="form-control" name="destination" id="destination3">
-					                                                        	<option></option>
-					                                                        </select>
-					                                                    </div>
-					                                                </div>
+																		</div>
+																	</div>
+																	<div class="form-group col-sm-6">
+																		<label>Tour</label>
+																		<div>
+																			<select class="form-control" name="tour" id="tour3">
+																				<option></option>
+																			</select>
+																		</div>
+																	</div>
 				                                                </div>
 
 				                                                <div class="row">
@@ -308,7 +308,7 @@
 								                                            <h4 class="mt-0 header-title">Details</h4>
 								                                            <!-- <p class="text-muted m-b-30 font-14">Super simple wysiwyg editor on bootstrap</p> -->
 								            
-								                                            <div class="summernote">Hello Summernote</div>
+								                                            <textarea class="summernote" name="details">Hello Summernote</textarea>
 									                                    </div>
 									                                </div> <!-- end col -->
 									                            </div> <!-- end row -->
@@ -323,30 +323,39 @@
 
                                                     <div class="tab-pane p-3" id="profile-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                            <form action="insert_faq" method="post">
-                                                            	<div class="form-group">
-																	<label>Destination</label>
-																	<div>
-																		<select class="form-control" name="destinationname" id="destinationname">
-																			<?php 
-																				foreach ($destinationname as $name) {
-																					echo "<option value='$name->id'>$name->name</option>";
-																				}
-																			 ?>
-																		</select>
-																	</div>
+                                                            <form action="Tour/insert_faq" method="post">
+															<div class="row">
+															<div class="form-group col-sm-6">
+																<label>Destination</label>
+																<div>
+																	<select class="form-control" name="destination" id="destination4"  required>
+																		<option disabled selected>Select Destination</option>
+																		<?php foreach ($destinations as $destination){ ?>
+																			<option value="<?php echo $destination->id?>"><?php echo $destination->name; ?></option>
+																		<?php } ?>
+																	</select>
 																</div>
+															</div>
+															<div class="form-group col-sm-6">
+																<label>Tour</label>
+																<div>
+																	<select class="form-control" name="tour" id="tour4">
+																		<option></option>
+																	</select>
+																</div>
+															</div>
+															</div>
 																<div id="faq">
 		                                                            <div class="form-group">
 					                                                    <label>Question</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="question[1]" id="qiestion1" required></textarea>
+					                                                        <textarea class="form-control" rows="5" name="question[]" id="qiestion1" required></textarea>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Answer</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="answer[1]" id="amswer1" required></textarea>
+					                                                        <textarea class="form-control" rows="5" name="answer[]" id="amswer1" required></textarea>
 					                                                    </div>
 					                                            	</div>
 				                                            	</div>
@@ -364,17 +373,26 @@
                                                     
 
                                                     <div class="tab-pane p-3" id="settings-1" role="tabpanel">
-                                                    	<form action="insert_gallery" method="post" enctype="multipart/form-data">
-                                                    		<div class="form-group">
-																<label>Destination</label>
-																<div>
-																	<select class="form-control" name="destination" id="destinationname">
-																		<?php 
-																			foreach ($destinationname as $name) {
-																				echo "<option value='$name->id'>$name->name</option>";
-																			}
-																		 ?>
-																	</select>
+                                                    	<form action="Tour/insert_gallery" method="post" enctype="multipart/form-data">
+															<div class="row">
+																<div class="form-group col-sm-6">
+																	<label>Destination</label>
+																	<div>
+																		<select class="form-control" name="destination" id="destination5"  required>
+																			<option disabled selected>Select Destination</option>
+																			<?php foreach ($destinations as $destination){ ?>
+																				<option value="<?php echo $destination->id?>"><?php echo $destination->name; ?></option>
+																			<?php } ?>
+																		</select>
+																	</div>
+																</div>
+																<div class="form-group col-sm-6">
+																	<label>Tour</label>
+																	<div>
+																		<select class="form-control" name="tour" id="tour5">
+																			<option></option>
+																		</select>
+																	</div>
 																</div>
 															</div>
 
@@ -451,7 +469,7 @@
 
 				$('#addfaq').click(function(){
 					i++;
-					$('#faqlist').append('<div id="faq'+i+'"><div class="form-group"><label>Question</label><div><textarea class="form-control" rows="5" name="question['+i+']" id="question['+i+']" required></textarea></div></div><div class="form-group"><label>Answer</label><div><textarea class="form-control" rows="5" name="answer['+i+']" id="answer['+i+']" required></textarea><button class="btn btn-outline-danger mt-2" name="removefaq" id="removefaq" type="button" onclick="delete_faq('+i+')">-</button></div></div></div>');
+					$('#faqlist').append('<div id="faq'+i+'"><div class="form-group"><label>Question</label><div><textarea class="form-control" rows="5" name="question[]" id="question['+i+']" required></textarea></div></div><div class="form-group"><label>Answer</label><div><textarea class="form-control" rows="5" name="answer[]" id="answer['+i+']" required></textarea><button class="btn btn-outline-danger mt-2" name="removefaq" id="removefaq" type="button" onclick="delete_faq('+i+')">-</button></div></div></div>');
 				});
 
 
@@ -610,15 +628,43 @@
 				});
 			}
 		});
-		$('#parent3').on('change', function(){
+		$('#destination3').on('change', function(){
 			var pid = $(this).val();
 			if(pid) {
 				$.ajax({
 					type: 'POST',
-					url: 'Tour/getdestinations',
+					url: 'Tour/gettours',
 					data: 'pid=' + pid,
 					success: function (html) {
-						$('#destination3').html(html);
+						$('#tour3').html(html);
+
+					}
+				});
+			}
+		});
+		$('#destination4').on('change', function(){
+			var pid = $(this).val();
+			if(pid) {
+				$.ajax({
+					type: 'POST',
+					url: 'Tour/gettours',
+					data: 'pid=' + pid,
+					success: function (html) {
+						$('#tour4').html(html);
+
+					}
+				});
+			}
+		});
+		$('#destination5').on('change', function(){
+			var pid = $(this).val();
+			if(pid) {
+				$.ajax({
+					type: 'POST',
+					url: 'Tour/gettours',
+					data: 'pid=' + pid,
+					success: function (html) {
+						$('#tour5').html(html);
 
 					}
 				});
