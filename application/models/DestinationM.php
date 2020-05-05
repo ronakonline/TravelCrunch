@@ -165,10 +165,6 @@ class DestinationM extends CI_Model{
 		$q = $this->db->query("select * from gallery where destid =$id AND isdeleted = 0");
 		return $q->result();
 	}
-	public function getpacking($id){
-		$q = $this->db->query("select * from packing where destid =$id AND isdeleted = 0");
-		return $q->result();
-	}
 	public function getoverview($id){
 		$q = $this->db->query("select * from overview where destid =$id AND isdeleted = 0");
 		return $q->result();

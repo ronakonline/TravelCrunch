@@ -49,31 +49,8 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-<<<<<<< HEAD
-									<form method="post" action="insertparent" enctype="multipart/form-data">
-									<div class="form-group row">
-										
-										<div class="col-sm-6">
-											<label for="example-text-input" class="">Parent</label>
-											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
-												<option value="AL">Alabama</option>
-												...
-												<option value="WY">Wyoming</option>
-											</select>
-										</div>
-										<div class="col-sm-6">
-											<label for="example-text-input" class="">Destination</label>
-											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
-												<option value="AL">Alabama</option>
-												...
-												<option value="WY">Wyoming</option>
-											</select>
-										</div>
-									</div>
-=======
 									<form method="post" action="inserttravelstyle" enctype="multipart/form-data">
 
->>>>>>> b8fa1a23d810c398144d815c502d3783a07e0b4c
 									<div class="form-group row">
 										<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 										<div class="col-sm-10">

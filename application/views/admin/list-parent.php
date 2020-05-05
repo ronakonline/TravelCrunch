@@ -93,7 +93,7 @@
 													<td><img src=<?php echo base_url()."uploads/images/parent/$row->bannerimg"; ?> height="150" width="200"> </td>
                                                     <td><a href="editlist_parent/<?php echo $row->id; ?>"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
                                                         <a href="deleteparent/<?php echo $row->id."/".$row->bannerimg; ?>"><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a>
-                                                        <li class="fa fa-eye p-2 text-info" style="font-size: 30px"></li>
+                                                        
                                                     </td>
                                                 </tr>
 												<?php }?>

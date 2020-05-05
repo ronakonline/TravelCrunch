@@ -167,7 +167,9 @@
 				                                                </div>
 			                                            	</form>
                                                         </p>
-                                                    </div>
+                                                    </div><!-- General -->
+
+
                                                     <div class="tab-pane p-3" id="messages-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                         	<form action="insert_overview" method="post">
@@ -199,21 +201,19 @@
 									                                    </div>
 									                                </div> <!-- end col -->
 									                            </div> <!-- end row -->
+
 				                                                <div class="form-group">
 				                                                	<button type="submit" class="btn btn-primary">Submit</button>
 				                                                </div>
 			                                            	</form>
                                                         </p>
-                                                    </div>
+                                                    </div><!-- Over View -->
+
+
                                                     <div class="tab-pane p-3" id="itinerary" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                         	<form action="insert_overview" method="post">
-                                                        		<div class="form-group">
-																	<label>Title</label>
-																	<div>
-																		<input type="text" class="form-control" placeholder="Type something" name="title1" />
-																	</div>
-																</div>
+                                                        		
                                                         		<div class="row">
 		                                                            <div class="form-group col-sm-6">
 					                                                    <label>Parent</label>
@@ -232,23 +232,41 @@
 					                                                    </div>
 					                                                </div>
 				                                                </div>
+				                                                <div id="itinerary">
+					                                                <div class="form-group">
+																		<label>Title</label>
+																		<div>
+																			<input type="text" class="form-control" placeholder="Type something" name="daytitle[1]" id="daytitle1" />
+																		</div>
+																	</div>
+					                                                <div class="row">
+										                                <div class="col-12">
+										                                    <div class=" m-b-30">
+									                                            <h4 class="mt-0 header-title">Description</h4>
+									                                            
+									            
+									                                            <div class="summernote" name="daydetail[1]" id="daydetail1">Hello Summernote</div>
+										                                    </div>
+										                                </div> <!-- end col -->
+										                            </div> <!-- end row -->
+										                        </div>
+									                            <div id="dayslist"></div>
 
-				                                                <div class="row">
-									                                <div class="col-12">
-									                                    <div class=" m-b-30">
-								                                            <h4 class="mt-0 header-title">Description</h4>
-								                                            <!-- <p class="text-muted m-b-30 font-14">Super simple wysiwyg editor on bootstrap</p> -->
-								            
-								                                            <div class="summernote">Hello Summernote</div>
-									                                    </div>
-									                                </div> <!-- end col -->
-									                            </div> <!-- end row -->
+									                            <div class="form-group">
+				                                                	<button class="btn btn-outline-primary" name="adddays" id="adddays" type="button">+</button>
+					                                            </div>
+
 				                                                <div class="form-group">
 				                                                	<button type="submit" class="btn btn-primary">Submit</button>
 				                                                </div>
+
+
+
 			                                            	</form>
                                                         </p>
-                                                    </div>
+                                                    </div><!-- Itinerary -->
+                                                    
+
                                                     <div class="tab-pane p-3" id="details" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                         	<form action="insert_overview" method="post">
@@ -287,7 +305,10 @@
 				                                                </div>
 			                                            	</form>
                                                         </p>
-                                                    </div>
+                                                    </div><!-- Details -->
+
+
+
                                                     <div class="tab-pane p-3" id="profile-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                             <form action="insert_faq" method="post">
@@ -327,144 +348,9 @@
 				                                                </div>
 			                                            	</form>
                                                         </p>
-                                                    </div>
-                                                    <div class="tab-pane p-3" id="messages-1" role="tabpanel">
-                                                        <p class="font-14 mb-0">
-                                                            <form action="insert_packing" method="post">
-                                                            	<div class="form-group">
-																	<label>Destination</label>
-																	<div>
-																		<select class="form-control" name="destinationname" id="destinationname">
-																			<?php 
-																				foreach ($destinationname as $name) {
-																					echo "<option value='$name->id'>$name->name</option>";
-																				}
-																			 ?>
-																		</select>
-																	</div>
-																</div>
-                                                            	<div class="row">
-                                                            	<div class="col-sm-6">
-                                                            		<h3 class="text-center">LEFT</h3>
-		                                                            <div class="form-group">
-					                                                    <label>1st Title</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="title1" />
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>Description</label>
-					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="desc1" ></textarea>
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>2nd Title</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="title2" />
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>Description</label>
-					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="desc2" ></textarea>
-					                                                    </div>
-					                                                </div>
-					                                            </div>
+                                                    </div><!-- FAQ -->
+                                                    
 
-					                                            <div class="col-sm-6">
-					                                            	<h3 class="text-center">RIGHT</h3>
-					                                            	<div class="form-group">
-					                                                    <label>1st List</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list1" id="list1" />
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group" id="1_list">
-					                                                    <label>Item</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control name_list" name="item1[]" id="item" >
-																			<div id="itemlist1"></div>
-					                                                        <button class="btn btn-outline-primary" name="add" id="add" type="button">+</button>
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>2nd List</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list2" id="list2" />
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>Item</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item2[]" id="item">
-					                                                        <div id="itemlist2"></div>
-					                                                        <button class="btn btn-outline-primary" name="add1" id="add1" type="button">+</button>
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>3rd List</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list3" id="list3" />
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>Item</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item3[]" id="item">
-					                                                        <div id="itemlist3"></div>
-					                                                        <button class="btn btn-outline-primary" name="add2" id="add2" type="button">+</button>
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>4th List</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list4" id="list4" />
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>Item</label>
-					                                                    <div>
-					                                                        <input type="text" class="form-control"  name="item4[]" id="item">
-					                                                    </div>
-					                                                    <div id="itemlist4"></div>
-					                                                        <button class="btn btn-outline-primary" name="add3" id="add3" type="button">+</button>
-					                                                </div>
-					                                            </div>
-					                                        	</div>
-				                                                <div class="text-center m-t-15">
-					                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
-					                                            </div>
-			                                            	</form>
-                                                        </p>
-                                                    </div>
-                                                    <div class="tab-pane p-3" id="seo" role="tabpanel">
-                                                        <p class="font-14 mb-0">
-                                                        	<form action="insert_seotags" method="post">
-                                                        		<div class="form-group">
-																	<label>Destination</label>
-																	<div>
-																		<select class="form-control" name="destinationname" id="destinationname">
-																			<?php 
-																				foreach ($destinationname as $name) {
-																					echo "<option value='$name->id'>$name->name</option>";
-																				}
-																			 ?>
-																		</select>
-																	</div>
-																</div>
-				                                                <div class="form-group">
-				                                                    <label>SEO Tags(Seprate with "COMA")</label>
-				                                                    <div>
-				                                                        <textarea class="form-control" rows="5" name="tags" id="tags"></textarea>
-				                                                    </div>
-				                                                </div>
-				                                                <div class="form-group">
-				                                                	<button type="submit" class="btn btn-primary">Submit</button>
-				                                                </div>
-			                                            	</form>
-                                                        </p>
-                                                    </div>
                                                     <div class="tab-pane p-3" id="settings-1" role="tabpanel">
                                                     	<form action="insert_gallery" method="post" enctype="multipart/form-data">
                                                     		<div class="form-group">
@@ -492,8 +378,8 @@
 					                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Upload Files</button>
 					                                            </div>
 			                                            </form>
-                                                        
-                                                    </div>
+                                           
+                                                    </div><!-- Gallery -->
 
                                                 </div>
                 
@@ -526,13 +412,36 @@
         <!--Summernote js-->
         <script src="<?php echo base_url();?>assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
 		<script>
+
+			$(document).ready(function(){
+				var i = 1;
+
+				$('#adddays').click(function(){
+					i++;
+					$('#dayslist').append('<div id="itinerary'+i+'"><div class="form-group"><label>Title</label><div><input type="text" class="form-control" placeholder="Type something" name="daytitle['+i+']" id="daytitle['+i+']" /></div></div><div class="row"><div class="col-12"><div class=" m-b-30"><h4 class="mt-0 header-title">Description</h4><div class="summernote" name="daydetail['+i+']" id="daydetail['+i+']">Hello Summernote</div><button class="btn btn-outline-danger mt-2" name="removefaq" id="removefaq" type="button" onclick="delete_days('+i+')">-</button></div></div></div></div>');
+				});
+				$('.summernote').summernote({
+                    height: 300,                 
+                    minHeight: null,             
+                    maxHeight: null,             
+                    focus: true                 
+                });
+			});
+
+			function delete_days(no){
+				var object = document.getElementById('itinerary'+no);
+				object.remove();
+			}
+
 			$(document).ready(function(){
 				var i = 1;
 
 				$('#addfaq').click(function(){
 					i++;
-					$('#faqlist').append('<div id="faq'+i+'"><div class="form-group"><label>Question</label><div><textarea class="form-control" rows="5" name="question['+i+']" id="question['+i+']" required></textarea></div></div><div class="form-group"><label>Answer</label><div><textarea class="form-control" rows="5" name="answer['+i+']" id="answer['+i+']" required></textarea><button class="btn btn-outline-danger" name="removefaq" id="removefaq" type="button" onclick="delete_faq('+i+')">-</button></div></div></div>');
-				})
+					$('#faqlist').append('<div id="faq'+i+'"><div class="form-group"><label>Question</label><div><textarea class="form-control" rows="5" name="question['+i+']" id="question['+i+']" required></textarea></div></div><div class="form-group"><label>Answer</label><div><textarea class="form-control" rows="5" name="answer['+i+']" id="answer['+i+']" required></textarea><button class="btn btn-outline-danger mt-2" name="removefaq" id="removefaq" type="button" onclick="delete_faq('+i+')">-</button></div></div></div>');
+				});
+
+
 			});			
 
 			function delete_faq(no){
@@ -617,10 +526,16 @@
         <script type="text/javascript">
         	jQuery(document).ready(function(){
                 $('.summernote').summernote({
-                    height: 300,                 // set editor height
-                    minHeight: null,             // set minimum height of editor
-                    maxHeight: null,             // set maximum height of editor
-                    focus: true                 // set focus to editable area after initializing summernote
+                    height: 300,                 
+                    minHeight: null,             
+                    maxHeight: null,             
+                    focus: true                 
+                });
+                $('.summernote1').summernote({
+                    height: 300,                 
+                    minHeight: null,             
+                    maxHeight: null,             
+                    focus: true                 
                 });
             });
         </script>
