@@ -35,7 +35,7 @@
 							<div class="page-title-box">
 								<div class="btn-group float-right">
 									<ol class="breadcrumb hide-phone p-0 m-0">
-										<li class="breadcrumb-item"><a href="#">Destination</a></li>
+										<li class="breadcrumb-item"><a href="#">Travel Style</a></li>
 										<li class="breadcrumb-item"><a href="#"><?php echo $title; ?></a></li>
 
 									</ol>
@@ -49,6 +49,7 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
+<<<<<<< HEAD
 									<form method="post" action="insertparent" enctype="multipart/form-data">
 									<div class="form-group row">
 										
@@ -69,12 +70,27 @@
 											</select>
 										</div>
 									</div>
+=======
+									<form method="post" action="inserttravelstyle" enctype="multipart/form-data">
+
+>>>>>>> b8fa1a23d810c398144d815c502d3783a07e0b4c
 									<div class="form-group row">
 										<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 										<div class="col-sm-10">
 											<input class="form-control" type="text" name="name" id="name" required>
 										</div>
 									</div>
+										<div class="form-group row">
+											<label for="example-text-input" class="col-sm-2 col-form-label">Destinations</label>
+											<div class="col-sm-10">
+												<select class="js-example-basic-multiple col" name="destinations[]" multiple="multiple">
+													<option disabled>Select Destinations</option>
+													<?php foreach ($destinations as $row){ ?>
+													<option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+													<?php } ?>
+												</select>
+											</div>
+										</div>
 									<div class="form-group row">
 										<label for="example-search-input" class="col-sm-2 col-form-label">Banner Image</label>
 										<div class="col-md-10 ">

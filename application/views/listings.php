@@ -481,8 +481,13 @@
 														?>
 														<li>
 															<figure>
+<<<<<<< HEAD
 																<a href="<?php echo base_url();?>uploads/images/destination/<?php echo $row->img; ?>" data-rel="prettyPhoto[instagram]">
 																	<img src="<?php echo base_url();?>uploads/images/destination/<?php echo $row->img; ?>" alt="image decruoton" class="img-thumbnail">
+=======
+																<a href="<?php echo base_url();?>uploads/images/gallery/<?php echo $row->img; ?>" data-rel="prettyPhoto[instagram]">
+																	<img src="<?php echo base_url();?>uploads/images/gallery/<?php echo $row->img; ?>" alt="image decruoton">
+>>>>>>> b8fa1a23d810c398144d815c502d3783a07e0b4c
 																</a>
 															</figure>
 														</li>
