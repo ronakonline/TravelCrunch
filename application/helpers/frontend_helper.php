@@ -30,3 +30,13 @@ if (! function_exists('destination_data')) {
 	}
 }
 
+if (! function_exists('travelstyle_data')) {
+	function travelstyle_data($id)
+	{
+		// get main CodeIgniter object
+		$ci = get_instance();
+		$ci->load->model('DestinationM');
+		$data = $ci->DestinationM->gettoursbydestination($id);
+		return $data;
+	}
+}

@@ -245,7 +245,7 @@
 									                                            <h4 class="mt-0 header-title">Description</h4>
 									                                            
 									            
-									                                            <div class="summernote" name="daydetail[1]" id="daydetail1">Hello Summernote</div>
+									                                            <div class="summernote" name="daydetail[]" id="daydetail1">Hello Summernote</div>
 										                                    </div>
 										                                </div> <!-- end col -->
 										                            </div> <!-- end row -->
@@ -418,14 +418,15 @@
 
 				$('#adddays').click(function(){
 					i++;
-					$('#dayslist').append('<div id="itinerary'+i+'"><div class="form-group"><label>Title</label><div><input type="text" class="form-control" placeholder="Type something" name="daytitle['+i+']" id="daytitle['+i+']" /></div></div><div class="row"><div class="col-12"><div class=" m-b-30"><h4 class="mt-0 header-title">Description</h4><div class="summernote" name="daydetail['+i+']" id="daydetail['+i+']">Hello Summernote</div><button class="btn btn-outline-danger mt-2" name="removefaq" id="removefaq" type="button" onclick="delete_days('+i+')">-</button></div></div></div></div>');
+					$('#dayslist').append('<div id="itinerary'+i+'"><div class="form-group"><label>Title</label><div><input type="text" class="form-control" placeholder="Type something" name="daytitle['+i+']" id="daytitle['+i+']" /></div></div><div class="row"><div class="col-12"><div class=" m-b-30"><h4 class="mt-0 header-title">Description</h4><div class="summernotenew" name="daydetail[]" id="daydetail['+i+']">Hello Summernote</div><button class="btn btn-outline-danger mt-2" name="removefaq" id="removefaq" type="button" onclick="delete_days('+i+')">-</button></div></div></div></div>');
+					$('.summernotenew').summernote({
+						height: 300,
+						minHeight: null,
+						maxHeight: null,
+						focus: true
+					});
 				});
-				$('.summernote').summernote({
-                    height: 300,                 
-                    minHeight: null,             
-                    maxHeight: null,             
-                    focus: true                 
-                });
+
 			});
 
 			function delete_days(no){
@@ -531,12 +532,7 @@
                     maxHeight: null,             
                     focus: true                 
                 });
-                $('.summernote1').summernote({
-                    height: 300,                 
-                    minHeight: null,             
-                    maxHeight: null,             
-                    focus: true                 
-                });
+
             });
         </script>
 <?php

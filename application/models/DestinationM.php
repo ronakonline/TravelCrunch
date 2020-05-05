@@ -212,5 +212,8 @@ class DestinationM extends CI_Model{
 		return $q->result();
 	}
 
-
+	public function gettoursbydestination($id){
+		$q = $this->db->query("select * from destination where isdeleted = 0");
+		return $q->result();
+	}
 }

@@ -216,7 +216,7 @@
 															$tdests = trim($row->destid,"[]");
 															$tdest = explode(",",$tdests);
 															if(in_array($destinations[$i]->id,$tdest)) {?>
-																<li><a href="<?php echo base_url('Listings/').$destinations[$i]->id."/".$destinations[$i]->name; ?>"><?php echo $destinations[$i]->name; ?></a></li>
+																<li><a href="<?php echo base_url('Travelstyle/').$destinations[$i]->id."/".$row->id; ?>"><?php echo $destinations[$i]->name; ?></a></li>
 														<?php } }?>
 													</ul>
 												</div>
