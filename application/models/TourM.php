@@ -106,4 +106,13 @@ class TourM extends CI_Model{
 		$q = $this->db->query('select * from tourgallery where isdeleted=0 and tid='.$id);
 		return $q->result();
 	}
+
+	public function list_tours(){
+		$q = $this->db->query('SELECT tours.id,destination.name,tours.title from tours,destination WHERE tours.isdeleted=0 and destination.isdeleted=0 and tours.did=destination.id');
+		return $q->result();
+	}
+	public function delete_tour($id){
+		$q = $this->db->query('update tours set isdeleted=1 where id='.$id);
+		return $q;
+	}
 }
