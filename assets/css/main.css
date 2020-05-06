@@ -29,6 +29,7 @@
     margin: 0px;
     padding: 0px;
 }
+.tour { height: 300px; max-width: 100%; overflow: hidden; object-fit: cover; }
 
 html,
 body {
@@ -5140,7 +5141,7 @@ blockquote {
 
 .tg-product figure a img {
     width: 100%;
-    height: auto;
+    height: 300px;
     display: block;
 }
 

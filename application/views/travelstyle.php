@@ -35,36 +35,37 @@
 					</div>
 					<div class="tg-listing tg-shopgrid">
 						<div class="row">
-							<?php foreach ($tours as $tour){ ?>
+							<?php foreach ($tours as $tour){?>
+								<?php if($did == $tour->did){ ?>
 							<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 								<div class="tg-product">
-									<figure><a href="shopdetail.html"><img src="<?php echo base_url('uploads/images/destination/').$tour->banner; ?>" alt="image destinations"></a></figure>
+									<div class="tour">
+									<figure class="tour"><a href="shopdetail.html"><img src="<?php echo base_url('uploads/images/gallery/').$tour->bannerimg; ?>" alt="image destinations"></a></figure>
+									</div>
 									<div class="tg-productcontent">
 										<div class="tg-producttitle">
-											<h3><a href="shopdetail.html"><?php echo $tour->name; ?></a></h3>
+											<h3><a href="shopdetail.html"><?php echo $tour->title; ?></a></h3>
 										</div>
 										<div class="tg-description">
-											<p><?php echo $tour->tagline; ?></p>
+											<p><?php echo $tour->tfrom.'    <i class="fa fa-plane"></i> '.  $tour->tto; ?></p>
 										</div>
 										<div class="tg-productfoot">
 											<div class="tg-durationrating">
-												<span class="tg-wishlist">Wishlist</span>
-												<span class="tg-stars"><span></span></span>
-												<em>(3 Review)</em>
+												<span class=""><?php echo $tour->days." Days"; ?></span>
+
 											</div>
 											<div class="tg-pricearea">
-												<del>$2,800</del>
-												<h4>$2,500</h4>
+												<h4>$<?php echo $tour->price; ?></h4>
 											</div>
 										</div>
 									</div>
-									<a class="tg-btnaddtocart" href="javascript:void(0);">
-										<i class="icon-icons240"></i>
+									<a class="tg-btnaddtocart" href="<?php echo base_url('Tourdetails/').$tour->id; ?>">
+										<i class="fa fa-plane"></i>
 										<span>View Tour</span>
 									</a>
 								</div>
 							</div>
-							<?php } ?>
+							<?php }} ?>
 						</div>
 
 					</div>

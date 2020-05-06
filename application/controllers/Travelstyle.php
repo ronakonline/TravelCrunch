@@ -9,7 +9,6 @@ class Travelstyle extends CI_Controller {
 		$data = frontend_data();
 		$data['tid']=$tid;
 		$data['did']=$did;
-		$data['tours'] = travelstyle_data($did);
 		$this->load->view('travelstyle',$data);
 	}
 }

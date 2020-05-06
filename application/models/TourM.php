@@ -44,9 +44,9 @@ class TourM extends CI_Model{
 	}
 	public function  insert_itinerary($data){
 		$tit = count($data['daytitle']);
-		$qu = 'insert into itinerary values(null,'.$data['tour'].',"'.$data['daytitle'][0].'","'.$data['daydetail'][0].'")';
+		$qu = 'insert into itinerary values(null,'.$data['tour'].',"'.$data['daytitle'][0].'","'.$data['daydetail'][0].'",0)';
 		for ($i=1; $i<$tit; $i++){
-			$qu .= ',(null,'.$data['tour'].',"'.$data['daytitle'][$i].'","'.$data['daydetail'][$i].'")';
+			$qu .= ',(null,'.$data['tour'].',"'.$data['daytitle'][$i].'","'.$data['daydetail'][$i].'",0)';
 		}
 		$op = $this->db->query($qu);
 		return $op;
@@ -86,5 +86,24 @@ class TourM extends CI_Model{
 		}
 		$q = $this->db->query($qu);
 		return $q;
+	}
+
+	public function listtours(){
+		$q = $this->db->query('select * from tours where isdeleted=0');
+		return $q->result();
+	}
+
+	public function touritinerary($id){
+		$q = $this->db->query('select * from itinerary where isdeleted=0 and tid='.$id);
+		return $q->result();
+	}
+
+	public function tourfaq($id){
+		$q = $this->db->query('select * from tourfaq where isdeleted=0 and tid='.$id);
+		return $q->result();
+	}
+	public function tourimg($id){
+		$q = $this->db->query('select * from tourgallery where isdeleted=0 and tid='.$id);
+		return $q->result();
 	}
 }
