@@ -157,7 +157,7 @@
 				<div class="row">
 					
 					<div class="tg-navigationarea tg-headerfixed">
-						<strong class="tg-logo"><a href="index.html"><img src="<?php echo base_url();?>assets/images/logo.png" alt="company logo here"></a></strong>
+						<strong class="tg-logo"><a href="<?php echo base_url(); ?>"><img src="<?php echo base_url();?>assets/images/logo.png" alt="company logo here"></a></strong>
 						<div class="tg-socialsignin">
 							<div class="tg-userbox">
 								<a id="tg-btnsignin" class="tg-btn" href="#tg-loginsingup"><span>sign in</span></a>

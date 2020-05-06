@@ -7,10 +7,12 @@ if (! function_exists('frontend_data')) {
 		// get main CodeIgniter object
 		$ci = get_instance();
 		$ci->load->model('DestinationM');
+		$ci->load->model('TourM');
 		$data['parents'] = $ci->DestinationM->listparents();
 		$data['destinations'] = $ci->DestinationM->listdestinations();
 		$data['tdestination'] = count($data['destinations']);
 		$data['travelstyle'] = $ci->DestinationM->listtravelstyle();
+		$data['tours'] = $ci->TourM->listtours();
 		return $data;
 	}
 }
@@ -30,13 +32,26 @@ if (! function_exists('destination_data')) {
 	}
 }
 
+if (! function_exists('tour_data')) {
+	function tour_data($id)
+	{
+		// get main CodeIgniter object
+		$ci = get_instance();
+		$ci->load->model('TourM');
+		$data['touritinerary'] = $ci->TourM->touritinerary($id);
+		$data['tourfaq'] = $ci->TourM->tourfaq($id);
+		$data['img'] = $ci->TourM->tourimg($id);
+		return $data;
+	}
+}
+
 if (! function_exists('travelstyle_data')) {
 	function travelstyle_data($id)
 	{
 		// get main CodeIgniter object
-		$ci = get_instance();
-		$ci->load->model('DestinationM');
-		$data = $ci->DestinationM->gettoursbydestination($id);
-		return $data;
+//		$ci = get_instance();
+//		$ci->load->model('DestinationM');
+//		$data = $ci->DestinationM->gettoursbydestination($id);
+//		return $data;
 	}
 }
