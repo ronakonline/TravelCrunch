@@ -167,6 +167,8 @@ class Destination extends CI_Controller{
     public function  list_travelstyle(){
         if($_SESSION['admin']){
             $data['title']="All Travel Style";
+            $this->load->model('DestinationM');
+            $data['travelstyles'] = $this->DestinationM->listtravelstyle();
             $this->load->view('admin/list-travelstyle',$data);
         }else{
             redirect('admin');
@@ -439,4 +441,20 @@ class Destination extends CI_Controller{
             redirect('admin');   
         }   
     }
+
+	public function delete_travelstyle($id){
+		if($_SESSION['admin']){
+			$this->load->model('DestinationM');
+			$op = $this->DestinationM->delete_travelstyle($id);
+			//unlink("uploads/images/parent/".$img);
+			if($op==1){
+				$_SESSION['success']="Successfully Deleted";
+			}else{
+				$_SESSION['error']="Error Deleting";
+			}
+			redirect('admin/Destination/List_travelstyle');
+		}else{
+			redirect('admin');
+		}
+	}
 }

@@ -16,12 +16,14 @@ class DestinationM extends CI_Model{
 	public function delete_parent($id){
 		$this->load->database();
 		$q = $this->db->query('update Destinations_Parents set isdeleted=1 where id='.$id);
+		$q = $this->db->query('update destination set isdeleted=1 where parent='.$id);
 		return $q;
 	}
 
 	public function delete_destination($id){
 		$this->load->database();
 		$q = $this->db->query('update destination set isdeleted=1 where id='.$id);
+		$q = $this->db->query('update tours set isdeleted=1 where did='.$id);
 		return $q;
 	}
 
@@ -215,5 +217,11 @@ class DestinationM extends CI_Model{
 	public function gettoursbydestination($id){
 		$q = $this->db->query("select * from destination where isdeleted = 0");
 		return $q->result();
+	}
+
+	public function delete_travelstyle($id){
+		$this->load->database();
+		$q = $this->db->query('update travelstyle set isdeleted=1 where id='.$id);
+		return $q;
 	}
 }

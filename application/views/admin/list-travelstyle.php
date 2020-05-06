@@ -87,16 +87,16 @@
             
             
                                                 <tbody>
-												
+												<?php foreach ($travelstyles as $travel){ ?>
                                                 <tr>
-                                                    <td></td>
-													<td><img src="" height="150" width="200" alt="no Image"> </td>
-                                                    <td><a href="update_travelstyle"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
-                                                        <a href=""><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a>
+                                                    <td><?php echo $travel->name; ?></td>
+													<td><img src="<?php echo base_url('uploads/images/destination/').$travel->bannerimg;?>" height="150" width="200" alt="no Image"> </td>
+                                                    <td><a href=""><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
+                                                        <a href="<?php echo base_url('admin/Destination/delete_travelstyle/').$travel->id;?>"><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a>
                                                         
                                                     </td>
                                                 </tr>
-												
+												<?php } ?>
                                                 </tbody>
                                             </table>
             

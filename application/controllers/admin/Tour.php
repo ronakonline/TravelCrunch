@@ -22,6 +22,7 @@ class Tour extends CI_Controller{
     public function  list_tours(){
         if($_SESSION['admin']){
             $data['title']="All Tours";
+            $data['tours'] = $this->TourM->list_tours();
             $this->load->view('admin/list-tours',$data);
         }else{
             redirect('admin');
@@ -241,4 +242,18 @@ class Tour extends CI_Controller{
 		}
 	}
 
+	public function delete_tour($id){
+		if($_SESSION['admin']){
+			$op = $this->TourM->delete_tour($id);
+			//unlink("uploads/images/parent/".$img);
+			if($op==1){
+				$_SESSION['success']="Successfully Deleted";
+			}else{
+				$_SESSION['error']="Error Deleting";
+			}
+			redirect('admin/Tour/list_tours');
+		}else{
+			redirect('admin');
+		}
+	}
 }
