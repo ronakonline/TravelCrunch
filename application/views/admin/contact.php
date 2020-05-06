@@ -71,8 +71,8 @@
 										</div>
 									</div>
 									<div class="form-group row">
-	                                    <label class="col-sm-2 col-form-label">Email</label>
-	                                    <div class="col-sm-12">
+										<div class="col-sm-6">
+		                                    <label class="col col-form-label">Email</label>
 	                                        <input class="form-control" type="Email" name="name" id="name" required>
 	                                    </div>
 	                                </div>

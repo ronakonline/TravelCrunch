@@ -43,7 +43,7 @@
 				<li class="has_sub">
 					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-sale"></i> <span> Travel Deals</span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
-						<li><a href="<?php echo base_url(); ?>admin/Destination/add_traveldeals">Add Travel Deals</a></li>			
+						<li><a href="<?php echo base_url(); ?>admin/Destination/add_traveldeal">Add Travel Deal</a></li>			
 						<li><a href="<?php echo base_url(); ?>admin/Destination/list_traveldeals">All Travel Deals</a></li>
 					</ul>
 				</li>

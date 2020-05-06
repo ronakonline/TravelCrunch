@@ -136,10 +136,10 @@ class Destination extends CI_Controller{
 		}
 	}
 
-    public function add_traveldeals(){
+    public function add_traveldeal(){
         if($_SESSION['admin']){
-            $data['title']="Add Deals";
-            $this->load->view('admin/add-traveldeals',$data);
+            $data['title']="Add Travel Deal";
+            $this->load->view('admin/add-traveldeal',$data);
         }else{
             redirect('admin');
         }
