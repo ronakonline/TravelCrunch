@@ -51,10 +51,9 @@
 								<div class="card-body">
 									<form method="post" action="insertparent" enctype="multipart/form-data">
 									<div class="form-group row">
-										
 										<div class="col-sm-6">
 											<label for="example-text-input" class="">Parent</label>
-											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
+											<select class="js-example-basic-multiple col" name="states[]">
 												<option value="AL">Alabama</option>
 												...
 												<option value="WY">Wyoming</option>
@@ -70,9 +69,25 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="example-text-input" class="">Offer</label>
-										<div>
-											<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" required>
+										<label for="example-text-input" class="">Featured</label>
+											<select class="form-control">
+												<option value="1">YES</option>
+												<option value="0">No</option>
+											</select>
+									
+									</div>
+									<div class="form-group row">
+										<div class="col-sm-6"> 
+											<label for="example-text-input" class="">Offer</label>
+											<div>
+												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" required>
+											</div>
+										</div>
+										<div class="col-sm-6"> 
+											<label for="example-text-input" class="">Deal</label>
+											<div>
+												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" required>
+											</div>
 										</div>
 									</div>
 										<div class="form-group row">

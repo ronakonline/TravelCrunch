@@ -68,6 +68,15 @@
 												</select>
 											</div>
 										</div>
+										<div class="form-group row">
+											<label for="example-text-input" class="col-sm-2 col-form-label">Featured</label>
+											<div class="col-sm-10">
+												<select class="form-control">
+													<option value="1">YES</option>
+													<option value="0">No</option>
+												</select>
+											</div>
+										</div>
 									<div class="form-group row">
 										<label for="example-search-input" class="col-sm-2 col-form-label">Banner Image</label>
 										<div class="col-md-10 ">
