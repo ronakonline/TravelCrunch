@@ -28,6 +28,15 @@ class Tour extends CI_Controller{
         }
     }
 
+    public function update_tour(){
+    	if($_SESSION['admin']){
+            $data['title']="Update Tour";
+            $this->load->view('admin/edit-tour',$data);
+        }else{
+            redirect('admin');
+        }
+    }
+
 	public  function  uploadimage($img,$name,$dest){
 		$config['upload_path'] = 'uploads/images/'.$dest;
 		$config['allowed_types'] = 'jpg|jpeg|png|gif';

@@ -107,6 +107,15 @@ class Destination extends CI_Controller{
         }
     }
 
+    public function update_destination($id){
+        if($_SESSION['admin']){
+            $data['title']="Update Destination";
+            $this->load->view('admin/edit-destination',$data); 
+        }
+        else{
+            redirect('admin');
+        }
+    }
 
     public function add_travelstyle(){
         if($_SESSION['admin']){
@@ -136,6 +145,16 @@ class Destination extends CI_Controller{
 		}
 	}
 
+    public function update_travelstyle(){
+        if($_SESSION['admin']){
+            $data['title']="Update Travel Style";
+            $this->load->view('admin/edit-travelstyle',$data); 
+        }
+        else{
+            redirect('admin');
+        }
+    }
+
     public function add_traveldeal(){
         if($_SESSION['admin']){
             $data['title']="Add Travel Deal";
@@ -159,6 +178,16 @@ class Destination extends CI_Controller{
             $data['title']="All Travel Deals";
             $this->load->view('admin/list-traveldeals',$data);
         }else{
+            redirect('admin');
+        }
+    }
+
+    public function update_traveldeal(){
+        if($_SESSION['admin']){
+            $data['title']="Update Travel Deal";
+            $this->load->view('admin/edit-traveldeal',$data); 
+        }
+        else{
             redirect('admin');
         }
     }
