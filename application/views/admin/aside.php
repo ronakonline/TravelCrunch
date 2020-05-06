@@ -36,7 +36,7 @@
 					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-wallet-travel"></i> <span> Travel Style</span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
 						<li><a href="<?php echo base_url(); ?>admin/Destination/add_travelstyle">Add Travel Style</a></li>
-						<li><a href="<?php echo base_url(); ?>admin/Destination/list_travelstyle">All Travel Style</a></li>			
+						<li><a href="<?php echo base_url(); ?>admin/Destination/list_travelstyle">All Travel Styles</a></li>			
 						
 					</ul>
 				</li>
@@ -51,21 +51,21 @@
 					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-airplane-takeoff"></i> <span> Tour </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
 						<li><a href="<?php echo base_url(); ?>admin/Tour">Add Tour</a></li>			
-						<li><a href="<?php echo base_url(); ?>admin/Tour/list_tour">All Tour</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Tour/list_tours">All Tours</a></li>
 					</ul>
 				</li>
 				<li class="has_sub">
 					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-areaspline"></i> <span> SEO </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
 						<li><a href="<?php echo base_url(); ?>admin/Seo/">Add SEO</a></li>			
-						<li><a href="<?php echo base_url(); ?>admin/Seo/all_seo">All SEO</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Seo/list_seo">All SEO</a></li>
 					</ul>
 				</li>
 				<li class="has_sub">
 					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-settings"></i> <span> Site Setting </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
 						<li><a href="<?php echo base_url(); ?>admin/Sitesetting">Contact</a></li>			
-						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/add_logo">Setting</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/add_logo">Logo</a></li>
 					</ul>
 				</li>
 
