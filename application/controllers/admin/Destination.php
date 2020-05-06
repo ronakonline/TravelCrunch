@@ -58,7 +58,7 @@ class Destination extends CI_Controller{
 
     public function  List_Parent(){
         if($_SESSION['admin']){
-            $data['title']="List Parent";
+            $data['title']="All Parent";
             $this->load->model("DestinationM");
             $data['parents'] = $this->DestinationM->listparents();
            $this->load->view('admin/list-parent',$data);
@@ -138,8 +138,26 @@ class Destination extends CI_Controller{
 
     public function add_traveldeals(){
         if($_SESSION['admin']){
-            $data['title']="Add Travel Deals";
+            $data['title']="Add Deals";
             $this->load->view('admin/add-traveldeals',$data);
+        }else{
+            redirect('admin');
+        }
+    }
+
+    public function  list_travelstyle(){
+        if($_SESSION['admin']){
+            $data['title']="All Travel Style";
+            $this->load->view('admin/list-travelstyle',$data);
+        }else{
+            redirect('admin');
+        }
+    }
+
+    public function  list_traveldeals(){
+        if($_SESSION['admin']){
+            $data['title']="All Travel Deals";
+            $this->load->view('admin/list-traveldeals',$data);
         }else{
             redirect('admin');
         }
@@ -166,7 +184,7 @@ class Destination extends CI_Controller{
 
     public function  List_Destination(){
         if($_SESSION['admin']){
-            $data['title']="List Destination";
+            $data['title']="All Destination";
             $this->load->model("DestinationM");
             $data['destination'] = $this->DestinationM->alldestinations();
             $this->load->view('admin/list-destination',$data);

@@ -35,7 +35,7 @@
 							<div class="page-title-box">
 								<div class="btn-group float-right">
 									<ol class="breadcrumb hide-phone p-0 m-0">
-										<li class="breadcrumb-item"><a href="#">Travel Style</a></li>
+										<li class="breadcrumb-item"><a href="#">Site Setting</a></li>
 										<li class="breadcrumb-item"><a href="#"><?php echo $title; ?></a></li>
 
 									</ol>

@@ -19,6 +19,15 @@ class Tour extends CI_Controller{
         }
     }
 
+    public function  list_tours(){
+        if($_SESSION['admin']){
+            $data['title']="All Tours";
+            $this->load->view('admin/list-tours',$data);
+        }else{
+            redirect('admin');
+        }
+    }
+
 	public  function  uploadimage($img,$name,$dest){
 		$config['upload_path'] = 'uploads/images/'.$dest;
 		$config['allowed_types'] = 'jpg|jpeg|png|gif';

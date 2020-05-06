@@ -12,7 +12,7 @@ class Sitesetting extends CI_Controller{
 
     public function add_logo(){
     	if($_SESSION['admin']){
-                $data['title']="Insert Logo";
+                $data['title']="Logo";
                  $this->load->view('admin/add-logo',$data);
         }else{
             redirect('admin');

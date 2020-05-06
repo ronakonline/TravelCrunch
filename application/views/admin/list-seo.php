@@ -61,7 +61,7 @@
 							<div class="page-title-box">
 								<div class="btn-group float-right">
 									<ol class="breadcrumb hide-phone p-0 m-0">
-										<li class="breadcrumb-item"><a href="#">Destination</a></li>
+										<li class="breadcrumb-item"><a href="#">SEO</a></li>
 										<li class="breadcrumb-item"><a href="#"><?php echo $title; ?></a></li>
 
 									</ol>
@@ -79,24 +79,23 @@
                                             <table id="datatable" class="table table-bordered">
                                                 <thead>
                                                 <tr>
-                                                    <th>Name</th>
-													<th>Banner Image</th>
+                                                    <th>Page</th>
+													
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
             
             
                                                 <tbody>
-												<?php foreach ($parents as $row){?>
+												
                                                 <tr>
-                                                    <td><?php echo $row->name;?></td>
-													<td><img src=<?php echo base_url()."uploads/images/parent/$row->bannerimg"; ?> height="150" width="200"> </td>
-                                                    <td><a href="editlist_parent/<?php echo $row->id; ?>"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
-                                                        <a href="deleteparent/<?php echo $row->id."/".$row->bannerimg; ?>"><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a>
+                                                    <td></td>
+													<td><a href=""><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
+                                                        <a href=""><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a>
                                                         
                                                     </td>
                                                 </tr>
-												<?php }?>
+												
                                                 </tbody>
                                             </table>
             
