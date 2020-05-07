@@ -91,8 +91,9 @@
 																	<label class="col-sm-2 col-form-label">Parent Destination</label>
 																	<div class="col-sm-10">
 																		<select class="form-control" name="parentname" id="parentname">
-																			<?php 
-																				foreach ($edit_destination as $name) {
+																			<?php
+
+																				foreach ($dest as $name) {
 																					echo "<option value='$name->parent'>$name->parent</option>";
 																				}
 																			 ?>
@@ -102,20 +103,20 @@
 																<div class="form-group row">
 																	<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 																	<div class="col-sm-10">
-																		<input class="form-control" type="text" id="Destination_name" name="Destination_name" value="<?php echo $name->name ?>" required>
+																		<input class="form-control" type="text" id="Destination_name" name="Destination_name" value="<?php echo $dest[0]->name; ?>" required>
 																	</div>
 																</div>
 																<div class="form-group row">
 																	<label for="example-search-input" class="col-sm-2 col-form-label">Tag Line</label>
 																	<div class="col-sm-10">
-																		<input class="form-control" type="search"  id="tagline" name="tagline" value="<?php echo $name->tagline ?>" required>
+																		<input class="form-control" type="search"  id="tagline" name="tagline" value="<?php echo $dest[0]->tagline ?>" required>
 																	</div>
 																</div>
 																<div class="form-group row">
 																	<label class="col-sm-2 col-form-label">Featured</label>
 																	<div class="col-sm-10">
 																		<select class="form-control" name="featured" id="featured" required>
-																			<option selected="<?php echo $name->featured ?>"><?php echo $name->featured ?></option>
+																			<option selected="<?php echo $dest[0]->featured ?>"><?php echo $dest[0]->featured ?></option>
 																			<option value='1'>YES</option>
 																			<option value='2'>NO</option>
 																		</select>
@@ -136,7 +137,7 @@
 																	<label for="example-search-input" class="col-sm-2 col-form-label">About 1</label>
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
-																			<textarea rows="3" class="form-control" name="about1" id="about1" required><?php echo $name->about1 ?></textarea>
+																			<textarea rows="3" class="form-control" name="about1" id="about1" required><?php echo $dest[0]->about1 ?></textarea>
 																		</div>
 																	</div>
 																</div>
@@ -155,7 +156,7 @@
 																	<label for="example-search-input" class="col-sm-2 col-form-label">About 2</label>
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
-																			<textarea rows="3" class="form-control" name="about2" id="about2"><?php echo $name->about2 ?></textarea>
+																			<textarea rows="3" class="form-control" name="about2" id="about2"><?php echo $dest[0]->about2 ?></textarea>
 																		</div>
 																	</div>
 																</div>
@@ -188,16 +189,16 @@
 																	<div>
 																		<select class="form-control" name="destinationname" id="destinationname">
 																			<?php 
-																				foreach ($get_destination as $name) {
+																				foreach ($dest as $name) {
 																					echo "<option value='$name->name'>$name->name</option>";
 																				}
 																			 ?>
 																		</select>
 																	</div>
 																</div>
-																<?php foreach ($get_overview as $ov) {
-																	
-																} ?>
+																<?php foreach ($dest['overview'] as $ov) {
+
+															} ?>
 	                                                            <div class="form-group">
 				                                                    <label>Overview-left</label>
 				                                                    <div>
@@ -224,7 +225,7 @@
 																	<div>
 																		<select class="form-control" name="destinationname" id="destinationname">
 																			<?php 
-																				foreach ($get_destination as $name) {
+																				foreach ($dest as $name) {
 																					echo "<option value='$name->id'>$name->name</option>";
 																				}
 																			 ?>
@@ -232,25 +233,28 @@
 																	</div>
 																</div>
 																
-																	<?php foreach ($get_faq as $faq) {
-																		
-																} ?>
+
 																	
-																<div id="faq">
+																<div id="faqlist">
+																<?php $i=1; foreach ($dest['faq'] as $row) { ?>
+																	<div id="faq<?php echo $i;?>">
 		                                                            <div class="form-group">
 					                                                    <label>Question</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="question[1]" id="qiestion1" required><?php echo $faq->question; ?></textarea>
+					                                                        <textarea class="form-control" rows="5" name="question[]" id="qiestion<?php echo $i;?>" required><?php echo $row->question; ?></textarea>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Answer</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="answer[1]" id="amswer1" required></textarea>
+					                                                        <textarea class="form-control" rows="5" name="answer[]" id="amswer<?php echo $i;?>" required><?php echo $row->answer; ?></textarea>
+																			<button class="btn btn-outline-danger mt-2" name="removefaq" id="removefaq" type="button" onclick="delete_faq('<?php echo $i;?>')">-</button>
 					                                                    </div>
 					                                            	</div>
+																	</div>
+																	<?php $i+=1; } ?>
 				                                            	</div>
-				                                            	<div id="faqlist"></div>
+<!--				                                            	<div id="faqlist"></div>-->
 				                                            	<div class="form-group">
 				                                                	<button class="btn btn-outline-primary" name="addfaq" id="addfaq" type="button">+</button>
 					                                            </div>
@@ -264,43 +268,31 @@
                                                     <div class="tab-pane p-3" id="messages-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                             <form action="insert_packing" method="post">
-                                                            	<div class="form-group">
-																	<label>Destination</label>
-																	<div>
-																		<select class="form-control" name="destinationname" id="destinationname">
-																			<?php 
-																				foreach ($destinationname as $name) {
-																					echo "<option value='$name->id'>$name->name</option>";
-																				}
-																			 ?>
-																		</select>
-																	</div>
-																</div>
                                                             	<div class="row">
                                                             	<div class="col-sm-6">
                                                             		<h3 class="text-center">LEFT</h3>
 		                                                            <div class="form-group">
 					                                                    <label>1st Title</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="title1" required />
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="title1" value="<?php echo $dest['packing'][0]->title1; ?>" required />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Description</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="desc1" required></textarea>
+					                                                        <textarea class="form-control" rows="5" name="desc1" required><?php echo $dest['packing'][0]->desc1; ?></textarea>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>2nd Title</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="title2" required/>
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="title2" value="<?php echo $dest['packing'][0]->title2; ?>" required/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Description</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="desc2" required></textarea>
+					                                                        <textarea class="form-control" rows="5" name="desc2" required><?php echo $dest['packing'][0]->desc2; ?></textarea>
 					                                                    </div>
 					                                                </div>
 					                                            </div>
@@ -310,13 +302,20 @@
 					                                            	<div class="form-group">
 					                                                    <label>1st List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list1" id="list1" />
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list1" id="list1" value="<?php echo $dest['packing'][0]->list1; ?>" />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group" id="1_list">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control name_list" name="item1[]" id="item" required>
+																			<?php
+																			$list = trim($dest['packing'][0]->item1,"[]");
+																			$list1 = explode(",",$list); ?>
+																			<?php $i=0; foreach ($list1 as $row){ ?>
+					                                                       		 <input type="text" class="form-control name_list" name="item1[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
+																				 <?php if(count($list1)!=1){ ?>
+																				 <button class="btn btn-outline-danger remove mb-2" name="remove" id="remove<?php echo $i;?>" type="button" onclick="delete_item('<?php echo $i;?>')">-</button>
+																			<?php } $i+=1; } ?>
 																			<div id="itemlist1"></div>
 					                                                        <button class="btn btn-outline-primary" name="add" id="add" type="button">+</button>
 					                                                    </div>
@@ -324,13 +323,20 @@
 					                                                <div class="form-group">
 					                                                    <label>2nd List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list2" id="list2" required/>
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list2" id="list2" value="<?php echo $dest['packing'][0]->list2; ?>" required/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item2[]" id="item" required>
+																			<?php
+																			$list = trim($dest['packing'][0]->item2,"[]");
+																			$list2 = explode(",",$list); ?>
+																			<?php  foreach ($list2 as $row){ ?>
+																				<input type="text" class="form-control name_list" name="item1[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
+																				<?php if(count($list2)!=1){ ?>
+																				<button class="btn btn-outline-danger remove mb-2" name="remove" id="remove<?php echo $i;?>" type="button" onclick="delete_item('<?php echo $i;?>')">-</button>
+																				<?php } $i+=1; } ?>
 					                                                        <div id="itemlist2"></div>
 					                                                        <button class="btn btn-outline-primary" name="add1" id="add1" type="button">+</button>
 					                                                    </div>
@@ -338,28 +344,42 @@
 					                                                <div class="form-group">
 					                                                    <label>3rd List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list3" id="list3" />
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list3" id="list3" <?php echo $dest['packing'][0]->list3; ?> required />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" name="item3[]" id="item" required>
-					                                                        <div id="itemlist3"></div>
-					                                                        <button class="btn btn-outline-primary" name="add2" id="add2" type="button">+</button>
+																			<?php
+																			$list = trim($dest['packing'][0]->item3,"[]");
+																			$list3 = explode(",",$list); ?>
+																			<?php foreach ($list3 as $row){ ?>
+																				<input type="text" class="form-control name_list" name="item1[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
+																				<?php if(count($list3)!=1){ ?>
+																				<button class="btn btn-outline-danger remove mb-2" name="remove" id="remove<?php echo $i;?>" type="button" onclick="delete_item('<?php echo $i;?>')">-</button>
+																				<?php } $i+=1; } ?>
+																			<div id="itemlist3"></div>
+																			<button class="btn btn-outline-primary" name="add3" id="add3" type="button">+</button>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>4th List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list4" id="list4" required/>
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list4" id="list4" value="<?php echo $dest['packing'][0]->list4; ?>" required/>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
 					                                                    <label>Item</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control"  name="item4[]" id="item" required>
-					                                                    </div>
+																			<?php
+																			$list = trim($dest['packing'][0]->item4,"[]");
+																			$list4 = explode(",",$list); ?>
+																			<?php  foreach ($list4 as $row){ ?>
+																				<input type="text" class="form-control name_list" name="item1[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
+																				<?php if(count($list4)!=1){ ?>
+																				<button class="btn btn-outline-danger remove mb-2" name="remove" id="remove<?php echo $i;?>" type="button" onclick="delete_item('<?php echo $i;?>')">-</button>
+																				<?php } $i+=1; } ?>
+																		</div>
 					                                                    <div id="itemlist4"></div>
 					                                                        <button class="btn btn-outline-primary" name="add3" id="add3" type="button">+</button>
 					                                                </div>
