@@ -49,44 +49,44 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-									<form method="post" action="insertparent" enctype="multipart/form-data">
+									<form  action="insert_traveldeal" method="post">
 									<div class="form-group row">
 										<div class="col-sm-6">
 											<label for="example-text-input" class="">Parent</label>
-											<select class="js-example-basic-multiple col" name="states[]">
-												<option value="AL">Alabama</option>
-												...
-												<option value="WY">Wyoming</option>
-											</select>
+											<select class="form-control" name="parent" id="parent" class="parent" required>
+                                            	<option disabled selected>Select Parent</option>
+												<?php foreach ($parents as $parent){ ?>
+												<option value="<?php echo $parent->id?>"><?php echo $parent->name; ?></option>
+												<?php } ?>
+                                            </select>
 										</div>
+
 										<div class="col-sm-6">
 											<label for="example-text-input" class="">Destination</label>
-											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
-												<option value="AL">Alabama</option>
-												...
-												<option value="WY">Wyoming</option>
-											</select>
+											
+											<select class="col form-control" name="destination" id="destination" required>
+												<option disabled selected>Select Parent First</option>
+                                            </select>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="example-text-input" class="">Featured</label>
-											<select class="form-control">
-												<option value="1">YES</option>
-												<option value="0">No</option>
-											</select>
-									
+										<select class="form-control" name="featured">
+											<option value="1">YES</option>
+											<option value="2">No</option>
+										</select>
 									</div>
 									<div class="form-group row">
 										<div class="col-sm-6"> 
 											<label for="example-text-input" class="">Offer</label>
 											<div>
-												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" required>
+												<input class="form-control" type="text" name="offer" id="name" placeholder="In Percentage" required>
 											</div>
 										</div>
 										<div class="col-sm-6"> 
 											<label for="example-text-input" class="">Deal</label>
 											<div>
-												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" required>
+												<input class="form-control" type="text" name="deal" id="name" placeholder="In Percentage" required>
 											</div>
 										</div>
 									</div>
@@ -125,23 +125,36 @@
 
 <?php $this->load->view('admin/js-links') ?>
 <script>
-	function showImage(src,target) {
-		var fr=new FileReader();
-		// when image is loaded, set the src of the image where you want to display it
-		fr.onload = function(e) { target.src = this.result; };
+	$(document).ready(function(){
+		$('#parent').on('change', function(){
+			var pid = $(this).val();
+			if(pid) {
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url();?>admin/Tour/getdestinationsgeneral',
+					data: 'pid=' + pid,
+					success: function (html) {
+						$('#destination').html(html);
 
-		src.addEventListener("change",function() {
-			// fill fr with image data
-			fr.readAsDataURL(src.files[0]);
-			target.style.display="block";
+					}
+				});
+			}
 		});
-	}
-	$(document).ready(function() {
-		$('.js-example-basic-multiple').select2();
+		// $('#destination1').on('change', function(){
+		// 	var pid = $(this).val();
+		// 	if(pid) {
+		// 		$.ajax({
+		// 			type: 'POST',
+		// 			url: 'Tour/gettours',
+		// 			data: 'pid=' + pid,
+		// 			success: function (html) {
+		// 				$('#tour1').html(html);
+
+		// 			}
+		// 		});
+		// 	}
+		// });
 	});
-	var src = document.getElementById("src");
-	var target = document.getElementById("target");
-	showImage(src,target);
 </script>
 <?php
 if(isset($_SESSION['error'])){

@@ -287,8 +287,30 @@ class Destination extends CI_Controller{
     public function add_traveldeal(){
         if($_SESSION['admin']){
             $data['title']="Add Travel Deal";
+            $this->load->model('DestinationM');
+            $data['parents'] = $this->DestinationM->listparents();
+            $data['destinations'] = $this->DestinationM->listdestinations();
             $this->load->view('admin/add-traveldeal',$data);
         }else{
+            redirect('admin');
+        }
+    }
+
+    //Insert Travel Deal(Query)
+    public function insert_traveldeal(){
+        if($_SESSION['admin']){
+            $data = $this->input->post();
+            //print_r($data);
+            $this->load->model('DestinationM');
+            $op = $this->DestinationM->insert_traveldeal($data);
+            if($op==1){
+                $_SESSION['success']="Successfully Inserted";
+            }else{
+                $_SESSION['error']="Error Inserting";
+            }
+            redirect('admin/destination/add_traveldeal');
+        }
+        else{
             redirect('admin');
         }
     }
@@ -297,6 +319,8 @@ class Destination extends CI_Controller{
     public function  list_traveldeals(){
         if($_SESSION['admin']){
             $data['title']="All Travel Deals";
+            $this->load->model('DestinationM');
+            $data['traveldeal'] = $this->DestinationM->listtraveldeal();
             $this->load->view('admin/list-traveldeals',$data);
         }else{
             redirect('admin');
@@ -304,15 +328,18 @@ class Destination extends CI_Controller{
     }
 
     //Update Travel Deal(Page)
-    public function update_traveldeal(){
+    public function update_traveldeal($id){
         if($_SESSION['admin']){
             $data['title']="Update Travel Deal";
+            $this->load->model('DestinationM');
+            $data['edit_deal'] = $this->DestinationM->editlist_traveldeal($id);
             $this->load->view('admin/edit-traveldeal',$data); 
         }
         else{
             redirect('admin');
         }
     }
+
 
 
     //Common Image Uploader

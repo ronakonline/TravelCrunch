@@ -49,6 +49,13 @@ class DestinationM extends CI_Model{
 		return $q->result();
 	}
 
+	//Edit_List Travel Deal
+	public function editlist_traveldeal($id){
+		$q = $this->db->query("select * from traveldeal where id = $id");
+		return $q->result();
+	}
+
+
 	//Update Parent
 	public function update_parent($data,$img=null){
 		if ($img==null) {
@@ -277,5 +284,18 @@ class DestinationM extends CI_Model{
 		$this->load->database();
 		$q = $this->db->query('update travelstyle set isdeleted=1 where id='.$id);
 		return $q;
+	}
+
+
+	//Insert Travel deal
+	public function insert_traveldeal($data){
+		$q = $this->db->query('insert into traveldeal values(null,'.$data['destination'].','.$data['featured'].',"'.$data['offer'].'","'.$data['deal'].'")');
+		return $q;
+	}
+
+	//
+	public function listtraveldeal(){
+		$q = $this->db->query('SELECT * from traveldeal');
+		return $q->result();
 	}
 }

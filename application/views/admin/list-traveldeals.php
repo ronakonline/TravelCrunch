@@ -79,24 +79,28 @@
                                             <table id="datatable" class="table table-bordered">
                                                 <thead>
                                                 <tr>
-                                                    <th>Name</th>
-													<th>Banner Image</th>
-                                                    <th>Action</th>
+                                                    <th>Destination</th>
+													<th>Featured</th>
+                                                    <th>Offer</th>
+                                                    <th>Deal</th>
+                                                    <th>Offer</th>
                                                 </tr>
                                                 </thead>
             
             
                                                 <tbody>
-												
+												<?php foreach ($traveldeal as $deal) { ?>
                                                 <tr>
-                                                    <td></td>
-													<td><img src="" height="150" width="200" alt="no Image"> </td>
-                                                    <td><a href="update_traveldeal"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
+                                                    <td><?php echo $deal->did; ?></td>
+                                                    <td><?php echo $deal->featured; ?></td>
+													<td><?php echo $deal->offer; ?></td>
+                                                    <td><?php echo $deal->deal; ?></td>
+                                                    <td><a href="update_traveldeal/<?php echo $deal->id; ?>"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
                                                         <a href=""><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a>
                                                         
                                                     </td>
                                                 </tr>
-												
+												<?php } ?>
                                                 </tbody>
                                             </table>
             
