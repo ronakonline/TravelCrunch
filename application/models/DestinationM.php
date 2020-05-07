@@ -7,10 +7,17 @@ class DestinationM extends CI_Model{
 		$this->load->database();
 	}
 
+		
+	public function tdestbyparent(){
+		$this->load->database();
+		$q = $this->db->query('SELECT parent,COUNT(parent) as tdest from destination GROUP by parent');
+		return $q->result();
+	}
+
 	//Insert Parent
 	public function insert_parent($name,$pic){
 		$this->load->database();
-		$q = $this->db->query('insert into Destinations_Parents values(null,"'.$name.'","'.$pic.'",0)');
+		$q = $this->db->query('insert into Destinations_Parents values(null,"'.$data['name'].'","'.$pic.'",'.$data['featured'].',0)');
 		return $q;
 	}
 
@@ -97,6 +104,12 @@ class DestinationM extends CI_Model{
 		$q = $this->db->query('update tours set isdeleted=1 where did='.$id);
 		return $q;
 	}
+
+	public function editlist_destination($id){
+		$q = $this->db->query("select * from destination where id = $id AND isdeleted = 0");
+		return $q->result();	
+	}
+
 
 
 	//Insert OverView
@@ -235,7 +248,7 @@ class DestinationM extends CI_Model{
 		$total = count($data['destinations']);
 		for($i=0; $i<$total; $i++){
 			if($i==$total-1){
-				$qu .= $data['destinations'][$i].']","'.$data['name'].'","'.$data['bannerimg'].'",0)';
+				$qu .= $data['destinations'][$i].']","'.$data['name'].'","'.$data['bannerimg'].'",'.$data['featured'].',0)';
 			}else{
 				$qu .= $data['destinations'][$i].',';
 			}

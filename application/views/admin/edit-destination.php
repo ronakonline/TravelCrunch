@@ -92,8 +92,8 @@
 																	<div class="col-sm-10">
 																		<select class="form-control" name="parentname" id="parentname">
 																			<?php 
-																				foreach ($parentname as $name) {
-																					echo "<option value='$name->id'>$name->name</option>";
+																				foreach ($edit_destination as $name) {
+																					echo "<option value='$name->parent'>$name->parent</option>";
 																				}
 																			 ?>
 																		</select>
@@ -102,19 +102,20 @@
 																<div class="form-group row">
 																	<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 																	<div class="col-sm-10">
-																		<input class="form-control" type="text" id="Destination_name" name="Destination_name" required>
+																		<input class="form-control" type="text" id="Destination_name" name="Destination_name" value="<?php echo $name->name ?>" required>
 																	</div>
 																</div>
 																<div class="form-group row">
 																	<label for="example-search-input" class="col-sm-2 col-form-label">Tag Line</label>
 																	<div class="col-sm-10">
-																		<input class="form-control" type="search"  id="tagline" name="tagline" required>
+																		<input class="form-control" type="search"  id="tagline" name="tagline" value="<?php echo $name->tagline ?>" required>
 																	</div>
 																</div>
 																<div class="form-group row">
 																	<label class="col-sm-2 col-form-label">Featured</label>
 																	<div class="col-sm-10">
 																		<select class="form-control" name="featured" id="featured" required>
+																			<option selected="<?php echo $name->featured ?>"><?php echo $name->featured ?></option>
 																			<option value='1'>YES</option>
 																			<option value='2'>NO</option>
 																		</select>
@@ -135,7 +136,7 @@
 																	<label for="example-search-input" class="col-sm-2 col-form-label">About 1</label>
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
-																			<textarea class="form-control" name="about1" id="about1" required></textarea>
+																			<textarea rows="3" class="form-control" name="about1" id="about1" required><?php echo $name->about1 ?></textarea>
 																		</div>
 																	</div>
 																</div>
@@ -154,7 +155,7 @@
 																	<label for="example-search-input" class="col-sm-2 col-form-label">About 2</label>
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
-																			<textarea class="form-control" name="about2" id="about2"></textarea>
+																			<textarea rows="3" class="form-control" name="about2" id="about2"><?php echo $name->about2 ?></textarea>
 																		</div>
 																	</div>
 																</div>
@@ -187,23 +188,26 @@
 																	<div>
 																		<select class="form-control" name="destinationname" id="destinationname">
 																			<?php 
-																				foreach ($destinationname as $name) {
-																					echo "<option value='$name->id'>$name->name</option>";
+																				foreach ($get_destination as $name) {
+																					echo "<option value='$name->name'>$name->name</option>";
 																				}
 																			 ?>
 																		</select>
 																	</div>
 																</div>
+																<?php foreach ($get_overview as $ov) {
+																	
+																} ?>
 	                                                            <div class="form-group">
 				                                                    <label>Overview-left</label>
 				                                                    <div>
-				                                                        <textarea class="form-control" rows="5" name="oleft" id="oleft" required></textarea>
+				                                                        <textarea class="form-control" rows="5" name="oleft" id="oleft" required><?php echo $ov->oleft; ?></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
 				                                                    <label>Overview-right</label>
 				                                                    <div>
-				                                                        <textarea class="form-control" rows="5" name="oright" id="oright" required></textarea>
+				                                                        <textarea class="form-control" rows="5" name="oright" id="oright" required><?php echo $ov->oright; ?></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
@@ -220,18 +224,23 @@
 																	<div>
 																		<select class="form-control" name="destinationname" id="destinationname">
 																			<?php 
-																				foreach ($destinationname as $name) {
+																				foreach ($get_destination as $name) {
 																					echo "<option value='$name->id'>$name->name</option>";
 																				}
 																			 ?>
 																		</select>
 																	</div>
 																</div>
+																
+																	<?php foreach ($get_faq as $faq) {
+																		
+																} ?>
+																	
 																<div id="faq">
 		                                                            <div class="form-group">
 					                                                    <label>Question</label>
 					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="question[1]" id="qiestion1" required></textarea>
+					                                                        <textarea class="form-control" rows="5" name="question[1]" id="qiestion1" required><?php echo $faq->question; ?></textarea>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
