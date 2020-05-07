@@ -49,30 +49,21 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-									<form method="post" action="insertparent" enctype="multipart/form-data">
-									<div class="form-group row">
-										<div class="col-sm-6">
-											<label for="example-text-input" class="">Parent</label>
-											<select class="js-example-basic-multiple col" name="states[]">
-												<option value="AL">Alabama</option>
-												...
-												<option value="WY">Wyoming</option>
-											</select>
-										</div>
-										<div class="col-sm-6">
-											<label for="example-text-input" class="">Destination</label>
-											<select class="js-example-basic-multiple col" name="states[]" multiple="multiple">
-												<option value="AL">Alabama</option>
-												...
-												<option value="WY">Wyoming</option>
-											</select>
-										</div>
-									</div>
+									<form method="post" action="update_traveldeal" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="example-text-input" class="">Featured</label>
 											<select class="form-control">
-												<option value="1">YES</option>
-												<option value="0">No</option>
+												<?php if($edit_deal[0]->featured == 1){
+														echo "<option value='1' selected>YES</option>
+														  		<option value='2'>No</option>";	
+														}
+														else{
+															echo "<option value='1'>YES</option>
+														  		<option value='2' selected>No</option>";	
+														} 
+
+												?>
+												
 											</select>
 									
 									</div>
