@@ -91,8 +91,8 @@
                                                 <tbody>
 												<?php foreach ($traveldeal as $deal) { ?>
                                                 <tr>
-                                                    <td><?php echo $deal->did; ?></td>
-                                                    <td><?php echo $deal->featured; ?></td>
+                                                    <td><?php echo $deal->name; ?></td>
+                                                    <td><?php if($deal->featured==1){echo "Yes";}else{ echo "No";} ?></td>
 													<td><?php echo $deal->offer; ?></td>
                                                     <td><?php echo $deal->deal; ?></td>
                                                     <td><a href="update_traveldeal/<?php echo $deal->id; ?>"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>

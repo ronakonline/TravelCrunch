@@ -279,5 +279,44 @@ class DestinationM extends CI_Model{
 		return $q;
 	}
 
+	//Insert Travel deal
+	public function insert_traveldeal($data){
+		$q = $this->db->query('insert into traveldeal values(null,'.$data['destination'].','.$data['featured'].',"'.$data['offer'].'","'.$data['deal'].'")');
+		return $q;
+	}
 
+	//
+	public function listtraveldeal(){
+		$q = $this->db->query('SELECT destination.name,traveldeal.offer,traveldeal.deal,traveldeal.featured,traveldeal.id FROM destination,traveldeal where destination.id = traveldeal.did');
+		return $q->result();
+	}
+
+	//Edit_List Travel Deal
+	public function editlist_traveldeal($id){
+		$q = $this->db->query("select * from traveldeal where id = $id");
+		return $q->result();
+	}
+
+	public function update_dgeneral($data){
+		$this->load->database();
+		if($data['p']==1) {
+			$q = $this->db->query('update destination set name="'.$data['name'].'",tagline="'.$data['tagline'].'",featured='.$data['featured'].',banner="'.$data['picture'].'",about1="'.$data['about1'].'",about2="'.$data['about2'].'" where id=' . $data['id']);
+			return $q;
+		}else if($data['p']==2) {
+			$q = $this->db->query('update destination set name="'.$data['name'].'",tagline="'.$data['tagline'].'",featured='.$data['featured'].',about1="'.$data['about1'].'",about1_image="'.$data['picture'].'",about2="'.$data['about2'].'" where id=' . $data['id']);
+			return $q;
+		}else if($data['p']==3) {
+			$q = $this->db->query('update destination set name="'.$data['name'].'",tagline="'.$data['tagline'].'",featured='.$data['featured'].',about1="'.$data['about1'].'",about2_image="'.$data['picture'].'",about2="'.$data['about2'].'" where id=' . $data['id']);
+			return $q;
+		}else{
+			$q = $this->db->query('update destination set name="'.$data['name'].'",tagline="'.$data['tagline'].'",featured='.$data['featured'].',about1="'.$data['about1'].'",about2="'.$data['about2'].'" where id=' . $data['id']);
+			return $q;
+		}
+	}
+
+	public function update_doverview($data){
+		$this->load->database();
+		$q = $this->db->query('update overview set oleft="'.$data['oleft'].'",oright="'.$data['oright'].'"  where destid='.$data['id']);
+		return $q;
+	}
 }

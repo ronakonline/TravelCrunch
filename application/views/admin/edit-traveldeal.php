@@ -71,13 +71,13 @@
 										<div class="col-sm-6"> 
 											<label for="example-text-input" class="">Offer</label>
 											<div>
-												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" required>
+												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" value="<?php echo $edit_deal[0]->offer; ?>" required>
 											</div>
 										</div>
 										<div class="col-sm-6"> 
 											<label for="example-text-input" class="">Deal</label>
 											<div>
-												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" required>
+												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" value="<?php echo $edit_deal[0]->deal; ?>" required>
 											</div>
 										</div>
 									</div>

@@ -333,7 +333,7 @@ class Destination extends CI_Controller{
             $data['title']="Update Travel Deal";
             $this->load->model('DestinationM');
             $data['edit_deal'] = $this->DestinationM->editlist_traveldeal($id);
-            $this->load->view('admin/edit-traveldeal',$data); 
+            $this->load->view('admin/edit-traveldeal',$data);
         }
         else{
             redirect('admin');
@@ -606,8 +606,8 @@ class Destination extends CI_Controller{
 			else{
 				$_SESSION['error']="Error Updating Record";
 			}
-			echo $qu;
-			//redirect('admin/Destination/update_destination/'.$data['id']);
+			//echo $qu;
+			redirect('admin/Destination/update_destination/'.$data['id']);
 		}
 		else{
 			redirect('admin');
