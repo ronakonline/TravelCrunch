@@ -14,6 +14,7 @@ if (! function_exists('frontend_data')) {
 		$data['travelstyle'] = $ci->DestinationM->listtravelstyle();
 		$data['tdp'] = $ci->DestinationM->tdestbyparent(); // Gives Total Destinations by Parent
 		$data['tours'] = $ci->TourM->listtours();
+
 		return $data;
 	}
 }
@@ -29,6 +30,7 @@ if (! function_exists('destination_data')) {
 		$data['overview'] = $ci->DestinationM->getoverview($id);
 		$data['faq'] = $ci->DestinationM->getfaq($id);
 		$data['packing'] = $ci->DestinationM->getpacking($id);
+		$data['seo'] = $ci->DestinationM->listseo($id);
 		return $data;
 	}
 }

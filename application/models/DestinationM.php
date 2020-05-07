@@ -207,7 +207,6 @@ class DestinationM extends CI_Model{
 	}
 
 
-
 	//Get Dest(Helper)
 	public function getdest($id){
 		$q = $this->db->query("select * from destination where id = $id AND isdeleted = 0");
@@ -238,8 +237,18 @@ class DestinationM extends CI_Model{
 		$q = $this->db->query("select * from destination where isdeleted = 0");
 		return $q->result();
 	}
+	//Get seo
+	public function listseo($id){
+		$q = $this->db->query("select * from seotag where isdeleted = 0");
 
+	}
 	
+	//Get Banner Image
+	public function getBanner($id){
+		$q = $this->db->query("Select banner from destination where id = $id");
+		return $q;
+	}
+
 
 
 	//Insert Travel Style

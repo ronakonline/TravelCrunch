@@ -87,19 +87,7 @@
                                                 	<div class="tab-pane active p-3" id="general" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                         	<form action="insert_destination" method="post" enctype="multipart/form-data">
-																<div class="form-group row">
-																	<label class="col-sm-2 col-form-label">Parent Destination</label>
-																	<div class="col-sm-10">
-																		<select class="form-control" name="parentname" id="parentname">
-																			<?php
-
-																				foreach ($dest as $name) {
-																					echo "<option value='$name->parent'>$name->parent</option>";
-																				}
-																			 ?>
-																		</select>
-																	</div>
-																</div>
+																
 																<div class="form-group row">
 																	<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 																	<div class="col-sm-10">
@@ -116,9 +104,15 @@
 																	<label class="col-sm-2 col-form-label">Featured</label>
 																	<div class="col-sm-10">
 																		<select class="form-control" name="featured" id="featured" required>
-																			<option selected="<?php echo $dest[0]->featured ?>"><?php echo $dest[0]->featured ?></option>
-																			<option value='1'>YES</option>
-																			<option value='2'>NO</option>
+																			<?php 
+																			if ($dest[0]->featured == 1) {
+																				echo "<option value='1' selected>Yes</option>
+																					<option value='2'>No</option>";
+																			}
+																			else{
+																				echo "<option value='1'>Yes</option>
+																					<option value='2' selected>No</option>";
+																			} ?>
 																		</select>
 																	</div>
 																</div>
@@ -127,9 +121,17 @@
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
 																			<div class="custom-file">
-																				<input type="file" class="custom-file-input" id="file1" name="file1" required>
+																				<input type="file" class="custom-file-input" id="src" name="file1"  required>
 																				<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label for="example-search-input" class="col-sm-2 col-form-label"></label>
+																	<div class="col-md-10 ">
+																		<div class="input-group mt-2">
+																			<img id="target" height="200" width="250" src="<?php echo base_url('uploads/images/destination/').$dest[0]->banner; ?>">
 																		</div>
 																	</div>
 																</div>
@@ -141,14 +143,23 @@
 																		</div>
 																	</div>
 																</div>
+																
 																<div class="form-group row">
 																	<label for="example-search-input" class="col-sm-2 col-form-label">About 1 Image</label>
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
 																			<div class="custom-file">
-																				<input type="file" class="custom-file-input" id="file2" name="file2" required>
+																				<input type="file" class="custom-file-input" id="src2" name="file2" required>
 																				<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label for="example-search-input" class="col-sm-2 col-form-label"></label>
+																	<div class="col-md-10 ">
+																		<div class="input-group mt-2">
+																			<img id="target2" height="200" width="250" src="<?php echo base_url('uploads/images/destination/').$dest[0]->about1_image; ?>">
 																		</div>
 																	</div>
 																</div>
@@ -165,9 +176,17 @@
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
 																			<div class="custom-file">
-																				<input type="file" class="custom-file-input" id="file3" name="file3">
+																				<input type="file" class="custom-file-input" id="src3" name="file3">
 																				<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group row">
+																	<label for="example-search-input" class="col-sm-2 col-form-label"></label>
+																	<div class="col-md-10 ">
+																		<div class="input-group mt-2">
+																			<img id="target3" height="200" width="250" src="<?php echo base_url('uploads/images/destination/').$dest[0]->about2_image; ?>">
 																		</div>
 																	</div>
 																</div>
@@ -184,21 +203,9 @@
                                                     <div class="tab-pane p-3" id="home-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                         	<form action="insert_overview" method="post">
-                                                        		<div class="form-group">
-																	<label>Destination</label>
-																	<div>
-																		<select class="form-control" name="destinationname" id="destinationname">
-																			<?php 
-																				foreach ($dest as $name) {
-																					echo "<option value='$name->name'>$name->name</option>";
-																				}
-																			 ?>
-																		</select>
-																	</div>
-																</div>
 																<?php foreach ($dest['overview'] as $ov) {
 
-															} ?>
+																} ?>
 	                                                            <div class="form-group">
 				                                                    <label>Overview-left</label>
 				                                                    <div>
@@ -219,42 +226,26 @@
                                                     </div>
                                                     <div class="tab-pane p-3" id="profile-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                            <form action="insert_faq" method="post">
-                                                            	<div class="form-group">
-																	<label>Destination</label>
-																	<div>
-																		<select class="form-control" name="destinationname" id="destinationname">
-																			<?php 
-																				foreach ($dest as $name) {
-																					echo "<option value='$name->id'>$name->name</option>";
-																				}
-																			 ?>
-																		</select>
-																	</div>
-																</div>
-																
-
-																	
+                                                            <form action="insert_faq" method="post">	
 																<div id="faqlist">
-																<?php $i=1; foreach ($dest['faq'] as $row) { ?>
+																	<?php $i=1; foreach ($dest['faq'] as $row) { ?>
 																	<div id="faq<?php echo $i;?>">
-		                                                            <div class="form-group">
-					                                                    <label>Question</label>
-					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="question[]" id="qiestion<?php echo $i;?>" required><?php echo $row->question; ?></textarea>
-					                                                    </div>
-					                                                </div>
-					                                                <div class="form-group">
-					                                                    <label>Answer</label>
-					                                                    <div>
-					                                                        <textarea class="form-control" rows="5" name="answer[]" id="amswer<?php echo $i;?>" required><?php echo $row->answer; ?></textarea>
-																			<button class="btn btn-outline-danger mt-2" name="removefaq" id="removefaq" type="button" onclick="delete_faq('<?php echo $i;?>')">-</button>
-					                                                    </div>
-					                                            	</div>
+			                                                            <div class="form-group">
+						                                                    <label>Question</label>
+						                                                    <div>
+						                                                        <textarea class="form-control" rows="5" name="question[]" id="qiestion<?php echo $i;?>" required><?php echo $row->question; ?></textarea>
+						                                                    </div>
+						                                                </div>
+						                                                <div class="form-group">
+						                                                    <label>Answer</label>
+						                                                    <div>
+						                                                        <textarea class="form-control" rows="5" name="answer[]" id="amswer<?php echo $i;?>" required><?php echo $row->answer; ?></textarea>
+																				<button class="btn btn-outline-danger mt-2" name="removefaq" id="removefaq" type="button" onclick="delete_faq('<?php echo $i;?>')">-</button>
+						                                                    </div>
+						                                            	</div>
 																	</div>
 																	<?php $i+=1; } ?>
 				                                            	</div>
-<!--				                                            	<div id="faqlist"></div>-->
 				                                            	<div class="form-group">
 				                                                	<button class="btn btn-outline-primary" name="addfaq" id="addfaq" type="button">+</button>
 					                                            </div>
@@ -394,22 +385,10 @@
                                                     <div class="tab-pane p-3" id="seo" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                         	<form action="insert_seotags" method="post">
-                                                        		<div class="form-group">
-																	<label>Destination</label>
-																	<div>
-																		<select class="form-control" name="destinationname" id="destinationname">
-																			<?php 
-																				foreach ($destinationname as $name) {
-																					echo "<option value='$name->id'>$name->name</option>";
-																				}
-																			 ?>
-																		</select>
-																	</div>
-																</div>
 				                                                <div class="form-group">
 				                                                    <label>SEO Tags(Seprate with "COMA")</label>
 				                                                    <div>
-				                                                        <textarea class="form-control" rows="5" name="tags" id="tags" required></textarea>
+				                                                        <textarea class="form-control" rows="5" name="tags" id="tags" required><?php echo $dest['seo'][00]->tags; ?></textarea>
 				                                                    </div>
 				                                                </div>
 				                                                <div class="form-group">
@@ -564,6 +543,30 @@
                 })
             });
         </script>
+        <script>
+	function showImage(src,target) {
+		var fr=new FileReader();
+		// when image is loaded, set the src of the image where you want to display it
+		fr.onload = function(e) { target.src = this.result; };
+
+		src.addEventListener("change",function() {
+			// fill fr with image data
+			fr.readAsDataURL(src.files[0]);
+			target.style.display="block";
+		});
+	}
+
+	var src = document.getElementById("src");
+	var target = document.getElementById("target");
+	showImage(src,target);
+	var src2 = document.getElementById("src2");
+	var target2 = document.getElementById("target2");
+	showImage(src2,target2);
+	var src3 = document.getElementById("src3");
+	var target3 = document.getElementById("target3");
+	showImage(src3,target3);
+
+</script>
 <?php
 if(isset($_SESSION['error'])){
 	echo '<script>alertify.error("'.$_SESSION['error'].'"); </script>';
