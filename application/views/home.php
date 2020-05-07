@@ -103,261 +103,64 @@
 								<div class="tg-sectiontitle">
 									<h2>Top Destinations</h2>
 								</div>
-								<div class="tg-description">
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam consectetuer.</p>
-								</div>
+
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="tg-themetabs tg-themetabsvtwo">
 								<ul class="tg-themetabnav" role="tablist">
-									<li role="presentation" class="active"><a href="#northamerica" role="tab" data-toggle="tab"><strong style="color:black;">North america</strong></a></li>
-									<li role="presentation"><a href="#europe" aria-controls="europe" role="tab" data-toggle="tab"><strong style="color:black;">Europe</strong></a></li>
-									<li role="presentation"><a href="#africa" aria-controls="africa" role="tab" data-toggle="tab"><strong style="color:black;">africa</strong></a></li>
-									<li role="presentation"><a href="#asia" aria-controls="asia" role="tab" data-toggle="tab"><strong style="color:black;">asia</strong></a></li>
-									<li role="presentation"><a href="#southamerica" aria-controls="southamerica" role="tab" data-toggle="tab"><strong style="color:black;">south america</strong></a></li>
+								<?php $i=0; foreach ($parents as $row){?>
+									<?php if($i<4 and $row->featured==1){
+										if($i==0){?>
+									<li role="presentation" class="active"><a href="#<?php echo $row->name; ?>" role="tab" data-toggle="tab"><strong style="color:black;"><?php echo $row->name; ?></strong></a></li>
+										<?php }else{ ?>
+											<li role="presentation" class=""><a href="#<?php echo $row->name; ?>" role="tab" data-toggle="tab"><strong style="color:black;"><?php echo $row->name; ?></strong></a></li>
+									<?php } $i+=1; } }?>
 								</ul>
 								<div class="tab-content tg-themetabcontent">
-									<div role="tabpanel" class="tab-pane active" id="america">
-										<div class="tg-topdestinationslider tg-populardestinations owl-carousel">
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-11.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Paris</a></h3>
-														<div class="tg-description">
-															<p>Beautiful City in the World</p>
-														</div>
-													</figcaption>
-												</figure>
+									<?php $i=0; foreach ($parents as $row){?>
+										<?php if($i<4 and $row->featured==1){ ?>
+											<?php if($i==0) {?>
+											<div role="tabpanel" class="tab-pane active" id="<?php echo $row->name; ?>">
+												<div class="tg-topdestinationslider tg-populardestinations owl-carousel">
+													<?php foreach ($destinations as $dest){ ?>
+														<?php if($dest->parent==$row->id) {?>
+													<div class="item tg-populardestination">
+														<figure>
+															<a href="javascript:void(0);"><img src="<?php echo base_url('uploads/images/destination/').$dest->banner; ?>" alt="image destinations" style="height: 202px;"></a>
+															<figcaption>
+																<h3><a href="javascript:void(0);"><?php echo $dest->name; ?></a></h3>
+																<div class="tg-description">
+																	<p><?php echo $dest->tagline; ?></p>
+																</div>
+															</figcaption>
+														</figure>
+													</div>
+													<?php } }?>
+												</div>
 											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-12.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Dubai</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-13.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Istanbul</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-14.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">london</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane" id="europe">
-										<div class="tg-topdestinationslider tg-populardestinations owl-carousel">
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-11.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Paris</a></h3>
-														<div class="tg-description">
-															<p>Beautiful City in the World</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-12.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Dubai</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-13.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Istanbul</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-14.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">london</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane" id="africa">
-										<div class="tg-topdestinationslider tg-populardestinations owl-carousel">
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-11.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Paris</a></h3>
-														<div class="tg-description">
-															<p>Beautiful City in the World</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-12.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Dubai</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-13.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Istanbul</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-14.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">london</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane" id="asia">
-										<div class="tg-topdestinationslider tg-populardestinations owl-carousel">
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-11.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Paris</a></h3>
-														<div class="tg-description">
-															<p>Beautiful City in the World</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-12.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Dubai</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-13.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Istanbul</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-14.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">london</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane" id="southamerica">
-										<div class="tg-topdestinationslider tg-populardestinations owl-carousel">
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-11.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Paris</a></h3>
-														<div class="tg-description">
-															<p>Beautiful City in the World</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-12.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Dubai</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-13.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">Istanbul</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-											<div class="item tg-populardestination">
-												<figure>
-													<a href="javascript:void(0);"><img src="<?php echo base_url(); ?>assets/images/tours/img-14.jpg" alt="image destinations"></a>
-													<figcaption>
-														<h3><a href="javascript:void(0);">london</a></h3>
-														<div class="tg-description">
-															<p>in the streets of London</p>
-														</div>
-													</figcaption>
-												</figure>
-											</div>
-										</div>
-									</div>
+												<?php }else{ ?>
+												<div role="tabpanel" class="tab-pane" id="<?php echo $row->name; ?>">
+													<div class="tg-topdestinationslider tg-populardestinations owl-carousel">
+														<?php foreach ($destinations as $dest){ ?>
+															<?php if($dest->parent==$row->id) {?>
+																<div class="item tg-populardestination">
+																	<figure>
+																		<a href="javascript:void(0);"><img src="<?php echo base_url('uploads/images/destination/').$dest->banner; ?>" alt="image destinations" style="height: 202px;"></a>
+																		<figcaption>
+																			<h3><a href="javascript:void(0);"><?php echo $dest->name; ?></a></h3>
+																			<div class="tg-description">
+																				<p><?php echo $dest->tagline; ?></p>
+																			</div>
+																		</figcaption>
+																	</figure>
+																</div>
+															<?php } }?>
+													</div>
+												</div>
+										<?php } $i+=1; } }?>
+
+
 								</div>
 							</div>
 						</div>
@@ -376,45 +179,35 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="tg-toursdestinations">
-								<div class="tg-tourdestination tg-tourdestinationbigbox">
-									<figure>
-										<a href="javascript:void(0);">
-											<img src="<?php echo base_url();?>assets/images/destination/img-01.jpg" alt="image destinations">
-											<div class="tg-hoverbox">
-												<div class="tg-adventuretitle">
-													<h2>Ice Adventure Vacations</h2>
-												</div>
-												<div class="tg-description">
-													<p>your best vacation ever</p>
-												</div>
+								<?php $i=0; foreach ($travelstyle as $row){ ?>
+									<?php if($i<3) {?>
+										<?php if($i==0) {?>
+										<div class="tg-tourdestination tg-tourdestinationbigbox">
+											<figure>
+												<a href="javascript:void(0);">
+													<img src="<?php echo base_url('uploads/images/destination/').$row->bannerimg;?>" alt="image destinations" style="height: 465px;">
+													<div class="tg-hoverbox">
+														<div class="tg-adventuretitle">
+															<h2><?php echo $row->name;?></h2>
+														</div>
+													</div>
+												</a>
+											</figure>
+										</div>
+										<?php }else{ ?>
+											<div class="tg-tourdestination">
+												<figure>
+													<a href="javascript:void(0);">
+														<img src="<?php echo base_url('uploads/images/destination/').$row->bannerimg;?>" alt="image destinations" style="height: 227px;">
+														<div class="tg-hoverbox">
+															<div class="tg-adventuretitle">
+																<h2><?php echo $row->name;?></h2>
+															</div>
+														</div>
+													</a>
+												</figure>
 											</div>
-										</a>
-									</figure>
-								</div>
-								<div class="tg-tourdestination">
-									<figure>
-										<a href="javascript:void(0);">
-											<img src="<?php echo base_url();?>assets/images/destination/img-02.jpg" alt="image destinations">
-											<div class="tg-hoverbox">
-												<div class="tg-adventuretitle">
-													<h2>National Park</h2>
-												</div>
-											</div>
-										</a>
-									</figure>
-								</div>
-								<div class="tg-tourdestination">
-									<figure>
-										<a href="javascript:void(0);">
-											<img src="<?php echo base_url();?>assets/images/destination/img-03.jpg" alt="image destinations">
-											<div class="tg-hoverbox">
-												<div class="tg-adventuretitle">
-													<h2>Adult Vacations</h2>
-												</div>
-											</div>
-										</a>
-									</figure>
-								</div>
+									<?php }$i+=1; } }?>
 							</div>
 						</div>
 					</div>
@@ -477,100 +270,34 @@
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<div class="tg-sectiontitle tg-sectiontitleleft">
 									<h2>Popular Tours</h2>
-									<a class="tg-btnvtwo" href="javascript:void(0);">All Tours</a>
 								</div>
 								<div id="tg-populartoursslider" class="tg-populartoursslider tg-populartours owl-carousel">
-									<div class="item tg-populartour">
+									<?php foreach ($tours as $row){ ?>
+										<div class="item tg-populartour">
 										<figure>
-											<a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/tours/img-01.jpg" alt="image destinations"></a>
-											<span class="tg-descount">25% Off</span>
+											<a href="<?php echo base_url('Tourdetails/').$row->id;?>"><img src="<?php echo base_url('uploads/images/parent/').$row->bannerimg;?>" alt="image destinations" style="height: 225.867px;"></a>
+<!--											<span class="tg-descount">25% Off</span>-->
 										</figure>
 										<div class="tg-populartourcontent">
 											<div class="tg-populartourtitle">
-												<h3><a href="tourbookingdetail.html">City Tours in Europe, Paris</a></h3>
+												<h3><a href="<?php echo base_url('Tourdetails/').$row->id;?>"><?php echo $row->title; ?></a></h3>
 											</div>
 											<div class="tg-description">
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
+												<p><?php echo substr($row->overview,0,150); ?>...</p>
 											</div>
 											<div class="tg-populartourfoot">
 												<div class="tg-durationrating">
-													<span class="tg-tourduration">7 Days</span>
-													<span class="tg-stars"><span></span></span>
-													<em>(3 Review)</em>
+													<span class="tg-tourduration"><?php echo $row->days; ?> Days</span>
+
 												</div>
 												<div class="tg-pricearea">
-													<del>$2,800</del>
-													<h4>$2,500</h4>
+													<h4>$<?php echo $row->price; ?></h4>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="item tg-populartour">
-										<figure><a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/tours/img-02.jpg" alt="image destinations"></a></figure>
-										<div class="tg-populartourcontent">
-											<div class="tg-populartourtitle">
-												<h3><a href="tourbookingdetail.html">Best of Canada Tours and Travel</a></h3>
-											</div>
-											<div class="tg-description">
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-											</div>
-											<div class="tg-populartourfoot">
-												<div class="tg-durationrating">
-													<span class="tg-tourduration">7 Days</span>
-													<span class="tg-stars"><span></span></span>
-													<em>(3 Review)</em>
-												</div>
-												<div class="tg-pricearea">
-													<span>from</span>
-													<h4>$600</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="item tg-populartour">
-										<figure><a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/tours/img-03.jpg" alt="image destinations"></a></figure>
-										<div class="tg-populartourcontent">
-											<div class="tg-populartourtitle">
-												<h3><a href="tourbookingdetail.html">Italy – 3 Days in Rome, Golden Gate</a></h3>
-											</div>
-											<div class="tg-description">
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-											</div>
-											<div class="tg-populartourfoot">
-												<div class="tg-durationrating">
-													<span class="tg-tourduration">7 Days</span>
-													<span class="tg-stars"><span></span></span>
-													<em>(3 Review)</em>
-												</div>
-												<div class="tg-pricearea">
-													<span>from</span>
-													<h4>$1,430</h4>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="item tg-populartour">
-										<figure><a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/tours/img-04.jpg" alt="image destinations"></a></figure>
-										<div class="tg-populartourcontent">
-											<div class="tg-populartourtitle">
-												<h3><a href="tourbookingdetail.html">Best of Canada Tours and Travel</a></h3>
-											</div>
-											<div class="tg-description">
-												<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-											</div>
-											<div class="tg-populartourfoot">
-												<div class="tg-durationrating">
-													<span class="tg-tourduration">7 Days</span>
-													<span class="tg-stars"><span></span></span>
-													<em>(3 Review)</em>
-												</div>
-												<div class="tg-pricearea">
-													<span>from</span>
-													<h4>$600</h4>
-												</div>
-											</div>
-										</div>
-									</div>
+									<?php } ?>
+
 								</div>
 							</div>
 						</div>
@@ -595,44 +322,20 @@
 									<div class="tg-sectiontitle tg-sectiontitleleft">
 										<h2>Popular Tours</h2>
 									</div>
-									<div class="tg-description"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam consectetuer adipiscing elit, sed diam nonummy nibh...</p></div>
+									<div class="tg-description"><p></p></div>
 									<ul class="tg-destinations">
-										<li>
-											<a href="tourcatagory.html">
-												<h3>Europe</h3>
-												<em>(05)</em>
+										<?php  foreach ($parents as $row){?>
+										<?php if($row->featured==1){ ?>
+											<li>
+											<a href="#">
+												<h3><?php echo $row->name; ?></h3>
+												<?php foreach ($tdp as $col){ ?>
+													<?php if($col->parent == $row->id){ ?>
+														<em>(<?php echo $col->tdest; ?>)</em>
+												<?php } }?>
 											</a>
 										</li>
-										<li>
-											<a href="tourcatagory.html">
-												<h3>Africa</h3>
-												<em>(15)</em>
-											</a>
-										</li>
-										<li>
-											<a href="tourcatagory.html">
-												<h3>Asia</h3>
-												<em>(12)</em>
-											</a>
-										</li>
-										<li>
-											<a href="tourcatagory.html">
-												<h3>Oceania</h3>
-												<em>(02)</em>
-											</a>
-										</li>
-										<li>
-											<a href="tourcatagory.html">
-												<h3>North America</h3>
-												<em>(08)</em>
-											</a>
-										</li>
-										<li>
-											<a href="tourcatagory.html">
-												<h3>South America</h3>
-												<em>(27)</em>
-											</a>
-										</li>
+										<?php }}?>
 									</ul>
 									<a class="tg-btn" href="tourcatagory.html"><span>all destinations</span></a>
 								</div>
@@ -651,90 +354,20 @@
 				<div class="container">
 					<div class="row">
 						<div id="tg-destinationsslider" class="tg-destinationsslider tg-destinations owl-carousel">
-							<div class="item tg-destination">
-								<figure>
-									<a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/destination/img-04.jpg" alt="image description"></a>
-									<figcaption>
-										<h2><a href="tourbookingdetail.html">Paris</a></h2>
-										<div class="tg-description">
-											<p>in the streets of London</p>
-										</div>
-									</figcaption>
-								</figure>
-							</div>
-							<div class="item tg-destination">
-								<figure>
-									<a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/destination/img-05.jpg" alt="image description"></a>
-									<figcaption>
-										<h2><a href="tourbookingdetail.html">Egypt</a></h2>
-										<div class="tg-description">
-											<p>in the streets of London</p>
-										</div>
-									</figcaption>
-								</figure>
-								<figure>
-									<a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/destination/img-06.jpg" alt="image description"></a>
-									<figcaption>
-										<h2><a href="tourbookingdetail.html">London</a></h2>
-										<div class="tg-description">
-											<p>in the streets of London</p>
-										</div>
-									</figcaption>
-								</figure>
-							</div>
-							<div class="item tg-destination">
-								<figure>
-									<a href="javascript:void(0);"><img src="<?php echo base_url();?>assets/images/destination/img-07.jpg" alt="image description"></a>
-									<figcaption>
-										<h2><a href="javascript:void(0);">Istanbul</a></h2>
-										<div class="tg-description">
-											<p>Beautiful Mosque</p>
-										</div>
-									</figcaption>
-								</figure>
-							</div>
-							<div class="item tg-destination">
-								<figure>
-									<a href="javascript:void(0);"><img src="<?php echo base_url();?>assets/images/destination/img-04.jpg" alt="image description"></a>
-									<figcaption>
-										<h2><a href="javascript:void(0);">Paris</a></h2>
-										<div class="tg-description">
-											<p>in the streets of London</p>
-										</div>
-									</figcaption>
-								</figure>
-							</div>
-							<div class="item tg-destination">
-								<figure>
-									<a href="javascript:void(0);"><img src="<?php echo base_url();?>assets/images/destination/img-05.jpg" alt="image description"></a>
-									<figcaption>
-										<h2><a href="javascript:void(0);">Egypt</a></h2>
-										<div class="tg-description">
-											<p>in the streets of London</p>
-										</div>
-									</figcaption>
-								</figure>
-								<figure>
-									<a href="javascript:void(0);"><img src="<?php echo base_url();?>assets/images/destination/img-06.jpg" alt="image description"></a>
-									<figcaption>
-										<h2><a href="javascript:void(0);">London</a></h2>
-										<div class="tg-description">
-											<p>in the streets of London</p>
-										</div>
-									</figcaption>
-								</figure>
-							</div>
-							<div class="item tg-destination">
-								<figure>
-									<a href="javascript:void(0);"><img src="<?php echo base_url();?>assets/images/destination/img-07.jpg" alt="image description"></a>
-									<figcaption>
-										<h2><a href="javascript:void(0);">Istanbul</a></h2>
-										<div class="tg-description">
-											<p>Beautiful Mosque</p>
-										</div>
-									</figcaption>
-								</figure>
-							</div>
+							<?php foreach($destinations as $row) { ?>
+								<div class="item tg-destination">
+									<figure>
+										<a href="<?php echo base_url('Listings/').$row->id.'/'.$row->name; ?>"><img src="<?php echo base_url('uploads/images/destination/').$row->banner;?>" alt="image description" style="height: 447.5px;"></a>
+										<figcaption>
+											<h2><a href="<?php echo base_url('Listings/').$row->id.'/'.$row->name; ?>"><?php echo $row->name; ?></a></h2>
+											<div class="tg-description">
+												<p><?php echo $row->tagline; ?></p>
+											</div>
+										</figcaption>
+									</figure>
+								</div>
+							<?php } ?>
+
 						</div>
 					</div>
 				</div>

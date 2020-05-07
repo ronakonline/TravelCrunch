@@ -7,9 +7,9 @@ class DestinationM extends CI_Model{
 		$this->load->database();
 	}
 
-	public function insert_parent($name,$pic){
+	public function insert_parent($data,$pic){
 		$this->load->database();
-		$q = $this->db->query('insert into Destinations_Parents values(null,"'.$name.'","'.$pic.'",0)');
+		$q = $this->db->query('insert into Destinations_Parents values(null,"'.$data['name'].'","'.$pic.'",'.$data['featured'].',0)');
 		return $q;
 	}
 
@@ -200,7 +200,7 @@ class DestinationM extends CI_Model{
 		$total = count($data['destinations']);
 		for($i=0; $i<$total; $i++){
 			if($i==$total-1){
-				$qu .= $data['destinations'][$i].']","'.$data['name'].'","'.$data['bannerimg'].'",0)';
+				$qu .= $data['destinations'][$i].']","'.$data['name'].'","'.$data['bannerimg'].'",'.$data['featured'].',0)';
 			}else{
 				$qu .= $data['destinations'][$i].',';
 			}
@@ -223,5 +223,10 @@ class DestinationM extends CI_Model{
 		$this->load->database();
 		$q = $this->db->query('update travelstyle set isdeleted=1 where id='.$id);
 		return $q;
+	}
+	public function tdestbyparent(){
+		$this->load->database();
+		$q = $this->db->query('SELECT parent,COUNT(parent) as tdest from destination GROUP by parent');
+		return $q->result();
 	}
 }

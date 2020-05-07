@@ -29,7 +29,7 @@ class Destination extends CI_Controller{
                 $_SESSION['error']="Error Inserting Record";
             }else{
                     $this->load->model('DestinationM');
-                    $op = $this->DestinationM->insert_parent($data['name'],$picture);
+                    $op = $this->DestinationM->insert_parent($data,$picture);
                     $_SESSION['success']="Successfully Inserted";
             }
             redirect('admin/Destination/Add_Parent');
@@ -130,7 +130,7 @@ class Destination extends CI_Controller{
 				$op = $this->DestinationM->insert_travelstyle($data);
 				$_SESSION['success']="Successfully Inserted";
 			}
-			redirect('admin/Destination/List_Parent');
+			redirect('admin/Destination/list_travelstyle');
 		}else{
 			redirect('admin');
 		}

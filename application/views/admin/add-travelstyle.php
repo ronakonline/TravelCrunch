@@ -71,7 +71,7 @@
 										<div class="form-group row">
 											<label for="example-text-input" class="col-sm-2 col-form-label">Featured</label>
 											<div class="col-sm-10">
-												<select class="form-control">
+												<select class="form-control" name="featured">
 													<option value="1">YES</option>
 													<option value="0">No</option>
 												</select>
