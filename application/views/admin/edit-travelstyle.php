@@ -35,8 +35,9 @@
 							<div class="page-title-box">
 								<div class="btn-group float-right">
 									<ol class="breadcrumb hide-phone p-0 m-0">
-										<li class="breadcrumb-item"><a href="#">Destination</a></li>
+										<li class="breadcrumb-item"><a href="#">Travel Style</a></li>
 										<li class="breadcrumb-item"><a href="#"><?php echo $title; ?></a></li>
+
 									</ol>
 								</div>
 								<h4 class="page-title"><?php echo $title; ?></h4>
@@ -48,39 +49,58 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-									<!-- <form action="" method="post" enctype="multipart/form-data"> -->
-										<?php echo form_open_multipart(base_url()."admin/Destination/updateparent"); ?>
+									<form method="post" action="inserttravelstyle" enctype="multipart/form-data">
+
+									<div class="form-group row">
+										<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
+										<div class="col-sm-10">
+											<input class="form-control" type="text" name="name" id="name" required>
+										</div>
+									</div>
 										<div class="form-group row">
-											<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
+											<label for="example-text-input" class="col-sm-2 col-form-label">Destinations</label>
 											<div class="col-sm-10">
-												<input class="form-control" type="text" name="name" id="name" required value="<?php echo $edit_parent[0]->name; ?>">
-												<input type="text" name="id" value="<?php echo $edit_parent[0]->id; ?>" hidden>
+												<select class="js-example-basic-multiple col" name="destinations[]" multiple="multiple">
+													<option disabled>Select Destinations</option>
+													<?php foreach ($destinations as $row){ ?>
+													<option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
+													<?php } ?>
+												</select>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label">Banner Image</label>
+											<label for="example-text-input" class="col-sm-2 col-form-label">Featured</label>
+											<div class="col-sm-10">
+												<select class="form-control">
+													<option value="1">YES</option>
+													<option value="0">No</option>
+												</select>
+											</div>
+										</div>
+									<div class="form-group row">
+										<label for="example-search-input" class="col-sm-2 col-form-label">Banner Image</label>
+										<div class="col-md-10 ">
+											<div class="input-group mt-2">
+												<div class="custom-file">
+													<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
+													<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+												</div>
+											</div>
+										</div>
+									</div>
+										<div class="form-group row">
+											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
 											<div class="col-md-10 ">
 												<div class="input-group mt-2">
-													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="bannerimg"  id="src">
-														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-													</div>
+													<img id="target" height="200" width="250" style="display: none">
 												</div>
 											</div>
 										</div>
-											<div class="form-group row">
-												<label for="example-search-input" class="col-sm-2 col-form-label"></label>
-												<div class="col-md-10 ">
-													<div class="input-group mt-2">
-														<img id="target" height="200" width="250" src="<?php echo base_url('uploads/images/parent/').$edit_parent[0]->bannerimg; ?>">
-													</div>
-												</div>
-											</div>
 
-										<div class="text-center">
-											<button type="submit" class="btn btn-primary">Update</button>
-										</div>
-									
+									<div class="text-center">
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</div>
+									</form>
 								</div>
 
 							</div>
@@ -118,6 +138,10 @@
 	var src = document.getElementById("src");
 	var target = document.getElementById("target");
 	showImage(src,target);
+
+	$(document).ready(function() {
+		$('.js-example-basic-multiple').select2();
+	});
 </script>
 <?php
 if(isset($_SESSION['error'])){

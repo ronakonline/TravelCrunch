@@ -85,7 +85,14 @@
                                                         <td><?php echo $row->name;?></td>
                                                         <td><?php echo $row->pname;?></td>
                                                         
-                                                        <td><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li><a href="delete_destination/<?php echo $row->id; ?>"><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a><li class="fa fa-eye p-2 text-info" style="font-size: 30px"></li></td>
+                                                        <td>
+                                                            <a href="update_destination/<?php echo $row->id; ?>">
+                                                                <li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li>
+                                                            </a>
+                                                            <a href="delete_destination/<?php echo $row->id; ?>">
+                                                                <li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li>
+                                                            </a>
+                                                            <li class="fa fa-eye p-2 text-info" style="font-size: 30px"></li></td>
                                                     </tr>
                                                     <?php }?>
                                                 </tbody>

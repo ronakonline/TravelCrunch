@@ -20,7 +20,7 @@ class Destination extends CI_Controller{
         }
     }
 
-
+    //Insert Parent(Query)
     public function insertparent(){
         if($_SESSION['admin']){
             $data = $this->input->post();
@@ -39,6 +39,19 @@ class Destination extends CI_Controller{
         }
     }
 
+    //List Parent(Page)
+    public function  List_Parent(){
+        if($_SESSION['admin']){
+            $data['title']="All Parent";
+            $this->load->model("DestinationM");
+            $data['parents'] = $this->DestinationM->listparents();
+           $this->load->view('admin/list-parent',$data);
+        }else{
+            redirect('admin');
+        }
+    }
+
+    //Delete Parent(Query)
     public function deleteparent($id,$img){
 		if($_SESSION['admin']){
 			$this->load->model('DestinationM');
@@ -55,17 +68,58 @@ class Destination extends CI_Controller{
 		}
 	}
 
-
-    public function  List_Parent(){
+    //Update Parent(Page)
+    public function editlist_parent($id){
         if($_SESSION['admin']){
-            $data['title']="All Parent";
-            $this->load->model("DestinationM");
-            $data['parents'] = $this->DestinationM->listparents();
-           $this->load->view('admin/list-parent',$data);
-        }else{
-            redirect('admin');
+            $data['title'] ="Update Parent";
+            $this->load->model('DestinationM');
+            $data['edit_parent'] = $this->DestinationM->editlist_parent($id);
+            $this->load->view('admin/edit-parent',$data);
         }
+        else{
+            redirect('admin');   
+        }    
     }
+
+    //Edit Parent(Query)
+    public function updateparent(){
+        if($_SESSION['admin']){
+            $data = $this->input->post();
+            if ($_FILES['bannerimg']['error'] != 4){
+                $picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","parent");
+                if($picture=="error"){
+                    $_SESSION['error']="Error Inserting Record";
+                    redirect('admin/Destination/editlist_parent/'.$data['id']);
+                }
+                else{
+                    $this->load->model('DestinationM');
+                    $op = $this->DestinationM->update_parent($data,$picture);        
+                    if($op==1){
+                        $_SESSION['success']="Successfully Update";
+                    }
+                    else{
+                        $_SESSION['error']="Error Updating";
+                    }
+                    redirect('admin/Destination/editlist_parent/'.$data['id']);
+                }
+            }          
+            else{
+                $this->load->model('DestinationM');
+                $op = $this->DestinationM->update_parent($data);
+                echo $op;
+                if($op==1){
+                $_SESSION['success']="Successfully Updated";
+                }else{
+                    $_SESSION['error']="Error updating";
+                }
+                redirect('admin/Destination/editlist_parent/'.$data['id']);
+            }
+        }
+        else{
+            redirect('admin');   
+        }   
+    }
+    
 
 
     //Add Destination(Page) Controller
@@ -80,6 +134,7 @@ class Destination extends CI_Controller{
 		}
 	}
 
+    //Insert Destination(Query)
     public function insert_destination(){
         if($_SESSION['admin']){
             $data = $this->input->post();
@@ -107,7 +162,51 @@ class Destination extends CI_Controller{
         }
     }
 
+    //List Destination(Page)
+    public function  List_Destination(){
+        if($_SESSION['admin']){
+            $data['title']="All Destination";
+            $this->load->model("DestinationM");
+            $data['destination'] = $this->DestinationM->alldestinations();
+            $this->load->view('admin/list-destination',$data);
+        }else{
+            redirect('admin');
+        }
+    }
 
+    //Delete Destination(Query)
+    public function delete_destination($id){
+        if($_SESSION['admin']){
+            $this->load->model('DestinationM');
+            $op = $this->DestinationM->delete_destination($id);
+            //unlink("uploads/images/parent/".$img);
+            if($op==1){
+                $_SESSION['success']="Successfully Deleted";
+            }else{
+                $_SESSION['error']="Error Deleting";
+            }
+            redirect('admin/Destination/List_Destination');
+        }else{
+            redirect('admin');
+        }
+    }
+
+    //Update-Destination(Page)
+    public function update_destination($id){
+        if($_SESSION['admin']){
+            $data['title']="Update Destination";
+            $this->load->model('DestinationM');
+            $data['edit_destination'] = $this->DestinationM->editlist_destination($id);
+            $this->load->view('admin/edit-destination',$data); 
+        }
+        else{
+            redirect('admin');
+        }
+    }
+
+
+
+    //Add Travel Style(Page)
     public function add_travelstyle(){
         if($_SESSION['admin']){
             $data['title']="Add Travel Style";
@@ -119,6 +218,7 @@ class Destination extends CI_Controller{
         }
     }
 
+    //Insert Travel Style(Query)
     public function inserttravelstyle(){
 		if($_SESSION['admin']){
 			$data = $this->input->post();
@@ -136,15 +236,7 @@ class Destination extends CI_Controller{
 		}
 	}
 
-    public function add_traveldeal(){
-        if($_SESSION['admin']){
-            $data['title']="Add Travel Deal";
-            $this->load->view('admin/add-traveldeal',$data);
-        }else{
-            redirect('admin');
-        }
-    }
-
+    //List Travel Style(Page)
     public function  list_travelstyle(){
         if($_SESSION['admin']){
             $data['title']="All Travel Style";
@@ -156,6 +248,47 @@ class Destination extends CI_Controller{
         }
     }
 
+    //Delete Travel Style(Query)
+    public function delete_travelstyle($id){
+        if($_SESSION['admin']){
+            $this->load->model('DestinationM');
+            $op = $this->DestinationM->delete_travelstyle($id);
+            //unlink("uploads/images/parent/".$img);
+            if($op==1){
+                $_SESSION['success']="Successfully Deleted";
+            }else{
+                $_SESSION['error']="Error Deleting";
+            }
+            redirect('admin/Destination/List_travelstyle');
+        }else{
+            redirect('admin');
+        }
+    }
+
+    //Update Travel Style(Page)
+    public function update_travelstyle(){
+        if($_SESSION['admin']){
+            $data['title']="Update Travel Style";
+            $this->load->view('admin/edit-travelstyle',$data); 
+        }
+        else{
+            redirect('admin');
+        }
+    }
+
+
+
+    //Add Travel Deal(Page)
+    public function add_traveldeal(){
+        if($_SESSION['admin']){
+            $data['title']="Add Travel Deal";
+            $this->load->view('admin/add-traveldeal',$data);
+        }else{
+            redirect('admin');
+        }
+    }
+
+    //List Travel Deals(Page)
     public function  list_traveldeals(){
         if($_SESSION['admin']){
             $data['title']="All Travel Deals";
@@ -165,6 +298,19 @@ class Destination extends CI_Controller{
         }
     }
 
+    //Update Travel Deal(Page)
+    public function update_traveldeal(){
+        if($_SESSION['admin']){
+            $data['title']="Update Travel Deal";
+            $this->load->view('admin/edit-traveldeal',$data); 
+        }
+        else{
+            redirect('admin');
+        }
+    }
+
+
+    //Common Image Uploader
     public  function  uploadimage($img,$name,$dest){
         $config['upload_path'] = 'uploads/images/'.$dest;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -184,33 +330,7 @@ class Destination extends CI_Controller{
     }
 
 
-    public function  List_Destination(){
-        if($_SESSION['admin']){
-            $data['title']="All Destination";
-            $this->load->model("DestinationM");
-            $data['destination'] = $this->DestinationM->alldestinations();
-            $this->load->view('admin/list-destination',$data);
-        }else{
-            redirect('admin');
-        }
-    }
-
-    public function delete_destination($id){
-        if($_SESSION['admin']){
-            $this->load->model('DestinationM');
-            $op = $this->DestinationM->delete_destination($id);
-            //unlink("uploads/images/parent/".$img);
-            if($op==1){
-                $_SESSION['success']="Successfully Deleted";
-            }else{
-                $_SESSION['error']="Error Deleting";
-            }
-            redirect('admin/Destination/List_Destination');
-        }else{
-            redirect('admin');
-        }
-    }
-
+    //Add Widget(Page)
     public function  Add_Widget(){
         if($_SESSION['admin']){
             $data['title']="Add Widget";
@@ -222,6 +342,7 @@ class Destination extends CI_Controller{
         }
     }
 
+    //Insert OverView(Query)
     public function insert_overview(){
         if($_SESSION['admin']){
             $data['title']="Add Widget";
@@ -235,6 +356,7 @@ class Destination extends CI_Controller{
         }
     }
 
+    //Insert FAQ(Query)
     public function insert_faq(){
         if($_SESSION['admin']){
             $data['title']="Add Widget";
@@ -255,6 +377,7 @@ class Destination extends CI_Controller{
         }   
     }
 
+    //Insert Packing(Query)
     public function insert_packing(){
         if($_SESSION['admin']){
             $data['title']="Add Widget";
@@ -275,6 +398,7 @@ class Destination extends CI_Controller{
         }
     }
 
+    //Insert Sea Tags(Query)
     public function insert_seotags(){
         if($_SESSION['admin']){
             $data['title']="Add Widget";
@@ -296,6 +420,7 @@ class Destination extends CI_Controller{
         }
     }
 
+    //Insert Gallery
     public function insert_gallery(){
         if($_SESSION['admin']){
             $data['title']="Add Widget";
@@ -357,75 +482,6 @@ class Destination extends CI_Controller{
         else{
             redirect('admin');
         }        
-    }
+    } 
 
-    public function editlist_parent($id){
-        if($_SESSION['admin']){
-            $data['title'] ="Update Parent";
-            $this->load->model('DestinationM');
-            $data['edit_parent'] = $this->DestinationM->editlist_parent($id);
-            $this->load->view('admin/edit-parent',$data);
-        }
-        else{
-            redirect('admin');   
-        }    
-    }
-
-    public function updateparent(){
-         if($_SESSION['admin']){
-            
-            $data = $this->input->post();
-            if ($_FILES['bannerimg']['error'] != 4) {
-                $picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","parent");
-                if($picture=="error"){
-                    $_SESSION['error']="Error Inserting Record";
-                    redirect('admin/Destination/editlist_parent/'.$data['id']);
-                }
-                else{
-                    $this->load->model('DestinationM');
-                    $op = $this->DestinationM->update_parent($data,$picture);        
-                    if($op==1){
-                    $_SESSION['success']="Successfully Update";
-                    }else{
-                        $_SESSION['error']="Error Updating";
-                    }
-                    redirect('admin/Destination/editlist_parent/'.$data['id']);
-                }
-                
-
-            }    
-
-            else{
-                 $this->load->model('DestinationM');
-                $op = $this->DestinationM->update_parent($data);
-                echo $op;
-                if($op==1){
-                $_SESSION['success']="Successfully Updated";
-                }else{
-                    $_SESSION['error']="Error updating";
-                }
-                redirect('admin/Destination/editlist_parent/'.$data['id']);
-            }
-
-        }
-        else{
-            redirect('admin');   
-        }   
-    }
-
-	public function delete_travelstyle($id){
-		if($_SESSION['admin']){
-			$this->load->model('DestinationM');
-			$op = $this->DestinationM->delete_travelstyle($id);
-			//unlink("uploads/images/parent/".$img);
-			if($op==1){
-				$_SESSION['success']="Successfully Deleted";
-			}else{
-				$_SESSION['error']="Error Deleting";
-			}
-			redirect('admin/Destination/List_travelstyle');
-		}else{
-			redirect('admin');
-		}
-	}
 }

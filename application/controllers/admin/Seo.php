@@ -18,4 +18,13 @@ class Seo extends CI_Controller{
             redirect('admin');
         }
     }
+
+    public function update_seo(){
+        if($_SESSION['admin']){
+            $data['title']="Update SEO";
+            $this->load->view('admin/edit-seo',$data);
+        }else{
+            redirect('admin');
+        }
+    }
 }
