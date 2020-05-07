@@ -197,6 +197,9 @@ class Destination extends CI_Controller{
             $data['title']="Update Destination";
             $this->load->model('DestinationM');
             $data['edit_destination'] = $this->DestinationM->editlist_destination($id);
+            $data['get_destination'] = $this->DestinationM->gettoursbydestination($id);
+            $data['get_overview'] = $this->DestinationM->getoverview($id);
+            $data['get_faq'] = $this->DestinationM->getfaq($id);
             $this->load->view('admin/edit-destination',$data); 
         }
         else{
