@@ -86,12 +86,12 @@
                                                 <div class="tab-content">
                                                 	<div class="tab-pane active p-3" id="general" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                        	<form action="insert_destination" method="post" enctype="multipart/form-data">
+                                                        	<form action="<?php echo base_url('admin/Destination/update_dgeneral'); ?>" method="post" enctype="multipart/form-data">
 																
 																<div class="form-group row">
 																	<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 																	<div class="col-sm-10">
-																		<input class="form-control" type="text" id="Destination_name" name="Destination_name" value="<?php echo $dest[0]->name; ?>" required>
+																		<input class="form-control" type="text" id="Destination_name" name="name" value="<?php echo $dest[0]->name; ?>" required>
 																	</div>
 																</div>
 																<div class="form-group row">
@@ -121,7 +121,7 @@
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
 																			<div class="custom-file">
-																				<input type="file" class="custom-file-input" id="src" name="file1"  required>
+																				<input type="file" class="custom-file-input" id="src" name="file1" >
 																				<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 																			</div>
 																		</div>
@@ -149,7 +149,7 @@
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
 																			<div class="custom-file">
-																				<input type="file" class="custom-file-input" id="src2" name="file2" required>
+																				<input type="file" class="custom-file-input" id="src2" name="file2" >
 																				<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 																			</div>
 																		</div>
@@ -190,6 +190,7 @@
 																		</div>
 																	</div>
 																</div>
+															<input type="text" value="<?php echo $dest[0]->id; ?>" name="id" hidden>
 																<div class="form-group row">
 																	<div class="col-md-10 ">
 																		<div class="input-group mt-2">
@@ -202,7 +203,7 @@
                                                     </div>
                                                     <div class="tab-pane p-3" id="home-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                        	<form action="insert_overview" method="post">
+                                                        	<form action="<?php echo base_url('admin/Destination/update_doverview'); ?>" method="post">
 																<?php foreach ($dest['overview'] as $ov) {
 
 																} ?>
@@ -218,6 +219,7 @@
 				                                                        <textarea class="form-control" rows="5" name="oright" id="oright" required><?php echo $ov->oright; ?></textarea>
 				                                                    </div>
 				                                                </div>
+															<input type="text" value="<?php echo $dest[0]->id; ?>" name="id" hidden>
 				                                                <div class="form-group">
 				                                                	<button type="submit" class="btn btn-primary">Submit</button>
 				                                                </div>

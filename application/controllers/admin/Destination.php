@@ -487,6 +487,104 @@ class Destination extends CI_Controller{
         else{
             redirect('admin');
         }        
-    } 
+    }
+
+	public function update_dgeneral(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			if ($_FILES['file1']['error'] != 4 || $_FILES['file2']['error'] != 4 || $_FILES['file3']['error'] != 4){
+				if($_FILES['file1']['error'] !=4){
+					$data['picture'] = $this->uploadimage($_FILES['file1'],"file1","destination");
+					if($data['picture']=="error"){
+						$_SESSION['error']="Error Inserting Record";
+						redirect('admin/Destination/update_destination/'.$data['id']);
+					}
+					else{
+						$data['p']=1;
+						$this->load->model('DestinationM');
+						$op = $this->DestinationM->update_dgeneral($data);
+						if($op==1){
+							$_SESSION['success']="Successfully Update";
+						}
+						else{
+							$_SESSION['error']="Error Updating";
+						}
+						redirect('admin/Destination/update_destination/'.$data['id']);
+					}
+				}else if($_FILES['file2']['error'] !=4){
+					$data['picture'] = $this->uploadimage($_FILES['file2'],"file2","destination");
+					if($data['picture']=="error"){
+						$_SESSION['error']="Error Inserting Record";
+						redirect('admin/Destination/update_destination/'.$data['id']);
+					}
+					else{
+						$data['p']=2;
+						$this->load->model('DestinationM');
+						$op = $this->DestinationM->update_dgeneral($data);
+						if($op==1){
+							$_SESSION['success']="Successfully Update";
+						}
+						else{
+							$_SESSION['error']="Error Updating";
+						}
+						//echo $op;
+						redirect('admin/Destination/update_destination/'.$data['id']);
+					}
+				}else if($_FILES['file3']['error'] !=4){
+					$data['picture'] = $this->uploadimage($_FILES['file3'],"file3","destination");
+					if($data['picture']=="error"){
+						$_SESSION['error']="Error Inserting Record";
+						redirect('admin/Destination/update_destination/'.$data['id']);
+					}
+					else{
+						$data['p']=3;
+						$this->load->model('DestinationM');
+						$op = $this->DestinationM->update_dgeneral($data);
+						if($op==1){
+							$_SESSION['success']="Successfully Update";
+						}
+						else{
+							$_SESSION['error']="Error Updating";
+						}
+						redirect('admin/Destination/update_destination/'.$data['id']);
+					}
+				}
+
+			}
+			else{
+				$this->load->model('DestinationM');
+				$op = $this->DestinationM->update_dgeneral($data);
+				echo $op;
+				if($op==1){
+					$_SESSION['success']="Successfully Updated";
+				}else{
+					$_SESSION['error']="Error updating";
+				}
+				redirect('admin/Destination/update_destination/'.$data['id']);
+			}
+		}
+		else{
+			redirect('admin');
+		}
+	}
+
+	public function update_doverview(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			$this->load->model("DestinationM");
+			$qu = $this->DestinationM->update_doverview($data);
+			if ($qu==1) {
+				$_SESSION['success']="Updated Successfully";
+			}
+			else{
+				$_SESSION['error']="Error Updating Record";
+			}
+			echo $qu;
+			//redirect('admin/Destination/update_destination/'.$data['id']);
+		}
+		else{
+			redirect('admin');
+		}
+	}
 
 }
