@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2020 at 10:36 PM
+-- Generation Time: May 08, 2020 at 10:44 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- PHP Version: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -328,15 +328,23 @@ CREATE TABLE `sitesetting` (
   `tagline1` mediumtext NOT NULL,
   `slide1` mediumtext NOT NULL,
   `slide2` mediumtext NOT NULL,
-  `slide3` mediumtext NOT NULL
+  `slide3` mediumtext NOT NULL,
+  `ftitle1` mediumtext NOT NULL,
+  `ftitle2` mediumtext NOT NULL,
+  `ftitle3` mediumtext NOT NULL,
+  `feature1` longtext NOT NULL,
+  `feature2` longtext NOT NULL,
+  `feature3` longtext NOT NULL,
+  `homedivimg` mediumtext NOT NULL,
+  `homedivtext` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `sitesetting`
 --
 
-INSERT INTO `sitesetting` (`id`, `logo`, `title1`, `tagline1`, `slide1`, `slide2`, `slide3`) VALUES
-(1, 'WhatsApp_Image_2020-04-16_at_11_03_33.jpeg', 'Experience the Wonderrr', 'People don’t take trips, trips take People', 'image.png', 'WhatsApp_Image_2020-04-16_at_11_03_33.jpeg', 'WhatsApp_Image_2020-04-27_at_18_33_252.jpeg');
+INSERT INTO `sitesetting` (`id`, `logo`, `title1`, `tagline1`, `slide1`, `slide2`, `slide3`, `ftitle1`, `ftitle2`, `ftitle3`, `feature1`, `feature2`, `feature3`, `homedivimg`, `homedivtext`) VALUES
+(1, 'WhatsApp_Image_2020-04-16_at_11_03_33.jpeg', 'Experience the Wonderrr', 'People don’t take trips, trips take People', 'image.png', 'WhatsApp_Image_2020-04-16_at_11_03_33.jpeg', 'WhatsApp_Image_2020-04-27_at_18_33_252.jpeg', 'Luxury Hotels', 'Tourist Guide', 'Flights Tickets', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer nihil imperdiet doming...', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer nihil imperdiet doming...', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer nihil imperdiet doming...', 'placeholder-01.png', 'Travel teaches us that we’re stronger when we come together. And that’s \r\nnever been more true. We can’t wait to share our big, beautiful world \r\nwith you again.<br>Our world deserves more you..');
 
 -- --------------------------------------------------------
 
