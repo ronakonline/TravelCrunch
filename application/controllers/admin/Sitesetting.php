@@ -38,6 +38,18 @@ class Sitesetting extends CI_Controller{
 		}
 	}
 
+
+	public function homepage(){
+		if($_SESSION['admin']){
+                $data['title']="Home page Setting";
+                //$this->load->model('SitesettingM');
+                //$data['sitesetting']=$this->SitesettingM->listsitesetting();
+                 $this->load->view('admin/homepage',$data);
+        }else{
+            redirect('admin');
+        }	
+	}
+
 	public  function  uploadimage($img,$name){
 		$config['upload_path'] = 'assets/images/';
 		$config['allowed_types'] = 'jpg|jpeg|png|gif';
