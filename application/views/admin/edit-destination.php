@@ -230,7 +230,7 @@
 				                                                </div>
 															<input type="text" value="<?php echo $dest[0]->id; ?>" name="id" hidden>
 				                                                <div class="form-group">
-				                                                	<button type="submit" class="btn btn-primary">Submit</button>
+				                                                	<button type="submit" class="btn btn-primary">Update</button>
 				                                                </div>
 			                                            	</form>
                                                         </p>
@@ -264,7 +264,7 @@
 					                                            </div>
 				                                            
 				                                                <div class="form-group">
-				                                                	<button type="submit" class="btn btn-primary">Submit</button>
+				                                                	<button type="submit" class="btn btn-primary">Update</button>
 				                                                </div>
 			                                            	</form>
                                                         </p>

@@ -52,32 +52,30 @@
 									<form method="post" action="<?php echo base_url('admin/Destination/edit_traveldeal');?>" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="example-text-input" class="">Featured</label>
-											<select class="form-control">
-												<?php if($edit_deal[0]->featured == 1){
-														echo "<option value='1' selected>YES</option>
-														  		<option value='2'>No</option>";	
-														}
-														else{
-															echo "<option value='1'>YES</option>
-														  		<option value='2' selected>No</option>";	
-														} 
-
-												?>
-												
-											</select>
-									
+										<select class="form-control" name="featured">
+											<?php 
+												if($edit_deal[0]->featured == 1){
+													echo "<option value='1' selected>YES</option>
+													  		<option value='2'>No</option>";	
+												}
+												else{
+													echo "<option value='1'>YES</option>
+												  		<option value='2' selected>No</option>";	
+												} 
+											?>
+										</select>
 									</div>
 									<div class="form-group row">
 										<div class="col-sm-6"> 
 											<label for="example-text-input" class="">Offer</label>
 											<div>
-												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" value="<?php echo $edit_deal[0]->offer; ?>" required>
+												<input class="form-control" type="text" name="offer" id="offer" placeholder="In Percentage" value="<?php echo $edit_deal[0]->offer; ?>" required>
 											</div>
 										</div>
 										<div class="col-sm-6"> 
 											<label for="example-text-input" class="">Deal</label>
 											<div>
-												<input class="form-control" type="text" name="name" id="name" placeholder="In Percentage" value="<?php echo $edit_deal[0]->deal; ?>" required>
+												<input class="form-control" type="text" name="deal" id="deal" placeholder="In Percentage" value="<?php echo $edit_deal[0]->deal; ?>" required>
 											</div>
 										</div>
 									</div>
