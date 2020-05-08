@@ -226,30 +226,30 @@
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 								<div class="tg-feature">
 									<div class="tg-featuretitle">
-										<h2><span>01</span>Luxury Hotels</h2>
+										<h2><span>01</span><?php echo $settings[0]->ftitle1; ?></h2>
 									</div>
 									<div class="tg-description">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer nihil imperdiet doming...</p>
+										<p><?php echo $settings[0]->feature1; ?></p>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 								<div class="tg-feature">
 									<div class="tg-featuretitle">
-										<h2><span>02</span>Tourist Guide</h2>
+										<h2><span>02</span><?php echo $settings[0]->ftitle2; ?></h2>
 									</div>
 									<div class="tg-description">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer nihil imperdiet doming...</p>
+										<p><?php echo $settings[0]->feature2; ?></p>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 								<div class="tg-feature">
 									<div class="tg-featuretitle">
-										<h2><span>03</span>Flights Tickets</h2>
+										<h2><span>03</span><?php echo $settings[0]->ftitle3; ?></h2>
 									</div>
 									<div class="tg-description">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer nihil imperdiet doming...</p>
+										<p><?php echo $settings[0]->feature3; ?></p>
 									</div>
 								</div>
 							</div>
@@ -283,7 +283,7 @@
 												<h3><a href="<?php echo base_url('Tourdetails/').$row->id;?>"><?php echo $row->title; ?></a></h3>
 											</div>
 											<div class="tg-description">
-												<p><?php echo substr($row->overview,0,150); ?>...</p>
+												<p><?php echo substr($row->overview,0,90); ?>...</p>
 											</div>
 											<div class="tg-populartourfoot">
 												<div class="tg-durationrating">
@@ -315,29 +315,13 @@
 					<div class="row">
 						<div class="tg-ourdestination">
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 tg-verticalmiddle">
-								<figure><img src="<?php echo base_url();?>assets/images/placeholder/placeholder-01.png" alt="image destinations"></figure>
+								<figure><img src="<?php echo base_url();?>assets/images/placeholder/<?php echo $settings[0]->homedivimg; ?>" alt="image destinations"></figure>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 tg-verticalmiddle">
 								<div class="tg-ourdestinationcontent">
-									<div class="tg-sectiontitle tg-sectiontitleleft">
-										<h2>Popular Tours</h2>
-									</div>
-									<div class="tg-description"><p></p></div>
-									<ul class="tg-destinations">
-										<?php  foreach ($parents as $row){?>
-										<?php if($row->featured==1){ ?>
-											<li>
-											<a href="#">
-												<h3><?php echo $row->name; ?></h3>
-												<?php foreach ($tdp as $col){ ?>
-													<?php if($col->parent == $row->id){ ?>
-														<em>(<?php echo $col->tdest; ?>)</em>
-												<?php } }?>
-											</a>
-										</li>
-										<?php }}?>
-									</ul>
-									<a class="tg-btn" href="tourcatagory.html"><span>all destinations</span></a>
+
+									<div class="tg-description"><p><?php echo $settings[0]->homedivtext; ?></p></div>
+
 								</div>
 							</div>
 						</div>
