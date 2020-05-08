@@ -17,7 +17,7 @@ class DestinationM extends CI_Model{
 	//Insert Parent
 	public function insert_parent($data,$pic){
 		$this->load->database();
-		$q = $this->db->query('insert into Destinations_Parents values(null,"'.$data['name'].'","'.$pic.'",'.$data['featured'].',0)');
+		$q = $this->db->query('insert into Destinations_Parents values(null,"'.addslashes($data['name']).'","'.$pic.'",'.$data['featured'].',0)');
 		return $q;
 	}
 
@@ -52,11 +52,11 @@ class DestinationM extends CI_Model{
 	//Update Parent
 	public function update_parent($data,$img=null){
 		if ($img==null) {
-			$q = $this->db->query('update destinations_parents set name= "'.$data['name'].'" where id = "'.$data['id'].'" AND isdeleted = 0');
+			$q = $this->db->query('update destinations_parents set name= "'.addslashes($data['name']).'" where id = "'.$data['id'].'" AND isdeleted = 0');
 			return $q;
 		}
 		else{
-			$q = $this->db->query('update destinations_parents set name= "'.$data['name'].'", bannerimg = "'.$img.'" where id = "'.$data['id'].'" AND isdeleted = 0');
+			$q = $this->db->query('update destinations_parents set name= "'.addslashes($data['name']).'", bannerimg = "'.addslashes($img).'" where id = "'.$data['id'].'" AND isdeleted = 0');
 			return $q;
 		}
 	}
@@ -67,11 +67,11 @@ class DestinationM extends CI_Model{
 	public function insert_destination($data,$pic){
 		$this->load->database();
 		if (isset($pic['picture3'])) {
-			$q = $this->db->query('insert into destination values(null,"'.$data['parentname'].'","'.$data['Destination_name'].'","'.$data['tagline'].'","'.$data['featured'].'","'.$pic['picture1'].'","'.$data['about1'].'","'.$pic['picture2'].'","'.$data['about2'].'","'.$pic['picture3'].'",0)');
+			$q = $this->db->query('insert into destination values(null,"'.addslashes($data['parentname']).'","'.addslashes($data['Destination_name']).'","'.addslashes($data['tagline']).'","'.$data['featured'].'","'.addslashes($pic['picture1']).'","'.addslashes($data['about1']).'","'.addslashes($pic['picture2']).'","'.addslashes($data['about2']).'","'.addslashes($pic['picture3']).'",0)');
 			return $q;
 		}
 		else{
-			$q = $this->db->query('insert into destination values(null,"'.$data['parentname'].'","'.$data['Destination_name'].'","'.$data['tagline'].'","'.$data['featured'].'","'.$pic['picture1'].'","'.$data['about1'].'","'.$pic['picture2'].'",null,null,0)');
+			$q = $this->db->query('insert into destination values(null,"'.addslashes($data['parentname']).'","'.addslashes($data['Destination_name']).'","'.addslashes($data['tagline']).'","'.$data['featured'].'","'.addslashes($pic['picture1']).'","'.addslashes($data['about1']).'","'.addslashes($pic['picture2']).'",0)');
 			return $q;
 		}
 	}
@@ -115,7 +115,7 @@ class DestinationM extends CI_Model{
 	//Insert OverView
 	public function insert_overview($data){
 		$this->load->database();
-		$q = $this->db->query('insert into overview values(null,"'.$data['destinationname'].'","'.$data['oleft'].'","'.$data['oright'].'",0)');
+		$q = $this->db->query('insert into overview values(null,"'.addslashes($data['destinationname']).'","'.addslashes($data['oleft']).'","'.addslashes($data['oright']).'",0)');
 		return $q;
 	}
 
@@ -127,10 +127,10 @@ class DestinationM extends CI_Model{
 		for ($i=1; $i<=$total ; $i++) {
 
 			if($i==$total){
-				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0)';
+				$qu .= '(null,'.$data['destinationname'].',"'.addslashes($data['question'][$i]).'","'.addslashes($data['answer'][$i]).'",0)';
 			}
 			else{
-				$qu .= '(null,'.$data['destinationname'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0),';
+				$qu .= '(null,'.$data['destinationname'].',"'.addslashes($data['question'][$i]).'","'.addslashes($data['answer'][$i]).'",0),';
 			}
 		}
 
@@ -145,37 +145,37 @@ class DestinationM extends CI_Model{
 		$item2count = count($data['item2']);
 		$item3count = count($data['item3']);
 		$item4count = count($data['item4']);
-		$qu = 'insert into packing values(null,'.$data['destinationname'].',"'.$data['title1'].'","'.$data['desc1'].'","'.$data['title2'].'","'.$data['desc2'].'","'.$data['list1'].'","[';
+		$qu = 'insert into packing values(null,'.$data['destinationname'].',"'.addslashes($data['title1']).'","'.addslashes($data['desc1']).'","'.addslashes($data['title2']).'","'.addslashes($data['desc2']).'","'.addslashes($data['list1']).'","[';
 		for($i=0; $i<$item1count; $i++){
 
 			if($i==$item1count-1){
-				$qu .= $data['item1'][$i]."]".'","'.$data['list2'].'","[';
+				$qu .= addslashes($data['item1'][$i])."]".'","'.addslashes($data['list2']).'","[';
 			}else{
-				$qu .= $data['item1'][$i].",";
+				$qu .= addslashes($data['item1'][$i]).",";
 			}
 		}
 		for($i=0; $i<$item2count; $i++){
 
 			if($i==$item2count-1){
-				$qu .= $data['item2'][$i]."]".'","'.$data['list3'].'","[';
+				$qu .= addslashes($data['item2'][$i])."]".'","'.addslashes($data['list3']).'","[';
 			}else{
-				$qu .= $data['item2'][$i].",";
+				$qu .= addslashes($data['item2'][$i]).",";
 			}
 		}
 		for($i=0; $i<$item3count; $i++) {
 
 			if ($i == $item3count-1) {
-				$qu .= $data['item3'][$i] . "]" . '","' . $data['list4'] . '","[';
+				$qu .= addslashes($data['item3'][$i]) . "]" . '","' . addslashes($data['list4']) . '","[';
 			} else {
-				$qu .= $data['item3'][$i] . ",";
+				$qu .=addslashes($data['item3'][$i]). ",";
 			}
 		}
 		for($i=0; $i<$item4count; $i++) {
 
 			if ($i == $item4count-1) {
-				$qu .= $data['item4'][$i] . "]".'",0)' ;
+				$qu .= addslashes($data['item4'][$i]) . "]".'",0)' ;
 			} else {
-				$qu .= $data['item4'][$i] . ",";
+				$qu .= addslashes($data['item4'][$i]) . ",";
 			}
 		}
 
@@ -258,7 +258,7 @@ class DestinationM extends CI_Model{
 		$total = count($data['destinations']);
 		for($i=0; $i<$total; $i++){
 			if($i==$total-1){
-				$qu .= $data['destinations'][$i].']","'.$data['name'].'","'.$data['bannerimg'].'",'.$data['featured'].',0)';
+				$qu .= $data['destinations'][$i].']","'.addslashes($data['name']).'","'.$data['bannerimg'].'",'.$data['featured'].',0)';
 			}else{
 				$qu .= $data['destinations'][$i].',';
 			}
@@ -282,7 +282,7 @@ class DestinationM extends CI_Model{
 
 	//Insert Travel deal
 	public function insert_traveldeal($data){
-		$q = $this->db->query('insert into traveldeal values(null,'.$data['destination'].','.$data['featured'].',"'.$data['offer'].'","'.$data['deal'].'")');
+		$q = $this->db->query('insert into traveldeal values(null,'.$data['destination'].','.$data['featured'].',"'.addslashes($data['offer']).'","'.addslashes($data['deal']).'")');
 		return $q;
 	}
 
@@ -307,23 +307,23 @@ class DestinationM extends CI_Model{
 	public function update_dgeneral($data){
 		$this->load->database();
 		if($data['p']==1) {
-			$q = $this->db->query('update destination set name="'.$data['name'].'",tagline="'.$data['tagline'].'",featured='.$data['featured'].',banner="'.$data['picture'].'",about1="'.$data['about1'].'",about2="'.$data['about2'].'" where id=' . $data['id']);
+			$q = $this->db->query('update destination set name="'.addslashes($data['name']).'",tagline="'.addslashes($data['tagline']).'",featured='.$data['featured'].',banner="'.addslashes($data['picture']).'",about1="'.addslashes($data['about1']).'",about2="'.addslashes($data['about2']).'" where id=' . $data['id']);
 			return $q;
 		}else if($data['p']==2) {
-			$q = $this->db->query('update destination set name="'.$data['name'].'",tagline="'.$data['tagline'].'",featured='.$data['featured'].',about1="'.$data['about1'].'",about1_image="'.$data['picture'].'",about2="'.$data['about2'].'" where id=' . $data['id']);
+			$q = $this->db->query('update destination set name="'.addslashes($data['name']).'",tagline="'.addslashes($data['tagline']).'",featured='.$data['featured'].',about1="'.addslashes($data['about1']).'",about1_image="'.addslashes($data['picture']).'",about2="'.addslashes($data['about2']).'" where id=' . $data['id']);
 			return $q;
 		}else if($data['p']==3) {
-			$q = $this->db->query('update destination set name="'.$data['name'].'",tagline="'.$data['tagline'].'",featured='.$data['featured'].',about1="'.$data['about1'].'",about2_image="'.$data['picture'].'",about2="'.$data['about2'].'" where id=' . $data['id']);
+			$q = $this->db->query('update destination set name="'.addslashes($data['name']).'",tagline="'.addslashes($data['tagline']).'",featured='.$data['featured'].',about1="'.addslashes($data['about1']).'",about2_image="'.addslashes($data['picture']).'",about2="'.addslashes($data['about2']).'" where id=' . $data['id']);
 			return $q;
 		}else{
-			$q = $this->db->query('update destination set name="'.$data['name'].'",tagline="'.$data['tagline'].'",featured='.$data['featured'].',about1="'.$data['about1'].'",about2="'.$data['about2'].'" where id=' . $data['id']);
+			$q = $this->db->query('update destination set name="'.addslashes($data['name']).'",tagline="'.addslashes($data['tagline']).'",featured='.$data['featured'].',about1="'.addslashes($data['about1']).'",about2="'.addslashes($data['about2']).'" where id=' . $data['id']);
 			return $q;
 		}
 	}
 
 	public function update_doverview($data){
 		$this->load->database();
-		$q = $this->db->query('update overview set oleft="'.$data['oleft'].'",oright="'.$data['oright'].'"  where destid='.$data['id']);
+		$q = $this->db->query('update overview set oleft="'.addslashes($data['oleft']).'",oright="'.addslashes($data['oright']).'"  where destid='.$data['id']);
 		return $q;
 	}
 }

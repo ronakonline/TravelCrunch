@@ -35,7 +35,7 @@ class TourM extends CI_Model{
 	}
 
 	public function  insert_general($data,$img){
-		$q = $this->db->query('insert into tours values(null,'.$data['destination'].',"'.$data['name'].'","'.$data['from'].'","'.$data['to'].'","'.$img.'","'.$data['days'].'","'.$data['price'].'",null,null,0)');
+		$q = $this->db->query('insert into tours values(null,'.$data['destination'].',"'.addslashes($data['name']).'","'.addslashes($data['from']).'","'.addslashes($data['to']).'","'.$img.'","'.addslashes($data['days']).'","'.addslashes($data['price']).'",null,null,0)');
 		return $q;
 	}
 	public function  insert_overview($data){
@@ -71,10 +71,10 @@ class TourM extends CI_Model{
 		for ($i=0; $i<$total ; $i++) {
 
 			if($i==$total-1){
-				$qu .= '(null,'.$data['tour'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0)';
+				$qu .= '(null,'.$data['tour'].',"'.addslashes($data['question'][$i]).'","'.addslashes($data['answer'][$i]).'",0)';
 			}
 			else{
-				$qu .= '(null,'.$data['tour'].',"'.$data['question'][$i].'","'.$data['answer'][$i].'",0),';
+				$qu .= '(null,'.$data['tour'].',"'.addslashes($data['question'][$i]).'","'.addslashes($data['answer'][$i]).'",0),';
 			}
 		}
 
