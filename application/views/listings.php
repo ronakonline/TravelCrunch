@@ -503,102 +503,35 @@
 							<h2>Popular Tours</h2>
 							<a class="tg-btnvtwo" href="javascript:void(0);">All Tours</a>
 						</div>
-						<div id="tg-populartoursslider" class="tg-populartoursslider tg-populartours owl-carousel">
-							<div class="item tg-populartour">
-								<figure>
-									<a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/tours/img-01.jpg" alt="image destinations"></a>
-									<span class="tg-descount">25% Off</span>
-								</figure>
-								<div class="tg-populartourcontent">
-									<div class="tg-populartourtitle">
-										<h3><a href="tourbookingdetail.html">City Tours in Europe, Paris</a></h3>
-									</div>
-									<div class="tg-description">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-									</div>
-									<div class="tg-populartourfoot">
-										<div class="tg-durationrating">
-											<span class="tg-tourduration">7 Days</span>
-											<span class="tg-stars"><span></span></span>
-											<em>(3 Review)</em>
-										</div>
-										<div class="tg-pricearea">
-											<del>$2,800</del>
-											<h4>$2,500</h4>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item tg-populartour">
-								<figure><a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/tours/img-02.jpg" alt="image destinations"></a></figure>
-								<div class="tg-populartourcontent">
-									<div class="tg-populartourtitle">
-										<h3><a href="tourbookingdetail.html">Best of Canada Tours and Travel</a></h3>
-									</div>
-									<div class="tg-description">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-									</div>
-									<div class="tg-populartourfoot">
-										<div class="tg-durationrating">
-											<span class="tg-tourduration">7 Days</span>
-											<span class="tg-stars"><span></span></span>
-											<em>(3 Review)</em>
-										</div>
-										<div class="tg-pricearea">
-											<span>from</span>
-											<h4>$600</h4>
+						<div id="tg-populartoursslider" class="tg-populartoursslider tg-populartours tg-populartoursvtwo owl-carousel">
+							<?php foreach ($tours as $tour){ ?>
+									<div class="item tg-populartour">
+										<figure><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><img src="<?php echo base_url('uploads/images/gallery/').$tour->bannerimg;?>" alt="image destinations" style="height: 255px;"></a>
+
+										</figure>
+										<div class="tg-populartourcontent">
+											<div class="tg-populartourtitle">
+												<h3><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><?php echo $tour->title; ?></a></h3>
+											</div>
+											<div class="tg-description">
+												<p><?php echo substr($tour->overview,0,150); ?>...</p>
+											</div>
+											<div class="tg-populartourfoot">
+												<div class="tg-durationrating">
+													<span class="tg-tourduration"><?php echo $tour->days; ?> Days</span>
+												</div>
+												<div class="tg-pricearea">
+													<span>from</span>
+													<h4>$<?php echo $tour->price; ?></h4>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="item tg-populartour">
-								<figure><a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/tours/img-03.jpg" alt="image destinations"></a></figure>
-								<div class="tg-populartourcontent">
-									<div class="tg-populartourtitle">
-										<h3><a href="tourbookingdetail.html">Italy – 3 Days in Rome, Golden Gate</a></h3>
-									</div>
-									<div class="tg-description">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-									</div>
-									<div class="tg-populartourfoot">
-										<div class="tg-durationrating">
-											<span class="tg-tourduration">7 Days</span>
-											<span class="tg-stars"><span></span></span>
-											<em>(3 Review)</em>
-										</div>
-										<div class="tg-pricearea">
-											<span>from</span>
-											<h4>$1,430</h4>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item tg-populartour">
-								<figure><a href="tourbookingdetail.html"><img src="<?php echo base_url();?>assets/images/tours/img-04.jpg" alt="image destinations"></a></figure>
-								<div class="tg-populartourcontent">
-									<div class="tg-populartourtitle">
-										<h3><a href="tourbookingdetail.html">Best of Canada Tours and Travel</a></h3>
-									</div>
-									<div class="tg-description">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...</p>
-									</div>
-									<div class="tg-populartourfoot">
-										<div class="tg-durationrating">
-											<span class="tg-tourduration">7 Days</span>
-											<span class="tg-stars"><span></span></span>
-											<em>(3 Review)</em>
-										</div>
-										<div class="tg-pricearea">
-											<span>from</span>
-											<h4>$600</h4>
-										</div>
-									</div>
-								</div>
-							</div>
+								<?php } ?>
 						</div>
 					</div>
 				</div>
-				<center><a class="btn btn-danger">View All Tours</a></center>
+
 			</div>
 		</main>
 		<!--************************************

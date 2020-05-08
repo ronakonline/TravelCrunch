@@ -127,9 +127,9 @@
 														<?php if($dest->parent==$row->id) {?>
 													<div class="item tg-populardestination">
 														<figure>
-															<a href="javascript:void(0);"><img src="<?php echo base_url('uploads/images/destination/').$dest->banner; ?>" alt="image destinations" style="height: 202px;"></a>
+															<a href="<?php echo base_url('Listings/').$dest->id."/".$dest->name; ?>"><img src="<?php echo base_url('uploads/images/destination/').$dest->banner; ?>" alt="image destinations" style="height: 202px;"></a>
 															<figcaption>
-																<h3><a href="javascript:void(0);"><?php echo $dest->name; ?></a></h3>
+																<h3><a href="<?php echo base_url('Listings/').$dest->id."/".$dest->name; ?>"><?php echo $dest->name; ?></a></h3>
 																<div class="tg-description">
 																	<p><?php echo $dest->tagline; ?></p>
 																</div>
@@ -347,34 +347,7 @@
 			<!--************************************
 					Our Destination End
 			*************************************-->
-			<!--************************************
-					Destination Start
-			*************************************-->
-			<section class="tg-sectionspace tg-zerotoppadding tg-haslayout">
-				<div class="container">
-					<div class="row">
-						<div id="tg-destinationsslider" class="tg-destinationsslider tg-destinations owl-carousel">
-							<?php foreach($destinations as $row) { ?>
-								<div class="item tg-destination">
-									<figure>
-										<a href="<?php echo base_url('Listings/').$row->id.'/'.$row->name; ?>"><img src="<?php echo base_url('uploads/images/destination/').$row->banner;?>" alt="image description" style="height: 447.5px;"></a>
-										<figcaption>
-											<h2><a href="<?php echo base_url('Listings/').$row->id.'/'.$row->name; ?>"><?php echo $row->name; ?></a></h2>
-											<div class="tg-description">
-												<p><?php echo $row->tagline; ?></p>
-											</div>
-										</figcaption>
-									</figure>
-								</div>
-							<?php } ?>
 
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--************************************
-					Destination End
-			*************************************-->
 			<!--************************************
 					Call To Action Start
 			*************************************-->

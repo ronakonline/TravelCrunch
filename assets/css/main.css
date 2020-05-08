@@ -528,7 +528,7 @@ address {
 }
 
 .tg-btnvtwo {
-    color: #fff;
+    color: #111;
     position: relative;
     text-transform: uppercase;
     font: 500 12px/12px 'Montserrat', Arial, Helvetica, sans-serif;
@@ -546,7 +546,7 @@ address {
 
 .tg-btnvtwo:hover,
 .tg-btnvtwo:focus {
-    color: #fff;
+    color: #111;
 }
 
 .tg-socialicons {
@@ -5273,7 +5273,7 @@ blockquote {
 ======================================================================================*/
 
 .tg-404errorpage {
-    background: url(../images/img-02.jpg) no-repeat center center fixed;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -ms-background-size: cover;
