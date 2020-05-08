@@ -36,15 +36,15 @@
 					<div class="tg-listing tg-shopgrid">
 						<div class="row">
 							<?php foreach ($tours as $tour){?>
-								<?php if($did == $tour->did){ ?>
+								<?php if($pid == $tour->pid){ ?>
 							<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 								<div class="tg-product">
 									<div class="tour">
-									<figure class="tour"><a href="shopdetail.html"><img src="<?php echo base_url('uploads/images/gallery/').$tour->bannerimg; ?>" alt="image destinations"></a></figure>
+									<figure class="tour"><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><img src="<?php echo base_url('uploads/images/parent/').$tour->bannerimg; ?>" alt="image destinations"></a></figure>
 									</div>
 									<div class="tg-productcontent">
 										<div class="tg-producttitle">
-											<h3><a href="shopdetail.html"><?php echo $tour->title; ?></a></h3>
+											<h3><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><?php echo $tour->title; ?></a></h3>
 										</div>
 										<div class="tg-description">
 											<p><?php echo $tour->tfrom.'    <i class="fa fa-plane"></i> '.  $tour->tto; ?></p>

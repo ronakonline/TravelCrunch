@@ -212,11 +212,11 @@
 													<ul>
 														<li ><a href="#" style="font-size: 20px;"><b><?php echo $row->name; ?></b></a>
 														</li>
-														<?php for ($i=0; $i<$tdestination; $i++){
-															$tdests = trim($row->destid,"[]");
+														<?php for ($i=0; $i<$tparent; $i++){
+															$tdests = trim($row->pid,"[]");
 															$tdest = explode(",",$tdests);
-															if(in_array($destinations[$i]->id,$tdest)) {?>
-																<li><a href="<?php echo base_url('Travelstyle/').$destinations[$i]->id."/".$row->id; ?>"><?php echo $destinations[$i]->name; ?></a></li>
+															if(in_array($parents[$i]->id,$tdest)) {?>
+																<li><a href="<?php echo base_url('Travelstyle/').$parents[$i]->id."/".$row->id; ?>"><?php echo $parents[$i]->name; ?></a></li>
 														<?php } }?>
 													</ul>
 												</div>

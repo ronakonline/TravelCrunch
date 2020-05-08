@@ -39,7 +39,7 @@
 					<?php foreach ($tours as $tour){ ?>
 						<?php if($deal->did = $tour->did){ ?>
 						<div class="item tg-populartour">
-						<figure><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><img src="<?php echo base_url('uploads/images/gallery/').$tour->bannerimg;?>" alt="image destinations" style="height: 255px;"></a>
+						<figure><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><img src="<?php echo base_url('uploads/images/parent/').$tour->bannerimg;?>" alt="image destinations" style="height: 255px;"></a>
 							<span class="tg-descount"><?php echo $deal->offer; ?>% Off</span>
 						</figure>
 						<div class="tg-populartourcontent">

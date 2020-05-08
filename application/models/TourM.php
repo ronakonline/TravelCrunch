@@ -44,16 +44,22 @@ class TourM extends CI_Model{
 	}
 	public function  insert_itinerary($data){
 		$tit = count($data['daytitle']);
-		$qu = 'insert into itinerary values(null,'.$data['tour'].',"'.$data['daytitle'][0].'","'.$data['daydetail'][0].'",0)';
+		$daydetail = str_replace('"', '', $data['daydetail'][0]);
+		$daydetail = str_replace("'", '', $daydetail);
+		$qu = 'insert into itinerary values(null,'.$data['tour'].',"'.$data['daytitle'][0].'","'.$daydetail.'",0)';
 		for ($i=1; $i<$tit; $i++){
-			$qu .= ',(null,'.$data['tour'].',"'.$data['daytitle'][$i].'","'.$data['daydetail'][$i].'",0)';
+			$daydetail = str_replace('"', '', $data['daydetail'][$i]);
+			$daydetail = str_replace("'", '', $daydetail);
+			$qu .= ',(null,'.$data['tour'].',"'.$data['daytitle'][$i].'","'.$daydetail.'",0)';
 		}
 		$op = $this->db->query($qu);
 		return $op;
 	}
 
 	public function  insert_details($data){
-		$q = $this->db->query('update tours set details="'.$data['details'].'" where id='.$data['tour']);
+		$daydetail = str_replace('"', '', $data['details']);
+		$daydetail = str_replace("'", '', $daydetail);
+		$q = $this->db->query('update tours set details="'.$daydetail.'" where id='.$data['tour']);
 		return $q;
 	}
 
@@ -89,7 +95,7 @@ class TourM extends CI_Model{
 	}
 
 	public function listtours(){
-		$q = $this->db->query('select * from tours where isdeleted=0');
+		$q = $this->db->query('SELECT destinations_parents.id as pid, tours.id,tours.did,tours.title,tours.tfrom,tours.tto,tours.bannerimg,tours.days,tours.price,tours.overview,tours.details from destinations_parents,tours where tours.isdeleted=0');
 		return $q->result();
 	}
 

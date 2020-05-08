@@ -24,4 +24,20 @@ class SitesettingM extends CI_Model{
 		$q = $this->db->query('update sitesetting set logo="'.$pic.'"');
 		return $q;
 	}
+	public function update_slider($data){
+		$this->load->database();
+		if($data['p']==1) {
+			$q = $this->db->query('update sitesetting set title1="'.$data['title'].'",tagline1="'.$data['tagline'].'",slide1="'.$data['picture'].'"');
+			return $q;
+		}else if($data['p']==2) {
+			$q = $this->db->query('update sitesetting set title1="'.$data['title'].'",tagline1="'.$data['tagline'].'",slide2="'.$data['picture'].'"');
+			return $q;
+		}else if($data['p']==3) {
+			$q = $this->db->query('update sitesetting set title1="'.$data['title'].'",tagline1="'.$data['tagline'].'",slide3="'.$data['picture'].'"');
+			return $q;
+		}else{
+			$q = $this->db->query('update sitesetting set title1="'.$data['title'].'",tagline1="'.$data['tagline'].'"');
+			return $q;
+		}
+	}
 }

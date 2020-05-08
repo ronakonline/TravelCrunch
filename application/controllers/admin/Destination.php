@@ -216,7 +216,7 @@ class Destination extends CI_Controller{
         if($_SESSION['admin']){
             $data['title']="Add Travel Style";
             $this->load->model('DestinationM');
-            $data['destinations'] = $this->DestinationM->show_destination();
+            $data['destinations'] = $this->DestinationM->show_parent();
             $this->load->view('admin/add-travelstyle',$data);
         }else{
             redirect('admin');
@@ -380,7 +380,12 @@ class Destination extends CI_Controller{
             $data['title']="Add Widget";
             $data = $this->input->post();
             $this->load->model("DestinationM");
-            $this->DestinationM->insert_overview($data);
+            $op = $this->DestinationM->insert_overview($data);
+            if($op==1){
+            	$_SESSION['success']="Inserted Successfully";
+			}else{
+            	$_SESSION['error'] = "Error Inserting";
+			}
             redirect('admin/Destination/Add_Widget');
         }
         else{

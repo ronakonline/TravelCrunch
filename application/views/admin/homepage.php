@@ -51,18 +51,18 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-									<form method="post" action="inserttravelstyle" enctype="multipart/form-data">
-										<div class="text-center"><h3>Slider 1</h3></div>
+									<form method="post" action="update_homepage" enctype="multipart/form-data">
+										<div class="text-center"><h3>Slider </h3></div>
 										<div class="form-group row">
 											<label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
 											<div class="col-sm-10">
-												<input class="form-control" type="text" name="name" id="name" required>
+												<input class="form-control" type="text" name="title" id="name" value="<?php echo $sitesetting[0]->title1; ?>" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label for="example-text-input" class="col-sm-2 col-form-label">Tagline</label>
 											<div class="col-sm-10">
-												<input class="form-control" type="text" name="name" id="name" required>
+												<input class="form-control" type="text" name="tagline" id="name" value="<?php echo $sitesetting[0]->tagline1; ?>" required>
 											</div>
 										</div>
 											
@@ -71,7 +71,7 @@
 											<div class="col-md-10 ">
 												<div class="input-group mt-2">
 													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
+														<input type="file" class="custom-file-input" name="file1"  id="src" >
 														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 													</div>
 												</div>
@@ -81,146 +81,88 @@
 											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
 											<div class="col-md-10 ">
 												<div class="input-group mt-2">
-													<img id="target" height="200" width="250" style="display: none">
+													<img id="target" height="200" width="250" src="<?php echo base_url('assets/images/slider/').$sitesetting[0]->slide1; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="example-search-input" class="col-sm-2 col-form-label">Image</label>
+											<div class="col-md-10 ">
+												<div class="input-group mt-2">
+													<div class="custom-file">
+														<input type="file" class="custom-file-input" name="file2"  id="src1" >
+														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
+											<div class="col-md-10 ">
+												<div class="input-group mt-2">
+													<img id="target1" height="200" width="250" src="<?php echo base_url('assets/images/slider/').$sitesetting[0]->slide2; ?>">
+												</div>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="example-search-input" class="col-sm-2 col-form-label">Image</label>
+											<div class="col-md-10 ">
+												<div class="input-group mt-2">
+													<div class="custom-file">
+														<input type="file" class="custom-file-input" name="file3"  id="src2" >
+														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
+											<div class="col-md-10 ">
+												<div class="input-group mt-2">
+													<img id="target2" height="200" width="250" src="<?php echo base_url('assets/images/slider/').$sitesetting[0]->slide3; ?>">
 												</div>
 											</div>
 										</div>
 
-										<div class="text-center"><h3>Slider 2</h3></div>
-										<div class="form-group row">
-											<label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
-											<div class="col-sm-10">
-												<input class="form-control" type="text" name="name" id="name" required>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label for="example-text-input" class="col-sm-2 col-form-label">Tagline</label>
-											<div class="col-sm-10">
-												<input class="form-control" type="text" name="name" id="name" required>
-											</div>
-										</div>
-											
-										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label">Image</label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
-														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<img id="target" height="200" width="250" style="display: none">
-												</div>
-											</div>
-										</div>
-
-										<div class="text-center"><h3>Slider 3</h3></div>
-										<div class="form-group row">
-											<label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
-											<div class="col-sm-10">
-												<input class="form-control" type="text" name="name" id="name" required>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label for="example-text-input" class="col-sm-2 col-form-label">Tagline</label>
-											<div class="col-sm-10">
-												<input class="form-control" type="text" name="name" id="name" required>
-											</div>
-										</div>
-											
-										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label">Image</label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
-														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<img id="target" height="200" width="250" style="display: none">
-												</div>
-											</div>
-										</div>
-										<div class="text-center">
-											<button type="submit" class="btn btn-primary">Submit</button>
+										<div class="text-left">
+											<button type="submit" class="btn btn-primary">Update</button>
 										</div>
 									</form>
+
 								</div>
 							</div>
 							<div class="card m-b-30">
 								<div class="card-body">
-									<div class="text-center"><h3>Featured Division</h3></div>
-									<form method="post" action="inserttravelstyle" enctype="multipart/form-data">
-
+									<div class="text-center"><h3>Features Division</h3></div><br>
+									<form method="post" action="Sitesetting/update_contact" enctype="multipart/form-data">
 										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label">Image1</label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
-														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-													</div>
-												</div>
+											<div class="col-sm-6">
+												<label for="example-text-input" class="col col-form-label">Title</label>
+												<input class="form-control" type="tel" name="telno" id="telno" value="" required>
+											</div>
+											<div class="col-sm-6">
+												<label for="example-text-input" class="col col-form-label">Feature 1</label>
+												<input class="form-control" type="tel" name="phoneno" id="name" value="" required>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<img id="target" height="200" width="250" style="display: none">
-												</div>
+											<div class="col-sm-6">
+												<label for="example-text-input" class="col col-form-label">Title</label>
+												<input class="form-control" type="text" name="add1" id="name" value="" required>
 											</div>
-										</div>
-
-										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label">Image2</label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
-														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-													</div>
-												</div>
+											<div class="col-sm-6">
+												<label for="example-text-input" class="col col-form-label">Feature 2</label>
+												<input class="form-control" type="text" name="add2" id="name" value="" required>
 											</div>
 										</div>
 										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<img id="target" height="200" width="250" style="display: none">
-												</div>
+											<div class="col-sm-6">
+												<label class="col col-form-label">Title</label>
+												<input class="form-control" type="Email" name="email" id="name" value="" required>
 											</div>
-										</div>
-
-										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label">Image3</label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
-														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
-											<div class="col-md-10 ">
-												<div class="input-group mt-2">
-													<img id="target" height="200" width="250" style="display: none">
-												</div>
+											<div class="col-sm-6">
+												<label for="example-text-input" class="col col-form-label">Feature 3</label>
+												<input class="form-control" type="text" name="add2" id="name" value="" required>
 											</div>
 										</div>
 
@@ -280,7 +222,7 @@
 <!-- END wrapper -->
 <?php $this->load->view('admin/js-links') ?>
 <!--Summernote js-->
-        <script src="<?php echo base_url();?>assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="<?php echo base_url();?>assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
 <script type="text/javascript">
 	jQuery(document).ready(function(){
         $('.summernote').summernote({
@@ -304,10 +246,38 @@
 			target.style.display="block";
 		});
 	}
+	function showImage1(src1,target1) {
+		var fr=new FileReader();
+		// when image is loaded, set the src of the image where you want to display it
+		fr.onload = function(e) { target1.src = this.result; };
+
+		src1.addEventListener("change",function() {
+			// fill fr with image data
+			fr.readAsDataURL(src1.files[0]);
+			target1.style.display="block";
+		});
+	}
+	function showImage2(src2,target2) {
+		var fr=new FileReader();
+		// when image is loaded, set the src of the image where you want to display it
+		fr.onload = function(e) { target2.src = this.result; };
+
+		src2.addEventListener("change",function() {
+			// fill fr with image data
+			fr.readAsDataURL(src2.files[0]);
+			target.style.display="block";
+		});
+	}
 
 	var src = document.getElementById("src");
 	var target = document.getElementById("target");
 	showImage(src,target);
+	var src1 = document.getElementById("src1");
+	var target1 = document.getElementById("target1");
+	showImage1(src1,target1);
+	var src2 = document.getElementById("src2");
+	var target2 = document.getElementById("target2");
+	showImage2(src2,target2);
 
 	$(document).ready(function() {
 		$('.js-example-basic-multiple').select2();

@@ -169,11 +169,13 @@
 													<span>FAQ</span>
 												</a>
 											</li>
+											<?php if(count($destinfo['packing'])>=1){ ?>
 											<li role="presentation">
 												<a href="#italy" aria-controls="italy" role="tab" data-toggle="tab">
 													<span>Packing</span>
 												</a>
 											</li>
+											<?php } ?>
 											<li role="presentation" class="active">
 												<a href="#london" aria-controls="london" role="tab" data-toggle="tab">
 													<span>Reviews</span>
@@ -506,7 +508,7 @@
 						<div id="tg-populartoursslider" class="tg-populartoursslider tg-populartours tg-populartoursvtwo owl-carousel">
 							<?php foreach ($tours as $tour){ ?>
 									<div class="item tg-populartour">
-										<figure><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><img src="<?php echo base_url('uploads/images/gallery/').$tour->bannerimg;?>" alt="image destinations" style="height: 255px;"></a>
+										<figure><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><img src="<?php echo base_url('uploads/images/parent/').$tour->bannerimg;?>" alt="image destinations" style="height: 255px;"></a>
 
 										</figure>
 										<div class="tg-populartourcontent">

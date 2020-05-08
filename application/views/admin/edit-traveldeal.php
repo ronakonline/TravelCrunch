@@ -49,7 +49,7 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-									<form method="post" action="update_traveldeal" enctype="multipart/form-data">
+									<form method="post" action="<?php echo base_url('admin/Destination/edit_traveldeal');?>" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="example-text-input" class="">Featured</label>
 											<select class="form-control">
@@ -89,7 +89,7 @@
 												</div>
 											</div>
 										</div>
-
+									<input type="text" value="<?php echo $edit_deal[0]->id; ?>" name="id" hidden>
 									<div class="text-center">
 										<button type="submit" class="btn btn-primary">Update</button>
 									</div>

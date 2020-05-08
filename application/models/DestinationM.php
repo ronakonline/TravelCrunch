@@ -15,7 +15,7 @@ class DestinationM extends CI_Model{
 	}
 
 	//Insert Parent
-	public function insert_parent($name,$pic){
+	public function insert_parent($data,$pic){
 		$this->load->database();
 		$q = $this->db->query('insert into Destinations_Parents values(null,"'.$data['name'].'","'.$pic.'",'.$data['featured'].',0)');
 		return $q;
@@ -116,6 +116,7 @@ class DestinationM extends CI_Model{
 	public function insert_overview($data){
 		$this->load->database();
 		$q = $this->db->query('insert into overview values(null,"'.$data['destinationname'].'","'.$data['oleft'].'","'.$data['oright'].'",0)');
+		return $q;
 	}
 
 	//Insert FAQ

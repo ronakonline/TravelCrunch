@@ -58,7 +58,7 @@
 										</div>
 									</div>
 										<div class="form-group row">
-											<label for="example-text-input" class="col-sm-2 col-form-label">Destinations</label>
+											<label for="example-text-input" class="col-sm-2 col-form-label">Parent</label>
 											<div class="col-sm-10">
 												<select class="js-example-basic-multiple col" name="destinations[]" multiple="multiple">
 													<option disabled>Select Destinations</option>

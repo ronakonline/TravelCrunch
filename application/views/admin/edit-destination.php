@@ -65,21 +65,29 @@
                                                     <li class="nav-item waves-effect waves-light">
                                                         <a class="nav-link active" data-toggle="tab" href="#general" role="tab">General</a>
                                                     </li>
+													<?php if(count($dest['overview'])>=1){ ?>
                                                     <li class="nav-item waves-effect waves-light">
                                                         <a class="nav-link" data-toggle="tab" href="#home-1" role="tab">Over View</a>
                                                     </li>
+													<?php } ?>
+													<?php if(count($dest['faq'])>=1){ ?>
                                                     <li class="nav-item waves-effect waves-light">
                                                         <a class="nav-link" data-toggle="tab" href="#profile-1" role="tab">FAQ</a>
                                                     </li>
+													<?php } ?>
+													<?php if(count($dest['packing'])>=1){ ?>
                                                     <li class="nav-item waves-effect waves-light">
                                                         <a class="nav-link" data-toggle="tab" href="#messages-1" role="tab">Packing</a>
                                                     </li>
+													<?php } ?>
                                                     <li class="nav-item waves-effect waves-light">
                                                         <a class="nav-link" data-toggle="tab" href="#seo" role="tab">SEO Tags</a>
                                                     </li>
+													<?php if(count($dest['img'])>=1){ ?>
                                                     <li class="nav-item waves-effect waves-light">
                                                         <a class="nav-link" data-toggle="tab" href="#settings-1" role="tab">Gallery</a>
                                                     </li>
+													<?php } ?>
                                                 </ul>
                 
                                                 <!-- Tab panes -->
@@ -201,6 +209,7 @@
 															</form>
                                                         </p>
                                                     </div>
+													<?php if(count($dest['overview'])>=1){ ?>
                                                     <div class="tab-pane p-3" id="home-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                         	<form action="<?php echo base_url('admin/Destination/update_doverview'); ?>" method="post">
@@ -226,6 +235,8 @@
 			                                            	</form>
                                                         </p>
                                                     </div>
+													<?php } ?>
+													<?php if(count($dest['faq'])>=1){ ?>
                                                     <div class="tab-pane p-3" id="profile-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                             <form action="insert_faq" method="post">	
@@ -258,6 +269,8 @@
 			                                            	</form>
                                                         </p>
                                                     </div>
+													<?php } ?>
+													<?php if(count($dest['packing'])>=1){ ?>
                                                     <div class="tab-pane p-3" id="messages-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                             <form action="insert_packing" method="post">
@@ -384,6 +397,7 @@
 			                                            	</form>
                                                         </p>
                                                     </div>
+													<?php } ?>
                                                     <div class="tab-pane p-3" id="seo" role="tabpanel">
                                                         <p class="font-14 mb-0">
                                                         	<form action="insert_seotags" method="post">
@@ -399,6 +413,7 @@
 			                                            	</form>
                                                         </p>
                                                     </div>
+													<?php if(count($dest['img'])>=1){ ?>
                                                     <div class="tab-pane p-3" id="settings-1" role="tabpanel">
                                                     	<form action="insert_gallery" method="post" enctype="multipart/form-data">
                                                     		<div class="form-group">
@@ -427,6 +442,7 @@
 					                                            </div>
 			                                            </form>
                                                     </div>
+													<?php } ?>
 
                                                 </div>
                 

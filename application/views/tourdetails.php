@@ -5,7 +5,7 @@
 		<!--************************************
 				Inner Banner Start
 		*************************************-->
-		<div class="tg-parallax tg-innerbanner" data-appear-top-offset="600" data-parallax="scroll" data-image-src="<?php echo base_url();?>uploads/images/gallery/<?php echo $tour->bannerimg; ?>">
+		<div class="tg-parallax tg-innerbanner" data-appear-top-offset="600" data-parallax="scroll" data-image-src="<?php echo base_url();?>uploads/images/parent/<?php echo $tour->bannerimg; ?>">
 			<div class="tg-sectionspace tg-haslayout">
 				<div class="container">
 					<div class="row">
