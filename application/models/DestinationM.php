@@ -291,6 +291,12 @@ class DestinationM extends CI_Model{
 		return $q->result();
 	}
 
+	//Travel Deal function for helper and frontend
+	public function alldeals(){
+		$q= $this->db->query('select * from traveldeal');
+		return $q->result();
+	}
+
 	//Edit_List Travel Deal
 	public function editlist_traveldeal($id){
 		$q = $this->db->query("select * from traveldeal where id = $id");

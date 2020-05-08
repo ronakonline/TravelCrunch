@@ -49,31 +49,31 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-									<form method="post" action="insertparent" enctype="multipart/form-data">
+									<form method="post" action="Sitesetting/update_contact" enctype="multipart/form-data">
 									<div class="form-group row">
 										<div class="col-sm-6">
 											<label for="example-text-input" class="col col-form-label">Telephone</label>
-											<input class="form-control" type="tel" name="name" id="name" required>
+											<input class="form-control" type="tel" name="telno" id="telno" value="<?php echo $contact[0]->telno; ?>" required>
 										</div>
 										<div class="col-sm-6">
 											<label for="example-text-input" class="col col-form-label">Mobile</label>
-											<input class="form-control" type="tel" name="name" id="name" required>
+											<input class="form-control" type="tel" name="phoneno" id="name" value="<?php echo $contact[0]->phoneno; ?>" required>
 										</div>
 									</div>
 									<div class="form-group row">
 										<div class="col-sm-6">
 											<label for="example-text-input" class="col col-form-label">Address Line-1</label>
-											<input class="form-control" type="text" name="name" id="name" required>
+											<input class="form-control" type="text" name="add1" id="name" value="<?php echo $contact[0]->add1; ?>" required>
 										</div>
 										<div class="col-sm-6">
 											<label for="example-text-input" class="col col-form-label">Address Line-2</label>
-											<input class="form-control" type="text" name="name" id="name" required>
+											<input class="form-control" type="text" name="add2" id="name" value="<?php echo $contact[0]->add2; ?>" required>
 										</div>
 									</div>
 									<div class="form-group row">
 										<div class="col-sm-6">
 		                                    <label class="col col-form-label">Email</label>
-	                                        <input class="form-control" type="Email" name="name" id="name" required>
+	                                        <input class="form-control" type="Email" name="email" id="name" value="<?php echo $contact[0]->email; ?>" required>
 	                                    </div>
 	                                </div>
 

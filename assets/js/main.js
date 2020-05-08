@@ -43,7 +43,7 @@ jQuery(document).on('ready', function() {
 	/* -------------------------------------
 			POPULAR tOUR SLIDER
 	-------------------------------------- */
-	var _tg_populartoursslider = jQuery('#tg-populartoursslider');
+	var _tg_populartoursslider = jQuery('.tg-populartoursslider');
 	_tg_populartoursslider.owlCarousel({
 		loop: true,
 		dots: false,

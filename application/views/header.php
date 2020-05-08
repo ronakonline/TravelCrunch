@@ -225,11 +225,7 @@
 											<br>
 										</div>
 									</li>
-									<li class="menu-item-has-children current-menu-item"><a href="javascript:void(0);">Travel Deals</a>
-										<ul class="sub-menu">
-											<li><a href="<?php echo base_url(); ?>Destinations">View all last minute deals</a></li>
-											<li><a href="<?php echo base_url(); ?>Destinations">View All Travel Deals</a></li>
-										</ul>
+									<li class=" current-menu-item"><a href="<?php echo base_url('Traveldeals'); ?>">Travel Deals</a>
 									</li>
 									<li class="menu-item-has-children current-menu-item"><a href="<?php echo base_url(); ?>Contact">Contact Us</a></li>
 								</ul>

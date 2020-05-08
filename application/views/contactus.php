@@ -9,7 +9,7 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<h1>Contact Us</h1>
-							<h2>Donec id elit non mi porta gravida at eget metus</h2>
+							<h2></h2>
 							<ol class="tg-breadcrumb">
 								<li><a href="<?php echo base_url(); ?>">Home</a></li>
 								<li class="tg-active">Contact Us</li>
@@ -34,21 +34,18 @@
 								<li>
 									<span class="tg-contactinfoicon"><i class="fa fa-commenting-o"></i></span>
 									<h2>Get in Touch</h2>
-									<span>Telephone: +51 900 321 4564</span>
-									<span>Mobile: +501 860 3210</span>
-									<strong><a href="mailto:hello@Travleu.com">hello@Travleu.com</a></strong>
+									<span>Telephone: <?php echo $contact[0]->telno; ?></span>
+									<span>Mobile: <?php echo $contact[0]->phoneno; ?></span>
 								</li>
 								<li>
 									<span class="tg-contactinfoicon"><i class="icon-map-marker"></i></span>
 									<h2>Visit Our Location</h2>
-									<address>Manhatta Hall Veerpolder 7 2361 Empor Ltd 1258, Melbourne, Australia</address>
-									<strong><a href="javascript:void(0);">Get Directions</a></strong>
+									<address><?php echo $contact[0]->add1; ?> <?php echo $contact[0]->add2; ?></address>
 								</li>
 								<li>
 									<span class="tg-contactinfoicon"><i class="icon-briefcase"></i></span>
-									<h2>Looking for a career?</h2>
-									<div class="tg-description"><p>perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p></div>
-									<strong><a href="mailto:careers@travleu.com">careers@travleu.com</a></strong>
+									<h2>E-mail Us</h2>
+									<span>Email: <?php echo $contact[0]->email; ?></span>
 								</li>
 							</ul>
 						</div>

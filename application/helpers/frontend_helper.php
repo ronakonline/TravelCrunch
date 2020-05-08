@@ -8,12 +8,15 @@ if (! function_exists('frontend_data')) {
 		$ci = get_instance();
 		$ci->load->model('DestinationM');
 		$ci->load->model('TourM');
+		$ci->load->model('SitesettingM');
 		$data['parents'] = $ci->DestinationM->listparents();
 		$data['destinations'] = $ci->DestinationM->listdestinations();
 		$data['tdestination'] = count($data['destinations']);
 		$data['travelstyle'] = $ci->DestinationM->listtravelstyle();
 		$data['tdp'] = $ci->DestinationM->tdestbyparent(); // Gives Total Destinations by Parent
 		$data['tours'] = $ci->TourM->listtours();
+		$data['contact'] = $ci->SitesettingM->list_contact();
+		$data['deals'] = $ci->DestinationM->alldeals();
 
 		return $data;
 	}
