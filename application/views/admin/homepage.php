@@ -134,40 +134,40 @@
 							<div class="card m-b-30">
 								<div class="card-body">
 									<div class="text-center"><h3>Features Division</h3></div><br>
-									<form method="post" action="Sitesetting/update_contact" enctype="multipart/form-data">
+									<form method="post" action="update_features" enctype="multipart/form-data">
 										<div class="form-group row">
 											<div class="col-sm-6">
 												<label for="example-text-input" class="col col-form-label">Title</label>
-												<input class="form-control" type="tel" name="telno" id="telno" value="" required>
+												<input class="form-control" type="text" name="ftitle1" id="telno" value="<?php echo $sitesetting[0]->ftitle1; ?>" required>
 											</div>
 											<div class="col-sm-6">
 												<label for="example-text-input" class="col col-form-label">Feature 1</label>
-												<input class="form-control" type="tel" name="phoneno" id="name" value="" required>
+												<input class="form-control" type="text" name="feature1" id="name" value="<?php echo $sitesetting[0]->feature1; ?>" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<div class="col-sm-6">
 												<label for="example-text-input" class="col col-form-label">Title</label>
-												<input class="form-control" type="text" name="add1" id="name" value="" required>
+												<input class="form-control" type="text" name="ftitle2" id="name" value="<?php echo $sitesetting[0]->ftitle2; ?>" required>
 											</div>
 											<div class="col-sm-6">
 												<label for="example-text-input" class="col col-form-label">Feature 2</label>
-												<input class="form-control" type="text" name="add2" id="name" value="" required>
+												<input class="form-control" type="text" name="feature2" id="feature2" value="<?php echo $sitesetting[0]->feature2; ?>" required>
 											</div>
 										</div>
 										<div class="form-group row">
 											<div class="col-sm-6">
 												<label class="col col-form-label">Title</label>
-												<input class="form-control" type="Email" name="email" id="name" value="" required>
+												<input class="form-control" type="text" name="ftitle3" id="ftitle3" value="<?php echo $sitesetting[0]->ftitle3; ?>" required>
 											</div>
 											<div class="col-sm-6">
 												<label for="example-text-input" class="col col-form-label">Feature 3</label>
-												<input class="form-control" type="text" name="add2" id="name" value="" required>
+												<input class="form-control" type="text" name="feature3" id="name" value="<?php echo $sitesetting[0]->feature3; ?>" required>
 											</div>
 										</div>
 
-										<div class="text-center">
-											<button type="submit" class="btn btn-primary">Submit</button>
+										<div class="text-left">
+											<button type="submit" class="btn btn-primary">Update</button>
 										</div>
 									</form>
 								</div>
@@ -176,16 +176,24 @@
 							<div class="card m-b-30">
 								<div class="card-body">
 									<div class="text-center"><h3>Division</h3></div>
-									<form method="post" action="inserttravelstyle" enctype="multipart/form-data">
+									<form method="post" action="update_homediv" enctype="multipart/form-data">
 
 										<div class="form-group row">
-											<label for="example-search-input" class="col-sm-2 col-form-label">Image</label>
+											<label for="example-search-input" class="col-sm-2 col-form-label">Banner Image</label>
 											<div class="col-md-10 ">
 												<div class="input-group mt-2">
 													<div class="custom-file">
-														<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
+														<input type="file" class="custom-file-input" name="bannerimg"  id="src3" >
 														<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
+											<div class="col-md-10 ">
+												<div class="input-group mt-2">
+													<img id="target3" height="200" width="250" src="<?php echo base_url('assets/images/placeholder/').$sitesetting[0]->homedivimg; ?>">
 												</div>
 											</div>
 										</div>
@@ -194,7 +202,7 @@
 			                                <label class="col-sm-2 col-form-label">Note</label>
 			                                <div class="col">    
 			                                	<div class="input-group mt-2">
-		                                            <textarea class="summernote" name="overview">Hello Summernote</textarea>
+		                                            <textarea class="summernote" name="homedivtext"><?php echo $sitesetting[0]->homedivtext; ?></textarea>
 		                                        </div>
 			                                </div>
 			                            </div> <!-- end row -->
@@ -268,6 +276,17 @@
 			target.style.display="block";
 		});
 	}
+	function showImage3(src3,target3) {
+		var fr=new FileReader();
+		// when image is loaded, set the src of the image where you want to display it
+		fr.onload = function(e) { target3.src = this.result; };
+
+		src3.addEventListener("change",function() {
+			// fill fr with image data
+			fr.readAsDataURL(src3.files[0]);
+			target.style.display="block";
+		});
+	}
 
 	var src = document.getElementById("src");
 	var target = document.getElementById("target");
@@ -278,6 +297,9 @@
 	var src2 = document.getElementById("src2");
 	var target2 = document.getElementById("target2");
 	showImage2(src2,target2);
+	var src3 = document.getElementById("src3");
+	var target3 = document.getElementById("target3");
+	showImage3(src3,target3);
 
 	$(document).ready(function() {
 		$('.js-example-basic-multiple').select2();

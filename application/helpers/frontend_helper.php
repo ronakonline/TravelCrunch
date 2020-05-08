@@ -18,6 +18,7 @@ if (! function_exists('frontend_data')) {
 		$data['tours'] = $ci->TourM->listtours();
 		$data['contact'] = $ci->SitesettingM->list_contact();
 		$data['deals'] = $ci->DestinationM->alldeals();
+//		$data['settings'] = $ci->SitesettingM->
 
 		return $data;
 	}

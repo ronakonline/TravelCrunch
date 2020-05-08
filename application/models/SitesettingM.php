@@ -40,4 +40,17 @@ class SitesettingM extends CI_Model{
 			return $q;
 		}
 	}
+
+	public function update_features($data){
+		$q = $this->db->query('update sitesetting set ftitle1="'.addslashes($data['ftitle1']).'",ftitle2="'.addslashes($data['ftitle2']).'",ftitle3="'.addslashes($data['ftitle3']).'",feature1="'.addslashes($data['feature1']).'",feature2="'.addslashes($data['feature2']).'",feature3="'.addslashes($data['feature3']).'"');
+		return $q;
+	}
+	public function update_homediv($data,$pic=null){
+		if($pic!=null) {
+			$q = $this->db->query('update sitesetting set homedivtext="' . addslashes($data['homedivtext']) . '",homedivimg="' . addslashes($pic) . '"');
+		}else{
+			$q = $this->db->query('update sitesetting set homedivtext="' . addslashes($data['homedivtext']) . '"');
+		}
+		return $q;
+	}
 }

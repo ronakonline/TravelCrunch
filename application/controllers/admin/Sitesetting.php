@@ -166,4 +166,59 @@ class Sitesetting extends CI_Controller{
 			redirect('admin');
 		}
 	}
+
+	public function update_features(){
+		if($_SESSION['admin']){
+			$data= $this->input->post();
+			$this->load->model('SitesettingM');
+			$op= $this->SitesettingM->update_features($data);
+			if($op==1){
+				$_SESSION['success'] = "Updated Successfully";
+			}else{
+				$_SESSION['error'] = "Error Updating";
+			}
+
+			redirect('admin/Sitesetting/homepage');
+		}else{
+			redirect('admin');
+		}
+	}
+	public function update_homediv(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			print_r($data);
+			if ($_FILES['bannerimg']['error'] != 4){
+				$picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","placeholder");
+				if($picture=="error"){
+					$_SESSION['error']="Error Inserting Record";
+					redirect('admin/Sitesetting/homepage');
+				}
+				else{
+					$this->load->model('SitesettingM');
+					$op = $this->SitesettingM->update_homediv($data,$picture);
+					if($op==1){
+						$_SESSION['success']="Successfully Update";
+					}
+					else{
+						$_SESSION['error']="Error Updating";
+					}
+					redirect('admin/Sitesetting/homepage');
+				}
+			}
+			else{
+				$this->load->model('SitesettingM');
+				$op = $this->SitesettingM->update_homediv($data);
+				echo $op;
+				if($op==1){
+					$_SESSION['success']="Successfully Updated";
+				}else{
+					$_SESSION['error']="Error updating";
+				}
+				redirect('admin/Sitesetting/homepage');
+			}
+		}
+		else{
+			redirect('admin');
+		}
+	}
 }
