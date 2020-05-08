@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2020 at 04:28 PM
+-- Generation Time: May 08, 2020 at 07:42 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -88,7 +88,8 @@ CREATE TABLE `destination` (
 --
 
 INSERT INTO `destination` (`id`, `parent`, `name`, `tagline`, `featured`, `banner`, `about1`, `about1_image`, `about2`, `about2_image`, `isdeleted`) VALUES
-(12, 10, 'India', 'The place of dreams', 1, 'india.jpg', 'Wonderfully different, there is nothing quite like a tour of India. Travel a lot? No matter how much you\'ve done or how many countries you\'ve visited, when you first arrive in India it will hit you like a gale force wind; a hurricane of sounds, smells, and colour where nothing is as it seems.', 'indiatour.jpg', 'Travelling to India reveals a country that is both mesmerizing, exotic, exciting, and mystical but at times frustrating, confusing, and chaotic. Relax, stay calm, be patient, and smile and India will open up herself to you in all her splendid glory.', 'Gateway-of-India-in-Mumbai.jpg', 0);
+(12, 10, 'India', 'The place of dreams', 1, 'india.jpg', 'Wonderfully different, there is nothing quite like a tour of India. Travel a lot? No matter how much you\'ve done or how many countries you\'ve visited, when you first arrive in India it will hit you like a gale force wind; a hurricane of sounds, smells, and colour where nothing is as it seems.', 'indiatour.jpg', 'Travelling to India reveals a country that is both mesmerizing, exotic, exciting, and mystical but at times frustrating, confusing, and chaotic. Relax, stay calm, be patient, and smile and India will open up herself to you in all her splendid glory.', 'Gateway-of-India-in-Mumbai.jpg', 0),
+(13, 11, 'ARGENTINA', 'Cowboy boots and dancing shoes', 1, 'ag.jpg', 'It has become cliché to say that Argentina is as much European as it is Latin; yet to arrive in Buenos Aires and discover this is actually true still surprises. With the Patagonian Andes as its glacial backbone, Argentina is a land of extreme wilderness, while its vast pampas are still home to roaming gauchos – the original South American cowboys.', 'ag1.jpg', 'Had enough of the wild? The birthplace of the tango and the world\'s fifth-largest wine producer has enough high culture to satisfy the most discerning palate, plus a nightlife that\'ll keep you up early into the morning.', 'ag2.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -109,7 +110,8 @@ CREATE TABLE `destinations_parents` (
 --
 
 INSERT INTO `destinations_parents` (`id`, `name`, `bannerimg`, `featured`, `isdeleted`) VALUES
-(10, 'Asia Tours', 'asiatour1.jpg', 1, 0);
+(10, 'Asia Tours', 'asiatour1.jpg', 1, 0),
+(11, 'South America', 'sa.jpg', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -131,7 +133,9 @@ CREATE TABLE `faq` (
 
 INSERT INTO `faq` (`id`, `destid`, `question`, `answer`, `isdeleted`) VALUES
 (14, 12, 'The best ways to pay for services in India ?', '10% of the service price', 0),
-(15, 12, 'Electricity and power supplies in India ?', 'Type C , Type D , Type E', 0);
+(15, 12, 'Electricity and power supplies in India ?', 'Type C , Type D , Type E', 0),
+(16, 13, 'Tour Style ?', 'Standard', 0),
+(17, 13, 'Standard Tip ?', '12% of order', 0);
 
 -- --------------------------------------------------------
 
@@ -157,7 +161,10 @@ INSERT INTO `gallery` (`id`, `destid`, `img`, `isdeleted`) VALUES
 (18, 12, 'gal3.jpg', 0),
 (19, 12, 'gal4.jpg', 0),
 (20, 12, 'gal5.jpg', 0),
-(21, 12, 'gal6.jpg', 0);
+(21, 12, 'gal6.jpg', 0),
+(25, 13, 'ag3.jpg', 0),
+(26, 13, 'ag4.jpg', 0),
+(27, 13, 'ag5.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -179,7 +186,9 @@ CREATE TABLE `itinerary` (
 
 INSERT INTO `itinerary` (`id`, `tid`, `title`, `descr`, `isdeleted`) VALUES
 (5, 5, 'Day 1 Delhi', '<p>Arrive at any time. Arrival transfer is included through the G Adventures-supported Women With Wheels project.</p>', 0),
-(6, 5, 'Day 2 Delhi/Jaipur', '<p>Visit Delhis impressive India Gate and Connaught Place before traveling\r\n to Jaipur, commonly called the Pink City for its unique architecture.\r\n Get to know this colourful city on an orientation walk, then opt to \r\nwatch a classic Bollywood film.</p>', 0);
+(6, 5, 'Day 2 Delhi/Jaipur', '<p>Visit Delhis impressive India Gate and Connaught Place before traveling\r\n to Jaipur, commonly called the Pink City for its unique architecture.\r\n Get to know this colourful city on an orientation walk, then opt to \r\nwatch a classic Bollywood film.</p>', 0),
+(7, 6, 'Day 1 Buenos Aires', '<p><span style=color: rgb(76, 79, 86); font-family: &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px;>Arrive at any time.</span><br></p>', 0),
+(8, 6, 'Day 2 Buenos Aires/Mendoza', '<div class=summary style=margin-top: 0.5em; color: rgb(76, 79, 86); font-family: &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px;><p style=margin-right: 0px; margin-bottom: 14px; margin-left: 0px; line-height: 1.75em; max-width: 40em;>Board a flight bound for the wine region of Argentina and explore the laid-back city of Mendoza.</p></div><div class=details style=color: rgb(76, 79, 86); font-family: &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px;><p style=margin-right: 0px; margin-bottom: 14px; margin-left: 0px; line-height: 1.75em; max-width: 40em;>The impressive snow-capped Aconcagua looms in the background of this laid-back city, drawing adventure seekers and wine enthusiasts alike. Famed worldwide for the high quality wine produced in this region, Mendoza makes the perfect base to discover wine country. Enjoy the slow pace of this desert town with large parks, charming plazas, and lively evenings where locals mill about outside the many cafés, bars and restaurants on offer on Avenida Arístides.</p></div>', 0);
 
 -- --------------------------------------------------------
 
@@ -200,7 +209,8 @@ CREATE TABLE `overview` (
 --
 
 INSERT INTO `overview` (`id`, `destid`, `oleft`, `oright`, `isdeleted`) VALUES
-(12, 12, 'Wonderfully different, there is nothing quite like a tour of India. Travel a lot? No matter how much you\'ve done or how many countries you\'ve visited, when you first arrive in India it will hit you like a gale force wind; a hurricane of sounds, smells, and colour where nothing is as it seems.', 'Travelling to India reveals a country that is both mesmerizing, exotic, exciting, and mystical but at times frustrating, confusing, and chaotic. Relax, stay calm, be patient, and smile and India will open up herself to you in all her splendid glory.', 0);
+(12, 12, 'Wonderfully different, there is nothing quite like a tour of India. Travel a lot? No matter how much you\'ve done or how many countries you\'ve visited, when you first arrive in India it will hit you like a gale force wind; a hurricane of sounds, smells, and colour where nothing is as it seems.', 'Travelling to India reveals a country that is both mesmerizing, exotic, exciting, and mystical but at times frustrating, confusing, and chaotic. Relax, stay calm, be patient, and smile and India will open up herself to you in all her splendid glory.', 0),
+(13, 13, 'It has become cliché to say that Argentina is as much European as it is Latin; yet to arrive in Buenos Aires and discover this is actually true still surprises. With the Patagonian Andes as its glacial backbone, Argentina is a land of extreme wilderness, while its vast pampas are still home to roaming gauchos – the original South American cowboys.', 'Had enough of the wild? The birthplace of the tango and the world\'s fifth-largest wine producer has enough high culture to satisfy the most discerning palate, plus a nightlife that\'ll keep you up early into the morning.', 0);
 
 -- --------------------------------------------------------
 
@@ -340,7 +350,8 @@ CREATE TABLE `tours` (
 --
 
 INSERT INTO `tours` (`id`, `did`, `title`, `tfrom`, `tto`, `bannerimg`, `days`, `price`, `overview`, `details`, `isdeleted`) VALUES
-(5, 12, 'Delhi to Kathmandu', 'Delhi', 'Kathmandu', 'Gateway-of-India-in-Mumbai.jpg', '15', '1359', 'If you’re looking to experience the diversity of India and Nepal, this \r\n15-day trip contrasts the colourful culture of India with the pristine \r\nserenity of Nepal\'s Himalayan mountains. From the ghats that line the \r\nbanks of the Ganges in Varanasi to a 4x4 safari in Chitwan National \r\nPark, our expert CEOs will take you through a region of unsurpassed \r\nnatural beauty and spirituality before revealing to you the rugged \r\nHimalayan landscape of Nepal’s magical capital, Kathmandu.\r\n                ', '<div id=introduction class=section>\r\n\r\n    <h3>Introduction</h3>\r\n    <p>If you’re looking to experience the diversity of India and Nepal,\r\n this 15-day trip contrasts the colourful culture of India with the \r\npristine serenity of Nepals Himalayan mountains. From the ghats that \r\nline the banks of the Ganges in Varanasi to a 4x4 safari in Chitwan \r\nNational Park, our expert CEOs will take you through a region of \r\nunsurpassed natural beauty and spirituality before revealing to you the \r\nrugged Himalayan landscape of Nepal’s magical capital, Kathmandu.</p>\r\n\r\n    <ul><li>Explore the vibrant streets of Agra</li><li>Uncover bustling Delhi and beautiful Jaipur</li><li>Enjoy a sunset cruise on the River Ganges</li><li>Travel by 4x4 on a safari in Chitwan National Park</li><li>Experience Nepals mountain views</li></ul>\r\n\r\n    <dl><dt><span class=muted>Duration:</span>\r\n            15 days</dt><dt><span class=muted>Start/Finish City:</span> Delhi to Kathmandu</dt><dt><span class=muted>Service Level:</span> Standard</dt><dd>Comfortable tourist-class accommodations with character; mix of public and private transport.</dd><dt><span class=muted>Physical Grading:</span> 2 - Light</dt><dd>Light walking and hiking suitable for most fitness levels. Nothing too challenging.</dd><dt><span class=muted>Travel Style:</span> Classic</dt><dd>All of the highlights, culture, access, and I-can’t-believe-we-did-that moments, all at a great price.</dd><dt><span class=muted>Trip Type:</span> Small Group</dt><dd>Small group experience; Max 15, avg 12</dd></dl>\r\n</div>', 0);
+(5, 12, 'Delhi to Kathmandu', 'Delhi', 'Kathmandu', 'Gateway-of-India-in-Mumbai.jpg', '15', '1359', 'If you’re looking to experience the diversity of India and Nepal, this \r\n15-day trip contrasts the colourful culture of India with the pristine \r\nserenity of Nepal\'s Himalayan mountains. From the ghats that line the \r\nbanks of the Ganges in Varanasi to a 4x4 safari in Chitwan National \r\nPark, our expert CEOs will take you through a region of unsurpassed \r\nnatural beauty and spirituality before revealing to you the rugged \r\nHimalayan landscape of Nepal’s magical capital, Kathmandu.\r\n                ', '<div id=introduction class=section>\r\n\r\n    <h3>Introduction</h3>\r\n    <p>If you’re looking to experience the diversity of India and Nepal,\r\n this 15-day trip contrasts the colourful culture of India with the \r\npristine serenity of Nepals Himalayan mountains. From the ghats that \r\nline the banks of the Ganges in Varanasi to a 4x4 safari in Chitwan \r\nNational Park, our expert CEOs will take you through a region of \r\nunsurpassed natural beauty and spirituality before revealing to you the \r\nrugged Himalayan landscape of Nepal’s magical capital, Kathmandu.</p>\r\n\r\n    <ul><li>Explore the vibrant streets of Agra</li><li>Uncover bustling Delhi and beautiful Jaipur</li><li>Enjoy a sunset cruise on the River Ganges</li><li>Travel by 4x4 on a safari in Chitwan National Park</li><li>Experience Nepals mountain views</li></ul>\r\n\r\n    <dl><dt><span class=muted>Duration:</span>\r\n            15 days</dt><dt><span class=muted>Start/Finish City:</span> Delhi to Kathmandu</dt><dt><span class=muted>Service Level:</span> Standard</dt><dd>Comfortable tourist-class accommodations with character; mix of public and private transport.</dd><dt><span class=muted>Physical Grading:</span> 2 - Light</dt><dd>Light walking and hiking suitable for most fitness levels. Nothing too challenging.</dd><dt><span class=muted>Travel Style:</span> Classic</dt><dd>All of the highlights, culture, access, and I-can’t-believe-we-did-that moments, all at a great price.</dd><dt><span class=muted>Trip Type:</span> Small Group</dt><dd>Small group experience; Max 15, avg 12</dd></dl>\r\n</div>', 0),
+(6, 13, 'ARGENTINA & CHILE MULTISPORT', 'ARGENTINA', 'CHILE MULTISPORT', 'agtour.jpg', '20', '1500', '<span style=color: rgb(76, 79, 86); font-family: montserrat_regular, sans-serif; font-size: 14px;>Looking for some restorative downtime kicking back in the Southern Cone? Then this 20-day active adventure is absolutely NOT FOR YOU! Imagine almost three weeks packed with every activity you can think of and then some! Trek through perfectly picturesque Patagonia, wake up early for whitewater rafting, hike through crisp mountain landscapes on Torres del Paines renowned W Trek, and bike, raft, and smile to your hearts content. Your adrenaline reserves will be tapped by the end of it all.</span>', '<h3 style=margin-top: 0px; margin-bottom: 14px; font-family: montserrat_regular, sans-serif; line-height: 1em; color: rgb(76, 79, 86); text-rendering: optimizelegibility; font-size: 1.5em;>Introduction</h3><p style=margin-right: 0px; margin-bottom: 14px; margin-left: 0px; line-height: 1.4em; color: rgb(76, 79, 86); font-family: &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px;>Looking for some restorative downtime kicking back in the Southern Cone? Then this 20-day active adventure is absolutely NOT FOR YOU! Imagine almost three weeks packed with every activity you can think of and then some! Trek through perfectly picturesque Patagonia, wake up early for whitewater rafting, hike through crisp mountain landscapes on Torres del Paines renowned W Trek, and bike, raft, and smile to your hearts content. Your adrenaline reserves will be tapped by the end of it all.</p><ul style=padding: 0px; margin-right: 0px; margin-bottom: 14px; margin-left: 25px; list-style-position: outside; list-style-image: url(&quot;https://media.gadventures.com/media-server/static/gadventures/css/images/chevron-standard.png?eb240de56755&quot;); color: rgb(76, 79, 86); font-family: &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px;><li style=line-height: 1.75em; margin-bottom: 1em;>Enjoy a wine tasting as you cycle through Mendoza’s wineries</li><li style=line-height: 1.75em; margin-bottom: 1em;>Take a thrilling whitewater rafting ride</li><li style=line-height: 1.75em; margin-bottom: 1em;>Marvel at Mt Fitz Roy and Perito Moreno Glacier</li><li style=line-height: 1.75em; margin-bottom: 1em;>Hike the famous W Trek</li><li style=line-height: 1.75em; margin-bottom: 1em;>Let loose in bustling Buenos Aires</li></ul><dl style=margin-bottom: 28px; color: rgb(76, 79, 86); font-family: &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 14px;><dt style=line-height: 28px; font-size: 1.1em; margin-bottom: 0.5em;><span class=muted style=color: rgb(153, 153, 153);>Duration:</span>&nbsp;20 days</dt><dt style=line-height: 28px; font-size: 1.1em; margin-bottom: 0.5em;><span class=muted style=color: rgb(153, 153, 153);>Start/Finish City:</span>&nbsp;Buenos Aires to Buenos Aires</dt><dt style=line-height: 28px; font-size: 1.1em; margin-bottom: 0.5em;><span class=muted style=color: rgb(153, 153, 153);>Service Level:</span>&nbsp;Standard</dt><dd style=line-height: 28px; margin-left: 14px; margin-bottom: 1em;>Comfortable tourist-class accommodations with character; mix of public and private transport.</dd><dt style=line-height: 28px; font-size: 1.1em; margin-bottom: 0.5em;><span class=muted style=color: rgb(153, 153, 153);>Physical Grading:</span>&nbsp;4 - Demanding</dt><dd style=line-height: 28px; margin-left: 14px; margin-bottom: 1em;>Some high-altitude hikes or more strenuous activities, but accessible to most healthy travellers.</dd><dt style=line-height: 28px; font-size: 1.1em; margin-bottom: 0.5em;><span class=muted style=color: rgb(153, 153, 153);>Travel Style:</span>&nbsp;Active</dt><dd style=line-height: 28px; margin-left: 14px; margin-bottom: 1em;>Hiking, trekking, biking, rafting, and kayaking adventures all over the world, made for outdoor types.</dd><dt style=line-height: 28px; font-size: 1.1em; margin-bottom: 0.5em;><span class=muted style=color: rgb(153, 153, 153);>Trip Type:</span>&nbsp;Small Group</dt><dd style=line-height: 28px; margin-left: 14px; margin-bottom: 1em;>Small group experience; Max 16, avg 12</dd></dl>', 0);
 
 -- --------------------------------------------------------
 
@@ -383,7 +394,8 @@ CREATE TABLE `travelstyle` (
 --
 
 INSERT INTO `travelstyle` (`id`, `pid`, `name`, `bannerimg`, `featured`, `isdeleted`) VALUES
-(8, '[10]', 'Classic Tours', 'classictour.jpg', 1, 0);
+(8, '[10]', 'Classic Tours', 'classictour.jpg', 1, 0),
+(9, '[10,11]', 'Wellness travel and tours', 'wt.jpg', 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -509,37 +521,37 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `destination`
 --
 ALTER TABLE `destination`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `destinations_parents`
 --
 ALTER TABLE `destinations_parents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `faq`
 --
 ALTER TABLE `faq`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `itinerary`
 --
 ALTER TABLE `itinerary`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `overview`
 --
 ALTER TABLE `overview`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `packing`
@@ -575,7 +587,7 @@ ALTER TABLE `tourgallery`
 -- AUTO_INCREMENT for table `tours`
 --
 ALTER TABLE `tours`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `traveldeal`
@@ -587,7 +599,7 @@ ALTER TABLE `traveldeal`
 -- AUTO_INCREMENT for table `travelstyle`
 --
 ALTER TABLE `travelstyle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

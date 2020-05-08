@@ -39,7 +39,9 @@ class TourM extends CI_Model{
 		return $q;
 	}
 	public function  insert_overview($data){
-		$q = $this->db->query('update tours set overview="'.$data['overview'].'" where id='.$data['tour']);
+		$daydetail = str_replace('"', '', $data['overview']);
+		$daydetail = str_replace("'", '', $daydetail);
+		$q = $this->db->query('update tours set overview="'.$daydetail.'" where id='.$data['tour']);
 		return $q;
 	}
 	public function  insert_itinerary($data){
@@ -95,7 +97,7 @@ class TourM extends CI_Model{
 	}
 
 	public function listtours(){
-		$q = $this->db->query('SELECT destinations_parents.id as pid, tours.id,tours.did,tours.title,tours.tfrom,tours.tto,tours.bannerimg,tours.days,tours.price,tours.overview,tours.details from destinations_parents,tours where tours.isdeleted=0');
+		$q = $this->db->query('SELECT destination.parent as pid, tours.id,tours.did,tours.title,tours.tfrom,tours.tto,tours.bannerimg,tours.days,tours.price,tours.overview,tours.details from destination,tours where tours.isdeleted=0 and destination.id=tours.did');
 		return $q->result();
 	}
 

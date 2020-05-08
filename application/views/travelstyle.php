@@ -33,6 +33,7 @@
 					<div class="tg-sectiontitle">
 						<h2>Tours For You</h2>
 					</div>
+
 					<div class="tg-listing tg-shopgrid">
 						<div class="row">
 							<?php foreach ($tours as $tour){?>

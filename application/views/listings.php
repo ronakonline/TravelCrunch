@@ -507,6 +507,7 @@
 						</div>
 						<div id="tg-populartoursslider" class="tg-populartoursslider tg-populartours tg-populartoursvtwo owl-carousel">
 							<?php foreach ($tours as $tour){ ?>
+									<?php if($tour->did == $destinfo[0]->id){ ?>
 									<div class="item tg-populartour">
 										<figure><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><img src="<?php echo base_url('uploads/images/parent/').$tour->bannerimg;?>" alt="image destinations" style="height: 255px;"></a>
 
@@ -529,6 +530,7 @@
 											</div>
 										</div>
 									</div>
+										<?php } ?>
 								<?php } ?>
 						</div>
 					</div>

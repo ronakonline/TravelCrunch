@@ -112,16 +112,16 @@
 								<?php $i=0; foreach ($parents as $row){?>
 									<?php if($i<4 and $row->featured==1){
 										if($i==0){?>
-									<li role="presentation" class="active"><a href="#<?php echo $row->name; ?>" role="tab" data-toggle="tab"><strong style="color:black;"><?php echo $row->name; ?></strong></a></li>
+									<li role="presentation" class="active"><a href="#<?php echo str_replace(' ','',$row->name); ?>" role="tab" data-toggle="tab"><strong style="color:black;"><?php echo $row->name; ?></strong></a></li>
 										<?php }else{ ?>
-											<li role="presentation" class=""><a href="#<?php echo $row->name; ?>" role="tab" data-toggle="tab"><strong style="color:black;"><?php echo $row->name; ?></strong></a></li>
+											<li role="presentation" class=""><a href="#<?php echo str_replace(' ','',$row->name); ?>" role="tab" data-toggle="tab"><strong style="color:black;"><?php echo $row->name; ?></strong></a></li>
 									<?php } $i+=1; } }?>
 								</ul>
 								<div class="tab-content tg-themetabcontent">
 									<?php $i=0; foreach ($parents as $row){?>
 										<?php if($i<4 and $row->featured==1){ ?>
 											<?php if($i==0) {?>
-											<div role="tabpanel" class="tab-pane active" id="<?php echo $row->name; ?>">
+											<div role="tabpanel" class="tab-pane active" id="<?php echo str_replace(' ','',$row->name); ?>">
 												<div class="tg-topdestinationslider tg-populardestinations owl-carousel">
 													<?php foreach ($destinations as $dest){ ?>
 														<?php if($dest->parent==$row->id) {?>
@@ -140,7 +140,7 @@
 												</div>
 											</div>
 												<?php }else{ ?>
-												<div role="tabpanel" class="tab-pane" id="<?php echo $row->name; ?>">
+												<div role="tabpanel" class="tab-pane" id="<?php echo str_replace(' ','',$row->name); ?>">
 													<div class="tg-topdestinationslider tg-populardestinations owl-carousel">
 														<?php foreach ($destinations as $dest){ ?>
 															<?php if($dest->parent==$row->id) {?>
