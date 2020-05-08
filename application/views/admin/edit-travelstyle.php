@@ -54,29 +54,29 @@
 									<div class="form-group row">
 										<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
 										<div class="col-sm-10">
-											<input class="form-control" type="text" name="name" id="name" required>
+											<input class="form-control" type="text" name="name" id="name" value="<?php echo $edit_travelstyle[0]->name; ?>" required>
 										</div>
 									</div>
-										<div class="form-group row">
-											<label for="example-text-input" class="col-sm-2 col-form-label">Destinations</label>
-											<div class="col-sm-10">
-												<select class="js-example-basic-multiple col" name="destinations[]" multiple="multiple">
-													<option disabled>Select Destinations</option>
-													<?php foreach ($destinations as $row){ ?>
-													<option value="<?php echo $row->id; ?>"><?php echo $row->name; ?></option>
-													<?php } ?>
-												</select>
-											</div>
-										</div>
+										
 										<div class="form-group row">
 											<label for="example-text-input" class="col-sm-2 col-form-label">Featured</label>
 											<div class="col-sm-10">
 												<select class="form-control">
-													<option value="1">YES</option>
-													<option value="0">No</option>
+													<?php if($edit_travelstyle[0]->featured == 1){
+														echo "<option value='1' selected>YES</option>
+														  		<option value='2'>No</option>";	
+														}
+														else{
+															echo "<option value='1'>YES</option>
+														  		<option value='2' selected>No</option>";	
+														} 
+
+												?>
 												</select>
 											</div>
 										</div>
+
+
 									<div class="form-group row">
 										<label for="example-search-input" class="col-sm-2 col-form-label">Banner Image</label>
 										<div class="col-md-10 ">
@@ -92,13 +92,13 @@
 											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
 											<div class="col-md-10 ">
 												<div class="input-group mt-2">
-													<img id="target" height="200" width="250" style="display: none">
+													<img id="target" height="200" width="250" src="<?php echo base_url('uploads/images/destination/').$edit_travelstyle[0]->bannerimg; ?>">
 												</div>
 											</div>
 										</div>
 
 									<div class="text-center">
-										<button type="submit" class="btn btn-primary">Submit</button>
+										<button type="submit" class="btn btn-primary">Update</button>
 									</div>
 									</form>
 								</div>

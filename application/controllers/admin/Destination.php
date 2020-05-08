@@ -271,9 +271,11 @@ class Destination extends CI_Controller{
     }
 
     //Update Travel Style(Page)
-    public function update_travelstyle(){
+    public function update_travelstyle($id){
         if($_SESSION['admin']){
             $data['title']="Update Travel Style";
+            $this->load->model('DestinationM');
+            $data['edit_travelstyle'] = $this->DestinationM->editlist_travelstyle($id);
             $this->load->view('admin/edit-travelstyle',$data); 
         }
         else{
@@ -281,7 +283,23 @@ class Destination extends CI_Controller{
         }
     }
 
+    public function edit_traveldeal(){
+        if($_SESSION['admin']){
+            $data = $this->input->post();
+            $this->load->model('DestinationM');
 
+            $op = $this->DestinationM->edit_traveldeal($data);
+            if($op==1){
+                $_SESSION['success']="Successfully Updated";
+            }else{
+                $_SESSION['error']="Error Updating";
+            }
+            redirect('admin/Destination/update_traveldeal/'.$data['id']);
+        }
+        else{
+            redirect('admin');
+        }
+    }
 
     //Add Travel Deal(Page)
     public function add_traveldeal(){

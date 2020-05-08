@@ -304,6 +304,17 @@ class DestinationM extends CI_Model{
 		return $q->result();
 	}
 
+	//Edit Travel Deal
+	public function edit_traveldeal($data){
+		$q = $this->db->query('update traveldeal set featured="'.$data['featured'].'",offer = "'.$data['offer'].'", deal = "'.$data['deal'].'" where id = "'.$data['id'].'"');
+		return $q;
+	}
+
+	public function editlist_travelstyle($id){
+		$q = $this->db->query("select * from travelstyle where id = $id");
+		return $q->result();
+	}
+
 	public function update_dgeneral($data){
 		$this->load->database();
 		if($data['p']==1) {
