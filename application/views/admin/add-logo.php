@@ -49,7 +49,7 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-									<form method="post" action="inserttravelstyle" enctype="multipart/form-data">
+									<form method="post" action="update_logo" enctype="multipart/form-data">
 
 									
 									<div class="form-group row">
@@ -67,13 +67,13 @@
 											<label for="example-search-input" class="col-sm-2 col-form-label"></label>
 											<div class="col-md-10 ">
 												<div class="input-group mt-2">
-													<img id="target" height="200" width="250" style="display: none">
+													<img id="target" src="<?php echo base_url('assets/images/').$sitesetting[0]->logo; ?>">
 												</div>
 											</div>
 										</div>
 
 									<div class="text-center">
-										<button type="submit" class="btn btn-primary">Submit</button>
+										<button type="submit" class="btn btn-primary">Update</button>
 									</div>
 									</form>
 								</div>

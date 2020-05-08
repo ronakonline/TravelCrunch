@@ -15,4 +15,13 @@ class SitesettingM extends CI_Model{
 		$q = $this->db->query('select * from contact');
 		return $q->result();
 	}
+
+	public function listsitesetting(){
+		$q = $this->db->query('select * from sitesetting');
+		return $q->result();
+	}
+	public function update_logo($pic){
+		$q = $this->db->query('update sitesetting set logo="'.$pic.'"');
+		return $q;
+	}
 }
