@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2020 at 09:08 AM
+-- Generation Time: May 09, 2020 at 07:55 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -264,24 +264,48 @@ INSERT INTO `itinerary` (`id`, `tid`, `title`, `descr`, `isdeleted`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `main_seo`
+--
+
+CREATE TABLE `main_seo` (
+  `id` int(11) NOT NULL,
+  `page` int(11) NOT NULL,
+  `tags` longtext NOT NULL,
+  `meta_tag` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `main_seo`
+--
+
+INSERT INTO `main_seo` (`id`, `page`, `tags`, `meta_tag`) VALUES
+(1, 1, 'Home page', 'Home page'),
+(2, 2, 'Destinations page', 'Destinations Page'),
+(3, 3, 'Travel Style Page', 'Travel Style Page'),
+(4, 4, 'Travel Deals Page', 'Travel Deals Page'),
+(5, 5, 'Contact Us Page', 'Contact Us Page');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `navbar`
 --
 
 CREATE TABLE `navbar` (
   `id` int(11) NOT NULL,
-  `first` text NOT NULL,
-  `second` text NOT NULL,
-  `third` text NOT NULL,
-  `four` text NOT NULL,
-  `five` text NOT NULL
+  `name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `navbar`
 --
 
-INSERT INTO `navbar` (`id`, `first`, `second`, `third`, `four`, `five`) VALUES
-(1, 'HOME ', 'DESTINATIONS', 'TRAVEL STYLES', 'TRAVEL DEALS', 'CONTACT US');
+INSERT INTO `navbar` (`id`, `name`) VALUES
+(1, 'Home'),
+(2, 'Destinations'),
+(3, 'Travel Styles'),
+(4, 'Travel Deal'),
+(5, 'Contact Us');
 
 -- --------------------------------------------------------
 
@@ -596,6 +620,13 @@ ALTER TABLE `itinerary`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `main_seo`
+--
+ALTER TABLE `main_seo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `page_fk` (`page`);
+
+--
 -- Indexes for table `navbar`
 --
 ALTER TABLE `navbar`
@@ -703,6 +734,12 @@ ALTER TABLE `itinerary`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
+-- AUTO_INCREMENT for table `main_seo`
+--
+ALTER TABLE `main_seo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `overview`
 --
 ALTER TABLE `overview`
@@ -777,6 +814,12 @@ ALTER TABLE `faq`
 --
 ALTER TABLE `gallery`
   ADD CONSTRAINT `gallery_dest_fk` FOREIGN KEY (`destid`) REFERENCES `destination` (`id`);
+
+--
+-- Constraints for table `main_seo`
+--
+ALTER TABLE `main_seo`
+  ADD CONSTRAINT `page_fk` FOREIGN KEY (`page`) REFERENCES `navbar` (`id`);
 
 --
 -- Constraints for table `seotag`

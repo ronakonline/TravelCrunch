@@ -22,10 +22,7 @@
 	<div class="content-page">
 		<!-- Start content -->
 		<div class="content">
-
-
 			<?php $this->load->view('admin/header'); ?>
-
 			<div class="page-content-wrapper ">
 
 				<div class="container-fluid">
@@ -48,27 +45,23 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-									<form method="post" action="update_navbar" enctype="multipart/form-data">
+									<form method="post" action="update_seo" enctype="multipart/form-data">
 										<div class="form-group">
-											<label for="example-text-input" class="col col-form-label">First</label>
-											<input class="form-control" type="tel" name="first" id="second" value="<?php echo $navbar[0]->name?>" required>
+											<label class="col col-form-label">Page</label>
+											<select class="form-control" name="page" id="page">
+												<option selected disabled>Select Page</option>
+												<?php foreach ($seo as $value) {?>
+													<option value="<?php echo $value->page ?>"><?php echo $value->name ?></option>
+												<?php } ?>
+											</select>
 										</div>
 										<div class="form-group">
-											<label for="example-text-input" class="col col-form-label">Second</label>
-											<input class="form-control" type="tel" name="second" id="second" value="<?php echo $navbar[1]->name?>" required>
+											<label for="example-text-input" class="col col-form-label">Tags</label>
+											<textarea rows="5" class="form-control" name="tags" id="tags"></textarea>
 										</div>
 										<div class="form-group">
-											<label for="example-text-input" class="col col-form-label">Third</label>
-											<input class="form-control" type="text" name="third" id="third" value="<?php echo $navbar[2]->name?>" required>
-										</div>
-										<div class="form-group">
-											<label for="example-text-input" class="col col-form-label">Fourth</label>
-											<input class="form-control" type="text" name="fourth" id="fourth" value="<?php echo $navbar[3]->name?>" required>
-										</div>
-
-										<div class="form-group">
-											<label for="example-text-input" class="col col-form-label">Fifth</label>
-											<input class="form-control" type="text" name="fifth" id="five" value="<?php echo $navbar[4]->name?>" required>
+											<label for="example-text-input" class="col col-form-label">Meta Tags</label>
+											<textarea rows="5" class="form-control" name="metatags" id="metatags"></textarea>
 										</div>
 
 										<div class="text-center">
@@ -76,7 +69,6 @@
 										</div>
 									</form>
 								</div>
-
 							</div>
 						</div> <!-- end col -->
 					</div> <!-- end row -->
@@ -112,6 +104,31 @@
 	var src = document.getElementById("src");
 	var target = document.getElementById("target");
 	showImage(src,target);
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#page').on('change', function(){
+			var pid = $(this).val();
+			if(pid) {
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url('admin/Sitesetting');?>/getseotags',
+					data: 'page=' + pid,
+					success: function (html) {
+						$('#tags').html(html);
+					}
+				});
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url('admin/Sitesetting');?>/getseometatags',
+					data: 'page=' + pid,
+					success: function (html) {
+						$('#metatags').html(html);
+					}
+				});
+			}
+		});
+	});
 </script>
 <?php
 if(isset($_SESSION['error'])){

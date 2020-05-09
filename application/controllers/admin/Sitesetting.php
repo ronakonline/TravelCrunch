@@ -249,6 +249,57 @@ class Sitesetting extends CI_Controller{
 		}
 	}
 
+	public function update_seo(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			$this->load->model('SitesettingM');
+			$op= $this->SitesettingM->update_seo($data);
+			if($op==1){
+				$_SESSION['success'] = "Updated Successfully";
+			}else{
+				$_SESSION['error'] = "Error Updating";
+			}
+			redirect('admin/Sitesetting/main_SEO');
+		}else{
+			redirect('admin');
+		}
+	}
+
+	public function main_SEO(){
+		if($_SESSION['admin']){
+			$data['title'] = "Edit-SEO";
+			$this->load->model('SitesettingM');
+			$data['seo']= $this->SitesettingM->main_seo();
+			$this->load->view('admin/edit-main_seo',$data);
+		}else{
+			redirect('admin');
+		}
+	}
+
+	public function getseotags(){
+		if($_SESSION['admin']){
+			$page = $this->input->post('page');
+			$this->load->model('SitesettingM');
+			$tags = $this->SitesettingM->get_seotags($page);
+			//$this->load->view('admin/edit-main_seo',$data);
+			echo $tags[0]->tags;
+		}else{
+			redirect('admin');
+		}
+	}
+
+	public function getseometatags(){
+		if($_SESSION['admin']){
+			$page = $this->input->post('page');
+			$this->load->model('SitesettingM');
+			$tags = $this->SitesettingM->get_seometatags($page);
+			//$this->load->view('admin/edit-main_seo',$data);
+			echo $tags[0]->meta_tag;
+		}else{
+			redirect('admin');
+		}
+	}
+
 	public function navbar(){
 		if($_SESSION['admin']){
 			$data['title'] = "Edit-Navbar";
