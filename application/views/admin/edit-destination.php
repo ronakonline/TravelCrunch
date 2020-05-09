@@ -239,9 +239,10 @@
 													<?php if(count($dest['faq'])>=1){ ?>
                                                     <div class="tab-pane p-3" id="profile-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                            <form action="insert_faq" method="post">	
+                                                            <form action="<?php echo base_url('admin/Destination/update_dfaq'); ?>" method="post">
 																<div id="faqlist">
 																	<?php $i=1; foreach ($dest['faq'] as $row) { ?>
+																		<input type="text" value="<?php echo $dest[0]->id; ?>" name="did" hidden>
 																	<div id="faq<?php echo $i;?>">
 			                                                            <div class="form-group">
 						                                                    <label>Question</label>
