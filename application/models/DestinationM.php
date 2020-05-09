@@ -357,4 +357,50 @@ class DestinationM extends CI_Model{
 		}
 		return $q;
 	}
+
+	public function update_dpacking($data){
+		$this->load->database();
+		$q = $this->db->query('delete from packing where destid='.$data['did']);
+		$item1count = count($data['item1']);
+		$item2count = count($data['item2']);
+		$item3count = count($data['item3']);
+		$item4count = count($data['item4']);
+		$qu = 'insert into packing values(null,'.$data['did'].',"'.addslashes($data['title1']).'","'.addslashes($data['desc1']).'","'.addslashes($data['title2']).'","'.addslashes($data['desc2']).'","'.addslashes($data['list1']).'","[';
+		for($i=0; $i<$item1count; $i++){
+
+			if($i==$item1count-1){
+				$qu .= addslashes($data['item1'][$i])."]".'","'.addslashes($data['list2']).'","[';
+			}else{
+				$qu .= addslashes($data['item1'][$i]).",";
+			}
+		}
+		for($i=0; $i<$item2count; $i++){
+
+			if($i==$item2count-1){
+				$qu .= addslashes($data['item2'][$i])."]".'","'.addslashes($data['list3']).'","[';
+			}else{
+				$qu .= addslashes($data['item2'][$i]).",";
+			}
+		}
+		for($i=0; $i<$item3count; $i++) {
+
+			if ($i == $item3count-1) {
+				$qu .= addslashes($data['item3'][$i]) . "]" . '","' . addslashes($data['list4']) . '","[';
+			} else {
+				$qu .=addslashes($data['item3'][$i]). ",";
+			}
+		}
+		for($i=0; $i<$item4count; $i++) {
+
+			if ($i == $item4count-1) {
+				$qu .= addslashes($data['item4'][$i]) . "]".'",0)' ;
+			} else {
+				$qu .= addslashes($data['item4'][$i]) . ",";
+			}
+		}
+
+		$q = $this->db->query($qu);
+
+		return $q;
+	}
 }
