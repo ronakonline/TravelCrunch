@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2020 at 10:44 PM
+-- Generation Time: May 09, 2020 at 09:08 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -150,6 +150,27 @@ INSERT INTO `faq` (`id`, `destid`, `question`, `answer`, `isdeleted`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `footer`
+--
+
+CREATE TABLE `footer` (
+  `id` int(11) NOT NULL,
+  `about` longtext NOT NULL,
+  `facebook` longtext NOT NULL,
+  `instagram` longtext NOT NULL,
+  `twitter` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `footer`
+--
+
+INSERT INTO `footer` (`id`, `about`, `facebook`, `instagram`, `twitter`) VALUES
+(1, 'Travelling explores the life of any human, we will help you to achieve that - Travel Crunch', 'www.facebook.com', 'www.instagram.com', 'www.twitter.com');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gallery`
 --
 
@@ -239,6 +260,28 @@ INSERT INTO `itinerary` (`id`, `tid`, `title`, `descr`, `isdeleted`) VALUES
 (22, 13, 'Day 2 Johannesburg/Serowe', '<p>Get ready to check another country off those travel lists as you and the\r\n group pass across the border into Botswana. We’re not going to lie \r\ntoday will be a lot of driving, but use this opportunity to talk with \r\nyour group, swap stories, and watch as the landscape changes around you \r\nfrom the desolate scenery of central-eastern Botswana to the wild bush \r\nwithin the Khama Rhino Sanctuary. The group will stop here for the night\r\n to set up camp, enjoy each others company around a fire, and fall \r\npeacefully asleep beneath the stars.</p>', 0),
 (23, 14, 'Day 1 Cape Town', '<p>Tonight, get to know your group on your first night out together in Cape\r\n Town. After a brief welcome meeting or dinner out together head to the \r\nclubs on Long Street to explore the vibrant nightlife. Put those dancing\r\n shoes on and get to know your fellow travel buddies as the adventure \r\nbegins.</p>', 0),
 (24, 14, 'Day 2 Cape Town/Cederberg', '<div class=summary><p>Hit the road in style in the Lando and view the \r\nstunning Western Cape scenery as the group travels to the G \r\nAdventures-supported !Khwa ttu San Culture and Education Centre. Here \r\nyou will learn about the history and culture of the ancient Sans people \r\nand be able to directly help this centre preserve that heritage. </p><p>In\r\n the afternoon the group will arrive at your first campsite where you \r\ncan enjoy free time to sip on some local wine, kick a footy around with \r\nthe local kids, or simply chill out by the campsite’s swimming pool \r\noverlooking the vineyards.</p></div>', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `navbar`
+--
+
+CREATE TABLE `navbar` (
+  `id` int(11) NOT NULL,
+  `first` text NOT NULL,
+  `second` text NOT NULL,
+  `third` text NOT NULL,
+  `four` text NOT NULL,
+  `five` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `navbar`
+--
+
+INSERT INTO `navbar` (`id`, `first`, `second`, `third`, `four`, `five`) VALUES
+(1, 'HOME ', 'DESTINATIONS', 'TRAVEL STYLES', 'TRAVEL DEALS', 'CONTACT US');
 
 -- --------------------------------------------------------
 
@@ -534,6 +577,12 @@ ALTER TABLE `faq`
   ADD KEY `faq_destination_fk` (`destid`);
 
 --
+-- Indexes for table `footer`
+--
+ALTER TABLE `footer`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
@@ -544,6 +593,12 @@ ALTER TABLE `gallery`
 -- Indexes for table `itinerary`
 --
 ALTER TABLE `itinerary`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `navbar`
+--
+ALTER TABLE `navbar`
   ADD PRIMARY KEY (`id`);
 
 --
