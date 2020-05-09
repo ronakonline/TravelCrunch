@@ -73,15 +73,7 @@
 										</ul>
 										<div class="tab-content tg-themetabcontent">
 											<div role="tabpanel" class="tab-pane active tg-overviewtab" id="america" >
-												<div class="tg-bookingdetail">
-													<div class="tg-box">
-														<div class="tg-description">
-															<?php echo $tour->overview; ?>
-														</div>
-													</div>
-
-												</div>
-
+												<?php echo $tour->overview; ?>
 											</div>
 											<div role="tabpanel" class="tab-pane tg-itinerary" id="australia">
 												<?php

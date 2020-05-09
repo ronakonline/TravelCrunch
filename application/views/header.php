@@ -190,17 +190,28 @@
 									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="<?php echo base_url('Destinations'); ?>"><?php echo $nav[1]->name; ?></a>
 										<div class="mega-menu">
 											<div class="row " style="margin-top:20px">
-												<?php foreach ($parents as $row){ ?>
-												<div class="col-sm-2">
+												<?php $j=0; foreach ($parents as $row){ ?>
+												<?php  if ($j==0 || $j==2 || $j==3) {
+													echo "<div class='col-sm-2'>";
+												} 
+
+												else{
+													echo "<div class='col-sm-3'>";
+												}
+												?>
 													<ul>
-														<li ><a href="#" style="font-size: 20px;"><b><?php echo $row->name; ?></b></a></li>
+														<li >
+															<a href="#" style="font-size: 20px;">
+																<b><?php echo $row->name; ?></b>
+															</a>
+														</li>
 														<?php for ($i=0; $i<$tdestination; $i++){
 															if($destinations[$i]->parent == $row->id) {?>
 														<li><a href="<?php echo base_url('Listings/').$destinations[$i]->id."/".$destinations[$i]->name; ?>"><?php echo $destinations[$i]->name; ?></a></li>
 														<?php } }?>
 													</ul>
 												</div>
-												<?php } ?>	
+												<?php $j+=1; } ?>	
 											</div>
 										</div>
 									</li>
@@ -208,7 +219,7 @@
 										<div class="mega-menu">
 											<div class="row " style="margin-top:20px">
 												<?php foreach ($travelstyle as $row){ ?>
-												<div class="col-sm-2">
+												<div class="col-sm-3">
 													<ul>
 														<li ><a href="#" style="font-size: 20px;"><b><?php echo $row->name; ?></b></a>
 														</li>
