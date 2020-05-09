@@ -67,6 +67,7 @@
 						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/homepage">Home Page</a></li>			
 						<li><a href="<?php echo base_url(); ?>admin/Sitesetting">Contact</a></li>			
 						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/add_logo">Logo</a></li>
+						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/footer">Footer</a></li>
 					</ul>
 				</li>
 
