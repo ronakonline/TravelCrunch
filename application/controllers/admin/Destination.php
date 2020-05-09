@@ -674,4 +674,40 @@ class Destination extends CI_Controller{
 			redirect('admin');
 		}
 	}
+	public function update_dgallery(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			if($_FILES['img']['error']==4){
+				$_SESSION['error']="No Image Selected";
+				redirect('admin/Destination/update_destination/'.$data['did']);
+			}else{
+				$data['img'] = $this->uploadimage($_FILES['img'],"img","gallery");
+				$this->load->model("DestinationM");
+				$qu = $this->DestinationM->update_dgallery($data);
+				if ($qu==1) {
+					$_SESSION['success']="Updated Successfully";
+				}
+				else{
+					$_SESSION['error']="Error Updating Record";
+				}
+				//echo $qu;
+				redirect('admin/Destination/update_destination/'.$data['did']);
+			}
+		}
+		else{
+			redirect('admin');
+		}
+	}
+	public function delete_dgallery(){
+		if($_SESSION['admin']){
+			$id = $_POST['id'];
+			$this->load->model("DestinationM");
+			$qu = $this->DestinationM->delete_dgallery($id);
+			$_SESSION['success']="Deleted Successfully";
+			echo $qu;
+		}
+		else{
+			redirect('admin');
+		}
+	}
 }

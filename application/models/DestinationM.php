@@ -403,4 +403,14 @@ class DestinationM extends CI_Model{
 
 		return $q;
 	}
+	public function update_dgallery($data){
+		$this->load->database();
+		$q = $this->db->query('update gallery set img="'.$data['img'].'" where id='.$data['id']);
+		return $q;
+	}
+	public function delete_dgallery($id){
+		$this->load->database();
+		$q = $this->db->query('update gallery set isdeleted=1 where id='.$id);
+		return $q;
+	}
 }
