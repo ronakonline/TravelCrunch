@@ -6,8 +6,26 @@
         <link href="<?php echo base_url();?>assets/admin/plugins/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url();?>assets/admin/plugins/dropify/css/dropify.min.css" rel="stylesheet">
 	</head>
+	<script src="<?php echo base_url();?>assets/admin/js/jquery.min.js"></script>
+<script>
+	//Ajax for deleting Image
 
+		function deleteimg(id) {
+			var pid = id;
+			if(pid) {
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url('admin/Destination/delete_dgallery'); ?>',
+					data: 'id=' + pid,
+					success: function (html) {
+						location.reload();
+					}
+				});
 
+			}
+		}
+
+</script>
 <body class="fixed-left">
 
 <!-- Loader -->
@@ -417,32 +435,38 @@
                                                     </div>
 													<?php if(count($dest['img'])>=1){ ?>
                                                     <div class="tab-pane p-3" id="settings-1" role="tabpanel">
-                                                    	<form action="insert_gallery" method="post" enctype="multipart/form-data">
-                                                    		<div class="form-group">
-																<label>Destination</label>
-																<div>
-																	<select class="form-control" name="destination" id="destinationname">
-																		<?php 
-																			foreach ($destinationname as $name) {
-																				echo "<option value='$name->id'>$name->name</option>";
-																			}
-																		 ?>
-																	</select>
-																</div>
-															</div>
 
-							                                    <div class="card m-b-30">
-							                                        <div class="card-body">
-							                                            
-							                                            
-							                                            <input type="file" name="files[]" id="input-file-now" class="dropify" multiple />
-							                                        </div>
-							                                    </div>
+																<?php for($i=0; $i<count($dest['img']); $i++) { ?>
+																<form action="<?php echo base_url('admin/Destination/update_dgallery'); ?>" method="post" enctype="multipart/form-data">
+																	<div class="row">
+																		<div class="col-xl-6">
+																	<div class="card m-b-30">
+																		<div class="card-body">
+																			<input type="text" value="<?php echo $dest['img'][$i]->id; ?>" name="id" hidden>
+																			<input type="text" value="<?php echo $dest[0]->id; ?>" name="did" hidden>
+																			<input type="file" name="img" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url('uploads/images/gallery/').$dest['img'][$i]->img; ?>" />
+																			<div class="form-group m-t-15">
+																				<div>
+																					<button type="submit" class="btn btn-primary waves-effect waves-light">
+																						Update
+																					</button>
+																					<button onclick="deleteimg(<?php echo $dest['img'][$i]->id; ?>);" type="button" class="btn btn-danger waves-effect m-l-5">
+																						Delete
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																	</div>
+																</form>
+																<?php } ?>
+
 							    
 					                                            <div class="text-center m-t-15">
 					                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Upload Files</button>
 					                                            </div>
-			                                            </form>
+
                                                     </div>
 													<?php } ?>
 
@@ -586,6 +610,7 @@
 	var src3 = document.getElementById("src3");
 	var target3 = document.getElementById("target3");
 	showImage(src3,target3);
+
 
 </script>
 <?php
