@@ -248,4 +248,31 @@ class Sitesetting extends CI_Controller{
 			redirect('admin');
 		}
 	}
+
+	public function navbar(){
+		if($_SESSION['admin']){
+			$data['title'] = "Edit-Navbar";
+			$this->load->model('SitesettingM');
+			$data['navbar']= $this->SitesettingM->editlist_navbar();
+			$this->load->view('admin/edit-navbar',$data);
+		}else{
+			redirect('admin');
+		}
+	}
+
+	public function update_navbar(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			$this->load->model('SitesettingM');
+			$op= $this->SitesettingM->update_navbar($data);
+			if($op==1){
+				$_SESSION['success'] = "Updated Successfully";
+			}else{
+				$_SESSION['error'] = "Error Updating";
+			}
+			redirect('admin/Sitesetting/navbar');
+		}else{
+			redirect('admin');
+		}
+	}
 }

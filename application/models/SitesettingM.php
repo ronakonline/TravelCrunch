@@ -26,6 +26,11 @@ class SitesettingM extends CI_Model{
 		return $q->result();
 	}
 
+	public function editlist_navbar(){
+		$q = $this->db->query('select * from navbar');
+		return $q->result();
+	}
+
 	public function update_logo($pic){
 		$q = $this->db->query('update sitesetting set logo="'.addslashes($pic).'"');
 		return $q;
@@ -33,6 +38,11 @@ class SitesettingM extends CI_Model{
 
 	public function update_footer($data){
 		$q = $this->db->query('update footer set about="'.$data['about'].'",facebook="'.$data['facebook'].'",instagram="'.$data['instagram'].'",twitter="'.$data['twitter'].'" where id = 1');
+		return $q;
+	}
+
+	public function update_navbar($data){
+		$q = $this->db->query('update navbar set first="'.$data['first'].'",second="'.$data['second'].'",third="'.$data['third'].'",four="'.$data['four'].'",five="'.$data['five'].'" where id = 1');
 		return $q;
 	}
 
