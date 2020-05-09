@@ -20,10 +20,22 @@ class SitesettingM extends CI_Model{
 		$q = $this->db->query('select * from sitesetting');
 		return $q->result();
 	}
+
+	public function editlist_footer(){
+		$q = $this->db->query('select * from footer');
+		return $q->result();
+	}
+
 	public function update_logo($pic){
 		$q = $this->db->query('update sitesetting set logo="'.addslashes($pic).'"');
 		return $q;
 	}
+
+	public function update_footer($data){
+		$q = $this->db->query('update footer set about="'.$data['about'].'",facebook="'.$data['facebook'].'",instagram="'.$data['instagram'].'",twitter="'.$data['twitter'].'" where id = 1');
+		return $q;
+	}
+
 	public function update_slider($data){
 		$this->load->database();
 		if($data['p']==1) {

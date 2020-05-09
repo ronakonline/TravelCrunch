@@ -221,4 +221,31 @@ class Sitesetting extends CI_Controller{
 			redirect('admin');
 		}
 	}
+
+	public function footer(){
+		if($_SESSION['admin']){
+			$data['title'] = "Edit-Footer";
+			$this->load->model('SitesettingM');
+			$data['footer']= $this->SitesettingM->editlist_footer();
+			$this->load->view('admin/edit-footer',$data);
+		}else{
+			redirect('admin');
+		}
+	}
+
+	public function update_footer(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			$this->load->model('SitesettingM');
+			$op= $this->SitesettingM->update_footer($data);
+			if($op==1){
+				$_SESSION['success'] = "Updated Successfully";
+			}else{
+				$_SESSION['error'] = "Error Updating";
+			}
+			redirect('admin/Sitesetting/footer');
+		}else{
+			redirect('admin');
+		}
+	}
 }
