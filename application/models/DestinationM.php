@@ -337,4 +337,24 @@ class DestinationM extends CI_Model{
 		$q = $this->db->query('update overview set oleft="'.addslashes($data['oleft']).'",oright="'.addslashes($data['oright']).'"  where destid='.$data['id']);
 		return $q;
 	}
+	public function update_dfaq($data){
+		$this->load->database();
+		$q = $this->db->query('delete from faq where destid='.$data['did']);
+		if(isset($data['question'])) {
+			$total = count($data['question']);
+			$qu = "insert into faq values";
+			for ($i=0; $i<$total ; $i++) {
+
+				if($i==$total-1){
+					$qu .= '(null,'.$data['did'].',"'.addslashes($data['question'][$i]).'","'.addslashes($data['answer'][$i]).'",0)';
+				}
+				else{
+					$qu .= '(null,'.$data['did'].',"'.addslashes($data['question'][$i]).'","'.addslashes($data['answer'][$i]).'",0),';
+				}
+			}
+
+			$q = $this->db->query($qu);
+		}
+		return $q;
+	}
 }

@@ -637,4 +637,23 @@ class Destination extends CI_Controller{
 		}
 	}
 
+	public function update_dfaq(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			$this->load->model("DestinationM");
+			$qu = $this->DestinationM->update_dfaq($data);
+			if ($qu==1) {
+				$_SESSION['success']="Updated Successfully";
+			}
+			else{
+				$_SESSION['error']="Error Updating Record";
+			}
+			//echo $qu;
+			redirect('admin/Destination/update_destination/'.$data['did']);
+		}
+		else{
+			redirect('admin');
+		}
+	}
+
 }
