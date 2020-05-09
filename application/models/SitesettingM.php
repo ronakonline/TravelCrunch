@@ -26,8 +26,28 @@ class SitesettingM extends CI_Model{
 		return $q->result();
 	}
 
+	public function editlist_mainseo(){
+		// $q = $this->db->query('SELECT navbar.name, main_seo.`id`, main_seo.`page`, main_seo.`tags`, main_seo.`meta_tag` FROM `main_seo`, navbar WHERE main_seo.page = navbar.id');
+		// return $q->result_array();
+	}
+
+	public function main_seo(){
+		$q = $this->db->query('SELECT navbar.name,main_seo.`id`, main_seo.`page`, main_seo.`tags`, main_seo.`meta_tag` FROM `main_seo`,navbar WHERE main_seo.page = navbar.id');
+		return $q->result();
+	}
+
 	public function editlist_navbar(){
 		$q = $this->db->query('select * from navbar');
+		return $q->result();
+	}
+
+	public function get_seotags($page){
+		$q = $this->db->query('select tags from main_seo where page='.$page);
+		return $q->result();
+	}
+
+	public function get_seometatags($page){
+		$q = $this->db->query('select meta_tag from main_seo where page='.$page);
 		return $q->result();
 	}
 
@@ -41,8 +61,17 @@ class SitesettingM extends CI_Model{
 		return $q;
 	}
 
+	public function update_seo($data){
+		$q = $this->db->query('update main_seo set tags="'.$data['tags'].'",meta_tag="'.$data['metatags'].'" where id ='.$data['page']);
+		return $q;
+	}
+
 	public function update_navbar($data){
-		$q = $this->db->query('update navbar set first="'.$data['first'].'",second="'.$data['second'].'",third="'.$data['third'].'",four="'.$data['four'].'",five="'.$data['five'].'" where id = 1');
+		$q = $this->db->query('update navbar set name="'.$data['first'].'" where id = 1');
+		$q = $this->db->query('update navbar set name="'.$data['second'].'" where id = 2');
+		$q = $this->db->query('update navbar set name="'.$data['third'].'" where id = 3');
+		$q = $this->db->query('update navbar set name="'.$data['fourth'].'" where id = 4');
+		$q = $this->db->query('update navbar set name="'.$data['fifth'].'" where id = 5');
 		return $q;
 	}
 
