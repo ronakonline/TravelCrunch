@@ -274,10 +274,11 @@
 													<?php if(count($dest['packing'])>=1){ ?>
                                                     <div class="tab-pane p-3" id="messages-1" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                            <form action="insert_packing" method="post">
+                                                            <form action="<?php echo base_url('admin/Destination/update_dpacking'); ?>" method="post">
                                                             	<div class="row">
                                                             	<div class="col-sm-6">
                                                             		<h3 class="text-center">LEFT</h3>
+																	<input type="text" value="<?php echo $dest[0]->id; ?>" name="did" hidden>
 		                                                            <div class="form-group">
 					                                                    <label>1st Title</label>
 					                                                    <div>
@@ -320,7 +321,7 @@
 																			$list1 = explode(",",$list); ?>
 																			<?php $i=0; foreach ($list1 as $row){ ?>
 					                                                       		 <input type="text" class="form-control name_list" name="item1[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
-																				 <?php if(count($list1)!=1){ ?>
+																				 <?php if(count($list1)!=1 and $i!=0){ ?>
 																				 <button class="btn btn-outline-danger remove mb-2" name="remove" id="remove<?php echo $i;?>" type="button" onclick="delete_item('<?php echo $i;?>')">-</button>
 																			<?php } $i+=1; } ?>
 																			<div id="itemlist1"></div>
@@ -340,8 +341,8 @@
 																			$list = trim($dest['packing'][0]->item2,"[]");
 																			$list2 = explode(",",$list); ?>
 																			<?php  foreach ($list2 as $row){ ?>
-																				<input type="text" class="form-control name_list" name="item1[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
-																				<?php if(count($list2)!=1){ ?>
+																				<input type="text" class="form-control name_list" name="item2[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
+																				<?php if(count($list2)!=1 and $i!=count($list1)){ ?>
 																				<button class="btn btn-outline-danger remove mb-2" name="remove" id="remove<?php echo $i;?>" type="button" onclick="delete_item('<?php echo $i;?>')">-</button>
 																				<?php } $i+=1; } ?>
 					                                                        <div id="itemlist2"></div>
@@ -351,7 +352,7 @@
 					                                                <div class="form-group">
 					                                                    <label>3rd List</label>
 					                                                    <div>
-					                                                        <input type="text" class="form-control" placeholder="Type something" name="list3" id="list3" <?php echo $dest['packing'][0]->list3; ?> required />
+					                                                        <input type="text" class="form-control" placeholder="Type something" name="list3" id="list3" value="<?php echo $dest['packing'][0]->list3; ?>" required />
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
@@ -361,12 +362,12 @@
 																			$list = trim($dest['packing'][0]->item3,"[]");
 																			$list3 = explode(",",$list); ?>
 																			<?php foreach ($list3 as $row){ ?>
-																				<input type="text" class="form-control name_list" name="item1[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
-																				<?php if(count($list3)!=1){ ?>
+																				<input type="text" class="form-control name_list" name="item3[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
+																				<?php if(count($list3)!=1 and $i!=count($list1)+count($list2)){ ?>
 																				<button class="btn btn-outline-danger remove mb-2" name="remove" id="remove<?php echo $i;?>" type="button" onclick="delete_item('<?php echo $i;?>')">-</button>
 																				<?php } $i+=1; } ?>
 																			<div id="itemlist3"></div>
-																			<button class="btn btn-outline-primary" name="add3" id="add3" type="button">+</button>
+																			<button class="btn btn-outline-primary" name="add2" id="add2" type="button">+</button>
 					                                                    </div>
 					                                                </div>
 					                                                <div class="form-group">
@@ -382,8 +383,8 @@
 																			$list = trim($dest['packing'][0]->item4,"[]");
 																			$list4 = explode(",",$list); ?>
 																			<?php  foreach ($list4 as $row){ ?>
-																				<input type="text" class="form-control name_list" name="item1[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
-																				<?php if(count($list4)!=1){ ?>
+																				<input type="text" class="form-control name_list" name="item4[]" id="item<?php echo $i;?>" value="<?php echo $row; ?>" required>
+																				<?php if(count($list4)!=1 and $i!=count($list1)+count($list2)+count($list4)){ ?>
 																				<button class="btn btn-outline-danger remove mb-2" name="remove" id="remove<?php echo $i;?>" type="button" onclick="delete_item('<?php echo $i;?>')">-</button>
 																				<?php } $i+=1; } ?>
 																		</div>
@@ -475,7 +476,7 @@
         <script src="<?php echo base_url();?>assets/admin/plugins/dropify/js/dropify.min.js"></script>
 		<script>
 			$(document).ready(function(){
-				var i = 1;
+				var i = <?php echo count($dest['faq'])+1; ?>;
 
 				$('#addfaq').click(function(){
 					i++;
@@ -489,7 +490,8 @@
 			}
 
 			$(document).ready(function(){
-				var i = 1;
+				var i = <?php echo count($list1)+count($list2)+count($list3)+count($list4)+1; ?>;
+				//alert(i);
 				$('#add').click(function(){
 
 					i++;
