@@ -186,8 +186,8 @@
 							</div>
 							<div id="tg-navigation" class="collapse navbar-collapse tg-navigation">
 								<ul>
-								    <li class="current-menu-item"><a href="<?php echo base_url();?>"><?php echo $nav[0]->first; ?></a></li>
-									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="<?php echo base_url('Destinations'); ?>"><?php echo $nav[0]->second; ?></a>
+								    <li class="current-menu-item"><a href="<?php echo base_url();?>"><?php echo $nav[0]->name; ?></a></li>
+									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="<?php echo base_url('Destinations'); ?>"><?php echo $nav[1]->name; ?></a>
 										<div class="mega-menu">
 											<div class="row " style="margin-top:20px">
 												<?php foreach ($parents as $row){ ?>
@@ -204,7 +204,7 @@
 											</div>
 										</div>
 									</li>
-									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="javascript:void(0);"><?php echo $nav[0]->third; ?></a>
+									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="javascript:void(0);"><?php echo $nav[2]->name; ?></a>
 										<div class="mega-menu">
 											<div class="row " style="margin-top:20px">
 												<?php foreach ($travelstyle as $row){ ?>
@@ -225,9 +225,9 @@
 											<br>
 										</div>
 									</li>
-									<li class=" current-menu-item"><a href="<?php echo base_url('Traveldeals'); ?>"><?php echo $nav[0]->four; ?></a>
+									<li class=" current-menu-item"><a href="<?php echo base_url('Traveldeals'); ?>"><?php echo $nav[3]->name; ?></a>
 									</li>
-									<li class="menu-item-has-children current-menu-item"><a href="<?php echo base_url(); ?>Contact"><?php echo $nav[0]->five; ?></a></li>
+									<li class="menu-item-has-children current-menu-item"><a href="<?php echo base_url(); ?>Contact"><?php echo $nav[4]->name; ?></a></li>
 								</ul>
 							</div>
 						</nav>

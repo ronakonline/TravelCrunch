@@ -16,7 +16,7 @@
 					<div class="dropdown-item noti-title">
 						<h5>Welcome</h5>
 					</div>
-					
+
 					<a class="dropdown-item" href="<?php echo base_url('admin/Dashboard/logout'); ?>"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
 				</div>
 			</li>
