@@ -8,8 +8,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<h1>Experience the Wonder</h1>
-							<h2>People don’t take trips, trips take People</h2>
+							<h1><?php echo $settings[0]->title1; ?></h1>
+							<h2><?php echo $settings[0]->tagline1; ?></h2>
 							<form class="tg-formtheme tg-formtrip">
 								<fieldset>
 									<div class="form-group">
@@ -80,9 +80,9 @@
 				</div>
 			</div>
 			<div id="tg-homeslider" class="tg-homeslider owl-carousel tg-haslayout">
-				<figure class="item" data-vide-bg="poster: <?php echo base_url();?>assets/images/slider/img-01.jpg" data-vide-options="position: 0% 50%"></figure>
-				<figure class="item" data-vide-bg="poster: <?php echo base_url();?>assets/images/slider/img-02.jpg" data-vide-options="position: 0% 50%"></figure>
-				<figure class="item" data-vide-bg="poster: <?php echo base_url();?>assets/images/slider/img-03.jpg" data-vide-options="position: 0% 50%"></figure>
+				<figure class="item" data-vide-bg="poster: <?php echo base_url('assets/images/slider/').$settings[0]->slide1;?>" data-vide-options="position: 0% 50%"></figure>
+				<figure class="item" data-vide-bg="poster: <?php echo base_url('assets/images/slider/').$settings[0]->slide2;?>" data-vide-options="position: 0% 50%"></figure>
+				<figure class="item" data-vide-bg="poster: <?php echo base_url('assets/images/slider/').$settings[0]->slide3;?>" data-vide-options="position: 0% 50%"></figure>
 			</div>
 		</div>
 		<!--************************************
@@ -146,9 +146,9 @@
 															<?php if($dest->parent==$row->id) {?>
 																<div class="item tg-populardestination">
 																	<figure>
-																		<a href="javascript:void(0);"><img src="<?php echo base_url('uploads/images/destination/').$dest->banner; ?>" alt="image destinations" style="height: 202px;"></a>
+																		<a href="<?php echo base_url('Listings/').$dest->id."/".$dest->name; ?>"><img src="<?php echo base_url('uploads/images/destination/').$dest->banner; ?>" alt="image destinations" style="height: 202px;"></a>
 																		<figcaption>
-																			<h3><a href="javascript:void(0);"><?php echo $dest->name; ?></a></h3>
+																			<h3><a href="<?php echo base_url('Listings/').$dest->id."/".$dest->name; ?>"><?php echo $dest->name; ?></a></h3>
 																			<div class="tg-description">
 																				<p><?php echo $dest->tagline; ?></p>
 																			</div>
@@ -180,11 +180,12 @@
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="tg-toursdestinations">
 								<?php $i=0; foreach ($travelstyle as $row){ ?>
+									<?php if($row->featured==1){ ?>
 									<?php if($i<3) {?>
 										<?php if($i==0) {?>
 										<div class="tg-tourdestination tg-tourdestinationbigbox">
 											<figure>
-												<a href="javascript:void(0);">
+												<a href="#">
 													<img src="<?php echo base_url('uploads/images/destination/').$row->bannerimg;?>" alt="image destinations" style="height: 465px;">
 													<div class="tg-hoverbox">
 														<div class="tg-adventuretitle">
@@ -207,7 +208,7 @@
 													</a>
 												</figure>
 											</div>
-									<?php }$i+=1; } }?>
+									<?php }$i+=1; } } }?>
 							</div>
 						</div>
 					</div>
@@ -279,9 +280,15 @@
 <!--											<span class="tg-descount">25% Off</span>-->
 										</figure>
 										<div class="tg-populartourcontent">
-											<div class="tg-populartourtitle">
-												<h3><a href="<?php echo base_url('Tourdetails/').$row->id;?>"><?php echo $row->title; ?></a></h3>
-											</div>
+											<?php if(strlen($row->title)<=31){?>
+												<div class="tg-populartourtitle" style="padding-bottom: 40px;">
+													<h3 ><a href="<?php echo base_url('Tourdetails/').$row->id;?>"><?php echo $row->title; ?></a></h3>
+												</div>
+											<?php }else{ ?>
+												<div class="tg-populartourtitle" >
+													<h3 ><a href="<?php echo base_url('Tourdetails/').$row->id;?>"><?php echo $row->title; ?></a></h3>
+												</div>
+											<?php } ?>
 											<div class="tg-description">
 												<p><?php echo substr($row->overview,0,90); ?>...</p>
 											</div>

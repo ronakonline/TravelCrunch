@@ -157,7 +157,7 @@
 				<div class="row">
 					
 					<div class="tg-navigationarea tg-headerfixed">
-						<strong class="tg-logo"><a href="<?php echo base_url(); ?>"><img src="<?php echo base_url();?>assets/images/logo.png" alt="company logo here"></a></strong>
+						<strong class="tg-logo"><a href="<?php echo base_url(); ?>"><img src="<?php echo base_url('assets/images/').$settings[0]->logo;?>" alt="company logo here"></a></strong>
 						<div class="tg-socialsignin">
 							<div class="tg-userbox">
 								<a id="tg-btnsignin" class="tg-btn" href="#tg-loginsingup"><span>sign in</span></a>
@@ -186,8 +186,8 @@
 							</div>
 							<div id="tg-navigation" class="collapse navbar-collapse tg-navigation">
 								<ul>
-								    <li class="current-menu-item"><a href="<?php echo base_url();?>">Home</a></li>
-									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="javascript:void(0);">Destinations</a>
+								    <li class="current-menu-item"><a href="<?php echo base_url();?>"><?php echo $nav[0]->first; ?></a></li>
+									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="<?php echo base_url('Destinations'); ?>"><?php echo $nav[0]->second; ?></a>
 										<div class="mega-menu">
 											<div class="row " style="margin-top:20px">
 												<?php foreach ($parents as $row){ ?>
@@ -204,7 +204,7 @@
 											</div>
 										</div>
 									</li>
-									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="javascript:void(0);">Travel Styles</a>
+									<li class="menu-item-has-children current-menu-item menu-item-has-mega-menu"><a href="javascript:void(0);"><?php echo $nav[0]->third; ?></a>
 										<div class="mega-menu">
 											<div class="row " style="margin-top:20px">
 												<?php foreach ($travelstyle as $row){ ?>
@@ -225,9 +225,9 @@
 											<br>
 										</div>
 									</li>
-									<li class=" current-menu-item"><a href="<?php echo base_url('Traveldeals'); ?>">Travel Deals</a>
+									<li class=" current-menu-item"><a href="<?php echo base_url('Traveldeals'); ?>"><?php echo $nav[0]->four; ?></a>
 									</li>
-									<li class="menu-item-has-children current-menu-item"><a href="<?php echo base_url(); ?>Contact">Contact Us</a></li>
+									<li class="menu-item-has-children current-menu-item"><a href="<?php echo base_url(); ?>Contact"><?php echo $nav[0]->five; ?></a></li>
 								</ul>
 							</div>
 						</nav>

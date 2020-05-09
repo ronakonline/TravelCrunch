@@ -19,55 +19,55 @@
 		<!--************************************
 				Inner Banner End
 		*************************************-->
-<section class="tg-sectionspace tg-haslayout">
+<!--************************************
+				Advantures Start
+		*************************************-->
+<section class="tg-sectionspace tg-haslayout" >
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div class="tg-toursdestinations">
-					<div class="tg-tourdestination tg-tourdestinationbigbox">
-						<figure>
-							<a href="javascript:void(0);">
-								<img src="<?php echo base_url();?>assets/images/destination/img-01.jpg" alt="image destinations">
-								<div class="tg-hoverbox">
-									<div class="tg-adventuretitle">
-										<h2>Ice Adventure Vacations</h2>
+					<?php $i=0; foreach ($travelstyle as $row){ ?>
+						<?php if($row->featured==1){ ?>
+							<?php if($i<3) {?>
+								<?php if($i==0) {?>
+									<div class="tg-tourdestination tg-tourdestinationbigbox">
+										<figure>
+											<a href="#">
+												<img src="<?php echo base_url('uploads/images/destination/').$row->bannerimg;?>" alt="image destinations" style="height: 465px;">
+												<div class="tg-hoverbox">
+													<div class="tg-adventuretitle">
+														<h2><?php echo $row->name;?></h2>
+													</div>
+												</div>
+											</a>
+										</figure>
 									</div>
-									<div class="tg-description">
-										<p>your best vacation ever</p>
+								<?php }else{ ?>
+									<div class="tg-tourdestination">
+										<figure>
+											<a href="javascript:void(0);">
+												<img src="<?php echo base_url('uploads/images/destination/').$row->bannerimg;?>" alt="image destinations" style="height: 227px;">
+												<div class="tg-hoverbox">
+													<div class="tg-adventuretitle">
+														<h2><?php echo $row->name;?></h2>
+													</div>
+												</div>
+											</a>
+										</figure>
 									</div>
-								</div>
-							</a>
-						</figure>
-					</div>
-					<div class="tg-tourdestination">
-						<figure>
-							<a href="javascript:void(0);">
-								<img src="<?php echo base_url();?>assets/images/destination/img-02.jpg" alt="image destinations">
-								<div class="tg-hoverbox">
-									<div class="tg-adventuretitle">
-										<h2>National Park</h2>
-									</div>
-								</div>
-							</a>
-						</figure>
-					</div>
-					<div class="tg-tourdestination">
-						<figure>
-							<a href="javascript:void(0);">
-								<img src="<?php echo base_url();?>assets/images/destination/img-03.jpg" alt="image destinations">
-								<div class="tg-hoverbox">
-									<div class="tg-adventuretitle">
-										<h2>Adult Vacations</h2>
-									</div>
-								</div>
-							</a>
-						</figure>
-					</div>
+								<?php }$i+=1; } } }?>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+<!--************************************
+		Advantures End
+*************************************-->
+<!--************************************
+		Features Start
+*************************************-->
 <section class="tg-sectionspace tg-zerotoppadding tg-haslayout">
 	<div class="container">
 		<div class="row">
@@ -75,30 +75,30 @@
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 					<div class="tg-feature">
 						<div class="tg-featuretitle">
-							<h2><span>01</span>Luxury Hotels</h2>
+							<h2><span>01</span><?php echo $settings[0]->ftitle1; ?></h2>
 						</div>
 						<div class="tg-description">
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer nihil imperdiet doming...</p>
+							<p><?php echo $settings[0]->feature1; ?></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 					<div class="tg-feature">
 						<div class="tg-featuretitle">
-							<h2><span>02</span>Tourist Guide</h2>
+							<h2><span>02</span><?php echo $settings[0]->ftitle2; ?></h2>
 						</div>
 						<div class="tg-description">
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer nihil imperdiet doming...</p>
+							<p><?php echo $settings[0]->feature2; ?></p>
 						</div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 					<div class="tg-feature">
 						<div class="tg-featuretitle">
-							<h2><span>03</span>Flights Tickets</h2>
+							<h2><span>03</span><?php echo $settings[0]->ftitle3; ?></h2>
 						</div>
 						<div class="tg-description">
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer nihil imperdiet doming...</p>
+							<p><?php echo $settings[0]->feature3; ?></p>
 						</div>
 					</div>
 				</div>
@@ -106,6 +106,9 @@
 		</div>
 	</div>
 </section>
+<!--************************************
+		Features End
+*************************************-->
 
 <section class="tg-aboutus">
 	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -503,7 +506,7 @@
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="tg-sectiontitle tg-sectiontitleleft">
 							<h2>Popular Tours</h2>
-							<a class="tg-btnvtwo" href="javascript:void(0);">All Tours</a>
+							<a class="tg-btnvtwo" href="<?php echo base_url();?>Alltours/<?php echo $destinfo[0]->id; ?>">All Tours</a>
 						</div>
 						<div id="tg-populartoursslider" class="tg-populartoursslider tg-populartours tg-populartoursvtwo owl-carousel">
 							<?php foreach ($tours as $tour){ ?>
@@ -513,9 +516,15 @@
 
 										</figure>
 										<div class="tg-populartourcontent">
+										<?php if(strlen($tour->title<=31)){ ?>
+											<div class="tg-populartourtitle" style="padding-bottom: 40px;">
+												<h3><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><?php echo $tour->title; ?></a></h3>
+											</div>
+										<?php }else{ ?>
 											<div class="tg-populartourtitle">
 												<h3><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><?php echo $tour->title; ?></a></h3>
 											</div>
+										<?php } ?>
 											<div class="tg-description">
 												<p><?php echo substr($tour->overview,0,150); ?>...</p>
 											</div>

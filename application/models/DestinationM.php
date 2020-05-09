@@ -413,4 +413,16 @@ class DestinationM extends CI_Model{
 		$q = $this->db->query('update gallery set isdeleted=1 where id='.$id);
 		return $q;
 	}
+
+	//Update Travel Style
+	public function update_travelstyle($data,$img=null){
+		if ($img==null) {
+			$q = $this->db->query('update travelstyle set name= "'.addslashes($data['name']).'",featured='.$data['featured'].' where id = "'.$data['id'].'" AND isdeleted = 0');
+			return $q;
+		}
+		else{
+			$q = $this->db->query('update travelstyle set name= "'.addslashes($data['name']).'", bannerimg = "'.addslashes($img).'", featured='.$data['featured'].' where id = "'.$data['id'].'" AND isdeleted = 0');
+			return $q;
+		}
+	}
 }

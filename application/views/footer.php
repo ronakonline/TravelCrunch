@@ -12,14 +12,14 @@
 								</div>
 								<div class="tg-widgetcontent">
 									<div class="tg-description">
-										<p>Nunc cursus liero purs ac cogue arcu cursus ut sed vitae pulvinar massaidp nequetiam lore elerisque</p>
+										<p><?php echo $footer[0]->about; ?></p>
 									</div>
-									<span>1-800-321-6543</span>
-									<a href="mailto:info@travlu.com">info@travlu.com</a>
+									<span><?php echo $contact[0]->phoneno; ?></span>
+									<a href="#"><?php echo $contact[0]->email; ?></a>
 									<ul class="tg-socialicons tg-socialiconsvtwo">
-										<li><a href="javascript:void(0);"><i class="icon-facebook-logo-outline"></i></a></li>
-										<li><a href="javascript:void(0);"><i class="icon-instagram-social-outlined-logo"></i></a></li>
-										<li><a href="javascript:void(0);"><i class="icon-twitter-social-outlined-logo"></i></a></li>
+										<li><a href="<?php echo $footer[0]->facebook; ?>" target="_blank"><i class="icon-facebook-logo-outline"></i></a></li>
+										<li><a href="<?php echo $footer[0]->instagram; ?>" target="_blank"><i class="icon-instagram-social-outlined-logo"></i></a></li>
+										<li><a href="<?php echo $footer[0]->twitter; ?>" target="_blank"><i class="icon-twitter-social-outlined-logo"></i></a></li>
 									</ul>
 								</div>
 							</div>

@@ -58,3 +58,4 @@ $route['admin'] = 'admin/Login';
 $route['Listings/(:any)/(:any)'] = 'Listings/index/$1/$2';
 $route['Travelstyle/(:any)/(:any)'] = 'Travelstyle/index/$1/$2';
 $route['Tourdetails/(:any)'] = 'Tourdetails/index/$1';
+$route['Alltours/(:any)'] = 'Alltours/index/$1';

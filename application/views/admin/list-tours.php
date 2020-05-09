@@ -91,7 +91,7 @@
                                                 <tr>
                                                     <td><?php echo $tour->name; ?></td>
 													<td><?php echo $tour->title; ?></td>
-                                                    <td><a href="update_tour"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
+                                                    <td><a href="update_tour/<?php echo $tour->id; ?>"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
                                                         <a href="<?php echo base_url('admin/Tour/delete_tour/').$tour->id; ?>"><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a>
                                                         
                                                     </td>

@@ -123,4 +123,69 @@ class TourM extends CI_Model{
 		$q = $this->db->query('update tours set isdeleted=1 where id='.$id);
 		return $q;
 	}
+	public function tourdata($id){
+		$q = $this->db->query('select * from tours where id='.$id);
+		return $q->result();
+	}
+	public function update_tgeneral($data,$pic=null){
+		$this->load->database();
+		if($pic!=null) {
+			$q = $this->db->query('update tours set title="'.addslashes($data['name']).'",tfrom="'.addslashes($data['from']).'",tto="'.addslashes($data['to']).'",bannerimg="'.addslashes($pic).'",days="'.addslashes($data['days']).'",price="'.addslashes($data['days']).'" where id='.$data['id']);
+		}else{
+			$q = $this->db->query('update tours set title="'.addslashes($data['name']).'",tfrom="'.addslashes($data['from']).'",tto="'.addslashes($data['to']).'",days="'.addslashes($data['days']).'",price="'.addslashes($data['days']).'" where id='.$data['id']);
+		}
+		return $q;
+	}
+	public function update_toverview($data){
+		$this->load->database();
+		$q = $this->db->query('update tours set overview="'.addslashes($data['overview']).'" where id='.$data['id']);
+		return $q;
+	}
+	public function  update_titinerary($data){
+		$this->db->query('delete from itinerary where tid='.$data['tour']);
+		$tit = count($data['daytitle']);
+		$daydetail = str_replace('"', '', $data['daydetail'][0]);
+		$daydetail = str_replace("'", '', $daydetail);
+		$qu = 'insert into itinerary values(null,'.$data['tour'].',"'.$data['daytitle'][0].'","'.$daydetail.'",0)';
+		for ($i=1; $i<$tit; $i++){
+			$daydetail = str_replace('"', '', $data['daydetail'][$i]);
+			$daydetail = str_replace("'", '', $daydetail);
+			$qu .= ',(null,'.$data['tour'].',"'.$data['daytitle'][$i].'","'.$daydetail.'",0)';
+		}
+		$op = $this->db->query($qu);
+		return $op;
+	}
+
+	public function update_tdetails($data){
+		$this->load->database();
+		$q = $this->db->query('update tours set details="'.addslashes($data['details']).'" where id='.$data['id']);
+		return $q;
+	}
+	public function update_tfaq($data){
+		$q = $this->db->query('delete from tourfaq where tid='.$data['tour']);
+		$total = count($data['question']);
+		$qu = "insert into tourfaq values";
+		for ($i=0; $i<$total ; $i++) {
+
+			if($i==$total-1){
+				$qu .= '(null,'.$data['tour'].',"'.addslashes($data['question'][$i]).'","'.addslashes($data['answer'][$i]).'",0)';
+			}
+			else{
+				$qu .= '(null,'.$data['tour'].',"'.addslashes($data['question'][$i]).'","'.addslashes($data['answer'][$i]).'",0),';
+			}
+		}
+
+		$q = $this->db->query($qu);
+		return $q;
+	}
+	public function update_tgallery($data){
+		$this->load->database();
+		$q = $this->db->query('update tourgallery set img="'.$data['img'].'" where id='.$data['id']);
+		return $q;
+	}
+	public function delete_tgallery($id){
+		$this->load->database();
+		$q = $this->db->query('update tourgallery set isdeleted=1 where id='.$id);
+		return $q;
+	}
 }

@@ -32,78 +32,19 @@
 						<div id="tg-content" class="tg-content">
 							<div class="tg-topdestinations">
 								<div class="row">
+									<?php foreach ($destinations as $row){ ?>
 									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 										<div class="tg-topdestination">
 											<figure>
-												<a href="<?php echo base_url();?>Listings" class="tg-btnviewall">View All Tours</a>
-												<a href="<?php echo base_url();?>Listings"><img src="<?php echo base_url();?>assets/images/tours/img-15.jpg" alt="image description"></a>
+												<a href="<?php echo base_url();?>Alltours/<?php echo $row->id; ?>" class="tg-btnviewall">View All Tours</a>
+												<a href="<?php echo base_url();?>Alltours/<?php echo $row->id; ?>"><img src="<?php echo base_url('uploads/images/destination/').$row->banner;?>" alt="image description" style="height: 473px;"></a>
 												<figcaption>
-													<h2><a href="<?php echo base_url();?>Listings">North America</a></h2>
-													<span class="tg-totaltours">30 Tours</span>
+													<h2><a href="<?php echo base_url();?>Alltours/<?php echo $row->id; ?>"><?php echo $row->name; ?></a></h2>
 												</figcaption>
 											</figure>
 										</div>
 									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-topdestination">
-											<figure>
-												<a href="<?php echo base_url();?>Listings" class="tg-btnviewall">View All Tours</a>
-												<a href="<?php echo base_url();?>Listings"><img src="<?php echo base_url();?>assets/images/tours/img-36.jpg" alt="image description"></a>
-												<figcaption>
-													<h2><a href="<?php echo base_url();?>Listings">Istanbul</a></h2>
-													<span class="tg-totaltours">30 Tours</span>
-												</figcaption>
-											</figure>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-topdestination">
-											<figure>
-												<a href="<?php echo base_url();?>Listings" class="tg-btnviewall">View All Tours</a>
-												<a href="<?php echo base_url();?>Listings"><img src="<?php echo base_url();?>assets/images/tours/img-18.jpg" alt="image description"></a>
-												<figcaption>
-													<h2><a href="<?php echo base_url();?>Listings">Asia</a></h2>
-													<span class="tg-totaltours">30 Tours</span>
-												</figcaption>
-											</figure>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-topdestination">
-											<figure>
-												<a href="<?php echo base_url();?>Listings" class="tg-btnviewall">View All Tours</a>
-												<a href="<?php echo base_url();?>Listings"><img src="<?php echo base_url();?>assets/images/tours/img-37.jpg" alt="image description"></a>
-												<figcaption>
-													<h2><a href="<?php echo base_url();?>Listings">South America</a></h2>
-													<span class="tg-totaltours">30 Tours</span>
-												</figcaption>
-											</figure>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-topdestination">
-											<figure>
-												<a href="<?php echo base_url();?>Listings" class="tg-btnviewall">View All Tours</a>
-												<a href="<?php echo base_url();?>Listings"><img src="<?php echo base_url();?>assets/images/tours/img-38.jpg" alt="image description"></a>
-												<figcaption>
-													<h2><a href="<?php echo base_url();?>Listings">Africa</a></h2>
-													<span class="tg-totaltours">30 Tours</span>
-												</figcaption>
-											</figure>
-										</div>
-									</div>
-									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-										<div class="tg-topdestination">
-											<figure>
-												<a href="<?php echo base_url();?>Listings" class="tg-btnviewall">View All Tours</a>
-												<a href="<?php echo base_url();?>Listings"><img src="<?php echo base_url();?>assets/images/tours/img-39.jpg" alt="image description"></a>
-												<figcaption>
-													<h2><a href="<?php echo base_url();?>Listings">Australia</a></h2>
-													<span class="tg-totaltours">30 Tours</span>
-												</figcaption>
-											</figure>
-										</div>
-									</div>
+									<?php } ?>
 								</div>
 							</div>
 						</div>

@@ -710,4 +710,44 @@ class Destination extends CI_Controller{
 			redirect('admin');
 		}
 	}
+
+	//Edit Travel Style(Query)
+	public function updatetravelstyle(){
+		if($_SESSION['admin']){
+			$data = $this->input->post();
+			if ($_FILES['bannerimg']['error'] != 4){
+				$picture = $this->uploadimage($_FILES['bannerimg'],"bannerimg","destination");
+				if($picture=="error"){
+					$_SESSION['error']="Error Inserting Record";
+					redirect('admin/Destination/editlist_parent/'.$data['id']);
+				}
+				else{
+					$this->load->model('DestinationM');
+					$op = $this->DestinationM->update_travelstyle($data,$picture);
+					if($op==1){
+						$_SESSION['success']="Successfully Update";
+					}
+					else{
+						$_SESSION['error']="Error Updating";
+					}
+					redirect('admin/Destination/update_travelstyle/'.$data['id']);
+				}
+			}
+			else{
+				$this->load->model('DestinationM');
+				$op = $this->DestinationM->update_travelstyle($data);
+				echo $op;
+				if($op==1){
+					$_SESSION['success']="Successfully Updated";
+				}else{
+					$_SESSION['error']="Error updating";
+				}
+				redirect('admin/Destination/update_travelstyle/'.$data['id']);
+			}
+		}
+		else{
+			redirect('admin');
+		}
+	}
+
 }

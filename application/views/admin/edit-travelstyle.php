@@ -49,7 +49,7 @@
 						<div class="col-12">
 							<div class="card m-b-30">
 								<div class="card-body">
-									<form method="post" action="inserttravelstyle" enctype="multipart/form-data">
+									<form method="post" action="<?php echo base_url('admin/Destination/updatetravelstyle'); ?>" enctype="multipart/form-data">
 
 									<div class="form-group row">
 										<label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
@@ -61,7 +61,7 @@
 										<div class="form-group row">
 											<label for="example-text-input" class="col-sm-2 col-form-label">Featured</label>
 											<div class="col-sm-10">
-												<select class="form-control">
+												<select class="form-control" name="featured">
 													<?php if($edit_travelstyle[0]->featured == 1){
 														echo "<option value='1' selected>YES</option>
 														  		<option value='2'>No</option>";	
@@ -82,7 +82,7 @@
 										<div class="col-md-10 ">
 											<div class="input-group mt-2">
 												<div class="custom-file">
-													<input type="file" class="custom-file-input" name="bannerimg"  id="src" required>
+													<input type="file" class="custom-file-input" name="bannerimg"  id="src" >
 													<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 												</div>
 											</div>
@@ -96,7 +96,7 @@
 												</div>
 											</div>
 										</div>
-
+									<input type="text" name="id" value="<?php echo $edit_travelstyle[0]->id; ?>" hidden>
 									<div class="text-center">
 										<button type="submit" class="btn btn-primary">Update</button>
 									</div>

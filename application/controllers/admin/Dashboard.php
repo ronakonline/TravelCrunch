@@ -9,4 +9,12 @@ class Dashboard extends CI_Controller{
             redirect('admin');
         }
     }
+    public function logout(){
+		if($_SESSION['admin']){
+			unset($_SESSION['admin']);
+			redirect('admin');
+		}else{
+			redirect('admin');
+		}
+	}
 }

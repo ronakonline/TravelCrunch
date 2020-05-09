@@ -19,6 +19,8 @@ if (! function_exists('frontend_data')) {
 		$data['contact'] = $ci->SitesettingM->list_contact();
 		$data['deals'] = $ci->DestinationM->alldeals();
 		$data['settings'] = $ci->SitesettingM->listsitesetting();
+		$data['nav'] = $ci->SitesettingM->editlist_navbar();
+		$data['footer'] = $ci->SitesettingM->editlist_footer();
 
 		return $data;
 	}
