@@ -187,7 +187,7 @@ class DestinationM extends CI_Model{
 	//Insert SEOTags
 	public function insert_seotags($data){
 		$this->load->database();
-		$q = $this->db->query('insert into seotag values(null,"'.$data['destinationname'].'","'.$data['tags'].'",0)');
+		$q = $this->db->query('insert into seotag values(null,"'.$data['destinationname'].'","'.$data['tags'].'","'.$data['metatags'].'","'.$data['keywords'].'",'.$data['indexing'].','.$data['follow'].',0)');
 		return $q;
 	}
 
@@ -242,6 +242,12 @@ class DestinationM extends CI_Model{
 	public function listseo($id){
 		$q = $this->db->query("select * from seotag where isdeleted = 0");
 
+	}
+
+	//Get SEO Tags
+	public function getseotags($id){
+		$q = $this->db->query('select * from seotag where isdeleted = 0 AND destid='.$id);
+		return $q->result();
 	}
 	
 	//Get Banner Image
@@ -337,6 +343,13 @@ class DestinationM extends CI_Model{
 		$q = $this->db->query('update overview set oleft="'.addslashes($data['oleft']).'",oright="'.addslashes($data['oright']).'"  where destid='.$data['id']);
 		return $q;
 	}
+
+	public function update_seo($data){
+		$this->load->database();
+		$q = $this->db->query('update seotag set tags="'.$data['tags'].'",meta_tag="'.$data['metatags'].'",keywords="'.$data['keywords'].'",indexing='.$data['indexing'].',follow='.$data['follow'].'  where destid='.$data['id']);
+		return $q;
+	}
+
 	public function update_dfaq($data){
 		$this->load->database();
 		$q = $this->db->query('delete from faq where destid='.$data['did']);

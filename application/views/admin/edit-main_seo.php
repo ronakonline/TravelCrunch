@@ -57,7 +57,6 @@
 										</div>
 										<div class="form-group">
 											<label for="example-text-input" class="col col-form-label">Meta Title</label>
-											<!-- <textarea rows="5" class="form-control" name="tags" id="tags"></textarea> -->
 											<input class="form-control" type="text" name="tags" id="tags">
 										</div>
 										<div class="form-group">
@@ -71,16 +70,14 @@
 										<div class="form-group">
 											<label for="example-text-input" class="col col-form-label">Indexing</label>
 											<select class="form-control" name="indexing" id="indexing">
-												<option>YES</option>
-												<option>NO</option>
+												
 											</select>
 										</div>
 
 										<div class="form-group">
 											<label for="example-text-input" class="col col-form-label">Follow</label>
 											<select class="form-control" name="follow" id="follow">
-												<option>YES</option>
-												<option>NO</option>
+												
 											</select>
 										</div>
 

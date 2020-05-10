@@ -202,6 +202,7 @@ class Destination extends CI_Controller{
 //            $data['get_destination'] = $this->DestinationM->gettoursbydestination($id);
 //            $data['get_overview'] = $this->DestinationM->getoverview($id);
 //            $data['get_faq'] = $this->DestinationM->getfaq($id);
+              $data['seotags'] = $this->DestinationM->getseotags($id);
             $this->load->view('admin/edit-destination',$data); 
         }
         else{
@@ -674,6 +675,26 @@ class Destination extends CI_Controller{
 			redirect('admin');
 		}
 	}
+
+    public function update_seo(){
+        if($_SESSION['admin']){
+            $data = $this->input->post();
+            $this->load->model("DestinationM");
+            $qu = $this->DestinationM->update_seo($data);
+            if ($qu==1) {
+                $_SESSION['success']="Updated Successfully";
+            }
+            else{
+                $_SESSION['error']="Error Updating Record";
+            }
+            //echo $qu;
+            redirect('admin/Destination/update_destination/'.$data['id']);
+        }
+        else{
+            redirect('admin');
+        }
+    }
+
 	public function update_dgallery(){
 		if($_SESSION['admin']){
 			$data = $this->input->post();
