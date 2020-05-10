@@ -8,7 +8,7 @@
 	<div class="topbar-left">
 		<div class="text-center">
 			<!--<a href="index.html" class="logo"><i class="mdi mdi-assistant"></i>TravelCrunch</a>-->
-			<a href="<?php echo base_url('admin'); ?>" class="logo"><img src="<?php echo base_url();?>assets/admin/images/kns_logo.png" height="74" alt="logo"></a>
+			<a href="<?php echo base_url('admin'); ?>" class="logo"><img src="<?php echo base_url();?>assets/images/logo3.png" height="54" alt="logo"></a>
 		</div>
 	</div>
 

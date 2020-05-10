@@ -11,7 +11,7 @@
                 <div class="card-body">
 
                     <h3 class="text-center mt-0 m-b-15">
-                        <a href="index.html" class="logo logo-admin"><img src="<?php echo base_url();?>assets/admin/images/kns_logo.png" height="100" alt="logo"></a>
+                        <a href="<?php echo base_url(); ?>admin" class="logo logo-admin"><img src="<?php echo base_url();?>assets/images/logo3.png" height="80" alt="logo"></a>
                     </h3>
 
                     <div class="p-3">
