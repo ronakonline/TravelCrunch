@@ -11,8 +11,16 @@ class Seo extends CI_Controller{
     }
 
     public function  list_seo(){
+        // if($_SESSION['admin']){
+        //     $data['title']="All SEO";
+        //     $this->load->view('admin/list-seo',$data);
+        // }else{
+        //     redirect('admin');
+        // }
         if($_SESSION['admin']){
-            $data['title']="All SEO";
+            $data['title'] = "All SEO";
+            $this->load->model('SitesettingM');
+            $data['seo']= $this->SitesettingM->main_seo();
             $this->load->view('admin/list-seo',$data);
         }else{
             redirect('admin');

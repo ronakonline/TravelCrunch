@@ -267,7 +267,7 @@ class Sitesetting extends CI_Controller{
 
 	public function main_SEO(){
 		if($_SESSION['admin']){
-			$data['title'] = "Edit-SEO";
+			$data['title'] = "Add-SEO";
 			$this->load->model('SitesettingM');
 			$data['seo']= $this->SitesettingM->main_seo();
 			$this->load->view('admin/edit-main_seo',$data);
@@ -295,6 +295,42 @@ class Sitesetting extends CI_Controller{
 			$tags = $this->SitesettingM->get_seometatags($page);
 			//$this->load->view('admin/edit-main_seo',$data);
 			echo $tags[0]->meta_tag;
+		}else{
+			redirect('admin');
+		}
+	}
+
+	public function getseokeywords(){
+		if($_SESSION['admin']){
+			$page = $this->input->post('page');
+			$this->load->model('SitesettingM');
+			$tags = $this->SitesettingM->get_seokeywords($page);
+			//$this->load->view('admin/edit-main_seo',$data);
+			echo $tags[0]->keywords;
+		}else{
+			redirect('admin');
+		}
+	}
+
+	public function getseoindexing(){
+		if($_SESSION['admin']){
+			$page = $this->input->post('page');
+			$this->load->model('SitesettingM');
+			$tags = $this->SitesettingM->get_seoindexing($page);
+			//$this->load->view('admin/edit-main_seo',$data);
+			echo $tags[0]->indexing;
+		}else{
+			redirect('admin');
+		}
+	}
+
+	public function getseofollow(){
+		if($_SESSION['admin']){
+			$page = $this->input->post('page');
+			$this->load->model('SitesettingM');
+			$tags = $this->SitesettingM->get_seofollow($page);
+			//$this->load->view('admin/edit-main_seo',$data);
+			echo $tags[0]->follow;
 		}else{
 			redirect('admin');
 		}

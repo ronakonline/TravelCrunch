@@ -57,7 +57,8 @@
 				<li class="has_sub">
 					<a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-chart-areaspline"></i> <span> SEO </span> <span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
 					<ul class="list-unstyled">
-						<li><a href="<?php echo base_url(); ?>admin/Seo/">Add SEO</a></li>			
+						<!-- <li><a href="<?php //echo base_url(); ?>admin/Seo/">Add SEO</a></li> -->
+						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/main_SEO">Add SEO</a></li>			
 						<li><a href="<?php echo base_url(); ?>admin/Seo/list_seo">All SEO</a></li>
 					</ul>
 				</li>
@@ -66,7 +67,7 @@
 					<ul class="list-unstyled">
 						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/homepage">Home Page</a></li>	
 						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/navbar">Nav-Bar</a></li>
-						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/main_SEO">Page SEO</a></li>		
+						<!-- <li><a href="<?php //echo base_url(); ?>admin/Sitesetting/main_SEO">Page SEO</a></li> -->		
 						<li><a href="<?php echo base_url(); ?>admin/Sitesetting">Contact</a></li>			
 						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/add_logo">Logo</a></li>
 						<li><a href="<?php echo base_url(); ?>admin/Sitesetting/footer">Footer</a></li>
