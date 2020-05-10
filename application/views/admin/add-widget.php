@@ -280,11 +280,32 @@
 																	</div>
 																</div>
 				                                                <div class="form-group">
-				                                                    <label>SEO Tags(Seprate with "COMA")</label>
-				                                                    <div>
-				                                                        <textarea class="form-control" rows="5" name="tags" id="tags" required></textarea>
-				                                                    </div>
-				                                                </div>
+																	<label for="example-text-input" class="col col-form-label">Meta Title</label>
+																	<input class="form-control" type="text" name="tags" id="tags">
+																</div>
+																<div class="form-group">
+																	<label for="example-text-input" class="col col-form-label">Meta Description</label>
+																	<textarea rows="5" class="form-control" name="metatags" id="metatags"></textarea>
+																</div>
+																<div class="form-group">
+																	<label class="col col-form-label">KeyWords</label>
+																	<textarea rows="5" class="form-control" name="keywords" id="keywords"></textarea>
+																</div>
+																<div class="form-group">
+																	<label for="example-text-input" class="col col-form-label">Indexing</label>
+																	<select class="form-control" name="indexing" id="indexing">
+																		<option value="1" selected>Yes</option>
+																		<option value="0">No</option>
+																	</select>
+																</div>
+
+																<div class="form-group">
+																	<label for="example-text-input" class="col col-form-label">Follow</label>
+																	<select class="form-control" name="follow" id="follow">
+																		<option value="1" selected>Yes</option>
+																		<option value="0">No</option>
+																	</select>
+																</div>
 				                                                <div class="form-group">
 				                                                	<button type="submit" class="btn btn-primary">Submit</button>
 				                                                </div>

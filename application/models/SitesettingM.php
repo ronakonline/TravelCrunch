@@ -77,7 +77,7 @@ class SitesettingM extends CI_Model{
 	}
 
 	public function update_seo($data){
-		$q = $this->db->query('update main_seo set tags="'.$data['tags'].'",meta_tag="'.$data['metatags'].'" where id ='.$data['page']);
+		$q = $this->db->query('update main_seo set tags="'.$data['tags'].'",meta_tag="'.$data['metatags'].'",keywords="'.$data['keywords'].'",indexing='.$data['indexing'].',follow='.$data['follow'].' where id ='.$data['page']);
 		return $q;
 	}
 

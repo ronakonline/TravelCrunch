@@ -319,11 +319,11 @@ class Sitesetting extends CI_Controller{
 			$tags = $this->SitesettingM->get_seoindexing($page);
 			//$this->load->view('admin/edit-main_seo',$data);
 			if($tags[0]->indexing==1) {
-				echo '<option value="' . $tags[0]->indexing . '" selected>Yes</option>
-				  <option value="' . $tags[0]->indexing . '">No</option>';
+				echo '<option value="1" selected>Yes</option>
+				  <option value="0">No</option>';
 			}else{
-				echo '<option value="' . $tags[0]->indexing . '">Yes</option>
-				  <option value="' . $tags[0]->indexing . '" selected>No</option>';
+				echo '<option value="1">Yes</option>
+				  <option value="0" selected>No</option>';
 			}
 		}else{
 			redirect('admin');
@@ -337,11 +337,11 @@ class Sitesetting extends CI_Controller{
 			$tags = $this->SitesettingM->get_seofollow($page);
 			//$this->load->view('admin/edit-main_seo',$data);
 			if($tags[0]->follow==1) {
-				echo '<option value="' . $tags[0]->follow . '" selected>Yes</option>
-				  <option value="' . $tags[0]->follow . '">No</option>';
+				echo '<option value="1" selected>Yes</option>
+				  <option value="0">No</option>';
 			}else{
-				echo '<option value="' . $tags[0]->follow . '">Yes</option>
-				  <option value="' . $tags[0]->follow . '" selected>No</option>';
+				echo '<option value="1">Yes</option>
+				  <option value="0" selected>No</option>';
 			}
 		}else{
 			redirect('admin');
