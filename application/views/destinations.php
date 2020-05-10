@@ -35,9 +35,9 @@
 									<?php foreach ($destinations as $row){ ?>
 									<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
 										<div class="tg-topdestination">
-											<figure>
+											<figure style="height: 290px;">
 												<a href="<?php echo base_url();?>Alltours/<?php echo $row->id; ?>" class="tg-btnviewall">View All Tours</a>
-												<a href="<?php echo base_url();?>Alltours/<?php echo $row->id; ?>"><img src="<?php echo base_url('uploads/images/destination/').$row->banner;?>" alt="image description" style="height: 473px;"></a>
+												<a href="<?php echo base_url();?>Alltours/<?php echo $row->id; ?>"><img src="<?php echo base_url('uploads/images/destination/').$row->banner;?>" alt="image description" style="height: 290px;"></a>
 												<figcaption>
 													<h2><a href="<?php echo base_url();?>Alltours/<?php echo $row->id; ?>"><?php echo $row->name; ?></a></h2>
 												</figcaption>

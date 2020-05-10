@@ -508,7 +508,7 @@
 														<li>
 															<figure>
 																<a href="<?php echo base_url();?>uploads/images/gallery/<?php echo $row->img; ?>" data-rel="prettyPhoto[instagram]">
-																	<img class="img-thumbnail" src="<?php echo base_url();?>uploads/images/gallery/<?php echo $row->img; ?>" alt="image decruoton" >
+																	<img class="img-thumbnail" src="<?php echo base_url();?>uploads/images/gallery/<?php echo $row->img; ?>" alt="image decruoton" style="height: 251px;" >
 																</a>
 															</figure>
 														</li>
@@ -537,7 +537,7 @@
 
 										</figure>
 										<div class="tg-populartourcontent">
-										<?php if(strlen($tour->title<=31)){ ?>
+										<?php if(strlen($tour->title)<=30){ ?>
 											<div class="tg-populartourtitle" style="padding-bottom: 40px;">
 												<h3><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><?php echo $tour->title; ?></a></h3>
 											</div>

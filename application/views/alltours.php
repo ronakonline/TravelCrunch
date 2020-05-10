@@ -8,8 +8,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<h1>Destinations</h1>
-					<h2>Explore Tours By Destinations</h2>
+					<h1>All Tours</h1>
+					<h2>Explore All Tours</h2>
 					<ol class="tg-breadcrumb">
 						<li><a href="<?php echo base_url(); ?>">Home</a></li>
 						<li class="tg-active">Destinations</li>
@@ -44,10 +44,10 @@
 												<figure class="tour"><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><img src="<?php echo base_url('uploads/images/parent/').$tour->bannerimg; ?>" alt="image destinations"></a></figure>
 											</div>
 											<div class="tg-productcontent">
-												<?php if(strlen($tour->title<=31)){ ?>
-												<div class="tg-producttitle" style="padding-bottom: 40px;">
-													<h3><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><?php echo $tour->title; ?></a></h3>
-												</div>
+												<?php if(strlen($tour->title)<=31){ ?>
+													<div class="tg-producttitle" style="padding-bottom: 34px;">
+														<h3><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><?php echo $tour->title; ?></a></h3>
+													</div>
 												<?php }else{ ?>
 													<div class="tg-producttitle" >
 														<h3><a href="<?php echo base_url('Tourdetails/').$tour->id; ?>"><?php echo $tour->title; ?></a></h3>

@@ -273,32 +273,38 @@
 									<h2>Popular Tours</h2>
 								</div>
 								<div id="tg-populartoursslider" class="tg-populartoursslider tg-populartours owl-carousel">
-									<?php foreach ($tours as $row){ ?>
+									<?php
+									if(count($tours)>10){
+										$total=10;
+									}else{
+										$total = count($tours);
+									}
+									for($i=0; $i<$total; $i++){ ?>
 										<div class="item tg-populartour">
 										<figure>
-											<a href="<?php echo base_url('Tourdetails/').$row->id;?>"><img src="<?php echo base_url('uploads/images/parent/').$row->bannerimg;?>" alt="image destinations" style="height: 225.867px;"></a>
+											<a href="<?php echo base_url('Tourdetails/').$tours[$i]->id;?>"><img src="<?php echo base_url('uploads/images/parent/').$tours[$i]->bannerimg;?>" alt="image destinations" style="height: 225.867px;"></a>
 <!--											<span class="tg-descount">25% Off</span>-->
 										</figure>
 										<div class="tg-populartourcontent">
-											<?php if(strlen($row->title)<=31){?>
+											<?php if(strlen($tours[$i]->title)<=31){?>
 												<div class="tg-populartourtitle" style="padding-bottom: 40px;">
-													<h3 ><a href="<?php echo base_url('Tourdetails/').$row->id;?>"><?php echo $row->title; ?></a></h3>
+													<h3 ><a href="<?php echo base_url('Tourdetails/').$tours[$i]->id;?>"><?php echo $tours[$i]->title; ?></a></h3>
 												</div>
 											<?php }else{ ?>
 												<div class="tg-populartourtitle" >
-													<h3 ><a href="<?php echo base_url('Tourdetails/').$row->id;?>"><?php echo $row->title; ?></a></h3>
+													<h3 ><a href="<?php echo base_url('Tourdetails/').$tours[$i]->id;?>"><?php echo $tours[$i]->title; ?></a></h3>
 												</div>
 											<?php } ?>
 											<div class="tg-description">
-												<p><?php echo substr($row->overview,0,90); ?>...</p>
+												<p><?php echo substr($tours[$i]->overview,0,90); ?>...</p>
 											</div>
 											<div class="tg-populartourfoot">
 												<div class="tg-durationrating">
-													<span class="tg-tourduration"><?php echo $row->days; ?> Days</span>
+													<span class="tg-tourduration"><?php echo $tours[$i]->days; ?> Days</span>
 
 												</div>
 												<div class="tg-pricearea">
-													<h4>$<?php echo $row->price; ?></h4>
+													<h4>$<?php echo $tours[$i]->price; ?></h4>
 												</div>
 											</div>
 										</div>
