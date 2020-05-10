@@ -77,8 +77,8 @@
 										</div>
 
 										<div class="form-group">
-											<label for="example-text-input" class="col col-form-label">Featured</label>
-											<select class="form-control" name="featured" id="featured">
+											<label for="example-text-input" class="col col-form-label">Follow</label>
+											<select class="form-control" name="follow" id="follow">
 												<option>YES</option>
 												<option>NO</option>
 											</select>
@@ -165,10 +165,10 @@
 				});
 				$.ajax({
 					type: 'POST',
-					url: '<?php echo base_url('admin/Sitesetting');?>/getseofeatured',
+					url: '<?php echo base_url('admin/Sitesetting');?>/getseofollow',
 					data: 'page=' + pid,
 					success: function (html) {
-						$('#featured').html(html);
+						$('#follow').html(html);
 					}
 				});
 			}
