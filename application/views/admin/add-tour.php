@@ -105,7 +105,7 @@
 					                                                    <label>Parent</label>
 					                                                    <div>
 					                                                        <select class="form-control" name="parent" id="parent" class="parent" required>
-					                                                        	<option disabled >Select Parent</option>
+					                                                        	<option disabled selected>Select Parent</option>
 																				<?php foreach ($parents as $parent){ ?>
 																				<option value="<?php echo $parent->id?>"><?php echo $parent->name; ?></option>
 																				<?php } ?>
@@ -181,7 +181,7 @@
 					                                                    <label>Destination</label>
 					                                                    <div>
 																			<select class="form-control" name="destination" id="destination1"  required>
-																				<option disabled >Select Destination</option>
+																				<option disabled selected >Select Destination</option>
 																				<?php foreach ($destinations as $destination){ ?>
 																					<option value="<?php echo $destination->id?>"><?php echo $destination->name; ?></option>
 																				<?php } ?>
@@ -225,7 +225,7 @@
 																		<label>Destination</label>
 																		<div>
 																			<select class="form-control" name="destination" id="destination2"  required>
-																				<option disabled >Select Destination</option>
+																				<option disabled selected>Select Destination</option>
 																				<?php foreach ($destinations as $destination){ ?>
 																					<option value="<?php echo $destination->id?>"><?php echo $destination->name; ?></option>
 																				<?php } ?>
@@ -285,7 +285,7 @@
 																		<label>Destination</label>
 																		<div>
 																			<select class="form-control" name="destination" id="destination3"  required>
-																				<option disabled>Select Destination</option>
+																				<option disabled selected>Select Destination</option>
 																				<?php foreach ($destinations as $destination){ ?>
 																					<option value="<?php echo $destination->id?>"><?php echo $destination->name; ?></option>
 																				<?php } ?>
@@ -329,7 +329,7 @@
 																<label>Destination</label>
 																<div>
 																	<select class="form-control" name="destination" id="destination4"  required>
-																		<option disabled >Select Destination</option>
+																		<option disabled selected>Select Destination</option>
 																		<?php foreach ($destinations as $destination){ ?>
 																			<option value="<?php echo $destination->id?>"><?php echo $destination->name; ?></option>
 																		<?php } ?>
@@ -379,7 +379,7 @@
 																	<label>Destination</label>
 																	<div>
 																		<select class="form-control" name="destination" id="destination5"  required>
-																			<option disabled>Select Destination</option>
+																			<option disabled selected>Select Destination</option>
 																			<?php foreach ($destinations as $destination){ ?>
 																				<option value="<?php echo $destination->id?>"><?php echo $destination->name; ?></option>
 																			<?php } ?>

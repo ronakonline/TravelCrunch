@@ -6,7 +6,7 @@ class Sitesetting extends CI_Controller{
                 $data['title']="Contact";
 				$this->load->model('SitesettingM');
 				$data['contact']= $this->SitesettingM->list_contact();
-                 $this->load->view('admin/Contact',$data);
+                 $this->load->view('admin/contact',$data);
         }else{
             redirect('admin');
         }

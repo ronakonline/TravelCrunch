@@ -296,7 +296,7 @@
 												</div>
 											<?php } ?>
 											<div class="tg-description">
-												<p><?php echo substr($tours[$i]->overview,0,90); ?>...</p>
+												<p><?php echo substr($tours[$i]->overview,0,80); ?>...</p>
 											</div>
 											<div class="tg-populartourfoot">
 												<div class="tg-durationrating">
