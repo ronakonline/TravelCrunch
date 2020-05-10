@@ -215,25 +215,46 @@
 
 											</div>
 											<div role="tabpanel" class="tab-pane tg-itinerary" id="australia">
-												<?php
-												foreach ($destinfo['faq'] as $faq){
-												?>
 												<div class="tg-bookingdetail">
 													<div class="tg-box">
 														<div class="tg-accordion" role="tablist" aria-multiselectable="true">
-															<div class="tg-panel">
-																<h4><?php echo $faq->question ?></h4>
-																<div class="tg-panelcontent">
-																	<div class="tg-description">
-																		<?php echo $faq->answer ?>
+															<?php
+															for($i=0; $i<count($destinfo['faq']); $i++){
+																if($i%2!=0){
+																	?>
+																	<div class="tg-panel">
+																		<h4><?php echo $destinfo['faq'][$i]->question ?></h4>
+																		<div class="tg-panelcontent">
+																			<div class="tg-description">
+																				<?php echo $destinfo['faq'][$i]->answer ?>
+																			</div>
+																		</div>
 																	</div>
-																</div>
-															</div>
+																<?php } } ?>
 
 														</div>
 													</div>
 												</div>
-												<?php } ?>
+												<div class="tg-bookingdetail">
+													<div class="tg-box">
+														<div class="tg-accordion" role="tablist" aria-multiselectable="true">
+															<?php
+															for($i=0; $i<count($destinfo['faq']); $i++){
+																if($i%2!=0){
+																	?>
+																	<div class="tg-panel">
+																		<h4><?php echo $destinfo['faq'][$i]->question ?></h4>
+																		<div class="tg-panelcontent">
+																			<div class="tg-description">
+																				<?php echo $destinfo['faq'][$i]->answer ?>
+																			</div>
+																		</div>
+																	</div>
+																<?php } } ?>
+
+														</div>
+													</div>
+												</div>
 											</div>
 											<div role="tabpanel" class="tab-pane tg-locationtab row" id="italy" style="padding-left: 10px;">
 												<div class="tg-bookingdetail col-sm-6">

@@ -5828,7 +5828,7 @@ blockquote {
     width: 1px;
     height: 100%;
     position: absolute;
-    background: #e6e6e6;
+    /*background: #e6e6e6;*/
 }
 
 .tg-location h3 {

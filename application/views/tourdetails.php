@@ -72,7 +72,7 @@
 											</li>
 										</ul>
 										<div class="tab-content tg-themetabcontent">
-											<div role="tabpanel" class="tab-pane active tg-overviewtab" id="america" >
+											<div role="tabpanel" class="tab-pane active tg-overviewtab" id="america" style=" background: none;" >
 												<?php echo $tour->overview; ?>
 											</div>
 											<div role="tabpanel" class="tab-pane tg-itinerary" id="australia">
@@ -97,25 +97,46 @@
 												<?php } ?>
 											</div>
 											<div role="tabpanel" class="tab-pane tg-locationtab" id="italy">
-												<?php
-												foreach ($tourdetails['tourfaq'] as $faq){
-													?>
+
 													<div class="tg-bookingdetail">
 														<div class="tg-box">
 															<div class="tg-accordion" role="tablist" aria-multiselectable="true">
+																<?php
+																	for($i=0; $i<count($tourdetails['tourfaq']); $i++){
+																	if($i%2==0){
+																	?>
 																<div class="tg-panel">
-																	<h4><?php echo $faq->question ?></h4>
+																	<h4><?php echo $tourdetails['tourfaq'][$i]->question ?></h4>
 																	<div class="tg-panelcontent">
 																		<div class="tg-description">
-																			<?php echo $faq->answer ?>
+																			<?php echo $tourdetails['tourfaq'][$i]->answer ?>
 																		</div>
 																	</div>
 																</div>
-
+																<?php } } ?>
 															</div>
 														</div>
 													</div>
-												<?php } ?>
+												<div class="tg-bookingdetail">
+													<div class="tg-box">
+														<div class="tg-accordion" role="tablist" aria-multiselectable="true">
+															<?php
+															for($i=0; $i<count($tourdetails['tourfaq']); $i++){
+																if($i%2!=0){
+																	?>
+																	<div class="tg-panel">
+																		<h4><?php echo $tourdetails['tourfaq'][$i]->question ?></h4>
+																		<div class="tg-panelcontent">
+																			<div class="tg-description">
+																				<?php echo $tourdetails['tourfaq'][$i]->answer ?>
+																			</div>
+																		</div>
+																	</div>
+																<?php } } ?>
+														</div>
+													</div>
+												</div>
+
 											</div>
 											<div role="tabpanel" class="tab-pane tg-gallerytab" id="india">
 												<div class="tg-gallery">
