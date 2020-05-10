@@ -80,22 +80,25 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Page</th>
-													
-                                                    <th>Action</th>
+													<th>Tags</th>
+                                                    <th>Meta Tags</th>
+                                                    <!-- <th>Action</th> -->
                                                 </tr>
                                                 </thead>
             
             
                                                 <tbody>
-												
+												<?php foreach ($seo as$value) {?>
                                                 <tr>
-                                                    <td></td>
-													<td><a href="update_seo"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
+                                                    <td><?php echo $value->name ?></td>
+                                                    <td><?php echo $value->tags ?></td>
+                                                    <td><?php echo $value->meta_tag ?></td>
+													<!-- <td><a href="update_seo"><li class="fa fa-edit p-2 text-info" style="font-size: 30px"></li></a>
                                                         <a href=""><li class="fa fa-trash p-2 text-danger" style="font-size: 30px"></li></a>
                                                         
-                                                    </td>
+                                                    </td> -->
                                                 </tr>
-												
+												<?php } ?>
                                                 </tbody>
                                             </table>
             

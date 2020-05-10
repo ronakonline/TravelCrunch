@@ -51,6 +51,21 @@ class SitesettingM extends CI_Model{
 		return $q->result();
 	}
 
+	public function get_seokeywords($page){
+		$q = $this->db->query('select keywords from main_seo where page='.$page);
+		return $q->result(); 
+	}
+
+	public function get_seoindexing($page){
+		$q = $this->db->query('select indexing from main_seo where page='.$page);
+		return $q->result(); 
+	}
+
+	public function get_seofollow($page){
+		$q = $this->db->query('select follow from main_seo where page='.$page);
+		return $q->result(); 	
+	}
+
 	public function update_logo($pic){
 		$q = $this->db->query('update sitesetting set logo="'.addslashes($pic).'"');
 		return $q;

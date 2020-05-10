@@ -56,12 +56,32 @@
 											</select>
 										</div>
 										<div class="form-group">
-											<label for="example-text-input" class="col col-form-label">Tags</label>
-											<textarea rows="5" class="form-control" name="tags" id="tags"></textarea>
+											<label for="example-text-input" class="col col-form-label">Meta Title</label>
+											<!-- <textarea rows="5" class="form-control" name="tags" id="tags"></textarea> -->
+											<input class="form-control" type="text" name="tags" id="tags">
 										</div>
 										<div class="form-group">
-											<label for="example-text-input" class="col col-form-label">Meta Tags</label>
+											<label for="example-text-input" class="col col-form-label">Meta Description</label>
 											<textarea rows="5" class="form-control" name="metatags" id="metatags"></textarea>
+										</div>
+										<div class="form-group">
+											<label class="col col-form-label">KeyWords</label>
+											<textarea rows="5" class="form-control" name="keywords" id="keywords"></textarea>
+										</div>
+										<div class="form-group">
+											<label for="example-text-input" class="col col-form-label">Indexing</label>
+											<select class="form-control" name="indexing" id="indexing">
+												<option>YES</option>
+												<option>NO</option>
+											</select>
+										</div>
+
+										<div class="form-group">
+											<label for="example-text-input" class="col col-form-label">Follow</label>
+											<select class="form-control" name="follow" id="follow">
+												<option>YES</option>
+												<option>NO</option>
+											</select>
 										</div>
 
 										<div class="text-center">
@@ -114,8 +134,9 @@
 					type: 'POST',
 					url: '<?php echo base_url('admin/Sitesetting');?>/getseotags',
 					data: 'page=' + pid,
-					success: function (html) {
-						$('#tags').html(html);
+					success: function (data) {
+						$('#tags').val(data);
+						//console.log($('#tags'));
 					}
 				});
 				$.ajax({
@@ -124,6 +145,30 @@
 					data: 'page=' + pid,
 					success: function (html) {
 						$('#metatags').html(html);
+					}
+				});
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url('admin/Sitesetting');?>/getseokeywords',
+					data: 'page=' + pid,
+					success: function (html) {
+						$('#keywords').html(html);
+					}
+				});
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url('admin/Sitesetting');?>/getseoindexing',
+					data: 'page=' + pid,
+					success: function (html) {
+						$('#indexing').html(html);
+					}
+				});
+				$.ajax({
+					type: 'POST',
+					url: '<?php echo base_url('admin/Sitesetting');?>/getseofollow',
+					data: 'page=' + pid,
+					success: function (html) {
+						$('#follow').html(html);
 					}
 				});
 			}
