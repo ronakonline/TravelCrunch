@@ -338,7 +338,49 @@
 			<!--************************************
 					Our Destination End
 			*************************************-->
-
+			<!--************************************
+				Destination Start
+		*************************************-->
+			<section class="tg-sectionspace tg-zerotoppadding tg-haslayout">
+				<div class="container">
+					<div class="row">
+						<div id="tg-destinationsslider" class="tg-destinationsslider tg-destinations owl-carousel">
+							<?php //print_r($destinations[8]); ?>
+							<?php for($i=0; $i<count($destinations); $i++){ //echo count($destinations); ?>
+							<?php if($destinations[$i]->featured==1){ ?>
+							<div class="item tg-destination">
+								<?php if($destinations[$i]->featured==1){ ?>
+								<figure style="height: 219.267px;">
+									<a href="<?php echo base_url('Listings/').$destinations[$i]->id.'/'.$destinations[$i]->name; ?>"><img src="<?php echo base_url('uploads/images/destination/').$destinations[$i]->banner; ?>" alt="image description" style="height: 219.267px;"></a>
+									<figcaption>
+										<h2><a href="<?php echo base_url('Listings/').$destinations[$i]->id.'/'.$destinations[$i]->name; ?>"><?php echo $destinations[$i]->name; ?></a></h2>
+										<div class="tg-description">
+											<p><?php echo $destinations[$i]->tagline; ?></p>
+										</div>
+									</figcaption>
+								</figure>
+								<?php } ?>
+								<?php if($destinations[$i]->featured==1){ ?>
+								<?php if($i+1 <=count($destinations)-1){  $i+=1; ?>
+									<figure style="height: 219.267px;">
+										<a href="<?php echo base_url('Listings/').$destinations[$i]->id.'/'.$destinations[$i]->name; ?>"><img src="<?php echo base_url('uploads/images/destination/').$destinations[$i]->banner; ?>" alt="image description" style="height: 219.267px;"></a>
+										<figcaption>
+											<h2><a href="<?php echo base_url('Listings/').$destinations[$i]->id.'/'.$destinations[$i]->name; ?>"><?php echo $destinations[$i]->name; ?></a></h2>
+											<div class="tg-description">
+												<p><?php echo $destinations[$i]->tagline; ?></p>
+											</div>
+										</figcaption>
+									</figure>
+								<?php  }} ?>
+							</div>
+							<?php }} ?>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--************************************
+					Destination End
+			*************************************-->
 			<!--************************************
 					Call To Action Start
 			*************************************-->
