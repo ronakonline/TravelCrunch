@@ -220,7 +220,7 @@
 														<div class="tg-accordion" role="tablist" aria-multiselectable="true">
 															<?php
 															for($i=0; $i<count($destinfo['faq']); $i++){
-																if($i%2!=0){
+																if($i%2==0){
 																	?>
 																	<div class="tg-panel">
 																		<h4><?php echo $destinfo['faq'][$i]->question ?></h4>
