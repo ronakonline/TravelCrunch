@@ -420,55 +420,55 @@
 													<?php } ?>
                                                     <div class="tab-pane p-3" id="seo" role="tabpanel">
                                                         <p class="font-14 mb-0">
-                                                        	<form method="post" action="<?php echo base_url('admin/Destination/');?>update_seo">
-																
-																<input type="text" value="<?php echo $seotags[0]->destid; ?>" name="id" hidden>
-																<div class="form-group">
-																	<label for="example-text-input" class="col col-form-label">Meta Title</label>
-																	<input class="form-control" type="text" name="tags" id="tags" value="<?php echo $seotags[0]->tags; ?>">
-																</div>
-																<div class="form-group">
-																	<label for="example-text-input" class="col col-form-label">Meta Description</label>
-																	<textarea rows="5" class="form-control" name="metatags" id="metatags"><?php echo $seotags[0]->meta_tag; ?></textarea>
-																</div>
-																<div class="form-group">
-																	<label class="col col-form-label">KeyWords</label>
-																	<textarea rows="5" class="form-control" name="keywords" id="keywords"><?php echo $seotags[0]->keywords; ?></textarea>
-																</div>
-																<div class="form-group">
-																	<label for="example-text-input" class="col col-form-label">Indexing</label>
-																	<select class="form-control" name="indexing" id="indexing">
-																	<?php   if ($seotags[0]->indexing == 1) {
-																				echo "<option value='1' selected>Yes</option>
-																				<option value='0'>No</option>";
-																			}
-																			else{
-																				echo "<option value='1' >Yes</option>
-																				<option value='0' selected>No</option>";
-																			} 
-																		?>
-																	</select>
-																</div>
-
-																<div class="form-group">
-																	<label for="example-text-input" class="col col-form-label">Follow</label>
-																	<select class="form-control" name="follow" id="follow">
-																		<?php   if ($seotags[0]->follow == 1) {
-																				echo "<option value='1' selected>Yes</option>
-																				<option value='0'>No</option>";
-																			}
-																			else{
-																				echo "<option value='1' >Yes</option>
-																				<option value='0' selected>No</option>";
-																			} 
-																		?>
-																	</select>
-																</div>
-
-																<div class="text-center">
-																	<button type="submit" class="btn btn-primary">Update</button>
-																</div>
-															</form>
+<!--                                                        	<form method="post" action="--><?php //echo base_url('admin/Destination/');?><!--update_seo">-->
+<!--																-->
+<!--																<input type="text" value="--><?php //echo $seotags[0]->destid; ?><!--" name="id" hidden>-->
+<!--																<div class="form-group">-->
+<!--																	<label for="example-text-input" class="col col-form-label">Meta Title</label>-->
+<!--																	<input class="form-control" type="text" name="tags" id="tags" value="--><?php //echo $seotags[0]->tags; ?><!--">-->
+<!--																</div>-->
+<!--																<div class="form-group">-->
+<!--																	<label for="example-text-input" class="col col-form-label">Meta Description</label>-->
+<!--																	<textarea rows="5" class="form-control" name="metatags" id="metatags">--><?php //echo $seotags[0]->meta_tag; ?><!--</textarea>-->
+<!--																</div>-->
+<!--																<div class="form-group">-->
+<!--																	<label class="col col-form-label">KeyWords</label>-->
+<!--																	<textarea rows="5" class="form-control" name="keywords" id="keywords">--><?php //echo $seotags[0]->keywords; ?><!--</textarea>-->
+<!--																</div>-->
+<!--																<div class="form-group">-->
+<!--																	<label for="example-text-input" class="col col-form-label">Indexing</label>-->
+<!--																	<select class="form-control" name="indexing" id="indexing">-->
+<!--																	--><?php //  if ($seotags[0]->indexing == 1) {
+//																				echo "<option value='1' selected>Yes</option>
+//																				<option value='0'>No</option>";
+//																			}
+//																			else{
+//																				echo "<option value='1' >Yes</option>
+//																				<option value='0' selected>No</option>";
+//																			}
+//																		?>
+<!--																	</select>-->
+<!--																</div>-->
+<!---->
+<!--																<div class="form-group">-->
+<!--																	<label for="example-text-input" class="col col-form-label">Follow</label>-->
+<!--																	<select class="form-control" name="follow" id="follow">-->
+<!--																		--><?php //  if ($seotags[0]->follow == 1) {
+//																				echo "<option value='1' selected>Yes</option>
+//																				<option value='0'>No</option>";
+//																			}
+//																			else{
+//																				echo "<option value='1' >Yes</option>
+//																				<option value='0' selected>No</option>";
+//																			}
+//																		?>
+<!--																	</select>-->
+<!--																</div>-->
+<!---->
+<!--																<div class="text-center">-->
+<!--																	<button type="submit" class="btn btn-primary">Update</button>-->
+<!--																</div>-->
+<!--															</form>-->
                                                         </p>
                                                     </div>
 													<?php if(count($dest['img'])>=1){ ?>
